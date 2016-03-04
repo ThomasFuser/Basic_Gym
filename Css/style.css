@@ -1,0 +1,80 @@
+/***********ORARI***********/
+.tipo_area {
+    background-color: white;
+}
+.tipo_area h2{
+    background-color: #C1CBCB;
+    color: black;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 2em;
+    width: 100%;
+    box-shadow: 5px 5px 2px #888888;
+}
+.tipo_area p{
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.tipo_area caption{
+    background-color: #C1CBCB;
+    color: black;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    font-size: 1.5em;
+    box-shadow: 5px 5px 2px #888888;
+}
+.tipo_area tr:nth-child(even) {
+    background-color: #CABFBF;
+}
+.tipo_area tr:nth-child(odd) {
+    background-color: white;
+}
+.tipo_area tr th{ vertical-align: middle; display: block;}
+.tipo_area tr th span{ display: block;}
+.tipo_area table{
+    border-collapse:collapse;  
+    box-shadow:1px 1px 5px #bbb;
+    border:1px solid #bbb;
+    margin-bottom:1.5em;
+    text-align: center;
+    width: 100%;
+}
+
+.tipo_area td, .tipo_area th{
+    border-top:1px solid #ccc;
+    vertical-align:top;
+    padding:4px 8px;
+    text-shadow:0 1px 0 #fff;
+}
+.tipo_area th {
+    background-color: #202020;
+    font-weight: 300;
+    font-weight: 300;
+    color: white;
+}
+@media screen and (max-width: 768px){
+    .tipo_area table{width: 100%;}
+	.tipo_area thead{display:none;}
+	.tipo_area tr td:first-child{font-weight:bold;font-size:1.3em;}
+	.tipo_area tbody td{display:block;text-align:center;}
+	.tipo_area tbody td:before {
+        display:block;
+        text-align:center;
+    }
+    .tipo_area tbody .Lunedì:before {display: inline; content: "Lunedì ";}
+    .tipo_area tbody .Martedì:before {display: inline; content: "Martedì ";}
+    .tipo_area tbody .Mercoledì:before {display: inline; content: "Mercoledì ";}
+    .tipo_area tbody .Giovedì:before {display: inline; content: "Giovedì ";}
+    .tipo_area tbody .Venerdì:before {display: inline; content: "Venerdì ";}
+    .tipo_area tbody .Sabato:before {display: inline; content: "Sabato ";}
+    .tipo_area tbody .Domenica:before {display: inline; content: "Domenica ";}
+}
+
