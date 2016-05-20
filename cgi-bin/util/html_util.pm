@@ -18,6 +18,8 @@ our @EXPORT = qw(start_html end_html);
 # funzione di stampa dell'inizio di una pagina html ( meta +logo Basic Gym )
 
 sub start_html {
+  my @pagina=@_;
+
 print "Content-Type: text/html\n\n";
 print
     "
@@ -50,14 +52,11 @@ print
             <div class=\"header-right\">
                 <label for=\"open\">
                     <span class=\"hidden-desktop\"></span>
-                </label>
-                #inserire stampa menu
+                </label>";
+nav(@pagina);
                
-            </div>
-        </div>
-    </div> #inserire stampa path 
-   
-    ";
+print"</div></div></div>";
+    path(@pagina);
 }
 # funzione di stampa del footer
 sub end_html {
@@ -78,7 +77,45 @@ sub end_html {
 " ;
 }
 
+sub path{
+ my @pathparam = @_;
+  print " <div id=\"path\">
+       <p>Ti trovi in:";
+  if("@pathparam" eq "home") {
+    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span>";}
+    if("@pathparam" eq "registrazione") {
+    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span> &gt; Registrati";}
+ if("@pathparam" eq "login") {
+    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span> &gt; <span xml:lang=\"en\">Login</span>";}
+  if("@pathparam" eq "staff") {
+    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span> &gt; <span xml:lang=\"en\">Staff</span>";}
 
+ print"</p></div>";
+}
+sub nav{
+  my @navparam=@_;
+  my $session = CGI::Session->load();
+  
+      print"    <div id=\"nav\"> <a "; 
+                    if(@navparam eq "home") {print "class=\"not-active\"";} print ">Home</a>";
+      print"<a href=\"../corsi.html\">";
+                    if(@navparam eq "corsi"){print "class=\"not-active\"";};  print "Corsi</a>";
+      print"<a href=\"../prezzi.html\">";
+                    if(@navparam eq "prezzi"){print "class=\"not-active\"";};  print "Prezzi</a>";
+      print"<a href=\"../staff.html\">";
+                    if(@navparam eq "staff"){print "class=\"not-active\"";};  print "Staff</a>";            
+      print"<a href=\"../orari.html\">";
+                    if(@navparam eq "orari"){print "class=\"not-active\"";};  print "Orari</a>";
+  if($session->param("username") eq undef){
+      print"<a href=\"../login.html\">";
+                    if(@navparam eq "login"){print "class=\"not-active\"";};  print "Accedi</a>";
+      print"<a href=\"../registrati.html\">";
+                    if(@navparam eq "registrazione"){print "class=\"not-active\"";};  print "Registrati </a>";
+
+  }
+  print "</div>";
+
+}
 
 #funzione di stampa del menu corretto per ogni pagina (pagina passata come parametro)
 #+ controllo di sessione per stampa menu utente loggato e admin
