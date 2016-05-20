@@ -68,9 +68,7 @@ sub end_html {
           </p>
               <div id=\"valid\"><img class=\"imgValidCode\" src=\"../images/vcss-blue.png\" alt=\"valid-CSS\"/>
               <img class=\"imgValidCode\" src=\"../images/valid-xhtml10.png\" alt=\"valid-xhtml 1.0\"/></div>
-              <a href=\"amministratore/login.html\" id=\"LogAmm\" tabindex=\"-1\">Admin Login</a>  <!--non so come funziona il tabindex (Thomas)-->
-
-
+          
   </div>
   </body>
   </html>
@@ -81,36 +79,33 @@ sub path{
  my @pathparam = @_;
   print " <div id=\"path\">
        <p>Ti trovi in:";
-  if("@pathparam" eq "home") {
+  if("@pathparam" eq "Home") {
     print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span>";}
-    if("@pathparam" eq "registrazione") {
-    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span> &gt; Registrati";}
- if("@pathparam" eq "login") {
-    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span> &gt; <span xml:lang=\"en\">Login</span>";}
-  if("@pathparam" eq "staff") {
-    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span> &gt; <span xml:lang=\"en\">Staff</span>";}
+  else{
+    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span> &gt; <span xml:lang=\"en\"> @pathparam[0] </span>";}
 
  print"</p></div>";
 }
 sub nav{
   my @navparam=@_;
   my $session = CGI::Session->load();
-  
-      print"    <div id=\"nav\"> <a "; 
-                    if(@navparam eq "home") {print "class=\"not-active\"";} print ">Home</a>";
-      print"<a href=\"../corsi.html\">";
-                    if(@navparam eq "corsi"){print "class=\"not-active\"";};  print "Corsi</a>";
-      print"<a href=\"../prezzi.html\">";
-                    if(@navparam eq "prezzi"){print "class=\"not-active\"";};  print "Prezzi</a>";
-      print"<a href=\"../staff.html\">";
-                    if(@navparam eq "staff"){print "class=\"not-active\"";};  print "Staff</a>";            
-      print"<a href=\"../orari.html\">";
-                    if(@navparam eq "orari"){print "class=\"not-active\"";};  print "Orari</a>";
+
+      print"    <div id=\"nav\"> <a href=\"index.cgi\""; 
+                    if(@navparam[0] eq "Home") {print "class=\"not-active\"";} print ">Home</a>";
+      print"<a href=\"corsi.cgi\"";
+                    if(@navparam[0] eq "Corsi"){print "class=\"not-active\"";};  print ">Corsi</a>";
+      print"<a href=\"prezzi.cgi\"";
+                    if(@navparam[0] eq "Prezzi"){print "class=\"not-active\"";};  print ">Prezzi</a>";
+      print"<a href=\"staff.cgi\"";
+                    if(@navparam[0] eq "Staff"){print "class=\"not-active\"";};  print ">Staff</a>";            
+      print"<a href=\"orari.cgi\"";
+                    if(@navparam[0] eq "Orari"){print "class=\"not-active\"";};  print ">Orari</a>";
+
   if($session->param("username") eq undef){
-      print"<a href=\"../login.html\">";
-                    if(@navparam eq "login"){print "class=\"not-active\"";};  print "Accedi</a>";
-      print"<a href=\"../registrati.html\">";
-                    if(@navparam eq "registrazione"){print "class=\"not-active\"";};  print "Registrati </a>";
+      print"<a href=\"../login.cgi\"";
+                    if(@navparam eq "Login"){print "class=\"not-active\"";};  print ">Accedi</a>";
+      print"<a href=\"../registrati.cgi\"";
+                    if(@navparam eq "Registrazione"){print "class=\"not-active\"";};  print ">Registrati </a>";
 
   }
   print "</div>";
