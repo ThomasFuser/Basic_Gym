@@ -80,9 +80,9 @@ sub path{
   print " <div id=\"path\">
        <p>Ti trovi in:";
   if("@pathparam" eq "Home") {
-    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span>";}
+    print "<span xml:lang=\"en\"> <a href=\"index.cgi\"> Home </a> </span>";}
   else{
-    print "<span xml:lang=\"en\"> <a href=\"index.html\"> Home </a> </span> &gt; <span xml:lang=\"en\"> @pathparam[0] </span>";}
+    print "<span xml:lang=\"en\"> <a href=\"index.cgi\"> Home </a> </span> &gt; <span xml:lang=\"en\"> @pathparam[0] </span>";}
 
  print"</p></div>";
 }
@@ -93,19 +93,20 @@ sub nav{
       print"    <div id=\"nav\"> <a href=\"index.cgi\""; 
                     if(@navparam[0] eq "Home") {print "class=\"not-active\"";} print ">Home</a>";
       print"<a href=\"corsi.cgi\"";
-                    if(@navparam[0] eq "Corsi"){print "class=\"not-active\"";};  print ">Corsi</a>";
+                    if(@navparam[0] eq "Corsi"){print "class=\"not-active\"";}  print ">Corsi</a>";
       print"<a href=\"prezzi.cgi\"";
-                    if(@navparam[0] eq "Prezzi"){print "class=\"not-active\"";};  print ">Prezzi</a>";
+                    if(@navparam[0] eq "Prezzi"){print "class=\"not-active\"";} print ">Prezzi</a>";
       print"<a href=\"staff.cgi\"";
-                    if(@navparam[0] eq "Staff"){print "class=\"not-active\"";};  print ">Staff</a>";            
+                    if(@navparam[0] eq "Staff"){print "class=\"not-active\"";}print ">Staff</a>";            
       print"<a href=\"orari.cgi\"";
                     if(@navparam[0] eq "Orari"){print "class=\"not-active\"";};  print ">Orari</a>";
 
   if($session->param("username") eq undef){
-      print"<a href=\"../login.cgi\"";
-                    if(@navparam eq "Login"){print "class=\"not-active\"";};  print ">Accedi</a>";
-      print"<a href=\"../registrati.cgi\"";
-                    if(@navparam eq "Registrazione"){print "class=\"not-active\"";};  print ">Registrati </a>";
+    
+    print"<a href=\"login.cgi\"";
+                  if(@navparam[0] eq "Accedi"){print "class=\"not-active\"";}  print ">Accedi</a>";
+      print"<a href=\"registrazione.cgi\"";
+                    if(@navparam[0] eq "Registrazione"){print "class=\"not-active\"";}  print ">Registrati </a>";
 
   }
   print "</div>";

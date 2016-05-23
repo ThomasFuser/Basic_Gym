@@ -38,7 +38,7 @@ sub getFilenameUtenti{
 sub caricamentoLibXMLUtenti{
   my $filename = getFilenameUtenti();
 
-  my parser = XML::LibXML->new();
+  my $parser = XML::LibXML->new();
 
   return $parser->parse_file($filename);
 }

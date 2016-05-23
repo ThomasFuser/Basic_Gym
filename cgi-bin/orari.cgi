@@ -7,6 +7,8 @@ use CGI;
 use CGI::Session;
 
 
-util::html_util::start_html("Staff");
-util::html_content::stampaStaff();
+
+
+util::html_util::start_html("Orari");
+util::html_content::stampaOrario();
 util::html_util::end_html();

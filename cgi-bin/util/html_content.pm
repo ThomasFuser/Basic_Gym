@@ -5,13 +5,14 @@ use CGI;
 use CGI::Carp qw(warningsToBrowser fatalsToBrowser);#DA TOGLIERE PRIMA DELLA CONSEGNA SERVE A VEDERE GLI ERRORI DA BROWSER
 use CGI::Session;
 use XML::LibXML;
+use util::db_util;
 use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(enc stampaIndex stampaPrezzi stampaPrezziAcquistabili stampaStaff);
+our @EXPORT = qw(enc stampaIndex stampaPrezzi stampaPrezziAcquistabili stampaStaff stampaCross stampaSoft stampaCardio);
 
-package util::htm_content;
+package util::html_content;
 
 #--------------------- STAMPA IL CONTENUTO DELLA PAGINA IDEX ----------------
 sub stampaIndex{
@@ -164,11 +165,11 @@ print"  <div id=\"content\">
       <h2>Area <span lang=\"en\">Soft Fitness</span></h2>
 
             <ul>
-             <li><a href=\"soft.html#yoga\">Yoga</a></li>
-             <li><span lang=\"en\"><a href=\"soft.html#pilates\">Pilates</a></span></li>
-             <li><span lang=\"en\"><a href=\"soft.html#bbalance\">Body Balance</a></span></li>
+             <li><a href=\"soft.cgi#yoga\">Yoga</a></li>
+             <li><span lang=\"en\"><a href=\"soft.cgi#pilates\">Pilates</a></span></li>
+             <li><span lang=\"en\"><a href=\"soft.cgi#bbalance\">Body Balance</a></span></li>
             </ul>
-        <a class=\"button\" href=\"soft.html\">Approfondisci</a>
+        <a class=\"button\" href=\"soft.cgi\">Approfondisci</a>
 
 
  </div>
@@ -176,11 +177,11 @@ print"  <div id=\"content\">
   <h2>Area Cardio Fitness</h2>
 
          <ul>
-             <li><span lang=\"en\"><a href=\"cardio.html#spinning\">Spinning</a></span></li>
-             <li><span lang=\"en\"><a href=\"cardio.html#walking\">Walking</a></span></li>
-             <li><span lang=\"en\"><a href=\"cardio.html#totalb\">Total Body</a></span></li>
+             <li><span lang=\"en\"><a href=\"cardio.cgi#spinning\">Spinning</a></span></li>
+             <li><span lang=\"en\"><a href=\"cardio.cgi#walking\">Walking</a></span></li>
+             <li><span lang=\"en\"><a href=\"cardio.cgi#totalb\">Total Body</a></span></li>
          </ul>
-         <a class=\"button\" href=\"cardio.html\">Approfondisci</a>
+         <a class=\"button\" href=\"cardio.cgi\">Approfondisci</a>
 
 
      </div>
@@ -189,12 +190,12 @@ print"  <div id=\"content\">
              <h2>Area <span xml:lang=\"en\">Cross Fitness</span></h2>
 
          <ul>
-             <li><span lang=\"en\"><a href=\"cross.html#intervalt\">Interval Training</a></span></li>
-             <li><span lang=\"en\"><a href=\"cross.html#bcombat\">Body Combat</a></span></li>
-             <li><span lang=\"en\"><a href=\"cross.html#bpump\">Body Pump</a></span></li>
-             <li><span lang=\"en\"><a href=\"cross.html#crossf\">CrossFit</a></span></li>
+             <li><span lang=\"en\"><a href=\"cross.cgi#intervalt\">Interval Training</a></span></li>
+             <li><span lang=\"en\"><a href=\"cross.cgi#bcombat\">Body Combat</a></span></li>
+             <li><span lang=\"en\"><a href=\"cross.cgi#bpump\">Body Pump</a></span></li>
+             <li><span lang=\"en\"><a href=\"cross.cgi#crossf\">CrossFit</a></span></li>
          </ul>
-         <a class=\"button\" href=\"cross.html\">Approfondisci</a>
+         <a class=\"button\" href=\"cross.cgi\">Approfondisci</a>
 
  </div>
   </div>";
@@ -219,7 +220,7 @@ sub stampaSoft{
   </dd>
       </dl>
          </div>
-              <img class=\"lateral\" src=\"images/yoga.jpg\" alt=\"persona seduta a terra durante la meditazione yoga\" longdesc=\"orario2.html#yoga\" />
+              <img class=\"lateral\" src=\"../images/yoga.jpg\" alt=\"persona seduta a terra durante la meditazione yoga\" longdesc=\"orario2.html#yoga\" />
          </div>";
 }
 
@@ -246,7 +247,7 @@ sub stampaCross{
           </dl>
   </div>
 
- <img class=\"lateral\" src=\"images/Cross-Train.jpg\" alt=\"donna che solleva peso\"/>
+ <img class=\"lateral\" src=\"../images/Cross-Train.jpg\" alt=\"donna che solleva peso\"/>
 </div>";
 }
 
@@ -265,13 +266,13 @@ sub stampaCardio{
   </dd>
                   <dt id=\"totalb\"><span lang=\"en\">Total Body</span></dt>
                   <dd>		Il <span lang=\"en\">total body circuit</span> è un tipo di allenamento che ha lo scopo di allenare la muscolatura di tutto il corpo. Rappresenta l’evoluzione delle lezioni a corpo libero e consente di migliorare il tono dei muscoli di spalle, braccia, addome, glutei e gambe.
-  		Grazie all’utilizzo di attrezzi <span xml:lang=\"en\">fitness</span> quali<span lang=\"en\">step</span>, manubri, cavigliere, elastici e <span lang=\"en\">body bar</span>, il <span lang="en">total body circuit</span> punta a migliorare l’efficienza del sistema cardiorespiratorio, la flessibilità, la coordinazione, l’equilibrio e la postura. Il tutto rigorosamente a ritmo di musica.
+  		Grazie all'utilizzo di attrezzi <span xml:lang=\"en\">fitness</span> quali<span lang=\"en\">step</span>, manubri, cavigliere, elastici e <span lang=\"en\">body bar</span>, il <span lang=\"en\">total body circuit</span> punta a migliorare l’efficienza del sistema cardiorespiratorio, la flessibilità, la coordinazione, l’equilibrio e la postura. Il tutto rigorosamente a ritmo di musica.
   </dd>
               </dl>
 
 
       </div>
-          <img class=\"lateral\" src=\"images/cycle.jpg\" alt=\"ragazza che si allena con la cyclette\"/>
+          <img class=\"lateral\" src=\"../images/cycle.jpg\" alt=\"ragazza che si allena con la cyclette\"/>
   </div>
   ";
 }

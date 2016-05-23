@@ -7,6 +7,8 @@ use CGI;
 use CGI::Session;
 
 
-util::html_util::start_html("Staff");
-util::html_content::stampaStaff();
+
+
+util::html_util::start_html("<a href=\"corsi.cgi\"> Corsi </a>  &gt; <span lang=\"en\">Cross</span>");
+util::html_content::stampaCross();
 util::html_util::end_html();
