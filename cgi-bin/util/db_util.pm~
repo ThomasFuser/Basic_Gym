@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+#!/usr/bin/perl 
+=======
 #!/usr/bin/perl
 use strict;
 use warnings;
@@ -6,11 +9,13 @@ use CGI::Carp qw(warningsToBrowser fatalsToBrowser);#DA TOGLIERE PRIMA DELLA CON
 use CGI::Session;
 use XML::LibXML;
 use Encode qw(encode);
-
+>>>>>>> 3708f6f235f42af6e9305cf6ade4991e336cab16
 
 use Exporter qw(import);
 our @EXPORT = qw(getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti );
 
+<<<<<<< HEAD
+=======
 package util::db_util;
 
 #---------------- PRELEVA IL FILE PREZZI.XML -----------------
@@ -61,4 +66,5 @@ sub modifica{
     } else { print "<p>I campi devono essere validi</p>"; }
 }
 
+>>>>>>> 3708f6f235f42af6e9305cf6ade4991e336cab16
 #Questo file contiene subroutine per LETTURA E SCRITTURA del DATABASE in XML
