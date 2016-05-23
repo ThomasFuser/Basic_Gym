@@ -650,5 +650,83 @@ print"
  </div> <!-- fine descrizione personal trainers --> ";
 }
 
+#--------------- STAMPA DI UN SINGOLO PACCHETTO (pagina riepilogo modifiche pacchetto) -------------------- 
+#parametri da passare: $area, $Descrizione,$Durata, $Prezzo  
+sub stampaPacchetto{
+    my @parm = @_;
+
+    my $area=$parm[0];
+    my $desc=$parm[1];
+    my $durata=$parm[2];
+    my $prezzo=$parm[3];
+    my $valuta = "€";
+                         
+    print"
+         <div class=\"packages\">";
+    print"
+            <ul class=\"package\">
+            <li class=\"title\"> $durata </li>
+            <li class=\"price\"> $prezzo $valuta </li>
+            <li class=\"description\"> $desc </li>
+            </ul> 
+            ";
+    print "</div>";
+}
+
+#--------------- FUNZIONE DI STAMPA DELLA PAGINA DI MODIFICA DI UN ABONAMENTO (admin) --------------------
+sub Modifica_Abbonamento{
+
+    #my $q = new CGI;
+    #my ($user,$path)= @_;
+    my $valuta = "€";
+    my $id_abbonamento= "002"; #da inserire il parametro delle sessioni
+
+    #Query per recupero dati 
+    my $QueryDurata = "//abbonamento[\@ID=$id_abbonamento]/durata/text()"; #trova durata dell'abbonamento =id
+    my $QueryDescrizione = "//abbonamento[\@ID=$id_abbonamento]/descrizione/text()"; #trova durata dell'abbonamento =id
+    my $QueryPrezzo = "//abbonamento[\@ID=$id_abbonamento]/prezzo/text()"; #trova il prezzo dell'abbonamento =id
+
+    my $doc = util::MyLib::caricamentoLibXML();
+  
+    #recupero dei dati dal database
+    my $Durata = $doc->findnodes("$QueryDurata");
+    my $Descrizione = $doc->findnodes("$QueryDescrizione");
+    my $Prezzo = $doc->findnodes("$QueryPrezzo");
+
+    print "
+    <div id=\"content\">
+        <h1> Modifica Abbonamento  </h1>
+        <form action=\"conferma_modifica_abbonamento.cgi\" method=\"post\" id=\"mod\">
+            <ol>
+                <li> <label> <span>\Descrizione\</span> </label> <textarea cols=\"30\" rows=\"8\" name=\"descrizione\"  class=\"area\">$Descrizione</textarea> <span class=\"req_text\">(obbligatorio)</span> </li>
+                <li> <label> <span>\Periodo\</span>  </label>
+            ";
+
+            if($Durata eq "Abbonamento mensile")
+            {
+                print "
+                    <select name=\"periodo\" id=\"periodo\" >                                              
+                        <option selected=\"selected\">\Abbonamento mensile\</option>
+                        <option>\Abbonamento annuale\</option>
+                    </select> </li>
+                ";
+            }else{                   #if($Durata eq "Abbonamento annuale")
+                print "
+                    <select name=\"periodo\" id=\"periodo\" >                                              
+                        <option>\Abbonamento mensile\</option>
+                        <option selected=\"selected\">\Abbonamento annuale\</option>
+                    </select> </li>
+                ";
+              }
+
+            print "
+                 <li > <label> <span>\Prezzo (€)\</span> </label> <input type=\"number\" min=\"0\" step=\"0.01\" name=\"prezzo\" value=$Prezzo id= \"prezzoAm\"/> <span class=\"req_text\">(Facoltativo)</span> </li>    
+                    </ol>
+                        <input type=\"submit\" name=\"submit_button\" class=\"submit_button\" id=\"invia_mod\" value=\"Modifica\" />
+                </form>
+                    </div>
+            ";
+}
+
 
 1;

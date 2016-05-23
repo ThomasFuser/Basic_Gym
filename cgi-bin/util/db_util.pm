@@ -43,4 +43,21 @@ sub caricamentoLibXMLUtenti{
 }
 
 
+#---------------- MODIFICA NODO GENERICA  ---------------
+#parametri da passare:   #nodo padre di quello da sostituire, nodo da sostituire, nuovo tag da inserire, parser
+sub modifica{ 
+    my @parm = @_;
+
+    my $padre=$parm[0];
+    my $pathNodoDaSostituire=$parm[1];
+    my $nuovoNodo=$parm[2];
+    my $parser=$parm[3];
+    $padre->get_node(1)->removeChild($pathNodoDaSostituire);
+    if(eval{$nuovoNodo=$parser->parse_balanced_chunk($nuovoNodo);}) {
+        if($padre){
+                    $padre->get_node(1)->appendChild($nuovoNodo) || die('Non riesco a trovare il padre del nodo in QueryDescrizione');
+                  } else { print "<p>Il campo nome deve contenere tag o entità html validi.</p>";  }
+    } else { print "<p>I campi devono essere validi</p>"; }
+}
+
 #Questo file contiene subroutine per LETTURA E SCRITTURA del DATABASE in XML
