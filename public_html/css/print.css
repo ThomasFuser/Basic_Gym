@@ -1,0 +1,122 @@
+/* per ogni pagina */
+
+body, #path, #footer, #content h2, 
+#content h1, .header, .package, #footOre, 
+.title.cont, .description.rev, .nomePT, 
+#content dd, .button, .sez ul,
+.text dl dt, .package .description, 
+.package .price, .tipo_area caption, 
+tr:nth-child(odd), #content form { background: transparent !important; }
+					
+#menu, #links, #nav, .imgDesc, .imgValidCode, .PT, .lateral  { display:none !important ; }
+
+body { 
+	width: auto;
+	width: 100%;
+}
+
+* {
+    color: black !important;
+    font-size: 12pt;
+    box-shadow: none !important;
+    border: none;
+}
+
+#path{ 
+	border-top: solid black; 
+	border-bottom: solid black; 
+ }
+
+.header  a span{ font-size: 35pt; }
+
+#footer{ border-top: 2pt solid black; }
+
+#content h2{ font-size: 18pt; }
+	  
+#content h1{ font-size:25pt ; }
+
+h2 span { font-size: 18pt !important; }
+
+
+
+/* pagina index.html  */
+
+.package{ border: black solid; }
+
+.packages.boxa{ padding-top: 0pt;   }		
+
+.home{ min-width: 180pt; }				
+
+.description.rev{					
+	padding:0pt;
+	padding-bottom: 20pt;  /*1em*/
+}
+
+.title.cont span {  font-size: 21pt; }
+
+
+/* pagina staff */
+
+#TitoloStaff span{ font-size: 25pt; }
+
+.nomePT{ 
+	font-size: 15pt; 
+	padding: 2pt;
+}
+
+ .contattiPT{ 
+ 	padding-top: 5pt;
+ 	border-top: 2pt solid black; 
+ }
+
+#content dd{ 
+	margin:15pt;  
+	padding: 0pt; 
+}
+
+.contEmail { background-image: url(../images/mailNero.png); }
+
+.contTel { background-image: url(../images/telNero.png); }
+
+.contenitorePT{ max-width: 100%; }
+	
+
+
+/* pagina corsi */
+
+.sez ul { max-width:100%; }
+
+.sez .button {  text-decoration: underline; }
+
+/* pagine aree specifiche */
+
+.text{ min-width: 100% }
+
+.text dl dt{ font-size: 15pt; }
+
+.text dl dt span { font-size: 15pt; }
+
+.text h1 span { font-size: 18pt !important; } 
+
+
+
+/* pagina orari */
+
+.tipo_area caption { font-size: 15pt; }
+	 
+.tipo_area caption span{ font-size: 15pt; }
+
+table { page-break-inside: avoid; padding: 0em; background: none;}
+
+table th{
+	background-color: #d3d3d3; 
+	border: 2pt solid black;
+	background: none !important;
+}
+
+table td{ border: 1pt solid black; }
+
+tr:nth-child(odd){ border: 1pt solid black; }
+
+tr:nth-child(even){ border: 1pt solid black;  background: none !important; }
+
