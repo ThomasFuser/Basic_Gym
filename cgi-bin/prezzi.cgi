@@ -15,7 +15,7 @@ if($session->param("username") eq undef){
  	util::html_content::stampaPrezzi();
 }
 elsif($session->param("username") eq "admin"){
-
+	util::html_content::stampaPrezziModificabili();
 }
 else{
 	util::html_content::stampaPrezziAcquistabili();

@@ -69,7 +69,7 @@ sub end_html {
           </p>";
    my $session = CGI::Session->load();
    if($session->param("username") eq undef) {
-         print" <a href=\"login_adimn.cgi\"> Accesso amministratore</a>";}
+         print" <a href=\"login_admn.cgi\"> Accesso amministratore</a>";}
             print"  <div id=\"valid\"><img class=\"imgValidCode\" src=\"../images/vcss-blue.png\" alt=\"valid-CSS\"/>
               <img class=\"imgValidCode\" src=\"../images/valid-xhtml10.png\" alt=\"valid-xhtml 1.0\"/></div>
           
@@ -117,7 +117,7 @@ sub nav{
 
     print"<a href=\"utente.cgi\"";
                   if(@navparam[0] eq "Profilo"){print "class=\"not-active\"";}  print ">Profilo</a>";
-      print"<a>Esci</a>";
+      print"<a href=\"logout.cgi\">Esci</a>";
 
   }
   print "</div>";
