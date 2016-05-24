@@ -109,6 +109,13 @@ sub nav{
                     if(@navparam[0] eq "Registrazione"){print "class=\"not-active\"";}  print ">Registrati </a>";
 
   }
+  elsif($session->param("username" ne "admin")){
+
+    print"<a href=\"utente.cgi\"";
+                  if(@navparam[0] eq "Profilo"){print "class=\"not-active\"";}  print ">Profilo</a>";
+      print"<a>Esci</a>";
+
+  }
   print "</div>";
 
 }
