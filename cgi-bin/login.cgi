@@ -14,13 +14,11 @@ my $session = CGI::Session->load();
 
 
 if(!($session->is_empty())) { #HO LA SESSIONE APERTA
-  if(session->param('username') != "admin"){
-
-  }
+  print"Location:index.cgi\n\n";
 }
 
+
 else{ # NON HO LA SESSIONE APERTA
-      prova('');
       if($q->param('accedi')){
 
         my $username = $q->param('username');
@@ -28,27 +26,32 @@ else{ # NON HO LA SESSIONE APERTA
 
         my $doc = XML::LibXML->new()->parse_file('../data/utenti.xml');
         if ($doc->findnodes("utenti/utente/dati_accesso[mail/text()='$username' and password/text()='$password']")->size eq 1) {
-
            my $session = new CGI::Session(undef, $q, {Directory=>File::Spec->tmpdir});
            #my $session = new CGI::Session();
            $session->expire('60m');
            $session->param('username', $username);
-           #print $session->header(-location=>"private-menu-cibi.cgi");
+           print $session->header(-location=>"index.cgi");
         }
         else{
-          print "ERRORE";
-          prova("dati errati");
-        }
 
+          showForm("Nome utente o password non corretti.");
+        }
     }
-    #else {prova('');}
+  else { # form
+     showForm('');
+  }
 }
 
+#---------------------- FORM ---------------------
+sub showForm{
 
-sub prova {
-
+  my $error = $_[0];
   util::html_util::start_html('Accedi');
 
+  print "<p id='errorLogin'>"; # Serve per Js
+     if ($error ne '') {
+        print "$error";
+     }
   print "</p>";
 
   print "<div class='form'>
