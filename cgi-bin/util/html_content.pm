@@ -10,7 +10,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(enc stampaIndex stampaPrezzi stampaPrezziAcquistabili stampaStaff stampaCross stampaSoft stampaCardio);
+our @EXPORT = qw(enc stampaProfiloUtente stampaIndex stampaPrezzi stampaPrezziAcquistabili stampaStaff stampaCross stampaSoft stampaCardio);
 
 package util::html_content;
 
@@ -106,7 +106,7 @@ sub stampaPrezziAcquistabili{
     #my $q = new CGI;
     #my ($user,$path)= @_;
     my $valuta = "€";
-    my $doc = util::MyLib::caricamentoLibXML();
+    my $doc = util::db_util::caricamentoLibXML();
 
     my $query = "listaAbbonamenti/categoria";
 
@@ -729,5 +729,73 @@ sub Modifica_Abbonamento{
             ";
 }
 
+sub stampaProfiloUtente{
+print "<div id=\"content\">
+        <h1>Il tuo profilo</h1>
+        <h2>I tuoi abbonamenti</h2>
+        <div class=\"abb_utente\">
+            <ul >
+                <li id=\"img_point\" class=\"title\">Abbonamento Base</li>
+                <span class=\"abb_desc\">
+                <li class=\"price\">30 € /mese</li>
+                <li class=\"description\">Accedi liberamente alla nostra sala <span lang=\"en\">fitness</span>. I nostri istruttori ti affiancheranno se necessario.</li>
+                <li> <em>Scadenza:</em> </li></span>
+                
+            </ul>
+            <ul >
+                <li id=\"img_point\" class=\"title\">Abbonamento Base</li>
+                <span class=\"abb_desc\">
+                <li class=\"price\">30 € /mese</li>
+                <li class=\"description\">Accedi liberamente alla nostra sala <span lang=\"en\">fitness</span>. I nostri istruttori ti affiancheranno se necessario.</li>
+                <li> <em>Scadenza:</em> </li></span>
+                
+            </ul>
+            <ul >
+                <li id=\"img_point\" class=\"title\">Abbonamento Base</li>
+                <span class=\"abb_desc\">
+                <li class=\"price\">15 € /mese</li>
+                <li class=\"description\">Accedi liberamente ai corsi soft fitness <span lang=\"en\">fitness</span>. I nostri istruttori ti affiancheranno se necessario.</li>
+                <li> <em>Scadenza:</em> </li></span>
+                
+            </ul>
+            
+        </div>
 
+        <h2>La tua scheda </h2>
+        <ul class=\"profilo\">
+            <span class=\"modify\">Modifica profilo</span>
+               <li>
+                <span class=\"field_name\" >Email</span> 
+                    <span class=\"value\">annabonaldo\@gmail.com</span></li>
+                <li><span class=\"field_name\" lang=\"en\">password</span>
+                        <span class=\"value\"> 2568410 </span></li>               
+                <li><span class=\"field_name\">Nome</span>
+                     <span class=\"value\">Anna</span></li>
+                <li><span class=\"field_name\" >Genere</span>
+                        <span class=\"value\">Donna</span></li>
+                        <li><span class=\"field_name\" >Cognome</span>
+                        <span class=\"value\">Bonaldo</span></li>
+                <li><span class=\"field_name\" >Indirizzo</span> 
+                        <span class=\"value\">via giotto 36/a</span></li>
+                <li><span class=\"field_name\" >Città</span> 
+                        <span class=\"value\">Castelfranco Vento</span></li>
+                <li><span class=\"field_name\" >Data di nascita</span>
+                        <span class=\"value\"> 9 ottobre 1992</span></li>
+                <li><span class=\"field_name\" >Professione</span>
+                        <span class=\"value\"> Studente</span></li>
+                <li><span class=\"field_name\" >Numero di telefono</span>
+                        <span class=\"value\">392 66 66 66</span> </li>
+                <li><span class=\"field_name\" >Codice fiscale</span>
+                        <span class=\"value\">BNLNNA92R49G224Y</span></li>
+                <li><span class=\"field_name\" >Metodo di pagamento</span>
+                        <span class=\"value\"> Visa</span></li>
+                <li><span class=\"field_name\" >Numero carta</span> 
+                        <span class=\"value\">1812 8481 6849 1685</span></li>
+        </ul>
+
+
+</div>";
+
+
+}
 1;

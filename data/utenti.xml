@@ -27,9 +27,5 @@
 	<lista_acquistati></lista_acquistati>
 	<cartacredito></cartacredito>
 </utente>
-<admin>
-	<id>admin</id>
-	<pw>admin</pw>
-</admin>
 
 </utenti>

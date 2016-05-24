@@ -181,7 +181,7 @@ position: relative;
 display: inline-block;
 font-size: 1em;
 line-height: 40px;
-padding: 0 2em;
+padding: 0 1.2em;
 /*-webkit-transition: all .3s ease;*/
 }
 #nav>a:hover{
@@ -992,26 +992,35 @@ font-size: 1.2em;
 
 .abb_utente .price em{font-weight:600;}
 
-#content form{
-	max-width: 60%;
-	margin: auto;
-}
-.registrazione li label{
-	background-color: yellow;
-	margin:auto;
+ul.profilo{
+	background-color: #eee;
+	opacity: 0.9;
+	color: #333;
+	/*width: 100%;*/
+	list-style-type: none;
+	padding: 0.5em;
 	
 }
 
+span.field_name{
+	width: 25%;
+	text-align: right;
+	position:absolute;
+	margin-right: 75%;
+	font-weight: 600;
+ 
 
-#ritorno{
-	text-align: center;
-	font-size: 1.5em;
-    padding: 0.2em 0.2em 0.2em 1em;
-    background-color: #eee;
-    margin: 0.5em 0em 0.5em 0em;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+ }
+span.value{
+	width: 65%;
+	margin-left: 35%;
+	
+
 }
-
-
+.modify{
+	float: right;
+/*	padding-right: 0.5em;*/
+	background-color: #333;
+	color: #eee;
+	padding: 0.5em;
+}
