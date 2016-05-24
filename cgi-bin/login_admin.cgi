@@ -44,7 +44,7 @@ else{ # NON HO LA SESSIONE APERTA
 sub showForm{
 
   my $error = $_[0];
-  util::html_util::start_html('Accedi');
+  util::html_util::start_html('Accedi come amministratore');
 
   print "<p id='errorLogin'>"; # Serve per Js
      if ($error ne '') {
@@ -56,7 +56,7 @@ sub showForm{
            <h3>Login</h3>
            ";
 
-  print "<form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login.cgi\" method=\"post\">
+  print "<form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login_admin.cgi\" method=\"post\">
                  <fieldset>
                     <label id=\"user\" for=\"username\">Username</label>
                     <input id=\"username\" type=\"text\" name=\"username\" size=\"25\"/>
