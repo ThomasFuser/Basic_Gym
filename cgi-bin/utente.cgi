@@ -9,16 +9,13 @@ use CGI::Session;
 
 
 
-util::html_util::start_html("Prezzi");
+util::html_util::start_html("Profilo");
 my $session = CGI::Session->load();
-if($session->param("username") eq undef){
- 	util::html_content::stampaPrezzi();
+if($session->param("username") ne undef ){
+	if($session->param("username") ne "admin"){ 	
+		util::html_content::stampaProfiloUtente();
+	}
 }
-elsif($session->param("username") eq "admin"){
 
-}
-else{
-	util::html_content::stampaPrezziAcquistabili();
-}
 
 util::html_util::end_html();

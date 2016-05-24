@@ -63,10 +63,14 @@ sub end_html {
   print"
   <div id=\"footer\">
 
+
           <p>
-              <span xml:lang=\"en\">Basic Gym</span> - Via delle Acace 9, 31036, Casteminio di Resana - p. iva 02987250125
-          </p>
-              <div id=\"valid\"><img class=\"imgValidCode\" src=\"../images/vcss-blue.png\" alt=\"valid-CSS\"/>
+              <span xml:lang=\"en\">Basic Gym</span> - Via delle Acace 9, 35143, Padova- p. iva 02987250125
+          </p>";
+   my $session = CGI::Session->load();
+   if($session->param("username") eq undef) {
+         print" <a href=\"login_adimn.cgi\"> Accesso amministratore</a>";}
+            print"  <div id=\"valid\"><img class=\"imgValidCode\" src=\"../images/vcss-blue.png\" alt=\"valid-CSS\"/>
               <img class=\"imgValidCode\" src=\"../images/valid-xhtml10.png\" alt=\"valid-xhtml 1.0\"/></div>
           
   </div>
@@ -109,7 +113,7 @@ sub nav{
                     if(@navparam[0] eq "Registrazione"){print "class=\"not-active\"";}  print ">Registrati </a>";
 
   }
-  elsif($session->param("username" ne "admin")){
+  elsif($session->param("username") ne "admin"){
 
     print"<a href=\"utente.cgi\"";
                   if(@navparam[0] eq "Profilo"){print "class=\"not-active\"";}  print ">Profilo</a>";
@@ -120,10 +124,4 @@ sub nav{
 
 }
 
-#funzione di stampa del menu corretto per ogni pagina (pagina passata come parametro)
-#+ controllo di sessione per stampa menu utente loggato e admin
-#sub stampa_menu{}
-
-#stampa del breadcrumb corretto per ogni pagina (pagina passata come parametro)
-#sub stampa_path{}
 1;
