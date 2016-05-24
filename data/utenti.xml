@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<utenti>
+<utente>
+	<dati_accesso>
+		<mail>annabonaldo@gmail.com</mail>
+		<password>ciaociao</password>
+	</dati_accesso>
+	<dati_personali></dati_personali>
+	<lista_acquistati></lista_acquistati>
+	<cartacredito></cartacredito>
+</utente>
+<utente>
+	<dati_accesso>
+		<mail>luca@gmail.com</mail>
+		<password>ciaociao</password>
+	</dati_accesso>
+	<dati_personali></dati_personali>
+	<lista_acquistati></lista_acquistati>
+	<cartacredito></cartacredito>
+</utente>
+<utente>
+	<dati_accesso>
+		<mail>thomas@gmail.com</mail>
+		<password>ciaociao</password>
+	</dati_accesso>
+	<dati_personali></dati_personali>
+	<lista_acquistati></lista_acquistati>
+	<cartacredito></cartacredito>
+</utente>
+<admin>
+	<id>admin</id>
+	<pw>admin</pw>
+</admin>
+
+</utenti>
