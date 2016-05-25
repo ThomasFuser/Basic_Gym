@@ -351,7 +351,15 @@ height: 1.5em;
 
 }
 
-/***********CONTATTACI************/
+/**********FORM LOGIN ************/
+
+#login{
+	width: 40%;
+	margin:auto;
+
+}
+#login label, input{
+	padding-top: 1em;}
 
 #content form {
 padding: 1em;
@@ -359,34 +367,36 @@ background-color: #333;
 color: #eee;
 font-weight: 600;
 opacity: 0.9;
-filter: alpha(opacity=90); /* For IE8 and earlier */
+filter: alpha(opacity=90); /* For IE8 and earlier */*
 }
-#content input, select, textarea{
-margin-left: 1em;
-}
+
 #content input, #content textarea, #content select {
 padding: 0.3em;
 border: 0.2em solid #AAA;
 font: 0.9em;
-vertical-align: top;
+vertical-align: center;
 }
 #content textarea{
 width: 75%;
 margin-left: 1.5em;
 max-width: inherit;
 }
-#content input {
+#content input{
 width: 20em;
 margin-left: 1.5em;
+}
+#content #submit{
+	margin: 1em 0em 0em 6em;
+	width: 21em;
 }
 #content button, #content input {
 line-height: normal;
 }
 
 #content ol li {
-margin: 1em 0!important;
+margin: 1em ;
 padding: 0;
-list-style: none!important;
+list-style: none;
 text-align: left;
 line-height: 1.2em;
 opacity: 1;
@@ -399,10 +409,13 @@ color: #333;
 font-size: 0.8em;
 line-height: 1.2em;
 }
+
+
 #content .submit_button {
 width: 5em;
 color: #000;
 font-weight: 600;
+
 }
 /*************ORARIO*******************/
 .tipo_area tr th span{ display: block;}

@@ -54,8 +54,8 @@ sub showForm{
      }
   print "</p>";
 
-  print "<div class='form'>
-           <h3>Login</h3>
+  print "<div id=\"content\" class=\"login\">
+           <h1 id=\"titolo_login\">Login</h1>
            ";
 
   print "<form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login.cgi\" method=\"post\">
