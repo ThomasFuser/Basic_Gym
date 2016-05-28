@@ -135,7 +135,7 @@ sub stampaPrezziAcquistabili{
             <li> <form class=\"description\" action=\"ModificaAbbonamento.cgi\" method=\"post\">
            <button name=\"Mod\" type=\"submit\" class=\"submit_button\" value=\"$id\" >Modifica</button>
 </form>  </li>
-<li> <form class=\"description\" action=\"eliminazione.cgi\" method=\"post\">
+<li> <form class=\"description\" action=\"eliminazione_abbonamento.cgi\" method=\"post\">
            <button name=\"Elim\" type=\"submit\" class=\"submit_button\" value=\"$id\" >Elimina</button>
 </form>  </li>
             </ul>
