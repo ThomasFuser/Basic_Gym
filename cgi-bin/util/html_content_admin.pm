@@ -11,7 +11,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(stampaRiepilogoModifica stampaPrezziAcquistabili deleteAbbonamento);
+our @EXPORT = qw(stampaRiepilogoModifica stampaPrezziAcquistabili deleteAbbonamento creaAbbonamento);
 
 package util::html_content_admin;
 
@@ -160,12 +160,13 @@ sub deleteAbbonamento{
     #recupero dell'id dal bottone
     my $id_abbonamento = $cgi->param('Elim');
 
-    #eliminazione del pacchetto
+    #recupero del nodo da eliminare
     my $nodoElim = $doc->findnodes("//abbonamento[\@ID=$id_abbonamento]")->get_node(1);
-    my $parent = $nodoElim->parentNode;
-    $parent->removeChild($nodoElim);
 
-    #salvataggio delle modifiche nel database
+    #invocazione della funzione che consente di eliminare un nodo e tutti i suoi figli
+    util::db_util::eliminaNodo($doc, $nodoElim);
+
+    #salvataggio delle modifiche nel database -> (in generale non è nelle funzioni di modifica/elimina in quanto dal mio punto di vista a senso salvare una volta sola le modifiche nel file)
     open(OUT,">$file") or die $!;
     print OUT $doc->toString;
     close(OUT);      
@@ -174,6 +175,42 @@ sub deleteAbbonamento{
     print "Location:prezziModificabili.cgi\n\n";
 }
 
+
+#--------------- PAGINA DI INSERIMENTO DEI CAMPI PER CREARE UN NUOVO ABBONAMENTO ---------------
+
+sub creaAbbonamento{
+
+    print "
+    <div id=\"content\">
+        <h1> Modifica Abbonamento  </h1>
+        <form action=\"riepilogoModificaAbbonamento.cgi\" method=\"post\" id=\"mod\">
+            <ol>
+
+                <li> <label> <span>\Area\</span>  </label>
+           
+                <select name=\"area\" id=\"area\" >                                              
+                    <option>\Area Soft Fitness\</option>
+                    <option>\Area Cardio Fitness\</option>
+                    <option>\Area Cross Fitness\</option>
+                </select> </li>
+
+                <li> <label> <span>\Descrizione\</span> </label> <textarea cols=\"30\" rows=\"8\" name=\"descrizione\"  class=\"area\"></textarea> <span class=\"req_text\">(obbligatorio)</span> </li>
+                <li> <label> <span>\Periodo\</span>  </label>
+           
+                <select name=\"periodo\" id=\"periodo\" >                                              
+                    <option selected=\"selected\">\Abbonamento mensile\</option>
+                    <option>\Abbonamento annuale\</option>
+                </select> </li>
+           
+                 <li > <label> <span>\Prezzo (€)\</span> </label> <input type=\"number\" min=\"0\" step=\"0.01\" name=\"prezzo\" value=\"\" id= \"prezzoAm\"/> <span class=\"req_text\">(Facoltativo)</span> </li>    
+                    </ol>
+                        
+                    <button name=\"crea_nuovo\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"\" >Modifica</button>
+        </form>
+    </div>
+            ";
+
+}
 
 
 1;
