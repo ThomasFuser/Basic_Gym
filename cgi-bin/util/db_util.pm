@@ -53,10 +53,10 @@ sub modifica{
     my $pathNodoDaSostituire=$parm[1];
     my $nuovoNodo=$parm[2];
     my $parser=$parm[3];
-    $padre->get_node(1)->removeChild($pathNodoDaSostituire);
+    $padre->removeChild($pathNodoDaSostituire);
     if(eval{$nuovoNodo=$parser->parse_balanced_chunk($nuovoNodo);}) {
         if($padre){
-                    $padre->get_node(1)->appendChild($nuovoNodo) || die('Non riesco a trovare il padre del nodo in QueryDescrizione');
+                    $padre->appendChild($nuovoNodo) || die('Non riesco a trovare il padre del nodo in QueryDescrizione');
                   } else { print "<p>Il campo nome deve contenere tag o entità html validi.</p>";  }
     } else { print "<p>I campi devono essere validi</p>"; }
 }
