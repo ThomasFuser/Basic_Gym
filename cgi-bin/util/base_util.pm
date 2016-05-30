@@ -6,10 +6,11 @@ use CGI::Carp qw(warningsToBrowser fatalsToBrowser);#DA TOGLIERE PRIMA DELLA CON
 use CGI::Session;
 use XML::LibXML;
 use Encode qw(encode);
+use util::html_content;
 
 
 use Exporter qw(import);
-our @EXPORT = qw(showSchedaUno showSchedaDue showSchedaTre showSchedaQuattro dati_formUno dati_formDue dati_formTre dati_formQuattro);
+our @EXPORT = qw(salva_dati_registrazione showSchedaUno showSchedaDue showSchedaTre showSchedaQuattro dati_formUno dati_formDue dati_formTre dati_formQuattro);
 
 
 package util::base_util;
@@ -111,6 +112,28 @@ print"</li>
         </form>
     </div>
 ";}
+
+
+
+sub salva_dati_registrazione{
+
+   my $doc = util::db_util::caricamentoLibXMLRegistrazione();
+   my $email = util::html_content::enc($doc->findnodes("//registrazione/email"));
+   my $password = util::html_content::enc($doc->findnodes("//registrazione/password"));
+   my $nome = util::html_content::enc($doc->findnodes("//registrazione/nome"));
+   my $cognome = util::html_content::enc($doc->findnodes("//registrazione/cognome"));
+   my $genere = util::html_content::enc($doc->findnodes("//registrazione/genere"));
+   my $CF = util::html_content::enc($doc->findnodes("//registrazione/cf"));
+   my $datanascita= util::html_content::enc($doc->findnodes("//registrazione/datanascita"));
+   my $indirizzo = util::html_content::enc($doc->findnodes("//registrazione/indirizzo"));
+   my $citta = util::html_content::enc($doc->findnodes("//registrazione/citta"));
+   my $tel = util::html_content::enc($doc->findnodes("//registrazione/tel"));
+   my $tipocarta= util::html_content::enc($doc->findnodes("//registrazione/tipocarta"));
+   my $ncarta = util::html_content::enc($doc->findnodes("//registrazione/ncarta"));
+   
+        
+
+}
 
 
 1;

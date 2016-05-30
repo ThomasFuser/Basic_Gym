@@ -74,19 +74,21 @@ my $ncarta=$q->param("ncarta");
            open(OUT,">$file") or die;
            print OUT $doc->toString;
             close(OUT);
+      util::html_util::start_html("Registrazione");
+        util::base_util::salva_dati_registrazione();
+        util::html_util::end_html();
 
 
+      # / my $username = "annabonaldo@gmail.com";
+    # /   my $password = "ciaociao";
 
-        my $username = "annabonaldo@gmail.com";
-        my $password = "ciaociao";
-
-        my $doc = XML::LibXML->new()->parse_file('../data/utenti.xml');
+ # /      my $doc = XML::LibXML->new()->parse_file('../data/utenti.xml');
        # if ($doc->findnodes("utenti/utente/dati_accesso[mail/text()='$username' and password/text()='$password']")->size eq 1) {
-             my $session = new CGI::Session(undef, $q, {Directory=>File::Spec->tmpdir});
+    # /           my $session = new CGI::Session(undef, $q, {Directory=>File::Spec->tmpdir});
            #my $session = new CGI::Session();
-           $session->expire('60m');
-           $session->param('username', $username);
-           print $session->header(-location=>"index.cgi");
+    # /         $session->expire('60m');
+     # /        $session->param('username', $username);
+    # /         print $session->header(-location=>"index.cgi");
      #  }
       # Accedi al profilo utente 
 

@@ -9,7 +9,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti );
+our @EXPORT = qw(getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti caricamentoLibXMLRegistrazione getFilenameRegistrazione);
 
 package util::db_util;
 
@@ -42,8 +42,17 @@ sub caricamentoLibXMLUtenti{
 
   return $parser->parse_file($filename);
 }
+sub caricamentoLibXMLRegistrazione{
+  my $filename = getFilenameRegistrazione();
 
+  my $parser = XML::LibXML->new();
 
+  return $parser->parse_file($filename);
+}
+sub getFilenameRegistrazione{
+  return "../data/registrazione.xml"
+
+}
 #---------------- MODIFICA NODO GENERICA  ---------------
 #parametri da passare:   #nodo padre di quello da sostituire, nodo da sostituire, nuovo tag da inserire, parser
 sub modifica{ 
@@ -80,3 +89,4 @@ sub eliminaNodo{
 
 
 #Questo file contiene subroutine per LETTURA E SCRITTURA del DATABASE in XML
+1;
