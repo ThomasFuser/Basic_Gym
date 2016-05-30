@@ -61,4 +61,22 @@ sub modifica{
     } else { print "<p>I campi devono essere validi</p>"; }
 }
 
+
+#---------------- ELIMINAZIONE DI UN NODO E DI TUTTI I SUOI FIGLI  ---------------
+# è necessario passasre $doc + nodo da eliminare
+sub eliminaNodo{
+
+    #recupero dei parametri passati attuali
+    my @parm = @_;
+    my $doc=$parm[0];
+    my $nodoElim=$parm[1];
+
+    #eliminazione del pacchetto
+    my $parent = $nodoElim->parentNode;
+    $parent->removeChild($nodoElim);
+}
+
+
+
+
 #Questo file contiene subroutine per LETTURA E SCRITTURA del DATABASE in XML

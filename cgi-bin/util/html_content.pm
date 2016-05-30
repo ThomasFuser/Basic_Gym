@@ -680,24 +680,29 @@ sub Modifica_Abbonamento{
     #my $q = new CGI;
     #my ($user,$path)= @_;
     my $valuta = "€";
-    my $id_abbonamento= "002"; #da inserire il parametro delle sessioni
+
+    my $cgi = CGI->new(); # create new CGI object
+    
+    my $id_abbonamento= $cgi->param('Mod'); #da inserire il parametro delle sessioni
+
+    #print "<p> $id_abbonamento   </p>";
 
     #Query per recupero dati 
     my $QueryDurata = "//abbonamento[\@ID=$id_abbonamento]/durata/text()"; #trova durata dell'abbonamento =id
     my $QueryDescrizione = "//abbonamento[\@ID=$id_abbonamento]/descrizione/text()"; #trova durata dell'abbonamento =id
     my $QueryPrezzo = "//abbonamento[\@ID=$id_abbonamento]/prezzo/text()"; #trova il prezzo dell'abbonamento =id
 
-    my $doc = util::MyLib::caricamentoLibXML();
+    my $doc = util::db_util::caricamentoLibXML();
   
     #recupero dei dati dal database
-    my $Durata = $doc->findnodes("$QueryDurata");
-    my $Descrizione = $doc->findnodes("$QueryDescrizione");
-    my $Prezzo = $doc->findnodes("$QueryPrezzo");
+    my $Durata = enc($doc->findnodes("$QueryDurata"));
+    my $Descrizione = enc($doc->findnodes("$QueryDescrizione"));
+    my $Prezzo = enc($doc->findnodes("$QueryPrezzo"));
 
     print "
     <div id=\"content\">
         <h1> Modifica Abbonamento  </h1>
-        <form action=\"conferma_modifica_abbonamento.cgi\" method=\"post\" id=\"mod\">
+        <form action=\"riepilogoModificaAbbonamento.cgi\" method=\"post\" id=\"mod\">
             <ol>
                 <li> <label> <span>\Descrizione\</span> </label> <textarea cols=\"30\" rows=\"8\" name=\"descrizione\"  class=\"area\">$Descrizione</textarea> <span class=\"req_text\">(obbligatorio)</span> </li>
                 <li> <label> <span>\Periodo\</span>  </label>
@@ -723,7 +728,8 @@ sub Modifica_Abbonamento{
             print "
                  <li > <label> <span>\Prezzo (€)\</span> </label> <input type=\"number\" min=\"0\" step=\"0.01\" name=\"prezzo\" value=$Prezzo id= \"prezzoAm\"/> <span class=\"req_text\">(Facoltativo)</span> </li>    
                     </ol>
-                        <input type=\"submit\" name=\"submit_button\" class=\"submit_button\" id=\"invia_mod\" value=\"Modifica\" />
+                        
+                        <button name=\"modifica_Abbonamento\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"$id_abbonamento\" >Modifica</button>
                 </form>
                     </div>
             ";

@@ -9,9 +9,6 @@ use CGI::Session;
 
 
 
-util::html_util::start_html("Riepilogo modifica abbonamento");
-
-util::html_content_admin::stampaRiepilogoModifica();
-
-
+util::html_util::start_html("Prezzi modificabili");
+util::html_content_admin::stampaPrezziAcquistabili();
 util::html_util::end_html();

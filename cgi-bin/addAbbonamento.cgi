@@ -9,9 +9,6 @@ use CGI::Session;
 
 
 
-util::html_util::start_html("Riepilogo modifica abbonamento");
-
-util::html_content_admin::stampaRiepilogoModifica();
-
-
+util::html_util::start_html("Aggiungi un nuovo abbonamento");
+util::html_content_admin::creaAbbonamento();
 util::html_util::end_html();
