@@ -22,6 +22,10 @@ my $password=$q->param("password");
         my $tipoerrore=undef;
         my $error=0;
         my %errors;
+        #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
+
+        $errors{'email'}=$email;
+        $errors{'password'}=$password;
         #******************** INIZIO CONTROLLI SULLA MAIL *******************
         if(length($email)==0){
           $tipoerrore="Errore: email è un campo obbligatorio";

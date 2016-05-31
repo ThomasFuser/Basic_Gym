@@ -32,6 +32,17 @@ my $genere=$q->param("genere");
 	 my $tipoerrore=undef;
      my $error=0;
      my %errors;
+     #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
+     $errors{'gg'}=$gg;
+     $errors{'mese'}=$mese;
+     $errors{'anno'}=$anno;
+     $errors{'nome'}=$nome;
+     $errors{'cognome'}=$cognome;
+     $errors{'CF'}=$CF;
+     $errors{'professione'}=$professione;
+     $errors{'genere'}=$genere;
+
+
       #******************** INIZIO CONTROLLI NOME E COGNOME ******************
       $tipoerrore=undef;
       if(length($nome)==0){

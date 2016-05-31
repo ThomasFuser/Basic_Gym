@@ -738,11 +738,7 @@ sub Modifica_Abbonamento{
 sub stampaProfiloUtente{
   my $username=@_[0];
   my %utente=util::db_util::lettura_dati_utente($username);
-  foreach my $age (values %utente)
-{
-  print "$age\n";
-}
-
+  
 print "<div id=\"content\">
         <h1>Il tuo profilo</h1>
         <h2>I tuoi abbonamenti</h2>

@@ -18,6 +18,11 @@ my $tel=$q->param("tel");
       my $tipoerrore=undef;
         my $error=0;
         my %errors;
+
+        # scrivo i dati inseriti nell'array $errors per ripristinare i dati inseriti nella form in caso di errore
+        $errors{'tel'}=$tel;
+        $errors{'indirizzo'}=$indirizzo;
+        $errors{'citta'}=$citta;
         #******************** INIZIO CONTROLLI NUMERO DI TELEFONO *******************
       
       if(length($q->param('tel'))==0){

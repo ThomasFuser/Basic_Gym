@@ -44,7 +44,9 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
         }
       }
       $errors{'errCarta'}=$tipoerrore;
-
+      #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
+      $errors{'tipoCarta'}=$q->param('tipocarta');
+      $errors{'ncarta'}=$q->param('ncarta');
       #************************controlli data di scadenza carta di credito*******************
 
 
@@ -64,6 +66,9 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
         }
       }
       $errors{'errScadenzaCarta'}=$tipoerrore;
+      #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
+      $errors{'anno_scadenza'}=$q->param('anno_scadenza');
+      $errors{'mese_scadenza'}=$q->param('mese_scadenza');
 
       #*********************************FINE CONTROLLI CARTA DI CREDITO***********
        
@@ -102,22 +107,10 @@ else{
            print OUT $doc->toString;
             close(OUT);
        util::html_util::start_html("Registrazione");
-        util::base_util::salva_dati_registrazione();
+       util::base_util::salva_dati_registrazione();
+
+        print "<div id=\"content\"><h1>Riepilogo</h1>Registrazione effettuata con successo</div>";
         util::html_util::end_html();
-
-
-      # / my $username = "annabonaldo@gmail.com";
-    # /   my $password = "ciaociao";
-
- # /      my $doc = XML::LibXML->new()->parse_file('../data/utenti.xml');
-       # if ($doc->findnodes("utenti/utente/dati_accesso[mail/text()='$username' and password/text()='$password']")->size eq 1) {
-    # /           my $session = new CGI::Session(undef, $q, {Directory=>File::Spec->tmpdir});
-           #my $session = new CGI::Session();
-    # /         $session->expire('60m');
-     # /        $session->param('username', $username);
-    # /         print $session->header(-location=>"index.cgi");
-     #  }
-      # Accedi al profilo utente 
 
 }
 
