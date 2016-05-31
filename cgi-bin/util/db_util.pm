@@ -9,7 +9,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti );
+our @EXPORT = qw(lettura_dati_utente getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti caricamentoLibXMLRegistrazione getFilenameRegistrazione);
 
 package util::db_util;
 
@@ -42,8 +42,17 @@ sub caricamentoLibXMLUtenti{
 
   return $parser->parse_file($filename);
 }
+sub caricamentoLibXMLRegistrazione{
+  my $filename = getFilenameRegistrazione();
 
+  my $parser = XML::LibXML->new();
 
+  return $parser->parse_file($filename);
+}
+sub getFilenameRegistrazione{
+  return "../data/registrazione.xml"
+
+}
 #---------------- MODIFICA NODO GENERICA  ---------------
 #parametri da passare:   #nodo padre di quello da sostituire, nodo da sostituire, nuovo tag da inserire, parser
 sub modifica{ 
@@ -53,10 +62,10 @@ sub modifica{
     my $pathNodoDaSostituire=$parm[1];
     my $nuovoNodo=$parm[2];
     my $parser=$parm[3];
-    $padre->get_node(1)->removeChild($pathNodoDaSostituire);
+    $padre->removeChild($pathNodoDaSostituire);
     if(eval{$nuovoNodo=$parser->parse_balanced_chunk($nuovoNodo);}) {
         if($padre){
-                    $padre->get_node(1)->appendChild($nuovoNodo) || die('Non riesco a trovare il padre del nodo in QueryDescrizione');
+                    $padre->appendChild($nuovoNodo) || die('Non riesco a trovare il padre del nodo in QueryDescrizione');
                   } else { print "<p>Il campo nome deve contenere tag o entità html validi.</p>";  }
     } else { print "<p>I campi devono essere validi</p>"; }
 }
@@ -77,6 +86,31 @@ sub eliminaNodo{
 }
 
 
+sub lettura_dati_utente{
+  my $username=@_[0];
+  my %utente;
+  my $doc = util::db_util::caricamentoLibXMLUtenti();
+  $utente{'email'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_accesso/mail/text()"));
+  $utente{'password'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_accesso/password/text()"));
+  $utente{'nome'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/nome/text()"));
+  $utente{'cognome'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/cognome/text()"));
+  $utente{'genere'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/genere/text()"));
+  $utente{'CF'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/cf/text()"));
+  $utente{'professione'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/professione/text()"));
+  $utente{'datanascita'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/datanascita/text()"));
+  $utente{'indirizzo'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/indirizzo/text()"));
+ $utente{'dataiscrizione'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/data_iscrizione/text()"));
+  $utente{'citta'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/citta/text()"));
+  $utente{'tel'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/tel/text()"));
+  $utente{'tipocarta'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_pagamento/tipo_carta/text()"));
+  $utente{'ncarta'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_pagamento/num_carta/text()"));
+  $utente{'scadenzacarta'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_pagamento/scadenza/text()"));
+
+  return %utente;
+
+}
+
 
 
 #Questo file contiene subroutine per LETTURA E SCRITTURA del DATABASE in XML
+1;

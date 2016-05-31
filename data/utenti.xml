@@ -5,9 +5,26 @@
 		<mail>annabonaldo@gmail.com</mail>
 		<password>ciaociao</password>
 	</dati_accesso>
-	<dati_personali></dati_personali>
-	<lista_acquistati></lista_acquistati>
-	<cartacredito></cartacredito>
+	<dati_personali>
+		<nome>Anna</nome>
+		<cognome>Bonaldo</cognome>
+		<datanascita>1992-10-09</datanascita>
+		<genere>F</genere>
+		<cf>BNLNNA92R49G224Y</cf>
+		<data_iscrizione>2015-11-02</data_iscrizione>
+		<indirizzo>via ponchini 17</indirizzo>
+		<citta>Castelfranco Veneto</citta>
+		<tel>3926636470</tel>
+		<professione>studente</professione>
+
+	</dati_personali>
+	<lista_acquistati>
+	</lista_acquistati>
+	<dati_pagamento>
+		<tipo_carta>Visa</tipo_carta>
+		<num_carta>1234567890123456</num_carta>
+		<scadenza>2030-01-01</scadenza>
+	</dati_pagamento>
 </utente>
 <utente>
 	<dati_accesso>

@@ -74,6 +74,13 @@
 		<xs:pattern value="[0-9]{9}"/>
 	</xs:restriction>
 </xs:simpleType>
+// tipo "codice fiscale"
+
+<xs:simpleType name="cfT">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]"/>
+	</xs:restriction>
+</xs:simpleType>
 
 //genere 
 
@@ -92,6 +99,7 @@
 			<xs:element name="cognome" type="xs:string"/>
 			<xs:element name="data_nascita" type="xs:date"/>
 			<xs:element name="genere" type="genereT"/>
+			<xs:element name="cf" type="cfT"/>
 			<xs:element name="data_iscrizione" type="xs:date"/>
 			<xs:element name="indirizzo" type="xs:string" minOccurs="0" />
 			<xs:element name="citta" type="xs:string" minOccurs="0"/>
@@ -166,7 +174,7 @@
 			<xs:element name="dati_accesso" type="dati_accessoT"/>
 			<xs:element name="dati_personali" type="dati_personaliT"/>
 			<xs:element name="lista_acquistati" type="lista_acquistatiT"/>
-			<xs:element name="cartacredito" type="cartacreditoT"/>
+			<xs:element name="dati_pagamento" type="cartacreditoT"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
