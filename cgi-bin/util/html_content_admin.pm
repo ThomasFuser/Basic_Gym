@@ -11,7 +11,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(stampaRiepilogoModifica stampaPrezziAcquistabili deleteAbbonamento creaAbbonamento);
+our @EXPORT = qw(stampaRiepilogoModifica stampaPrezziAcquistabili deleteAbbonamento creaAbbonamento riepilogoNuovoAbbonamento);
 
 package util::html_content_admin;
 
@@ -150,6 +150,7 @@ sub stampaPrezziAcquistabili{
 
 }
 
+#--------------- FUNZIONE CHE CONSENTE DI ELIMINARE UN ABBONAMENTO SELEZIONATO DALL'UTENTE ---------------
 sub deleteAbbonamento{
 
     my $cgi = new CGI;
@@ -183,7 +184,7 @@ sub creaAbbonamento{
     print "
     <div id=\"content\">
         <h1> Modifica Abbonamento  </h1>
-        <form action=\"riepilogoModificaAbbonamento.cgi\" method=\"post\" id=\"mod\">
+        <form action=\"riepilogoAggiunta.cgi\" method=\"post\" id=\"mod\">
             <ol>
 
                 <li> <label> <span>\Area\</span>  </label>
@@ -202,7 +203,7 @@ sub creaAbbonamento{
                     <option>\Abbonamento annuale\</option>
                 </select> </li>
            
-                 <li > <label> <span>\Prezzo (€)\</span> </label> <input type=\"number\" min=\"0\" step=\"0.01\" name=\"prezzo\" value=\"\" id= \"prezzoAm\"/> <span class=\"req_text\">(Facoltativo)</span> </li>    
+                 <li > <label> <span>\Prezzo (€)\</span> </label> <textarea cols=\"1\" rows=\"1\" name=\"prezzo\" id=\"prezzi\"></textarea> <span class=\"req_text\">(obbligatorio)</span>   </li>    
                     </ol>
                         
                     <button name=\"crea_nuovo\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"\" >Modifica</button>
@@ -211,6 +212,96 @@ sub creaAbbonamento{
             ";
 
 }
+#--------------- FUNZIONE CHE PERMETTE DI CALCOLARE UN ID UNIVOCO ---------------
+
+sub calcolaID{
+
+    my $cgi = new CGI;
+    my $file = "../data/prezzi.xml";
+    my $parser = XML::LibXML->new();
+    my $doc = $parser->parse_file($file);
+    my $id="0";
+    
+    #ciclo che scorre tutti gli id presenti nel database
+    foreach my $dbID($doc->findnodes("//abbonamento/\@ID"))
+    {
+        if($id<$dbID){ $id=$return; }
+    } 
+    dbID '$id'+1;
+}
+
+
+
+#--------------- PAGINA DI RIEPILOGO DELL'INSERIMENTO DI UN NUOVO ABBONAMENTO ---------------
+
+sub riepilogoNuovoAbbonamento{
+
+    my $cgi = new CGI;
+    my $file = "../data/prezzi.xml";
+    my $parser = XML::LibXML->new();
+    my $doc = $parser->parse_file($file);
+
+    # Recupero dei dati dalla form
+    my $Area_form = $cgi->param('area');
+    my $Descrizione_form = $cgi->param('descrizione');
+    my $Periodo_form = $cgi->param('periodo');
+    my $Prezzo_form = $cgi->param('prezzo');
+   
+    # calcolo di un id univoco per il nuovo abbonamento
+    my $id_abbonamento= calcolaID();
+
+                                             #CONTROLLI PER IL NUOVO PACCHETTO
+                                             #CREAZIONE DEL NUOVO PACCHETTO NELL'XML
+            
+            ###################
+
+    #recupero del nodo nel quale salvare il nuovo abbonamento (come figlio)
+    my $categoria = $doc->findnodes("//categoria[titolo='$Area_form']")->get_node(1);    
+
+    #creazione dei nodi del nuovo abbonamento
+    my $AbbonamentoXML = XML::LibXML::Element->new('abbonamento');
+    my $DescrizioneXML = XML::LibXML::Element->new('descrizione');
+    my $PeriodoXML = XML::LibXML::Element->new('durata');
+    my $PrezzoXML = XML::LibXML::Element->new('prezzo');
+
+    #riempimento dei campi del nodo
+    $AbbonamentoXML->setAttribute( 'ID', $id_abbonamento );
+    $DescrizioneXML->appendText($Descrizione_form);
+    $PeriodoXML->appendText($Periodo_form);
+    $PrezzoXML->appendText($Prezzo_form);
+
+    #collegamento dei nodi
+    $categoria->appendChild($AbbonamentoXML);
+    $AbbonamentoXML->appendChild($PeriodoXML);
+    $AbbonamentoXML->appendChild($PrezzoXML);
+    $AbbonamentoXML->appendChild($DescrizioneXML);
+
+            ##################
+
+    #salvataggio delle modifiche nel database -> (in generale non è nelle funzioni di modifica/elimina in quanto dal mio punto di vista a senso salvare una volta sola le modifiche nel file)
+    open(OUT,">$file") or die $!;
+    print OUT $doc->toString;
+    close(OUT); 
+
+    #stampa del nuovo abbonamento
+     print "
+           <div id=\"content\">
+           <h1>Riepilogo delle modifiche</h1>
+       ";
+
+    util::html_content::stampaPacchetto($Area_form, $Descrizione_form, $Periodo_form, $Prezzo_form);   
+    print "
+         <p id=\"ritorno\"> Ritorna alla pagina <a href=\"prezziModificabili.cgi\" > Prezzi </a> </p>   
+
+         <p> idddddddd= $id_abbonamento </p>
+    ";
+
+    print " </div> "; 
+
+
+}
+
+
 
 
 1;
