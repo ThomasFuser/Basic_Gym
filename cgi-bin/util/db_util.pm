@@ -9,7 +9,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti caricamentoLibXMLRegistrazione getFilenameRegistrazione);
+our @EXPORT = qw(lettura_dati_utente getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti caricamentoLibXMLRegistrazione getFilenameRegistrazione);
 
 package util::db_util;
 
@@ -85,6 +85,30 @@ sub eliminaNodo{
     $parent->removeChild($nodoElim);
 }
 
+
+sub lettura_dati_utente{
+  my $username=@_[0];
+  my %utente;
+  my $doc = util::db_util::caricamentoLibXMLUtenti();
+  $utente{'email'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_accesso/mail/text()"));
+  $utente{'password'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_accesso/password/text()"));
+  $utente{'nome'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/nome/text()"));
+  $utente{'cognome'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/cognome/text()"));
+  $utente{'genere'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/genere/text()"));
+  $utente{'CF'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/cf/text()"));
+  $utente{'professione'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/professione/text()"));
+  $utente{'datanascita'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/datanascita/text()"));
+  $utente{'indirizzo'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/indirizzo/text()"));
+ $utente{'dataiscrizione'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/data_iscrizione/text()"));
+  $utente{'citta'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/citta/text()"));
+  $utente{'tel'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/tel/text()"));
+  $utente{'tipocarta'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_pagamento/tipo_carta/text()"));
+  $utente{'ncarta'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_pagamento/num_carta/text()"));
+  $utente{'scadenzacarta'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_pagamento/scadenza/text()"));
+
+  return %utente;
+
+}
 
 
 

@@ -107,6 +107,44 @@ sub showSchedaQuattro{
                 <li><label>Numero carta</label><input type=\"text\" name=\"ncarta\"  value=\"\" />";
 if($errform{'errCarta'} ne undef){ print "<span>".$errform{'errCarta'}."</span>"; }  
 print"</li>
+      <li>Scadenza <select name=\"mese_scadenza\" id=\"mese_scadenza\" >                                              
+                        <option selected=\"selected\">1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+  </select> <select name=\"anno_scadenza\" id=\"anno_scadenza\" >                                              
+                        <option selected=\"selected\">2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                        <option>2031</option>
+                        <option>2032</option>
+                        <option>2033</option>
+                        <option>2034</option>
+                        <option>2035</option>
+                        <option>2036</option>
+                        <option>2037</option>
+  </select>";
+  if($errform{'errScadenzaCarta'} ne undef){ print "<span>".$errform{'errScadenzaCarta'}."</span>"; }  
+
+  print"</li>
       </ol>
           <input type=\"submit\" name=\"reg4\"  value=\"Registati\" />
         </form>

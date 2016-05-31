@@ -736,6 +736,13 @@ sub Modifica_Abbonamento{
 }
 
 sub stampaProfiloUtente{
+  my $username=@_[0];
+  my %utente=util::db_util::lettura_dati_utente($username);
+  foreach my $age (values %utente)
+{
+  print "$age\n";
+}
+
 print "<div id=\"content\">
         <h1>Il tuo profilo</h1>
         <h2>I tuoi abbonamenti</h2>
@@ -772,31 +779,33 @@ print "<div id=\"content\">
             <span class=\"modify\">Modifica profilo</span>
                <li>
                 <span class=\"field_name\" >Email</span> 
-                    <span class=\"value\">annabonaldo\@gmail.com</span></li>
+                    <span class=\"value\">".$utente{'email'}."</span></li>
                 <li><span class=\"field_name\" lang=\"en\">password</span>
-                        <span class=\"value\"> 2568410 </span></li>               
+                        <span class=\"value\"> ".$utente{'password'}." </span></li>               
                 <li><span class=\"field_name\">Nome</span>
-                     <span class=\"value\">Anna</span></li>
+                     <span class=\"value\">".$utente{'nome'}."</span></li>
+                <li><span class=\"field_name\" >Cognome</span>
+                        <span class=\"value\">".$utente{'cognome'}."</span></li>
                 <li><span class=\"field_name\" >Genere</span>
-                        <span class=\"value\">Donna</span></li>
-                        <li><span class=\"field_name\" >Cognome</span>
-                        <span class=\"value\">Bonaldo</span></li>
+                        <span class=\"value\">".$utente{'genere'}."</span></li>
                 <li><span class=\"field_name\" >Indirizzo</span> 
-                        <span class=\"value\">via giotto 36/a</span></li>
+                        <span class=\"value\">".$utente{'indirizzo'}."</span></li>
                 <li><span class=\"field_name\" >Città</span> 
-                        <span class=\"value\">Castelfranco Vento</span></li>
+                        <span class=\"value\">".$utente{'citta'}."</span></li>
                 <li><span class=\"field_name\" >Data di nascita</span>
-                        <span class=\"value\"> 9 ottobre 1992</span></li>
+                        <span class=\"value\"> ".$utente{'datanascita'}."</span></li>
                 <li><span class=\"field_name\" >Professione</span>
-                        <span class=\"value\"> Studente</span></li>
+                        <span class=\"value\"> ".$utente{'professione'}."</span></li>
                 <li><span class=\"field_name\" >Numero di telefono</span>
-                        <span class=\"value\">392 66 66 66</span> </li>
+                        <span class=\"value\">".$utente{'tel'}."</span> </li>
                 <li><span class=\"field_name\" >Codice fiscale</span>
-                        <span class=\"value\">BNLNNA92R49G224Y</span></li>
+                        <span class=\"value\">".$utente{'CF'}."</span></li>
                 <li><span class=\"field_name\" >Metodo di pagamento</span>
-                        <span class=\"value\"> Visa</span></li>
+                        <span class=\"value\"> ".$utente{'tipocarta'}."</span></li>
                 <li><span class=\"field_name\" >Numero carta</span> 
-                        <span class=\"value\">1812 8481 6849 1685</span></li>
+                        <span class=\"value\">".$utente{'ncarta'}."</span></li>
+                        <li><span class=\"field_name\" >Scadenza carta</span> 
+                        <span class=\"value\">".$utente{'scadenzacarta'}."</span></li>
         </ul>
 
 
