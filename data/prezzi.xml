@@ -1,48 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <listaAbbonamenti>
 	<categoria>
 		<titolo>Area Soft Fitness</titolo>
 
 		<abbonamento ID="001">
-			<durata>Abbonamento mensile</durata>
-			<prezzo> 50 </prezzo>
-			<descrizione>Hai poco tempo per praticare sport? Con questo pacchetto lo sport si adatta alle tue esigenze!</descrizione>
-		</abbonamento>
+			
+			
+			
+		<durata>Abbonamento mensile</durata><prezzo>5000</prezzo><descrizione>Hai poco tempo per praticare sport? Con questo pacchetto lo sport si adatta alle tue esigenze! Vieni a trovarci subito! </descrizione></abbonamento>
 
 		<abbonamento ID="002">
-			<durata>Abbonamento annuale</durata>
-			<prezzo> 400 </prezzo>
-			<descrizione>Tutta l'armonia dello yoga, del pilates e del body balance senza alcun vincolo su orari o lezioni per 1 anno.</descrizione>
-		</abbonamento>
+			
+			
+			
+		<durata>Abbonamento mensile</durata><prezzo>5000</prezzo><descrizione>Prova della modifica dell'abbmoanngquiywebaòi</descrizione></abbonamento>
     </categoria>
 
 		<categoria>
 			<titolo>Area Cardio Fitness</titolo>
 
 		<abbonamento ID="003">
-			<durata>Abbonamento mensile</durata>
-			<prezzo> 60 </prezzo>
-			<descrizione>Tutti i corsi di walking, spinning, total body per un'attività aerobica a tutto tondo. </descrizione>
-		</abbonamento>
+			
+			
+			
+		<durata>Abbonamento mensile</durata><prezzo>60</prezzo><descrizione>Tutti i corsi di walking, spinning, total body per un'attività aerobica a tutto tondo. </descrizione></abbonamento>
 
-		<abbonamento ID="004">
-
-			<durata>Abbonamento annuale</durata>
-			<prezzo> 500 </prezzo>
-			<descrizione>Accedi liberamente alla nostra sala fitness per 1 anno.</descrizione>
-		</abbonamento>
+		
         </categoria>
         
 		<categoria>
 			<titolo>Area Cross Fitness</titolo>
 
 		<abbonamento ID="005"> 
-			<durata>Abbonamento mensile</durata>
-			<prezzo> 70 </prezzo>
-			<descrizione>Gli allenamenti brevi ma intensi sviluppano in breve tempo un fisico tonico e snello.Prova la nostra area Cross fitness per 1 mese</descrizione>
-		</abbonamento>
+			
+			
+			
+		<durata>Abbonamento mensile</durata><prezzo>5344</prezzo><descrizione>Gli allenamenti brevi ma intensi sviluppano in breve tempo un fisico tonico e snello.Prova la nostra area Cross fitness per 1 mese</descrizione></abbonamento>
 
 		<abbonamento ID="006">
 
@@ -53,7 +46,6 @@
 		</categoria>
 
 </listaAbbonamenti>
-
 <!--note
  xmlns="http://www.prezzischema.it"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

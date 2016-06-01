@@ -10,5 +10,5 @@ use CGI::Session;
 
 
 util::html_util::start_html("Prezzi modificabili");
-util::html_content_admin::stampaPrezziAcquistabili();
+util::html_content_admin::stampaPrezziModificabili();
 util::html_util::end_html();

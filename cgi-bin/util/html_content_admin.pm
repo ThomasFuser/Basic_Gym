@@ -11,7 +11,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(stampaRiepilogoModifica stampaPrezziAcquistabili deleteAbbonamento creaAbbonamento riepilogoNuovoAbbonamento);
+our @EXPORT = qw(modificaAbbonamentoForm Modifica_Abbonamento stampaRiepilogoModifica stampaPrezziModificabili deleteAbbonamento creaAbbonamento riepilogoNuovoAbbonamento);
 
 package util::html_content_admin;
 
@@ -90,7 +90,7 @@ sub stampaRiepilogoModifica{
 }
 
 #--------------- PAGINA PREZZI DA STAMPARE QUANDO SI E' UN AMMINISTRATORE ---------------
-sub stampaPrezziAcquistabili{
+sub stampaPrezziModificabili{
 
     #my $q = new CGI;
     #my ($user,$path)= @_;
@@ -307,6 +307,84 @@ sub riepilogoNuovoAbbonamento{
 
 }
 
+
+#--------------- FUNZIONE DI STAMPA DELLA PAGINA DI MODIFICA DI UN ABONAMENTO (admin) --------------------
+sub Modifica_Abbonamento{
+
+    #my $q = new CGI;
+    #my ($user,$path)= @_;
+    my $valuta = "€";
+
+    my $cgi = CGI->new(); # create new CGI object
+    
+    my $id_abbonamento= $cgi->param('Mod'); #da inserire il parametro delle sessioni
+
+    #print "<p> $id_abbonamento   </p>";
+
+    #Query per recupero dati 
+    my $QueryDurata = "//abbonamento[\@ID=$id_abbonamento]/durata/text()"; #trova durata dell'abbonamento =id
+    my $QueryDescrizione = "//abbonamento[\@ID=$id_abbonamento]/descrizione/text()"; #trova durata dell'abbonamento =id
+    my $QueryPrezzo = "//abbonamento[\@ID=$id_abbonamento]/prezzo/text()"; #trova il prezzo dell'abbonamento =id
+
+    my $doc = util::db_util::caricamentoLibXML();
+  
+    #recupero dei dati dal database
+    my $Durata = util::html_content::enc($doc->findnodes("$QueryDurata"));
+    my $Descrizione =  util::html_content::enc($doc->findnodes("$QueryDescrizione"));
+    my $Prezzo =  util::html_content::enc($doc->findnodes("$QueryPrezzo"));
+
+
+    my %formInfo;
+    $formInfo{'id'}=$id_abbonamento;
+    $formInfo{'durata'}=$Durata;
+    $formInfo{'descrizione'}=$Descrizione;
+    $formInfo{'prezzo'}=$Prezzo;
+    modificaAbbonamentoForm(%formInfo);
+}
+
+#------------------- FORM e GESTIONE DEGLI ERRORI per la modifica di un abbonamento
+sub modificaAbbonamentoForm{
+    my %formErr=@_;
+    print "
+    <div id=\"content\">
+        <h1> Modifica Abbonamento </h1>
+        <form action=\"riepilogoModificaAbbonamento.cgi\" method=\"post\" id=\"mod\">
+            <ol>
+                <li> <label>\Descrizione\</label> 
+                <textarea cols=\"30\" rows=\"8\" name=\"descrizione\"  class=\"area\">".$formErr{'descrizione'}."</textarea> 
+                <span class=\"errorText\">* ".$formErr{'errDesc'}."</span> </li>
+                <li> <label> <span>\Periodo\</span>  </label>
+            ";
+
+            if($formErr{'durata'} eq "Abbonamento mensile")
+            {
+                print "
+                    <select name=\"periodo\" id=\"periodo\" >                                              
+                        <option selected=\"selected\">\Abbonamento mensile\</option>
+                        <option>\Abbonamento annuale\</option>
+                    </select> </li>
+                ";
+            }else{                   #if($Durata eq "Abbonamento annuale")
+                print "
+                    <select name=\"periodo\" id=\"periodo\" >                                              
+                        <option>\Abbonamento mensile\</option>
+                        <option selected=\"selected\">\Abbonamento annuale\</option>
+                    </select> </li>
+                ";
+              }
+
+            print "
+                 <li > <label>\Prezzo (€)\</label> 
+                 <input type=\"number\" min=\"0\" step=\"0.01\" name=\"prezzo\" value=".$formErr{'prezzo'}." id= \"prezzoAm\"/> 
+                 <span class=\"errorText\">* ".$formErr{'errPrezzo'}."</span> </li>    
+                    </ol>
+
+                        
+                        <button name=\"modifica_Abbonamento\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"".$formErr{'id'}."\" >Modifica</button>
+                </form>
+                    </div>";
+
+}
 
 
 
