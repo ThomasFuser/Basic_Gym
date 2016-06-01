@@ -121,6 +121,9 @@ sub nav{
                   if(@navparam[0] eq "Profilo"){print "class=\"not-active\"";}  print ">Profilo</a>";
       print"<a href=\"logout.cgi\">Esci</a>";
 
+  }elsif($session->param("username") eq "admin"){
+    print"<a href=\"logout.cgi\">Esci</a>";
+
   }
   print "</div>";
 
