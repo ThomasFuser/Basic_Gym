@@ -57,7 +57,7 @@ sub stampaRiepilogoModifica{
     my $nuovaDescrizione="<descrizione>$Descrizione_form</descrizione>";
 
     #nodo padre dei nodi da modificare
-    my $padre = $doc->findnodes("//abbonamento[\@ID=$id_abbonamento]");
+    my $padre = $doc->findnodes("//abbonamento[\@ID=$id_abbonamento]")->get_node(1);
 
     #modifica del campo durata
     util::db_util::modifica( $padre, $PathDurata, $nuovaDurata, $parser);              #nodo padre, nodo da sostituire, nuovo tag, parser
@@ -220,14 +220,18 @@ sub calcolaID{
     my $file = "../data/prezzi.xml";
     my $parser = XML::LibXML->new();
     my $doc = $parser->parse_file($file);
-    my $id="0";
-    
+    my $id=0;
+
     #ciclo che scorre tutti gli id presenti nel database
-    foreach my $dbID($doc->findnodes("//abbonamento/\@ID"))
+    my $dbID=0;
+    foreach  my $abbonamenti($doc->findnodes("//abbonamento"))
     {
-        if($id<$dbID){ $id=$return; }
+        $dbID= $abbonamenti->getAttribute('ID');
+        if($id<$dbID){ $id=$dbID+0; }
     } 
-    dbID '$id'+1;
+   
+    $id=$id+1;
+    return $id;
 }
 
 
@@ -247,14 +251,18 @@ sub riepilogoNuovoAbbonamento{
     my $Periodo_form = $cgi->param('periodo');
     my $Prezzo_form = $cgi->param('prezzo');
    
+
     # calcolo di un id univoco per il nuovo abbonamento
     my $id_abbonamento= calcolaID();
 
-                                             #CONTROLLI PER IL NUOVO PACCHETTO
-                                             #CREAZIONE DEL NUOVO PACCHETTO NELL'XML
-            
-            ###################
-
+    #CONTROLLI PER IL NUOVO PACCHETTO
+                                             
+   #sostituzione dei caratteri '<' e '>' con caratteri safe che non danno problemi nel database xml
+    my $sostMinore="&lt;";
+    my $sostMaggiore="&gt;";
+    $Descrizione_form=~ s/</$sostMinore/g | s/>/$sostMaggiore/g; 
+    $Descrizione_form=util::html_content::enc($Descrizione_form);
+#CREAZIONE DEL NUOVO PACCHETTO NELL'XML
     #recupero del nodo nel quale salvare il nuovo abbonamento (come figlio)
     my $categoria = $doc->findnodes("//categoria[titolo='$Area_form']")->get_node(1);    
 
@@ -270,13 +278,11 @@ sub riepilogoNuovoAbbonamento{
     $PeriodoXML->appendText($Periodo_form);
     $PrezzoXML->appendText($Prezzo_form);
 
-    #collegamento dei nodi
+    #collegamento dei nodi (creazione del nodo abbonamento)
     $categoria->appendChild($AbbonamentoXML);
     $AbbonamentoXML->appendChild($PeriodoXML);
     $AbbonamentoXML->appendChild($PrezzoXML);
     $AbbonamentoXML->appendChild($DescrizioneXML);
-
-            ##################
 
     #salvataggio delle modifiche nel database -> (in generale non è nelle funzioni di modifica/elimina in quanto dal mio punto di vista a senso salvare una volta sola le modifiche nel file)
     open(OUT,">$file") or die $!;
@@ -293,7 +299,7 @@ sub riepilogoNuovoAbbonamento{
     print "
          <p id=\"ritorno\"> Ritorna alla pagina <a href=\"prezziModificabili.cgi\" > Prezzi </a> </p>   
 
-         <p> idddddddd= $id_abbonamento </p>
+          <p> descrizione nuovo:  $Descrizione_form </p>
     ";
 
     print " </div> "; 
