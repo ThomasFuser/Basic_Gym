@@ -9,13 +9,19 @@ use util::db_util;
 use util::html_content;
 use Encode qw(encode);
 
+#use POSIX;
+#use URI;
 
 use Exporter qw(import);
 our @EXPORT = qw(modificaAbbonamentoForm Modifica_Abbonamento stampaRiepilogoModifica stampaPrezziModificabili deleteAbbonamento creaAbbonamento riepilogoNuovoAbbonamento);
 
 package util::html_content_admin;
 
-
+#--------------- FUNZIONE CHE CONSENTE DI ELIMINARE IL PROBLEMA DEI CARATTERI SPECIALI DELL'XML ---------------
+sub  trim{ 
+    my $s = shift;
+    $s =~ s/^\s+|\s+$//g; return $s;
+    }
 
 ################## FUNZIONE DI STAMPA DEL RIEPILOGO DELLA MODIFICA APPENA EFFETTUATA ######################
 
@@ -206,7 +212,7 @@ sub creaAbbonamento{
                  <li > <label> <span>\Prezzo (€)\</span> </label> <textarea cols=\"1\" rows=\"1\" name=\"prezzo\" id=\"prezzi\"></textarea> <span class=\"req_text\">(obbligatorio)</span>   </li>    
                     </ol>
                         
-                    <button name=\"crea_nuovo\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"\" >Modifica</button>
+                    <button name=\"crea_nuovo\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"\" >Crea</button>
         </form>
     </div>
             ";
@@ -235,7 +241,6 @@ sub calcolaID{
 }
 
 
-
 #--------------- PAGINA DI RIEPILOGO DELL'INSERIMENTO DI UN NUOVO ABBONAMENTO ---------------
 
 sub riepilogoNuovoAbbonamento{
@@ -245,24 +250,21 @@ sub riepilogoNuovoAbbonamento{
     my $parser = XML::LibXML->new();
     my $doc = $parser->parse_file($file);
 
-    # Recupero dei dati dalla form
-    my $Area_form = $cgi->param('area');
-    my $Descrizione_form = $cgi->param('descrizione');
-    my $Periodo_form = $cgi->param('periodo');
-    my $Prezzo_form = $cgi->param('prezzo');
+    # Recupero dei dati dalla form                              
+    my $Area_form = util::html_content::enc($cgi->param('area'));
+    my $Descrizione_form = util::html_content::enc($cgi->param('descrizione'));
+    my $Periodo_form = util::html_content::enc($cgi->param('periodo'));
+    my $Prezzo_form = util::html_content::enc($cgi->param('prezzo'));
    
 
     # calcolo di un id univoco per il nuovo abbonamento
     my $id_abbonamento= calcolaID();
 
     #CONTROLLI PER IL NUOVO PACCHETTO
-                                             
-   #sostituzione dei caratteri '<' e '>' con caratteri safe che non danno problemi nel database xml
-    my $sostMinore="&lt;";
-    my $sostMaggiore="&gt;";
-    $Descrizione_form=~ s/</&lt;/g ;
-    $Descrizione_form=~s/>/&gt;/g; 
-    #$Descrizione_form=util::html_content::enc($Descrizione_form);
+
+
+     $Descrizione_form=~ s/^\s+|\s+$//g;
+
 #CREAZIONE DEL NUOVO PACCHETTO NELL'XML
     #recupero del nodo nel quale salvare il nuovo abbonamento (come figlio)
     my $categoria = $doc->findnodes("//categoria[titolo='$Area_form']")->get_node(1);    
@@ -293,14 +295,12 @@ sub riepilogoNuovoAbbonamento{
     #stampa del nuovo abbonamento
      print "
            <div id=\"content\">
-           <h1>Riepilogo delle modifiche</h1>
+           <h1>Riepilogo dell'inserimento</h1>
        ";
 
     util::html_content::stampaPacchetto($Area_form, $Descrizione_form, $Periodo_form, $Prezzo_form);   
     print "
          <p id=\"ritorno\"> Ritorna alla pagina <a href=\"prezziModificabili.cgi\" > Prezzi </a> </p>   
-
-          <p> descrizione nuovo:  $Descrizione_form </p>
     ";
 
     print " </div> "; 
@@ -375,9 +375,8 @@ sub modificaAbbonamentoForm{
               }
 
             print "
-                 <li > <label>\Prezzo (€)\</label> 
-                 <input type=\"number\" min=\"0\" step=\"0.01\" name=\"prezzo\" value=".$formErr{'prezzo'}." id= \"prezzoAm\"/> 
-                 <span class=\"errorText\">* ".$formErr{'errPrezzo'}."</span> </li>    
+                 <li > <label> <span>\Prezzo (€)\</span> </label> <textarea cols=\"1\" rows=\"1\" name=\"prezzo\" id=\"prezzi\">$formErr{'prezzo'}</textarea> <span class=\"req_text\">(obbligatorio)</span>   </li>
+                 <li> <span class=\"errorText\">* ".$formErr{'errPrezzo'}."</span> </li>    
                     </ol>
 
                         

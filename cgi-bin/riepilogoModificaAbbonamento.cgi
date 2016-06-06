@@ -50,8 +50,19 @@ use CGI::Session;
          $error=1;
        }if(($Prezzo_form+0)<0){
           $tipoerrore="Errore: inserire prezzo maggiore di zero";
-         $error=1;
-       }
+          $error=1;
+       } 
+# da capire come fare sta cavolo di espressione regolare per fargli prendere numeri reali senza lettere  robe varie
+       #if(!($Prezzo_form =~ /[0-9]+\.?[0-9]*/)){     #if(($Prezzo_form =~ /[-+]?[0-9]*\.?[0-9]+/)){    #if(($Prezzo_form =~ /[a-z] | /)){
+         #if(!($Prezzo_form =~ /[0-9]*/)){
+         #           $tipoerrore="Errore: inserire un prezzo che non contenga caratteri non numerici (sono ammessi . e ,)";
+         #           $error=1;}
+       #} 
+       if(!($Prezzo_form=~ m/^[0-9]{1}[0-9]{0,3}\.[0-9]{2}/))     #/[0.9]+\.?[0-9]+/
+        {
+            $tipoerrore="Errore: inserire un prezzo che contenga caratteri non numerici. Per identificare la virgola utilizzare .";
+            $error=1;
+        }
         $errors{'errPrezzo'}=$tipoerrore;
 
 
