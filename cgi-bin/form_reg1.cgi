@@ -21,11 +21,11 @@ my $password=$q->param("password");
 
         my $tipoerrore=undef;
         my $error=0;
-        my %errors;
+        my %datiForm;
         #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
 
-        $errors{'email'}=$email;
-        $errors{'password'}=$password;
+        $datiForm{'email'}=$email;
+        $datiForm{'password'}=$password;
         #******************** INIZIO CONTROLLI SULLA MAIL *******************
         if(length($email)==0){
           $tipoerrore="Errore: email è un campo obbligatorio";
@@ -44,7 +44,7 @@ my $password=$q->param("password");
             $error=1;
         }
       }
-      $errors{'errEmail'}=$tipoerrore;
+      $datiForm{'errEmail'}=$tipoerrore;
 
       #*********************** FINE CONTROLLI MAIL**************************
       #*********************** INIZIO CONTROLLI SULLA PASSWORD ***************************
@@ -56,7 +56,7 @@ my $password=$q->param("password");
         $tipoerrore="Errore: la password deve contenere almeno 8 caratteri";
         $error=1;
       }
-      $errors{'errPw'}=$tipoerrore;
+      $datiForm{'errPw'}=$tipoerrore;
 
       $tipoerrore=undef;
       if(length($q->param('password_repeat'))==0){
@@ -68,43 +68,22 @@ my $password=$q->param("password");
           $error=1;
         }
       }
-      $errors{'errPwRep'}=$tipoerrore;
+      $datiForm{'errPwRep'}=$tipoerrore;
       #******************** FINE CONTROLLI PASSWORD **************************
 
 
       if($error ne  0){
         util::html_util::start_html("Registrazione");
-        util::base_util::showSchedaUno(%errors);
+        util::base_util::showSchedaUno(%datiForm);
         util::html_util::end_html();
         
       }
       else{
 
-        # salvataggio parametri utente
- 
-          my $file = "../data/registrazione.xml";
-          my $parser = XML::LibXML->new();
-          my $doc = $parser->parse_file($file);
-          my $padre= $doc->findnodes("//registrazione")->get_node(1);
-          my $email_node= $doc->findnodes("//registrazione/email")->get_node(1);
-          my $password_node= $doc->findnodes("//registrazione/password")->get_node(1);
-
-          my $nuovaPassword="<password>$password</password>";
-          my $nuovaEmail="<email>$email</email>";
-
-          util::db_util::modifica($padre, $email_node, $nuovaEmail, $parser);
-          util::db_util::modifica($padre, $password_node, $nuovaPassword, $parser);
-
-        #salvataggio delle modifiche
-           open(OUT,">$file") or die;
-           print OUT $doc->toString;
-            close(OUT);
-
-
       # Stampa form successivo
 
       util::html_util::start_html("Registrazione");
       # stampa form  REGISTRAZIONE: DATI PERSONALI
-      util::base_util::showSchedaDue();
+      util::base_util::showSchedaDue(%datiForm);
       util::html_util::end_html();
 }

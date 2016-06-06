@@ -19,7 +19,7 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
 
       my $tipoerrore=undef;
         my $error=0;
-        my %errors;
+        my %datiForm;
       #**************************INIZIO CONTROLLI CARTA DI CREDITO*****************
       if(length($q->param('ncarta'))==0){
         $tipoerrore="Errore: il numero di carta di credito è un capo obbligatorio";
@@ -43,10 +43,10 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
           $error=1;
         }
       }
-      $errors{'errCarta'}=$tipoerrore;
+      $datiForm{'errCarta'}=$tipoerrore;
       #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
-      $errors{'tipoCarta'}=$q->param('tipocarta');
-      $errors{'ncarta'}=$q->param('ncarta');
+      $datiForm{'tipoCarta'}=$q->param('tipocarta');
+      $datiForm{'ncarta'}=$q->param('ncarta');
       #************************controlli data di scadenza carta di credito*******************
 
 
@@ -65,10 +65,10 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
           $error=1;
         }
       }
-      $errors{'errScadenzaCarta'}=$tipoerrore;
+      $datiForm{'errScadenzaCarta'}=$tipoerrore;
       #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
-      $errors{'anno_scadenza'}=$q->param('anno_scadenza');
-      $errors{'mese_scadenza'}=$q->param('mese_scadenza');
+      $datiForm{'anno_scadenza'}=$q->param('anno_scadenza');
+      $datiForm{'mese_scadenza'}=$q->param('mese_scadenza');
 
       #*********************************FINE CONTROLLI CARTA DI CREDITO***********
        
@@ -76,41 +76,34 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
 
  if($error eq  1){
         util::html_util::start_html("Registrazione");
-        util::base_util::showSchedaQuattro(%errors);
-
+        util::base_util::showSchedaQuattro(%datiForm);
         util::html_util::end_html();
         
       }
-else{
+else{ #registrazione con dati corretti
 
-        # salvataggio parametri utente
- 
-          my $file = "../data/registrazione.xml";
-          my $parser = XML::LibXML->new();
-          my $doc = $parser->parse_file($file);
-          my $padre= $doc->findnodes("//registrazione")->get_node(1);
-          my $tipocarta_node= $doc->findnodes("//registrazione/tipocarta")->get_node(1);
-          my $ncarta_node= $doc->findnodes("//registrazione/ncarta")->get_node(1);
-          my $scadenzacarta_node= $doc->findnodes("//registrazione/scadenzacarta")->get_node(1);
+       util::html_util::start_html("Accedi");
+       #salvataggio dei dati nel DB
+
+  print "<div id=\"content\" class=\"forms\">
+        <p class=\"riepilogo\">Ti sei registrato correttamente! Ora puoi accedere al tuo nuovo profilo...</p>
+  ";
+
+
+  print "
+        <h2> Accedi </h2>
+       <form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login.cgi\" method=\"post\">
+            <ol>
+                <li><label><span lang=\"en\">Email</span></label><input type=\"text\" name=\"username\" value=\"\" /></li>
+                <li><label><span lang=\"en\">Password</span></label><input type=\"password\" name=\"password\"  value=\"\" /></li>
+          <li><input type=\"submit\" name=\"submit_button\" class= \"submit_button\" value=\"Accedi\" /></li>          
          
+          </ol>
+        </form>
+           ";
 
-          my $nuovoTIPOCARTA="<tipocarta>$tipocarta</tipocarta>";
-          my $nuovoNCARTA="<ncarta>$ncarta</ncarta>";
-          my $nuovoSCADENZACARTA="<scadenzacarta>$scadenzacarta</scadenzacarta>";
-
-          util::db_util::modifica($padre, $tipocarta_node, $nuovoTIPOCARTA, $parser);
-          util::db_util::modifica($padre, $ncarta_node, $nuovoNCARTA, $parser);
-          util::db_util::modifica($padre, $scadenzacarta_node, $nuovoSCADENZACARTA, $parser);
-        
-        #salvataggio delle modifiche
-           open(OUT,">$file") or die;
-           print OUT $doc->toString;
-            close(OUT);
-       util::html_util::start_html("Registrazione");
-       util::base_util::salva_dati_registrazione();
-
-        print "<div id=\"content\"><h1>Riepilogo</h1>Registrazione effettuata con successo</div>";
-        util::html_util::end_html();
+  print "</div>";
+       util::html_util::end_html();
 
 }
 

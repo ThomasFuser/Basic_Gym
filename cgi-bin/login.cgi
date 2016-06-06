@@ -54,20 +54,21 @@ sub showForm{
      }
   print "</p>";
 
-  print "<div id=\"content\" class=\"login\">
-           <h1 id=\"titolo_login\">Login</h1>
+  print "<div id=\"content\" class=\"forms\">
+           <h1>Accedi</h1>
            ";
 
   print "<form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login.cgi\" method=\"post\">
                  <fieldset>
                     <label id=\"user\" for=\"username\">Username</label>
-                    <input id=\"username\" type=\"text\" name=\"username\" size=\"25\"/>
+                    <input id=\"username\" type=\"text\" name=\"username\"/>
                     <label id=\"pass\" for=\"password\">Password</label>
-                    <input id=\"password\" type=\"password\" name=\"password\" size=\"25\"/>
+                    <input id=\"password\" type=\"password\" name=\"password\"/>
                     <input id='submit' type=\"submit\" name=\"accedi\" value=\"Accedi\" />
                  </fieldset>
-              </form>
-           ";
+                 <p>Non hai un sei ancora registrato? <a href=\"registrazione.cgi\">Registrati!</a></p>
+              </form>     
+  ";
 
   print "</div>";
 

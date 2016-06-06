@@ -285,6 +285,98 @@ filter: alpha(opacity=80); /* For IE8 and earlier */
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+/***************************/
+/***********FORM************/
+/***************************/
+.forms{
+	width: 30em;
+	max-width: 30em;
+}
+
+#content form {
+padding: 1em;
+background-color: #333;
+color: #eee;
+font-weight: 600;
+opacity: 0.9;
+filter: alpha(opacity=90); /* For IE8 and earlier */
+}
+
+#content input {
+margin-top: 1em;
+margin-bottom: 1em;
+margin-right: 1em;
+width: 95%;
+
+
+}
+#content input, #content textarea, #content select {
+padding: 0.3em;
+border: 0.2em solid #666;
+font: 0.9em;
+vertical-align: top;
+}
+#content textarea{
+width: 75%;
+margin-left: 1.5em;
+max-width: inherit;
+}
+
+#content button, #content input {
+line-height: normal;
+}
+
+#content li {
+padding-right: 1em;
+list-style: none;
+text-align: left;
+line-height: 1.2em;
+opacity: 1;
+}
+#content span.req_text, #content span.email_req_text {
+margin: 0em 1em 1em 12em;
+display: block;
+vertical-align: top;
+color: #333;
+font-size: 0.8em;
+line-height: 1.2em;
+}
+#content .submit_button {
+background-color: #666;
+color: #eee;
+font-weight: 600;
+opacity: 1;
+}
+#content textarea{
+margin: 1em;
+min-width: 95%;
+max-width: 95%;
+max-height: inherit;
+}
+#content input[type="text"]{
+	display: block;
+}
+
+#content .dateinput input{
+	width: 1.5em;
+	position: relative;
+	display: inline-block;
+	margin-top: 1.5em;
+
+
+}
+
+#content .dateinput #yearinput{
+	
+	width: 2.5em;
+	position: relative;
+	display: inline-block;
+}
+#content select{
+	margin:0 0 1em 1em;
+}
+
+
 
 /******************  3 PAGINE Descrizione Area  ******************/
 /* img corsi area relax   */
@@ -351,72 +443,7 @@ height: 1.5em;
 
 }
 
-/**********FORM LOGIN ************/
 
-#login{
-	width: 40%;
-	margin:auto;
-
-}
-#login label, input{
-	padding-top: 1em;}
-
-#content form {
-padding: 1em;
-background-color: #333;
-color: #eee;
-font-weight: 600;
-opacity: 0.9;
-filter: alpha(opacity=90); /* For IE8 and earlier */*
-}
-
-#content input, #content textarea, #content select {
-padding: 0.3em;
-border: 0.2em solid #AAA;
-font: 0.9em;
-vertical-align: center;
-}
-#content textarea{
-width: 75%;
-margin-left: 1.5em;
-max-width: inherit;
-}
-#content input{
-width: 20em;
-margin-left: 1.5em;
-}
-#content #submit{
-	margin: 1em 0em 0em 6em;
-	width: 21em;
-}
-#content button, #content input {
-line-height: normal;
-}
-
-#content ol li {
-margin: 1em ;
-padding: 0;
-list-style: none;
-text-align: left;
-line-height: 1.2em;
-opacity: 1;
-}
-#content span.req_text, #content span.email_req_text {
-margin: 0em 1em 1em 12em;
-display: block;
-vertical-align: top;
-color: #333;
-font-size: 0.8em;
-line-height: 1.2em;
-}
-
-
-#content .submit_button {
-width: 5em;
-color: #000;
-font-weight: 600;
-
-}
 /*************ORARIO*******************/
 .tipo_area tr th span{ display: block;}
 .tipo_area caption{

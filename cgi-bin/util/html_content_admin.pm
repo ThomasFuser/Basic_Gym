@@ -122,8 +122,8 @@ sub stampaPrezziModificabili{
             my $prezzo = util::html_content::enc($partAbb->findnodes("./prezzo"));
             ($prezzo)=($prezzo=~ /<prezzo>(.*)<\/prezzo>/);
 
-            my $desc = util::html_content::enc($partAbb->findnodes("./descrizione"));
-            ($desc)=($desc=~ /<descrizione>(.*)<\/descrizione>/);
+           my $desc = $partAbb->findnodes("./descrizione");
+           ($desc)=($desc=~ /<descrizione>(.*)<\/descrizione>/);
 
             my $id = util::html_content::enc($partAbb->getAttribute('ID'));  #recupero dell'id selezionato
             
@@ -260,8 +260,9 @@ sub riepilogoNuovoAbbonamento{
    #sostituzione dei caratteri '<' e '>' con caratteri safe che non danno problemi nel database xml
     my $sostMinore="&lt;";
     my $sostMaggiore="&gt;";
-    $Descrizione_form=~ s/</$sostMinore/g | s/>/$sostMaggiore/g; 
-    $Descrizione_form=util::html_content::enc($Descrizione_form);
+    $Descrizione_form=~ s/</&lt;/g ;
+    $Descrizione_form=~s/>/&gt;/g; 
+    #$Descrizione_form=util::html_content::enc($Descrizione_form);
 #CREAZIONE DEL NUOVO PACCHETTO NELL'XML
     #recupero del nodo nel quale salvare il nuovo abbonamento (come figlio)
     my $categoria = $doc->findnodes("//categoria[titolo='$Area_form']")->get_node(1);    

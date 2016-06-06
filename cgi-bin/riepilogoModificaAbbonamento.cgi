@@ -62,9 +62,9 @@ use CGI::Session;
    else{
 
     #sostituzione dei caratteri '<' e '>' con caratteri safe che non danno problemi nel database xml
-    my $sostMinore="&lt;";
-    my $sostMaggiore="&gt;";
-    $Descrizione_form=~ s/</$sostMinore/g | s/>/$sostMaggiore/g; 
+   my $sostMinore="&lt;";
+   my $sostMaggiore="&gt;";
+   $Descrizione_form=~ s/</$sostMinore/g | s/>/$sostMaggiore/g; 
 
     # Percorso del db xml
     my $file = "../data/prezzi.xml";

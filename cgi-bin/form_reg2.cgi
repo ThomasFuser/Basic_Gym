@@ -31,16 +31,16 @@ my $genere=$q->param("genere");
 
 	 my $tipoerrore=undef;
      my $error=0;
-     my %errors;
+     my %datiForm;
      #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
-     $errors{'gg'}=$gg;
-     $errors{'mese'}=$mese;
-     $errors{'anno'}=$anno;
-     $errors{'nome'}=$nome;
-     $errors{'cognome'}=$cognome;
-     $errors{'CF'}=$CF;
-     $errors{'professione'}=$professione;
-     $errors{'genere'}=$genere;
+     $datiForm{'gg'}=$gg;
+     $datiForm{'mese'}=$mese;
+     $datiForm{'anno'}=$anno;
+     $datiForm{'nome'}=$nome;
+     $datiForm{'cognome'}=$cognome;
+     $datiForm{'CF'}=$CF;
+     $datiForm{'professione'}=$professione;
+     $datiForm{'genere'}=$genere;
 
 
       #******************** INIZIO CONTROLLI NOME E COGNOME ******************
@@ -49,14 +49,14 @@ my $genere=$q->param("genere");
         $tipoerrore="Errore: nome è un campo obbligatorio";
         $error=1;
       }
-      $errors{'errNome'}=$tipoerrore;
+      $datiForm{'errNome'}=$tipoerrore;
 
       $tipoerrore=undef;
       if(length($cognome)==0){
         $tipoerrore="Errore: cognome è un campo obbligatorio";
         $error=1;
       }
-      $errors{'errCognome'}=$tipoerrore;
+      $datiForm{'errCognome'}=$tipoerrore;
       #******************** fine CONTROLLI NOME E COGNOME ******************
       #############################INIZIO CONTROLLI DATA DI NASCITA#########################################
       my $sec,my $min ,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst; 
@@ -93,7 +93,7 @@ my $genere=$q->param("genere");
         $tipoerrore="Errore: data non valida";
         $error=1;
       }
-      $errors{"errDataNascita"}=$tipoerrore;
+      $datiForm{"errDataNascita"}=$tipoerrore;
       ######################################## FINE CONTROLLI DATA  DI NASCITA #########################################
  	  #****************************inizio controlli CODICE FISCALE***************************
  	  $tipoerrore=undef;
@@ -107,57 +107,22 @@ my $genere=$q->param("genere");
         $tipoerrore="Errore: inserire un codice fiscale con 16 cifre";
         $error=1;
       }
-      $errors{'errCF'}=$tipoerrore;
+      $datiForm{'errCF'}=$tipoerrore;
       #*********************************fine controlli CODICE FISCALE ***********************************
 
 if($error ne  0){
         util::html_util::start_html("Registrazione");
-         util::base_util::showSchedaDue(%errors);
+         util::base_util::showSchedaDue(%datiForm);
         util::html_util::end_html();
         
       }
       else{
 
-        # salvataggio parametri utente
- 
-          my $file = "../data/registrazione.xml";
-          my $parser = XML::LibXML->new();
-          my $doc = $parser->parse_file($file);
-          my $padre= $doc->findnodes("//registrazione")->get_node(1);
-          my $nome_node= $doc->findnodes("//registrazione/nome")->get_node(1);
-          my $cognome_node= $doc->findnodes("//registrazione/cognome")->get_node(1);
-          my $datanascita_node= $doc->findnodes("//registrazione/datanascita")->get_node(1);
-          my $CF_node= $doc->findnodes("//registrazione/cf")->get_node(1);
-          my $genere_node= $doc->findnodes("//registrazione/genere")->get_node(1);
-          my $professione_node= $doc->findnodes("//registrazione/professione")->get_node(1);
-
-          my $nuovoNOME="<nome>$nome</nome>";
-          my $nuovoCOGNOME="<cognome>$cognome</cognome>";
-          my $nuovoGENERE="<genere>$genere</genere>";
-          my $nuovoDATANASCITA="<datanascita>$datanascita</datanascita>";
-          my $nuovoCF="<cf>$CF</cf>";
-          my $nuovoPROFESSIONE="<professione>$professione</professione>";
-
-
-
-          util::db_util::modifica($padre, $nome_node, $nuovoNOME, $parser);
-          util::db_util::modifica($padre, $cognome_node, $nuovoCOGNOME, $parser);
-          util::db_util::modifica($padre, $genere_node, $nuovoGENERE, $parser);
-          util::db_util::modifica($padre, $datanascita_node, $nuovoDATANASCITA, $parser);
-          util::db_util::modifica($padre, $CF_node, $nuovoCF, $parser);
-          util::db_util::modifica($padre, $professione_node, $nuovoPROFESSIONE, $parser);
-
-        #salvataggio delle modifiche
-           open(OUT,">$file") or die;
-           print OUT $doc->toString;
-            close(OUT);
-
-
       # Stampa form successivo
 
       util::html_util::start_html("Registrazione");
       # stampa form  REGISTRAZIONE: CONTATTI
-      util::base_util::showSchedaTre();
+      util::base_util::showSchedaTre(%datiForm);
       util::html_util::end_html();
 }
 
