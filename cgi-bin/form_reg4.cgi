@@ -69,6 +69,9 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
       $datiForm{'anno_scadenza'}=$q->param('anno_scadenza');
       $datiForm{'mese_scadenza'}=$q->param('mese_scadenza');
+      #salvataggio dati carta
+      $datiForm{'mese_scad'}=$q->param('mese_scadenza');
+      $datiForm{'anno_scad'}=$q->param('giorno_scadenza');
 
       #*********************************FINE CONTROLLI CARTA DI CREDITO***********
        
@@ -84,6 +87,79 @@ else{ #registrazione con dati corretti
 
        util::html_util::start_html("Accedi");
        #salvataggio dei dati nel DB
+
+    #creazione dei nodi del nuovo utente
+    my $utenteXML = XML::LibXML::Element->new('utente');
+    my $dati_accessoXML = XML::LibXML::Element->new('dati_accesso');
+    my $mailXML = XML::LibXML::Element->new('mail');
+    my $passwordXML = XML::LibXML::Element->new('password');
+    my $dati_personaliXML = XML::LibXML::Element->new('dati_personali');
+    my $nomeXML = XML::LibXML::Element->new('nome');
+    my $cognomeXML = XML::LibXML::Element->new('cognome');
+    my $datanascitaXML = XML::LibXML::Element->new('datanascita');
+    my $genereXML = XML::LibXML::Element->new('genere');
+    my $cfXML = XML::LibXML::Element->new('cf');
+    my $indirizzoXML = XML::LibXML::Element->new('indirizzo');
+    my $cittaXML = XML::LibXML::Element->new('citta');
+    my $telXML = XML::LibXML::Element->new('tel');
+    my $professioneXML = XML::LibXML::Element->new('professione');    
+    my $dati_pagamentoXML = XML::LibXML::Element->new('dati_pagamento');
+    my $tipo_cartaXML = XML::LibXML::Element->new('tipo_carta');
+    my $num_cartaXML = XML::LibXML::Element->new('num_carta');
+    my $scadenzaXML = XML::LibXML::Element->new('scadenza');
+
+    #inserimento dei dati nel nuovo utente
+    my $data_nascita_rec= $datiForm{'anno'}.'-'.$datiForm{'mese'}.'-'.$datiForm{'gg'};
+    my $data_scadenza_rec= $datiForm{'anno_scad'}.'-'.$datiForm{'mese_scad'}
+
+    $mailXML->appendText($datiForm{'mail'});
+    $passwordXML->appendText($datiForm{'password'});
+    $nomeXML->appendText($datiForm{'nome'});
+    $cognomeXML->appendText($datiForm{'cognome'});
+    $datanascitaXML->appendText($data_nascita_rec);
+    $genereXML->appendText($datiForm{'genere'});
+    $cfXML->appendText($datiForm{'CF'});
+    $indirizzoXML->appendText($datiForm{'indirizzo'});
+    $cittaXML->appendText($datiForm{'citta'});
+    $telXML->appendText($datiForm{'tel'});
+    $professioneXML->appendText($datiForm{'professione'});
+    $tipo_cartaXML->appendText($datiForm{'tipoCarta'});
+    $num_cartaXML->appendText($datiForm{'ncarta'});
+    $scadenzaXML->appendText($data_scadenza_rec);
+
+
+    my $doc =  util::db_util::caricamentoLibXML();
+    my $utenti = $doc->findnodes("/utenti/")->get_node(1);
+    
+    $utenti->appendChild($utenteXML);
+    $utenteXML->appendChild($dati_accessoXML);
+    $dati_accessoXML->appendChild($mailXML);
+    $dati_accessoXML->appendChild($passwordXML);
+    $dati_personaliXML->appendChild($nomeXML);
+    $dati_personaliXML->appendChild($cognomeXML);
+    $dati_personaliXML->appendChild($datanascitaXML);
+    $dati_personaliXML->appendChild($genereXML);
+    $dati_personaliXML->appendChild($cfXML);
+    $dati_personaliXML->appendChild($indirizzoXML);
+    $dati_personaliXML->appendChild($cittaXML);
+    $dati_personaliXML->appendChild($telXML);
+    $utenteXML->appendChild($dati_pagamentoXML);
+    $dati_pagamentoXML->appendChild($tipo_cartaXML);
+    $dati_pagamentoXML->appendChild($num_cartaXML);
+    $dati_pagamentoXML->appendChild($scadenzaXML);
+
+
+
+
+
+
+
+
+
+    #salvataggio delle modifiche nel database -> (in generale non è nelle funzioni di modifica/elimina in quanto dal mio punto di vista a senso salvare una volta sola le modifiche nel file)
+    open(OUT,">$file") or die $!;
+    print OUT $doc->toString;
+    close(OUT);
 
   print "<div id=\"content\" class=\"forms\">
         <p class=\"riepilogo\">Ti sei registrato correttamente! Ora puoi accedere al tuo nuovo profilo...</p>
