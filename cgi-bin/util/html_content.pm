@@ -103,8 +103,6 @@ sub stampaPrezzi{
 #--------------- PAGINA PREZZI DA STAMPARE QUANDO SI E' LOGGATI COME UTENTI ---------------
 sub stampaPrezziAcquistabili{
 
-    #my $q = new CGI;
-    #my ($user,$path)= @_;
     my $valuta = "€";
     my $doc = util::db_util::caricamentoLibXML();
 
@@ -136,14 +134,19 @@ sub stampaPrezziAcquistabili{
             my $desc = enc($partAbb->findnodes("./descrizione"));
             ($desc)=($desc=~ /<descrizione>(.*)<\/descrizione>/);
 
+            my $id = util::html_content::enc($partAbb->getAttribute('ID'));  #recupero dell'id selezionato
+
+            
             print"
             <ul class=\"package\">
             <li class=\"title\"> $durata </li>
             <li class=\"price\"> $prezzo $valuta </li>
             <li class=\"description\"> $desc </li>
-            <li> <a href=\"Acquista.html\" > Acquista </a>  </li>
+            <form class=\"description\" action=\"acquistaAbbonamento.cgi\" method=\"post\">
+           <button name=\"acquista\" type=\"submit\" class=\"submit_button\" value=\"$id\" >Acquista abbonamento</button></form>
 
             </ul>
+             
             ";
 
             }

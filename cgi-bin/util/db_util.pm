@@ -99,7 +99,6 @@ sub lettura_dati_utente{
   $utente{'professione'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/professione/text()"));
   $utente{'datanascita'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/datanascita/text()"));
   $utente{'indirizzo'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/indirizzo/text()"));
- $utente{'dataiscrizione'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/data_iscrizione/text()"));
   $utente{'citta'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/citta/text()"));
   $utente{'tel'} = util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_personali/tel/text()"));
   $utente{'tipocarta'}= util::html_content::enc($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/dati_pagamento/tipo_carta/text()"));
