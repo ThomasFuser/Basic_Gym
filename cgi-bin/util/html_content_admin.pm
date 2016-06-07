@@ -13,7 +13,7 @@ use Encode qw(encode);
 #use URI;
 
 use Exporter qw(import);
-our @EXPORT = qw(modificaAbbonamentoForm Modifica_Abbonamento stampaRiepilogoModifica stampaPrezziModificabili deleteAbbonamento creaAbbonamento riepilogoNuovoAbbonamento);
+our @EXPORT = qw(calcolaID modificaAbbonamentoForm Modifica_Abbonamento stampaRiepilogoModifica stampaPrezziModificabili deleteAbbonamento creaAbbonamento riepilogoNuovoAbbonamento);
 
 package util::html_content_admin;
 
@@ -187,29 +187,64 @@ sub deleteAbbonamento{
 
 sub creaAbbonamento{
 
+    my %formErr=@_;
+
     print "
     <div id=\"content\">
-        <h1> Modifica Abbonamento  </h1>
+        <h1> Nuovo Abbonamento  </h1>
         <form action=\"riepilogoAggiunta.cgi\" method=\"post\" id=\"mod\">
             <ol>
 
-                <li> <label> <span>\Area\</span>  </label>
-           
-                <select name=\"area\" id=\"area\" >                                              
-                    <option>\Area Soft Fitness\</option>
-                    <option>\Area Cardio Fitness\</option>
-                    <option>\Area Cross Fitness\</option>
-                </select> </li>
+                <li> <label> Area</label>";
+            if($formErr{'area'} eq "Area Cross Fitness") 
+            {print"<select name=\"area\" id=\"area\" >                                              
+                    <option >Area Soft Fitness</option>
+                    <option>Area Cardio Fitness</option>
+                    <option selected=\"selected\">Area Cross Fitness</option>
+                </select> </li>";}
+            elsif($formErr{'area'} eq "Area Cardio Fitness"){
+                print"<select name=\"area\" id=\"area\" >                                              
+                    <option>Area Soft Fitness</option>
+                    <option selected=\"selected\">Area Cardio Fitness</option>
+                    <option>Area Cross Fitness</option>
+                </select> </li>";
 
-                <li> <label> <span>\Descrizione\</span> </label> <textarea cols=\"30\" rows=\"8\" name=\"descrizione\"  class=\"area\"></textarea> <span class=\"req_text\">(obbligatorio)</span> </li>
-                <li> <label> <span>\Periodo\</span>  </label>
+            }
+            else{
+                print"<select name=\"area\" id=\"area\" >                                              
+                    <option selected=\"selected\" >Area Soft Fitness</option>
+                    <option >Area Cardio Fitness</option>
+                    <option>Area Cross Fitness</option>
+                </select> </li>";
+
+            }
+
+           print" <li> <label> Descrizione </label> 
+                <textarea cols=\"20\" rows=\"4\" name=\"descrizione\"  class=\"area\">".$formErr{'descrizione'}."</textarea> 
+                <span class=\"errorText\">* ".$formErr{'errDesc'}."</span> </li>
+                <li> <label> Periodo </label>";
+                
+              
+            if($formErr{'durata'} eq "Abbonamento mensile")
+            {
+                print "
+                    <select name=\"periodo\" id=\"periodo\" >                                              
+                        <option selected=\"selected\">Abbonamento mensile</option>
+                        <option>Abbonamento annuale</option>
+                    </select> </li>
+                ";
+            }else{                   #if($Durata eq "Abbonamento annuale")
+                print "
+                    <select name=\"periodo\" id=\"periodo\" >                                              
+                        <option>Abbonamento mensile</option>
+                        <option selected=\"selected\">Abbonamento annuale</option>
+                    </select> </li>
+                ";
+              }
            
-                <select name=\"periodo\" id=\"periodo\" >                                              
-                    <option selected=\"selected\">\Abbonamento mensile\</option>
-                    <option>\Abbonamento annuale\</option>
-                </select> </li>
-           
-                 <li > <label> <span>\Prezzo (€)\</span> </label> <textarea cols=\"1\" rows=\"1\" name=\"prezzo\" id=\"prezzi\"></textarea> <span class=\"req_text\">(obbligatorio)</span>   </li>    
+                 print "<li > <label> Prezzo (€)</label> 
+                 <input name=\"prezzo\" id=\"prezzi\"value=\"".$formErr{'prezzo'}."\"/>
+                 <span class=\"errorText\">* ".$formErr{'errPrezzo'}."</span> </li>    
                     </ol>
                         
                     <button name=\"crea_nuovo\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"\" >Crea</button>
@@ -241,72 +276,6 @@ sub calcolaID{
 }
 
 
-#--------------- PAGINA DI RIEPILOGO DELL'INSERIMENTO DI UN NUOVO ABBONAMENTO ---------------
-
-sub riepilogoNuovoAbbonamento{
-
-    my $cgi = new CGI;
-    my $file = "../data/prezzi.xml";
-    my $parser = XML::LibXML->new();
-    my $doc = $parser->parse_file($file);
-
-    # Recupero dei dati dalla form                              
-    my $Area_form = util::html_content::enc($cgi->param('area'));
-    my $Descrizione_form = util::html_content::enc($cgi->param('descrizione'));
-    my $Periodo_form = util::html_content::enc($cgi->param('periodo'));
-    my $Prezzo_form = util::html_content::enc($cgi->param('prezzo'));
-   
-
-    # calcolo di un id univoco per il nuovo abbonamento
-    my $id_abbonamento= calcolaID();
-
-    #CONTROLLI PER IL NUOVO PACCHETTO
-
-
-     $Descrizione_form=~ s/^\s+|\s+$//g;
-
-#CREAZIONE DEL NUOVO PACCHETTO NELL'XML
-    #recupero del nodo nel quale salvare il nuovo abbonamento (come figlio)
-    my $categoria = $doc->findnodes("//categoria[titolo='$Area_form']")->get_node(1);    
-
-    #creazione dei nodi del nuovo abbonamento
-    my $AbbonamentoXML = XML::LibXML::Element->new('abbonamento');
-    my $DescrizioneXML = XML::LibXML::Element->new('descrizione');
-    my $PeriodoXML = XML::LibXML::Element->new('durata');
-    my $PrezzoXML = XML::LibXML::Element->new('prezzo');
-
-    #riempimento dei campi del nodo
-    $AbbonamentoXML->setAttribute( 'ID', $id_abbonamento );
-    $DescrizioneXML->appendText($Descrizione_form);
-    $PeriodoXML->appendText($Periodo_form);
-    $PrezzoXML->appendText($Prezzo_form);
-
-    #collegamento dei nodi (creazione del nodo abbonamento)
-    $categoria->appendChild($AbbonamentoXML);
-    $AbbonamentoXML->appendChild($PeriodoXML);
-    $AbbonamentoXML->appendChild($PrezzoXML);
-    $AbbonamentoXML->appendChild($DescrizioneXML);
-
-    #salvataggio delle modifiche nel database -> (in generale non è nelle funzioni di modifica/elimina in quanto dal mio punto di vista a senso salvare una volta sola le modifiche nel file)
-    open(OUT,">$file") or die $!;
-    print OUT $doc->toString;
-    close(OUT); 
-
-    #stampa del nuovo abbonamento
-     print "
-           <div id=\"content\">
-           <h1>Riepilogo dell'inserimento</h1>
-       ";
-
-    util::html_content::stampaPacchetto($Area_form, $Descrizione_form, $Periodo_form, $Prezzo_form);   
-    print "
-         <p id=\"ritorno\"> Ritorna alla pagina <a href=\"prezziModificabili.cgi\" > Prezzi </a> </p>   
-    ";
-
-    print " </div> "; 
-
-
-}
 
 
 #--------------- FUNZIONE DI STAMPA DELLA PAGINA DI MODIFICA DI UN ABONAMENTO (admin) --------------------
@@ -351,10 +320,10 @@ sub modificaAbbonamentoForm{
         <h1> Modifica Abbonamento </h1>
         <form action=\"riepilogoModificaAbbonamento.cgi\" method=\"post\" id=\"mod\">
             <ol>
-                <li> <label>\Descrizione\</label> 
-                <textarea cols=\"30\" rows=\"8\" name=\"descrizione\"  class=\"area\">".$formErr{'descrizione'}."</textarea> 
+                <li> <label>Descrizione</label> 
+                <textarea cols=\"30\" rows=\"8\" name=\"descrizione\"class=\"area\">".$formErr{'descrizione'}."</textarea> 
                 <span class=\"errorText\">* ".$formErr{'errDesc'}."</span> </li>
-                <li> <label> <span>\Periodo\</span>  </label>
+                <li> <label> <span>Periodo</span>  </label>
             ";
 
             if($formErr{'durata'} eq "Abbonamento mensile")
@@ -362,26 +331,29 @@ sub modificaAbbonamentoForm{
                 print "
                     <select name=\"periodo\" id=\"periodo\" >                                              
                         <option selected=\"selected\">\Abbonamento mensile\</option>
-                        <option>\Abbonamento annuale\</option>
+                        <option>Abbonamento annuale</option>
                     </select> </li>
                 ";
             }else{                   #if($Durata eq "Abbonamento annuale")
                 print "
                     <select name=\"periodo\" id=\"periodo\" >                                              
-                        <option>\Abbonamento mensile\</option>
-                        <option selected=\"selected\">\Abbonamento annuale\</option>
+                        <option>Abbonamento mensile</option>
+                        <option selected=\"selected\">Abbonamento annuale</option>
                     </select> </li>
                 ";
               }
 
             print "
-                 <li > <label> <span>\Prezzo (€)\</span> </label> <textarea cols=\"1\" rows=\"1\" name=\"prezzo\" id=\"prezzi\">$formErr{'prezzo'}</textarea> <span class=\"req_text\">(obbligatorio)</span>   </li>
-                 <li> <span class=\"errorText\">* ".$formErr{'errPrezzo'}."</span> </li>    
+                 <li > <label> Prezzo (€) </label> 
+                 <input name=\"prezzo\" id=\"prezzi\" value=\"".$formErr{'prezzo'}."\"/>
+            
+                  <span class=\"errorText\">* ".$formErr{'errPrezzo'}."</span> </li>    
                     </ol>
-
                         
-                        <button name=\"modifica_Abbonamento\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"".$formErr{'id'}."\" >Modifica</button>
+                 <button name=\"modifica_Abbonamento\" type=\"submit\" class=\"submit_button\" 
+                 id=\"invia_mod\" value=\"".$formErr{'id'}."\" >Modifica</button>
                 </form>
+
                     </div>";
 
 }
