@@ -15,7 +15,8 @@ my $q = new CGI;
 
 
 # recupero dei dati inseriti dall'utente
-
+my $email=$q->param('email');
+my $password=$q->param('password');
 my $gg=$q->param('gg');
 my $mese=$q->param('mese');
 my $anno=$q->param('anno');
@@ -33,6 +34,8 @@ my $genere=$q->param("genere");
      my $error=0;
      my %datiForm;
      #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
+     $datiForm{'email'}=$email;
+     $datiForm{'password'}=$password;
      $datiForm{'gg'}=$gg;
      $datiForm{'mese'}=$mese;
      $datiForm{'anno'}=$anno;

@@ -23,7 +23,7 @@ sub showSchedaUno{
         <h2> Dati di accesso </h2>
         <form action=\"form_reg1.cgi\" method=\"post\">
             <ol>
-                <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'mail'}."\" />";
+                <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'email'}."\" />";
                 if($datiForm{'errEmail'} ne undef){ print "<span class=\"erroreForm\" >".$datiForm{'errEmail'}."</span>"; }
 
 print"</li><li><label><span lang=\"en\">Password</span></label><input type=\"text\" name=\"password\"  value=\"".$datiForm{'password'}."\" />";
@@ -45,9 +45,12 @@ sub showSchedaDue{
   print"
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
+        <p>MAIL: $datiForm{'email'}</p>
+       <p> PASSWORD: $datiForm{'password'}</p>
+
         <h2> Dati personali </h2>
         <form action=\"form_reg2.cgi\" method=\"post\">
-             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'mail'}."\" />
+             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
             <ol>                
@@ -81,10 +84,20 @@ sub showSchedaTre{
   my %datiForm= @_;
   print"
   <div id=\"content\" class=\"forms\">
+        <p>MAIL: $datiForm{'email'}</p>
+        <p>PASSWORD: $datiForm{'password'}</p>
+        <p>NOME: $datiForm{'nome'}</p>
+        <p>COGNOME: $datiForm{'cognome'}</p>
+        <p>CODICE FISCALE: $datiForm{'CF'}</p>
+        <p>GENERE: $datiForm{'genere'}</p>
+        <p>GIORNO NASCITA: $datiForm{'gg'}</p>
+        <p>MESE: $datiForm{'mese'}</p>
+        <p>ANNO: $datiForm{'anno'}</p>
+        <p>PROFESSIONE: $datiForm{'professione'}</p>
     <h1>Registrazione</h1>
         <h2> Contatti </h2>
         <form action=\"form_reg3.cgi\" method=\"post\">
-             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'mail'}."\" />
+             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
              <input type=\"hidden\" name=\"nome\" value=\"".$datiForm{'nome'}."\" />
@@ -115,7 +128,7 @@ sub showSchedaQuattro{
     <h1>Registrazione</h1>
         <h2> Metodo di pagamento </h2>
         <form action=\"form_reg4.cgi\" method=\"post\">
-             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'mail'}."\" />
+             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
              <input type=\"hidden\" name=\"nome\" value=\"".$datiForm{'nome'}."\" />

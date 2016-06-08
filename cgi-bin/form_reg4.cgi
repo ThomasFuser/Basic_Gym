@@ -16,6 +16,17 @@ my $anno_scadenza=$q->param("anno_scadenza");
 
 my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
 
+# Percorso del db xml
+    my $file = "../data/utenti.xml";
+
+    # creazione oggetto parser
+    my $parser = XML::LibXML->new();
+
+    # apertura file e lettura input
+    my $doc = $parser->parse_file($file);
+
+    # estrazione radice
+    my $root = $doc->getDocumentElement;
 
       my $tipoerrore=undef;
         my $error=0;
@@ -69,10 +80,22 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
       $datiForm{'anno_scadenza'}=$q->param('anno_scadenza');
       $datiForm{'mese_scadenza'}=$q->param('mese_scadenza');
-      #salvataggio dati carta
-      $datiForm{'mese_scad'}=$q->param('mese_scadenza');
-      $datiForm{'anno_scad'}=$q->param('giorno_scadenza');
 
+      $datiForm{'mail'}=$q->param('mail');
+      $datiForm{'password'}=$q->param('password');
+      $datiForm{'nome'}=$q->param('nome');
+      $datiForm{'cognome'}=$q->param('cognome');
+      $datiForm{'anno'}=$q->param('anno');
+      $datiForm{'mese'}=$q->param('mese');
+      $datiForm{'gg'}=$q->param('gg');
+      $datiForm{'genere'}=$q->param('genere');
+      $datiForm{'CF'}=$q->param('CF');
+      $datiForm{'indirizzo'}=$q->param('indirizzo');
+      $datiForm{'citta'}=$q->param('citta');
+      $datiForm{'tel'}=$q->param('tel');
+      $datiForm{'professione'}=$q->param('professione');
+      $datiForm{'tipoCarta'}=$q->param('tipoCarta');
+      $datiForm{'ncarta'}=$q->param('ncarta');
       #*********************************FINE CONTROLLI CARTA DI CREDITO***********
        
 
@@ -99,7 +122,7 @@ else{ #registrazione con dati corretti
     my $datanascitaXML = XML::LibXML::Element->new('datanascita');
     my $genereXML = XML::LibXML::Element->new('genere');
     my $cfXML = XML::LibXML::Element->new('cf');
-    my $indirizzoXML = XML::LibXML::Element->new('indirizzo');
+    my $indirizzoXML = XML::LibXML::E\lement->new('indirizzo');
     my $cittaXML = XML::LibXML::Element->new('citta');
     my $telXML = XML::LibXML::Element->new('tel');
     my $professioneXML = XML::LibXML::Element->new('professione');    
@@ -110,7 +133,7 @@ else{ #registrazione con dati corretti
 
     #inserimento dei dati nel nuovo utente
     my $data_nascita_rec= $datiForm{'anno'}.'-'.$datiForm{'mese'}.'-'.$datiForm{'gg'};
-    my $data_scadenza_rec= $datiForm{'anno_scad'}.'-'.$datiForm{'mese_scad'}
+    my $data_scadenza_rec= $datiForm{'anno_scadenza'}.'-'.$datiForm{'mese_scadenza'};
 
     $mailXML->appendText($datiForm{'mail'});
     $passwordXML->appendText($datiForm{'password'});
@@ -127,12 +150,13 @@ else{ #registrazione con dati corretti
     $num_cartaXML->appendText($datiForm{'ncarta'});
     $scadenzaXML->appendText($data_scadenza_rec);
 
-
-    my $doc =  util::db_util::caricamentoLibXML();
-    my $utenti = $doc->findnodes("/utenti/")->get_node(1);
+   
+    my $utenti = $doc->findnodes("//utenti")->get_node(1);
     
     $utenti->appendChild($utenteXML);
     $utenteXML->appendChild($dati_accessoXML);
+    $utenteXML->appendChild($dati_personaliXML);
+    $utenteXML->appendChild($dati_pagamentoXML);
     $dati_accessoXML->appendChild($mailXML);
     $dati_accessoXML->appendChild($passwordXML);
     $dati_personaliXML->appendChild($nomeXML);
@@ -143,18 +167,10 @@ else{ #registrazione con dati corretti
     $dati_personaliXML->appendChild($indirizzoXML);
     $dati_personaliXML->appendChild($cittaXML);
     $dati_personaliXML->appendChild($telXML);
-    $utenteXML->appendChild($dati_pagamentoXML);
+    $dati_personaliXML->appendChild($professioneXML);
     $dati_pagamentoXML->appendChild($tipo_cartaXML);
     $dati_pagamentoXML->appendChild($num_cartaXML);
     $dati_pagamentoXML->appendChild($scadenzaXML);
-
-
-
-
-
-
-
-
 
     #salvataggio delle modifiche nel database -> (in generale non è nelle funzioni di modifica/elimina in quanto dal mio punto di vista a senso salvare una volta sola le modifiche nel file)
     open(OUT,">$file") or die $!;
@@ -163,6 +179,25 @@ else{ #registrazione con dati corretti
 
   print "<div id=\"content\" class=\"forms\">
         <p class=\"riepilogo\">Ti sei registrato correttamente! Ora puoi accedere al tuo nuovo profilo...</p>
+        <p>
+            TIPO CARTA: $tipo_cartaXML
+            DATA SCADENZA : $data_scadenza_rec
+            MAIL: $datiForm{'mail'}
+            PASSWORD: $datiForm{'password'}
+           NOME: $datiForm{'nome'}
+            COGNOME: $datiForm{'cognome'}
+            ANNO: $datiForm{'anno'}
+            MESE: $datiForm{'mese'}
+            GIORNO: $datiForm{'gg'}
+            GENERE: $datiForm{'genere'}
+            CF: $datiForm{'CF'}
+            INDIRIZZO: $datiForm{'indirizzo'}
+            CITTÀ: $datiForm{'citta'}
+            TEL: $datiForm{'tel'}
+            DATIFORM: $datiForm{'professione'}
+            TIPOCARTA: $datiForm{'tipoCarta'}
+            NUMERO CARTA: $datiForm{'ncarta'}
+        </p>
   ";
 
 
@@ -176,9 +211,11 @@ else{ #registrazione con dati corretti
          
           </ol>
         </form>
+        </div>
            ";
 
-  print "</div>";
+  
+
        util::html_util::end_html();
 
 }
