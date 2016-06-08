@@ -72,7 +72,7 @@ color: black;
 
 a:visited { color:#FFCC33;} /* link visitato    */
 
-/* TODO TODOEND*/
+
 
 
 
@@ -326,7 +326,7 @@ max-width: inherit;
 line-height: normal;
 }
 
-#content li {
+.forms li {
 padding-right: 1em;
 list-style: none;
 text-align: left;
@@ -375,8 +375,6 @@ max-height: inherit;
 #content select{
 	margin:0 0 1em 1em;
 }
-
-
 
 /******************  3 PAGINE Descrizione Area  ******************/
 /* img corsi area relax   */
@@ -443,7 +441,59 @@ height: 1.5em;
 
 }
 
+/***********CONTATTACI************/
 
+#content form {
+padding: 1em;
+background-color: #333;
+color: #eee;
+font-weight: 600;
+opacity: 0.9;
+filter: alpha(opacity=90); /* For IE8 and earlier */
+}
+#content input, select, textarea{
+margin-left: 1em;
+}
+#content input, #content textarea, #content select {
+padding: 0.3em;
+border: 0.2em solid #AAA;
+font: 0.9em;
+vertical-align: top;
+}
+#content textarea{
+width: 75%;
+margin-left: 1.5em;
+max-width: inherit;
+}
+#content input {
+width: 20em;
+margin-left: 1.5em;
+}
+#content button, #content input {
+line-height: normal;
+}
+
+#content ol li {
+margin: 1em 0!important;
+padding: 0;
+list-style: none!important;
+text-align: left;
+line-height: 1.2em;
+opacity: 1;
+}
+#content span.req_text, #content span.email_req_text {
+margin: 0em 1em 1em 12em;
+display: block;
+vertical-align: top;
+color: #333;
+font-size: 0.8em;
+line-height: 1.2em;
+}
+#content .submit_button {
+width: 5em;
+color: #000;
+font-weight: 600;
+}
 /*************ORARIO*******************/
 .tipo_area tr th span{ display: block;}
 .tipo_area caption{
@@ -526,7 +576,7 @@ color:#333;
 /*****************************/
 
 .packages.boxa{
-padding-top: 8em;
+padding-top: 2em;
 color: white;
 }
 .home{
@@ -915,12 +965,13 @@ left: -9999px;
 
 
 /**************PAGINA UTENTE profilo personale********************/
-/******************************************************************/
+
+
 #img_point{
 background-image: url(../images/weight-icon4.png);
 background-repeat: no-repeat;
 background-size: auto 3em;
-background-position:30% 0%;
+background-position:1em 0.5em;
 background-color: #eee;
 font-size: 1.3em;
 text-shadow: none;
@@ -928,100 +979,36 @@ color:#333;
 opacity: 0.9;
 min-width: 39%;
 font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
+padding: 1.25em 0 0 3em;
+height: 2.5em;
 
 }
-@media (min-width: 768px) and (max-width: 979px) {
-	#img_point{
-background-image: url(../images/weight-icon4.png);
-background-repeat: no-repeat;
-background-size: auto 3em;
-background-position:25% 0%;
-background-color: #eee;
-font-size: 1.3em;
-text-shadow: none;
-color:#333;
-opacity: 0.9;
-min-width: 39%;
-font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
 
-}
-}
-/* Small monitor */
-@media (max-width: 979px){
-#img_point{
-background-image: url(../images/weight-icon4.png);
-background-repeat: no-repeat;
-background-size: auto 3em;
-background-position:25% 0%;
-background-color: #eee;
-font-size: 1.3em;
-text-shadow: none;
-color:#333;
-opacity: 0.9;
-min-width: 39%;
-font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
 
-}
-}
-
-/* Landscape phone to portrait tablet */
-
-@media (max-width: 767px) {
-#img_point{
-background-image: url(../images/weight-icon4.png);
-background-repeat: no-repeat;
-background-size: auto 3em;
-background-position:15% 0%;
-background-color: #eee;
-font-size: 1.3em;
-text-shadow: none;
-color:#333;
-opacity: 0.9;
-min-width: 39%;
-font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
-
-}
-}
-/* Landscape phones and down */
-@media (max-width: 480px) {
-	#img_point{
-background-image: none;
-background-color: #eee;
-font-size: 1.3em;
-text-shadow: none;
-color:#333;
-opacity: 0.9;
-min-width: 39%;
-font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
-
-}
-}
 .abb_utente ul{
+
+	text-align: center;
 	margin-top: 0.5em;
 	margin-bottom: 0.25em;
+	width: 20em;
+	float: left;
+	display: inline-block;
+	margin-left: 1em;
+	margin-right: 0.5em;
+	padding: 1em;
+
+
 }
+
 .abb_utente ul li{
 	background-color: #333;
-	min-height: 2em;
 	color: #eee;
-	padding: 0.4em 0 0.4em 0;
+	padding: 0.4em 0.5em 0.4em 0.5em;
 	list-style: none;
 }
-.abb_utente{
-text-align: center;
-width: 100%;
-margin: auto;
-}
+
+
+
 
 .abb_utente .price{
 text-align: center;
@@ -1032,46 +1019,44 @@ font-size: 1.2em;
 
 .abb_utente .price em{font-weight:600;}
 
+#content .info_utente{
+	clear: both;
+	
+}
 ul.profilo{
+	width: 60%;
+	margin: 0 20% 0 20%;
+	
 	background-color: #eee;
 	opacity: 0.9;
 	color: #333;
-	/*width: 100%;*/
 	list-style-type: none;
 	padding: 0.5em;
-	
 }
 
 span.field_name{
-	width: 25%;
+	
+	
+	width: 15%;
 	text-align: right;
 	position:absolute;
-	margin-right: 75%;
+	margin-right: 85%;
 	font-weight: 600;
  
 
  }
 span.value{
+
 	width: 65%;
 	margin-left: 35%;
 	
 
 }
 .modify{
+
 	float: right;
 /*	padding-right: 0.5em;*/
 	background-color: #333;
 	color: #eee;
 	padding: 0.5em;
-}
-
-#ritorno{
-	text-align: center;
-	font-size: 1.5em;
-    padding: 0.2em 0.2em 0.2em 1em;
-    background-color: #eee;
-    margin: 0.5em 0em 0.5em 0em;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }

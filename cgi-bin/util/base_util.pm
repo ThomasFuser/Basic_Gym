@@ -29,7 +29,7 @@ sub showSchedaUno{
 print"</li><li><label><span lang=\"en\">Password</span></label><input type=\"text\" name=\"password\"  value=\"".$datiForm{'password'}."\" />";
 if($datiForm{'errPw'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errPw'}."</span>"; }
 
-print"</li><li><label>Ripeti <span lang=\"en\">password</span></label><input type=\"text\" name=\"password_repeat\"  value=\"\" />";      
+print"</li><li><label>Ripeti <span lang=\"en\">password</span></label><input type=\"text\" name=\"password_repeat\"  value=\"".$datiForm{'ripetipassword'}."\" />";      
  if($datiForm{'errPwRep'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errPwRep'}."</span>"; }
                
 print"</li></ol>

@@ -17,6 +17,7 @@ my $q = new CGI;
 # recupero dei dati inseriti dall'utente
 my $email=$q->param("email");
 my $password=$q->param("password");
+my $ripetipassword=$q->param("password_repeat");
 
 
         my $tipoerrore=undef;
@@ -26,16 +27,17 @@ my $password=$q->param("password");
 
         $datiForm{'email'}=$email;
         $datiForm{'password'}=$password;
+        $datiForm{'ripetipassword'}=$ripetipassword;
         #******************** INIZIO CONTROLLI SULLA MAIL *******************
-        if(length($email)==0){
+        if(length($q->param("email"))==0){
           $tipoerrore="Errore: email è un campo obbligatorio";
           $error=1;
-          #TODO
-        }#elsif (!($q->param('mail')=~ /^([\w\-\+\.]+)@([\w\-\+\.]+)\.([\w\-\+\.]+)$/)){
-         # $tipoerrore="Errore: email non valida";
-         # $error=1;
+          
+        }elsif (!($q->param('email')=~/^[a-z0-9][a-z0-9.]+@[a-z0-9]+.[a-z0-9]+$/)){
+          $tipoerrore="Errore: email non valida";
+          $error=1;
 
-       # }
+        }
     else{
           my $doc = XML::LibXML->new()->parse_file('../data/utenti.xml');
           my $confMail = $doc->findnodes("utenti/utente/dati_accesso[mail/text()]");
