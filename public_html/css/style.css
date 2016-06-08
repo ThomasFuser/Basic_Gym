@@ -965,12 +965,13 @@ left: -9999px;
 
 
 /**************PAGINA UTENTE profilo personale********************/
-/******************************************************************/
+
+
 #img_point{
 background-image: url(../images/weight-icon4.png);
 background-repeat: no-repeat;
 background-size: auto 3em;
-background-position:30% 0%;
+background-position:1em 0.5em;
 background-color: #eee;
 font-size: 1.3em;
 text-shadow: none;
@@ -978,100 +979,36 @@ color:#333;
 opacity: 0.9;
 min-width: 39%;
 font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
+padding: 1.25em 0 0 3em;
+height: 2.5em;
 
 }
-@media (min-width: 768px) and (max-width: 979px) {
-	#img_point{
-background-image: url(../images/weight-icon4.png);
-background-repeat: no-repeat;
-background-size: auto 3em;
-background-position:25% 0%;
-background-color: #eee;
-font-size: 1.3em;
-text-shadow: none;
-color:#333;
-opacity: 0.9;
-min-width: 39%;
-font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
 
-}
-}
-/* Small monitor */
-@media (max-width: 979px){
-#img_point{
-background-image: url(../images/weight-icon4.png);
-background-repeat: no-repeat;
-background-size: auto 3em;
-background-position:25% 0%;
-background-color: #eee;
-font-size: 1.3em;
-text-shadow: none;
-color:#333;
-opacity: 0.9;
-min-width: 39%;
-font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
 
-}
-}
-
-/* Landscape phone to portrait tablet */
-
-@media (max-width: 767px) {
-#img_point{
-background-image: url(../images/weight-icon4.png);
-background-repeat: no-repeat;
-background-size: auto 3em;
-background-position:15% 0%;
-background-color: #eee;
-font-size: 1.3em;
-text-shadow: none;
-color:#333;
-opacity: 0.9;
-min-width: 39%;
-font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
-
-}
-}
-/* Landscape phones and down */
-@media (max-width: 480px) {
-	#img_point{
-background-image: none;
-background-color: #eee;
-font-size: 1.3em;
-text-shadow: none;
-color:#333;
-opacity: 0.9;
-min-width: 39%;
-font-weight: 600;
-padding: 0.7em 0 0.7em 0;
-height: 3em;
-
-}
-}
 .abb_utente ul{
+
+	text-align: center;
 	margin-top: 0.5em;
 	margin-bottom: 0.25em;
+	width: 20em;
+	float: left;
+	display: inline-block;
+	margin-left: 1em;
+	margin-right: 0.5em;
+	padding: 1em;
+
+
 }
+
 .abb_utente ul li{
 	background-color: #333;
-	min-height: 2em;
 	color: #eee;
-	padding: 0.4em 0 0.4em 0;
+	padding: 0.4em 0.5em 0.4em 0.5em;
 	list-style: none;
 }
-.abb_utente{
-text-align: center;
-width: 100%;
-margin: auto;
-}
+
+
+
 
 .abb_utente .price{
 text-align: center;
@@ -1082,32 +1019,41 @@ font-size: 1.2em;
 
 .abb_utente .price em{font-weight:600;}
 
+#content .info_utente{
+	clear: both;
+	
+}
 ul.profilo{
+	width: 60%;
+	margin: 0 20% 0 20%;
+	
 	background-color: #eee;
 	opacity: 0.9;
 	color: #333;
-	/*width: 100%;*/
 	list-style-type: none;
 	padding: 0.5em;
-	
 }
 
 span.field_name{
-	width: 25%;
+	
+	
+	width: 15%;
 	text-align: right;
 	position:absolute;
-	margin-right: 75%;
+	margin-right: 85%;
 	font-weight: 600;
  
 
  }
 span.value{
+
 	width: 65%;
 	margin-left: 35%;
 	
 
 }
 .modify{
+
 	float: right;
 /*	padding-right: 0.5em;*/
 	background-color: #333;
