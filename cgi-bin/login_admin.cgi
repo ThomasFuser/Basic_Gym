@@ -46,17 +46,18 @@ sub showForm{
   my $error = $_[0];
   util::html_util::start_html('Accesso amministratore');
 
-  print "<p id='errorLogin'>"; # Serve per Js
-     if ($error ne '') {
-        print "$error";
-     }
-  print "</p>";
 
-  print "<div class='form'>
-           <h3>Login</h3>
+  print "<div id=\"content\" class='forms'>
+          
            ";
 
-  print "<form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login_admin.cgi\" method=\"post\">
+     if ($error ne '') {
+          print "<p id='errorLogin'>";
+          print "$error";
+          print "</p>";
+     }
+
+  print " <h1>Accesso amministratore</h1><form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login_admin.cgi\" method=\"post\">
                  <fieldset>
                     <label id=\"user\" for=\"username\">Username</label>
                     <input id=\"username\" type=\"text\" name=\"username\" size=\"25\"/>
