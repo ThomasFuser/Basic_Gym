@@ -20,9 +20,33 @@ my $tel=$q->param("tel");
         my %datiForm ;
 
         # scrivo i dati inseriti nell'array $datiForm  per ripristinare i dati inseriti nella form in caso di errore
+
         $datiForm {'tel'}=$tel;
         $datiForm {'indirizzo'}=$indirizzo;
         $datiForm {'citta'}=$citta;
+          
+          my $email=$q->param('email');
+          my $password=$q->param('password');
+          my $gg=$q->param('gg');
+          my $mese=$q->param('mese');
+          my $anno=$q->param('anno');
+          my $nome=$q->param("nome");
+          my $cognome=$q->param("cognome");
+          my $CF=$q->param("CF");
+          my $professione=$q->param("professione");
+          my $genere=$q->param("genere");
+          
+          $datiForm {'email'}=$email ;
+          $datiForm {'password'}=$password ;
+          $datiForm {'gg'}=$gg ;
+          $datiForm {'mese'}=$mese ;
+          $datiForm {'anno'}=$anno ;
+          $datiForm {'nome'}=$nome ;
+          $datiForm {'cognome'}=$cognome ;
+          $datiForm {'CF'}= $CF;
+          $datiForm {'professione'}=$professione ;
+          $datiForm {'genere'}=$genere ;
+     
         #******************** INIZIO CONTROLLI NUMERO DI TELEFONO *******************
       
       if(length($q->param('tel'))==0){

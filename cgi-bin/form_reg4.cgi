@@ -9,7 +9,7 @@ use CGI::Session;
 
 my $q = new CGI;
 
-my $tipocarta=$q->param("tipocarta");
+my $tipocarta=$q->param("tipoCarta");
 my $ncarta=$q->param("ncarta");
 my $mese_scadenza=$q->param("mese_scadenza");
 my $anno_scadenza=$q->param("anno_scadenza");
@@ -56,7 +56,7 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       }
       $datiForm{'errCarta'}=$tipoerrore;
       #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
-      $datiForm{'tipoCarta'}=$q->param('tipocarta');
+      $datiForm{'tipoCarta'}=$q->param('tipoCarta');
       $datiForm{'ncarta'}=$q->param('ncarta');
       #************************controlli data di scadenza carta di credito*******************
 
@@ -81,7 +81,7 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       $datiForm{'anno_scadenza'}=$q->param('anno_scadenza');
       $datiForm{'mese_scadenza'}=$q->param('mese_scadenza');
 
-      $datiForm{'mail'}=$q->param('mail');
+      $datiForm{'email'}=$q->param('email');
       $datiForm{'password'}=$q->param('password');
       $datiForm{'nome'}=$q->param('nome');
       $datiForm{'cognome'}=$q->param('cognome');
@@ -122,7 +122,7 @@ else{ #registrazione con dati corretti
     my $datanascitaXML = XML::LibXML::Element->new('datanascita');
     my $genereXML = XML::LibXML::Element->new('genere');
     my $cfXML = XML::LibXML::Element->new('cf');
-    my $indirizzoXML = XML::LibXML::E\lement->new('indirizzo');
+    my $indirizzoXML = XML::LibXML::Element->new('indirizzo');
     my $cittaXML = XML::LibXML::Element->new('citta');
     my $telXML = XML::LibXML::Element->new('tel');
     my $professioneXML = XML::LibXML::Element->new('professione');    
@@ -135,7 +135,7 @@ else{ #registrazione con dati corretti
     my $data_nascita_rec= $datiForm{'anno'}.'-'.$datiForm{'mese'}.'-'.$datiForm{'gg'};
     my $data_scadenza_rec= $datiForm{'anno_scadenza'}.'-'.$datiForm{'mese_scadenza'};
 
-    $mailXML->appendText($datiForm{'mail'});
+    $mailXML->appendText($datiForm{'email'});
     $passwordXML->appendText($datiForm{'password'});
     $nomeXML->appendText($datiForm{'nome'});
     $cognomeXML->appendText($datiForm{'cognome'});
@@ -179,25 +179,6 @@ else{ #registrazione con dati corretti
 
   print "<div id=\"content\" class=\"forms\">
         <p class=\"riepilogo\">Ti sei registrato correttamente! Ora puoi accedere al tuo nuovo profilo...</p>
-        <p>
-            TIPO CARTA: $tipo_cartaXML
-            DATA SCADENZA : $data_scadenza_rec
-            MAIL: $datiForm{'mail'}
-            PASSWORD: $datiForm{'password'}
-           NOME: $datiForm{'nome'}
-            COGNOME: $datiForm{'cognome'}
-            ANNO: $datiForm{'anno'}
-            MESE: $datiForm{'mese'}
-            GIORNO: $datiForm{'gg'}
-            GENERE: $datiForm{'genere'}
-            CF: $datiForm{'CF'}
-            INDIRIZZO: $datiForm{'indirizzo'}
-            CITTÀ: $datiForm{'citta'}
-            TEL: $datiForm{'tel'}
-            DATIFORM: $datiForm{'professione'}
-            TIPOCARTA: $datiForm{'tipoCarta'}
-            NUMERO CARTA: $datiForm{'ncarta'}
-        </p>
   ";
 
 

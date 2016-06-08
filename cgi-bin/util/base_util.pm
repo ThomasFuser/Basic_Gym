@@ -45,9 +45,6 @@ sub showSchedaDue{
   print"
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
-        <p>MAIL: $datiForm{'email'}</p>
-       <p> PASSWORD: $datiForm{'password'}</p>
-
         <h2> Dati personali </h2>
         <form action=\"form_reg2.cgi\" method=\"post\">
              <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
@@ -84,16 +81,6 @@ sub showSchedaTre{
   my %datiForm= @_;
   print"
   <div id=\"content\" class=\"forms\">
-        <p>MAIL: $datiForm{'email'}</p>
-        <p>PASSWORD: $datiForm{'password'}</p>
-        <p>NOME: $datiForm{'nome'}</p>
-        <p>COGNOME: $datiForm{'cognome'}</p>
-        <p>CODICE FISCALE: $datiForm{'CF'}</p>
-        <p>GENERE: $datiForm{'genere'}</p>
-        <p>GIORNO NASCITA: $datiForm{'gg'}</p>
-        <p>MESE: $datiForm{'mese'}</p>
-        <p>ANNO: $datiForm{'anno'}</p>
-        <p>PROFESSIONE: $datiForm{'professione'}</p>
     <h1>Registrazione</h1>
         <h2> Contatti </h2>
         <form action=\"form_reg3.cgi\" method=\"post\">
@@ -122,7 +109,11 @@ print"</li></ol>
 
 sub showSchedaQuattro{
   my %datiForm= @_;
-  my $prova="ciaociao";
+ # my $prova="ciaociao";
+
+ 
+       
+
   print"
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
@@ -145,7 +136,7 @@ sub showSchedaQuattro{
              <input type=\"hidden\" name=\"tel\" value=\"".$datiForm{'tel'}."\" />
 
             <ol>
-                <li>Tipo di carta di credito <select name=\"tipocarta\" id=\"tipocarta\" >                                              
+                <li>Tipo di carta di credito <select name=\"tipoCarta\" id=\"tipocarta\" >                                              
                         <option selected=\"selected\">Visa</option>
                         <option>Mastercard</option>
                         <option>American Express</option>
