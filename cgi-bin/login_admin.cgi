@@ -63,7 +63,7 @@ sub showForm{
                     <input id=\"username\" type=\"text\" name=\"username\" size=\"25\"/>
                     <label id=\"pass\" for=\"password\">Password</label>
                     <input id=\"password\" type=\"password\" name=\"password\" size=\"25\"/>
-                    <input id='submit' type=\"submit\" name=\"accedi\" value=\"Accedi\" />
+                    <input id='submit' type=\"submit\" name=\"accedi\" value=\"Accedi\" class=\"submit_button\" />
                  </fieldset>
               </form>
            ";

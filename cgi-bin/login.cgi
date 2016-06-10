@@ -64,7 +64,7 @@ sub showForm{
                     <input id=\"username\" type=\"text\" name=\"username\"/>
                     <label id=\"pass\" for=\"password\">Password</label>
                     <input id=\"password\" type=\"password\" name=\"password\"/>
-                    <input id='submit' type=\"submit\" name=\"accedi\" value=\"Accedi\" />
+                    <input id='submit' type=\"submit\" name=\"accedi\" value=\"Accedi\" class=\"submit_button\"/>
                  </fieldset>
                  <p>Non hai un sei ancora registrato? <a href=\"registrazione.cgi\">Registrati!</a></p>
               </form>     
