@@ -36,7 +36,6 @@ print
     <link href=\"../css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>
    
     <link rel=\"stylesheet\"  href=\"../css/print.css\" type=\"text/css\" media=\"print\"/>
-    <script src=\"http://code.jquery.com/jquery-1.11.3.min.js\"></script>
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>
     <link rel=\"SHORTCUT ICON\" href=\"../images/BasicGym_logo.png\" />
 </head>
@@ -97,28 +96,28 @@ sub nav{
   my $session = CGI::Session->load();
 
       print"    <div id=\"nav\"> <a href=\"index.cgi\""; 
-                    if(@navparam[0] eq "Home") {print "class=\"not-active\"";} print ">Home</a>";
+                    if(@navparam[0] eq "Home") {print " class=\"not-active\"";} print ">Home</a>";
       print"<a href=\"corsi.cgi\"";
-                    if(@navparam[0] eq "Corsi"){print "class=\"not-active\"";}  print ">Corsi</a>";
+                    if(@navparam[0] eq "Corsi"){print " class=\"not-active\"";}  print ">Corsi</a>";
       print"<a href=\"prezzi.cgi\"";
-                    if(@navparam[0] eq "Prezzi"){print "class=\"not-active\"";} print ">Prezzi</a>";
+                    if(@navparam[0] eq "Prezzi"){print " class=\"not-active\"";} print ">Prezzi</a>";
       print"<a href=\"staff.cgi\"";
-                    if(@navparam[0] eq "Staff"){print "class=\"not-active\"";}print ">Staff</a>";            
+                    if(@navparam[0] eq "Staff"){print " class=\"not-active\"";}print ">Staff</a>";            
       print"<a href=\"orari.cgi\"";
-                    if(@navparam[0] eq "Orari"){print "class=\"not-active\"";};  print ">Orari</a>";
+                    if(@navparam[0] eq "Orari"){print " class=\"not-active\"";};  print ">Orari</a>";
 
   if($session->param("username") eq undef){
     
     print"<a href=\"login.cgi\"";
-                  if(@navparam[0] eq "Accedi"){print "class=\"not-active\"";}  print ">Accedi</a>";
+                  if(@navparam[0] eq "Accedi"){print " class=\"not-active\"";}  print ">Accedi</a>";
       print"<a href=\"registrazione.cgi\"";
-                    if(@navparam[0] eq "Registrazione"){print "class=\"not-active\"";}  print ">Registrati </a>";
+                    if(@navparam[0] eq "Registrazione"){print " class=\"not-active\"";}  print ">Registrati </a>";
 
   }
   elsif($session->param("username") ne "admin"){
 
     print"<a href=\"utente.cgi\"";
-                  if(@navparam[0] eq "Profilo"){print "class=\"not-active\"";}  print ">Profilo</a>";
+                  if(@navparam[0] eq "Profilo"){print " class=\"not-active\"";}  print ">Profilo</a>";
       print"<a href=\"logout.cgi\">Esci</a>";
 
   }elsif($session->param("username") eq "admin"){
