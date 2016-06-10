@@ -105,11 +105,18 @@ sub stampaPrezziModificabili{
 
     my $query = "listaAbbonamenti/categoria";
 
-
     print "
+    <div id=\"nav2\"><ul>";
+    foreach my $titArea($doc->findnodes($query))
+    {
+        my $area = util::html_content::enc($titArea->findnodes("./titolo"));
+         ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
+
+         print" <li><a href=\"$area\">".$area."</a></li>";
+      }
+     print" </ul></div>
     <div id=\"content\">
-        <h1>Prezzi e Offerte</h1>
-    ";
+        <h1>Prezzi e Offerte</h1>";
 
 
     foreach my $titArea($doc->findnodes($query))

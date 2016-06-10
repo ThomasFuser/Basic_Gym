@@ -62,13 +62,17 @@ sub stampaPrezzi{
     my $query = "listaAbbonamenti/categoria";
 
     print "
-    <div id=\"nav2\"><ul><li><a href=\"#Area Soft Fitness\">Abbonamenti Soft Fitness</a></li>
-    <li><a href=\"#Area Cardio Fitness\">Abbonamenti Cardio Fitness</a></li>
-    <li><a href=\"#Area Cross Fitness\">Abbonamenti Cross Fitness</a></li></ul></div>
+    <div id=\"nav2\"><ul>";
+    foreach my $titArea($doc->findnodes($query))
+    {
+        my $area = enc($titArea->findnodes("./titolo"));
+         ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
+
+         print" <li><a href=\"$area\">".$area."</a></li>";
+      }
+     print" </ul></div>
     <div id=\"content\">
-    
-        <h1>Prezzi e Offerte</h1>
-    ";
+        <h1>Prezzi e Offerte</h1>";
 
     foreach my $titArea($doc->findnodes($query))
     {
@@ -112,14 +116,18 @@ sub stampaPrezziAcquistabili{
 
     my $query = "listaAbbonamenti/categoria";
 
-
     print "
-     <div id=\"nav2\"><ul><li><a href=\"#Area Soft Fitness\">Abbonamenti Soft Fitness</a></li>
-    <li><a href=\"#Area Cardio Fitness\">Abbonamenti Cardio Fitness</a></li>
-    <li><a href=\"#Area Cross Fitness\">Abbonamenti Cross Fitness</a></li></ul></div>
+    <div id=\"nav2\"><ul>";
+    foreach my $titArea($doc->findnodes($query))
+    {
+        my $area = enc($titArea->findnodes("./titolo"));
+         ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
+
+         print" <li><a href=\"$area\">".$area."</a></li>";
+      }
+     print" </ul></div>
     <div id=\"content\">
-        <h1>Prezzi e Offerte</h1>
-    ";
+        <h1>Prezzi e Offerte</h1>";
 
 
     foreach my $titArea($doc->findnodes($query))
