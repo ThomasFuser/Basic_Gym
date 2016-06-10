@@ -13,7 +13,7 @@ border: none;
 font-family: "Segoe UI",Arial,sans-serif;
 -webkit-box-sizing: border-box;
 }
-body a { text-decoration:underline !important; }
+body a { text-decoration:underline !important; color:#FFCC33; }
 
 body{
 
@@ -66,14 +66,11 @@ filter: alpha(opacity=70); /* For IE8 and earlier */
 
 .not-active {                    /*  link attuali   */
 cursor: default;
-background-color: #EAEAEA;
-color: black;
+background-color: #666;
+color: #fff;
 }
 
-a:visited { color:#FFCC33;} /* link visitato    */
-
-
-
+a:visited { color:#fff;} /* link visitato    */
 
 
 /**********************************************************************************************************************/
@@ -99,11 +96,7 @@ clear: both;
 width: 80%;
 margin: 0 auto;
 }
-.login-right{
-position: relative;
-color: #FFCC33;
-float: right;
-}
+
 .header{
 width: 100%;
 height: auto;
@@ -180,18 +173,35 @@ color: white;
 position: relative;
 display: inline-block;
 font-size: 1em;
-line-height: 40px;
+line-height: 35px;
 padding: 0 1.2em;
 /*-webkit-transition: all .3s ease;*/
 }
 #nav>a:hover{
-background: rgba(255,255,255,.9);
-color: black;
-
+background: #eee;
+color: #000;
+opacity: 0.9;
 }
 .hidden-desktop{
 display: none;
 }
+#nav2{
+	background-color: #000;
+	color: #eee;
+	opacity: 0.7;
+	text-align: right;
+	padding-right: 10%;
+	padding-top:0;
+}
+#nav2 ul li{
+	list-style-type: none;
+	position: relative;
+	display: inline-block;
+	padding: 0.5em;
+	padding-top: 0;
+	line-height: 20px;
+}
+
 
 /**********************************************************************************************************************/
 /*********************************************************FOOTER******************************************************/
@@ -216,15 +226,15 @@ display: none;
 }
 
 #LogAmm{ padding-right:1em; }
-#footer a:visited{ color:#FFCC33;}
+#footer a:visited{ color:#fff;}
 
 /*************** FOOTER CON INFO************/
 #footOre a{
-color:#eee;
+color:#FFCC33;
 text-decoration:underline;
 }
 
-#footOre a:visited { color: #FFCC33; }
+#footOre a:visited { color: #fff; }
 
 #footOre a:hover{
 padding: 0.2em;
@@ -305,13 +315,13 @@ filter: alpha(opacity=90); /* For IE8 and earlier */
 #content input {
 margin-top: 1em;
 margin-bottom: 1em;
-margin-right: 1em;
+/*margin-right: 1em;*/
 width: 95%;
 
 
 }
 #content input, #content textarea, #content select {
-padding: 0.3em;
+/*padding: 0.3em;*/
 border: 0.2em solid #666;
 font: 0.9em;
 vertical-align: top;
@@ -323,11 +333,11 @@ max-width: inherit;
 }
 
 #content button, #content input {
-line-height: normal;
+line-height: 1.6em;
 }
 
 .forms li {
-padding-right: 1em;
+/*padding-right: 1em;*/
 list-style: none;
 text-align: left;
 line-height: 1.2em;
@@ -362,8 +372,6 @@ max-height: inherit;
 	position: relative;
 	display: inline-block;
 	margin-top: 1.5em;
-
-
 }
 
 #content .dateinput #yearinput{
@@ -375,6 +383,27 @@ max-height: inherit;
 #content select{
 	margin:0 0 1em 1em;
 }
+@media (min-width: 768px) and (max-width: 979px){
+
+	.forms{
+		background-color: yellow;
+	}
+}
+@media (min-width: 480px) and (max-width: 768px){
+	#content{
+     	width: 100%;
+     	margin: auto;
+     }
+
+}
+@media  (max-width: 480px){
+     #content{
+     	width: 100%;
+     	margin: auto;
+     }
+    
+}
+
 
 /******************  3 PAGINE Descrizione Area  ******************/
 /* img corsi area relax   */
@@ -441,59 +470,8 @@ height: 1.5em;
 
 }
 
-/***********CONTATTACI************/
 
-#content form {
-padding: 1em;
-background-color: #333;
-color: #eee;
-font-weight: 600;
-opacity: 0.9;
-filter: alpha(opacity=90); /* For IE8 and earlier */
-}
-#content input, select, textarea{
-margin-left: 1em;
-}
-#content input, #content textarea, #content select {
-padding: 0.3em;
-border: 0.2em solid #AAA;
-font: 0.9em;
-vertical-align: top;
-}
-#content textarea{
-width: 75%;
-margin-left: 1.5em;
-max-width: inherit;
-}
-#content input {
-width: 20em;
-margin-left: 1.5em;
-}
-#content button, #content input {
-line-height: normal;
-}
 
-#content ol li {
-margin: 1em 0!important;
-padding: 0;
-list-style: none!important;
-text-align: left;
-line-height: 1.2em;
-opacity: 1;
-}
-#content span.req_text, #content span.email_req_text {
-margin: 0em 1em 1em 12em;
-display: block;
-vertical-align: top;
-color: #333;
-font-size: 0.8em;
-line-height: 1.2em;
-}
-#content .submit_button {
-width: 5em;
-color: #000;
-font-weight: 600;
-}
 /*************ORARIO*******************/
 .tipo_area tr th span{ display: block;}
 .tipo_area caption{
@@ -724,13 +702,13 @@ background-size: 1.4em;
 .sez .button{
 	float:right;
 	background-color:#333;
-	color:#eee;
+	color:#FFCC33;
 	padding: 0.5em;
 	opacity: 0.9;
 	filter: alpha(opacity=90); /* For IE8 and earlier */
 }
 
-.sez .button:visited { color: #FFCC33; }
+.sez .button:visited { color: #fff; }
 
 #area1{
 	background-image: url(../images/area1.png);
@@ -884,8 +862,7 @@ display: block;
 /***************************************************************/
 
 
-
-@media screen and (max-width: 768px){
+@media screen and (max-width: 480px){
 
 .sez ul{
 	min-width:100%;
@@ -927,7 +904,7 @@ padding-left: 2.5em;
 .tipo_area table{width: 100%;}
 .tipo_area thead{display:none;}
 .tipo_area tr td:first-child{font-weight:bold;font-size:1.3em;}
-.tipo_area tbody td{display:block;text-align:center;}
+.tipo_area tbody td{display:block;text-align:left;padding-left: 30%;}
 .tipo_area tbody td:before {
 display:block;
 text-align:center;
@@ -968,18 +945,13 @@ left: -9999px;
 
 
 #img_point{
-background-image: url(../images/weight-icon4.png);
-background-repeat: no-repeat;
-background-size: auto 3em;
-background-position:1em 0.5em;
 background-color: #eee;
 font-size: 1.3em;
-text-shadow: none;
 color:#333;
 opacity: 0.9;
 min-width: 39%;
 font-weight: 600;
-padding: 1.25em 0 0 3em;
+padding:0.8em 0 0 0;
 height: 2.5em;
 
 }
@@ -1052,22 +1024,48 @@ span.value{
 	
 
 }
-.modify{
 
-	float: right;
-/*	padding-right: 0.5em;*/
-	background-color: #333;
-	color: #eee;
-	padding: 0.5em;
+@media (max-width: 776px) {
+.abb_utente{
+		width: 100%;
+		margin: auto;
+
+	}
+	.abb_utente ul{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	margin-top: 0.5em;
+		 
+	}
+
+
+
+ul.profilo{
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
-#ritorno{
-	text-align: center;
-	font-size: 1.5em;
-    padding: 0.2em 0.2em 0.2em 1em;
-    background-color: #eee;
-    margin: 0.5em 0em 0.5em 0em;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+span.field_name{
+	clear: both;
+	text-align: right;
+	position:relative
+	font-weight: 600;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	width: 30%;
+ 
+ }
+span.value{
+	clear: both;
+	display: inline;
+	padding: 0;
+	margin: 0;
+	padding-left: 5%;
+
+
 }
+}
+

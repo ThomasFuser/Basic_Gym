@@ -26,10 +26,10 @@ sub showSchedaUno{
                 <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'email'}."\" />";
                 if($datiForm{'errEmail'} ne undef){ print "<span class=\"erroreForm\" >".$datiForm{'errEmail'}."</span>"; }
 
-print"</li><li><label><span lang=\"en\">Password</span></label><input type=\"text\" name=\"password\"  value=\"".$datiForm{'password'}."\" />";
+print"</li><li><label><span lang=\"en\">Password</span></label><input type=\"password\" name=\"password\"  value=\"".$datiForm{'password'}."\" />";
 if($datiForm{'errPw'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errPw'}."</span>"; }
 
-print"</li><li><label>Ripeti <span lang=\"en\">password</span></label><input type=\"text\" name=\"password_repeat\"  value=\"".$datiForm{'ripetipassword'}."\" />";      
+print"</li><li><label>Ripeti <span lang=\"en\">password</span></label><input type=\"password\" name=\"password_repeat\"  value=\"".$datiForm{'ripetipassword'}."\" />";      
  if($datiForm{'errPwRep'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errPwRep'}."</span>"; }
                
 print"</li></ol>
