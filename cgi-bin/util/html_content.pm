@@ -62,7 +62,11 @@ sub stampaPrezzi{
     my $query = "listaAbbonamenti/categoria";
 
     print "
+    <div id=\"nav2\"><ul><li><a href=\"#Area Soft Fitness\">Abbonamenti Soft Fitness</a></li>
+    <li><a href=\"#Area Cardio Fitness\">Abbonamenti Cardio Fitness</a></li>
+    <li><a href=\"#Area Cross Fitness\">Abbonamenti Cross Fitness</a></li></ul></div>
     <div id=\"content\">
+    
         <h1>Prezzi e Offerte</h1>
     ";
 
@@ -72,7 +76,7 @@ sub stampaPrezzi{
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
          print"
-         <div class=\"packages\"><h2> $area </h2> ";
+         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
@@ -110,6 +114,9 @@ sub stampaPrezziAcquistabili{
 
 
     print "
+     <div id=\"nav2\"><ul><li><a href=\"#Area Soft Fitness\">Abbonamenti Soft Fitness</a></li>
+    <li><a href=\"#Area Cardio Fitness\">Abbonamenti Cardio Fitness</a></li>
+    <li><a href=\"#Area Cross Fitness\">Abbonamenti Cross Fitness</a></li></ul></div>
     <div id=\"content\">
         <h1>Prezzi e Offerte</h1>
     ";
@@ -121,7 +128,7 @@ sub stampaPrezziAcquistabili{
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
          print"
-         <div class=\"packages\"><h2> $area </h2> ";
+         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
@@ -159,7 +166,10 @@ sub stampaPrezziAcquistabili{
 
 #---------------- STAMPA  DESCRIZIONE DEI CORSI ---------------------
 sub stampaCorsi{
-print"  <div id=\"content\">
+print"
+ <div id=\"nav2\"><ul><li><a href=\"#area1\">Corsi Soft Fitness</a></li>
+    <li><a href=\"#area2\">Corsi Cardio Fitness</a></li>
+    <li><a href=\"#area3\">Corsi Cross Fitness</a></li></ul></div>  <div id=\"content\">
 
      <h1>Offerta Corsi</h1>
       <!--<img class=\"areaIM\" src=\"corsi.jpg\" alt=\"ragazza che pedala in palestra\"/>-->
@@ -207,6 +217,9 @@ print"  <div id=\"content\">
 #---------------- FUNZONE DI STAMPA PAGINA SOFT --------------------
 sub stampaSoft{
   print "
+   <div id=\"nav2\"><ul><li><a href=\"#yoga\">Yoga</a></li>
+    <li><a href=\"#pilates\">Pilates</a></li>
+    <li><a href=\"#bbalance\">Body Balance</a></li></ul></div>
   <div id=\"content\">
 
       <div class=\"text\"> <h1>Area <span lang=\"en\">Soft Fitness</span></h1>
@@ -230,11 +243,15 @@ sub stampaSoft{
 #----------------- FUNZIONE STAMPA  SOFT -----------------
 sub stampaCross{
   print "
+   <div id=\"nav2\"><ul><li><a href=\"#intervalt\"> Interval Training </a></li>
+    <li><a href=\"#bcombat\">Body Combat  </a></li>
+    <li><a href=\"#bpump\"> Body Pump </a></li>
+    <li><a href=\"#crossf\"> Cross Fit </a></li></ul></div>
   <div id=\"content\">
       <div class=\"text\">
                <h1>Area<span lang=\"en\" >CrossFitness</span></h1>
        <dl>
-              <dt><span lang=\"en\">Interval Training</span></dt>
+              <dt id=\"intervalt\"><span lang=\"en\">Interval Training</span></dt>
               <dd> Disciplina innovativa famosa per la sua efficacia.
   Strutturata in un'alternanza \"intervalli\" di attività  aerobica e anaerobica  che miglioreranno le vostre prestazioni cardiovascolari e la vostra resistenza fisica.
 </dd>
@@ -257,6 +274,9 @@ sub stampaCross{
 #------------------ FUNZIONE STAMPA CARDIO --------------------
 sub stampaCardio{
   print"
+  <div id=\"nav2\"><ul><li><a href=\"#walking\"> Walking </a></li>
+    <li><a href=\"#spinning\">Spinning </a></li>
+    <li><a href=\"#totalb\"> Total Body</a></li></div>
   <div id=\"content\">
       <div class=\"text\"> <h1>Area Cardio<span lang=\"en\">Fitness</span></h1>
               <dl id=\"corsicardio\">
@@ -283,6 +303,10 @@ sub stampaCardio{
 #---------------------- FUNZIONE STAMPA ORARIO ----------------
 sub stampaOrario{
   print"
+   <div id=\"nav2\"><ul><li><a href=\"#softfit\">Sala Soft Fitness</a></li>
+    <li><a href=\"#cardiofit\">Sala Cardio Fitness</a></li>
+    <li><a href=\"#crossfit\">Sala Cross Fitness</a></li></ul></div>
+
   <div id=\"content\">
     	<h1>Orari e Sale</h1>
    		<div class=\"tipo_area\">
@@ -517,12 +541,16 @@ sub enc{
 #--------------- STAMPA DELLA PAGINA STAFF --------------------
 sub stampaStaff{
 print"
+ <div id=\"nav2\"><ul><li><a href=\"#softstaff\">Istruttori Soft Fitness</a></li>
+    <li><a href=\"#cardiostaff\">Istruttori Cardio Fitness</a></li>
+    <li><a href=\"#crossstaff\">Istruttori Cross Fitness</a></li></ul></div>
+
 <div id=\"content\">
        <h1 id=\"TitoloStaff\"> Il nostro <span xml:lang=\"en\">staff</span> </h1>
 
-        <div class=\"sez\">  <!-- class sez -->
+        <div id=\"softstaff\"class=\"sez\">  <!-- class sez -->
         <h2> <span xml:lang=\"en\">Soft Fitness</span></h2>
-    <dl class=\"contenitorePT\">
+    <dl  class=\"contenitorePT\">
             <dt class=\"nomePT\"> Vanessa </dt>
        <dd class=\"PTcont\">
                 <p>
@@ -559,7 +587,7 @@ print"
         </dl>
                                                              <!-- Attività aerobica -->
          </div>
-        <div class=\"sez\">
+        <div id=\"cardiostaff\"class=\"sez\">
         <h2> <span xml:lang=\"en\">Cardio Fitness</span> </h2>
         <dl class=\"contenitorePT\">
             <dt class=\"nomePT\"> Federico </dt>
@@ -596,7 +624,7 @@ print"
             </dl>
        </div>
                                                   <!-- Streight training -->
-      <div class=\"sez\">                                        <!-- Streight training -->
+      <div id=\"crossstaff\" class=\"sez\">                                        <!-- Streight training -->
       <h2> <span xml:lang=\"en\">Cross Fitness</span> </h2>
   <dl class=\"contenitorePT\">
             <dt class=\"nomePT\"> Matteo </dt>
@@ -681,10 +709,11 @@ sub stampaProfiloUtente{
   my $username=@_[0];
   my %utente=util::db_util::lettura_dati_utente($username);
   
-print "<div id=\"content\">
+print " <div id=\"nav2\"><ul><li><a href=\"#abb_acq\">Abbonamenti acquistati</a></li><li><a href=\"profilo\">I tuoi dati</a></li></ul></div>
+<div id=\"content\">
         <h1>Il tuo profilo</h1>
         
-        <div class=\"abb_utente\">
+        <div id=\"abb_acq\" class=\"abb_utente\">
             <h2>I tuoi abbonamenti</h2>
             <ul >
                 <li id=\"img_point\" class=\"title\">Abbonamento Base</li>
@@ -712,7 +741,7 @@ print "<div id=\"content\">
             </ul>
             
         </div>
-        <div class=\"info_utente\" >
+        <div id=\"profilo\"class=\"info_utente\" >
 
         <h2>La tua scheda </h2>
         <ul class=\"profilo\">
