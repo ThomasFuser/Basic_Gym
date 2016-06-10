@@ -404,6 +404,35 @@ max-height: inherit;
     
 }
 
+li.admin_button{
+	display: inline;
+	position: relative;
+	width: 6em;
+	float:left;
+	padding: 0 1em 0 1em;
+}
+li.admin_button button{
+	background-color: #ccc;
+	color: #333;
+	padding: 0.2em 0.5em 0.2em 0.5em;
+}
+
+#content form.add_button{
+	width: 50%;
+	margin: 0 25% 0 25%;
+	padding: 0 12% 0 12%;
+	
+
+}
+#content form.add_button button{
+	background-color: inherit;
+	color: #eee;
+	font-size: 1.2em;
+	font-weight: 600;
+
+}
+
+
 
 /******************  3 PAGINE Descrizione Area  ******************/
 /* img corsi area relax   */
@@ -540,7 +569,7 @@ font-size: 1em;
 color: #eee;
 background-color: #333;
 margin-top: 0em;
-padding: 1em 0.7em 1em 0.7em;
+padding: 1em 0.7em 0.2em 0.7em;
 }
 .package .price{
 background: #eee !important;

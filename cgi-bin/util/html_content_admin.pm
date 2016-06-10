@@ -118,7 +118,7 @@ sub stampaPrezziModificabili{
     <div id=\"content\">
         <h1>Prezzi e Offerte</h1>
            <form class=\"add_button\" action=\"addAbbonamento.cgi\" method=\"post\">
-           <button name=\"Nuovo\" type=\"submit\" class=\"\" value=\"\" >Crea abbonamento</button>
+           <button name=\"Nuovo\" type=\"submit\" class=\"\" value=\"\" >Crea un nuovo abbonamento</button>
         </form>
 
         ";
@@ -130,44 +130,39 @@ sub stampaPrezziModificabili{
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
          print"
-         <div class=\"packages\"><h2> $area </h2> ";
+         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
-
             my $stato = util::html_content::enc($partAbb->getAttribute('stato'));
+
             if($stato eq "valido"){
 
-            
-            my $durata = util::html_content::enc($partAbb->findnodes("./durata"));
-            ($durata)=($durata=~ /<durata>(.*)<\/durata>/);
 
-            my $prezzo = util::html_content::enc($partAbb->findnodes("./prezzo"));
-            ($prezzo)=($prezzo=~ /<prezzo>(.*)<\/prezzo>/);
+                  my $durata = util::html_content::enc($partAbb->findnodes("./durata"));
+                  ($durata)=($durata=~ /<durata>(.*)<\/durata>/);
+                  my $prezzo = util::html_content::enc($partAbb->findnodes("./prezzo"));
+                  ($prezzo)=($prezzo=~ /<prezzo>(.*)<\/prezzo>/);
+      
+                 my $desc = util::html_content::enc($partAbb->findnodes("./descrizione"));
+                 ($desc)=($desc=~ /<descrizione>(.*)<\/descrizione>/);
+      
+                  my $id = util::html_content::enc($partAbb->getAttribute('ID'));
 
-           my $desc = $partAbb->findnodes("./descrizione");
-           ($desc)=($desc=~ /<descrizione>(.*)<\/descrizione>/);
-
-            my $id = util::html_content::enc($partAbb->getAttribute('ID'));  #recupero dell'id selezionato
-        
-            
             print"
-            <ul class=\"package\">
-            <li class=\"title\"> $durata </li>
-            <li class=\"price\"> $prezzo $valuta </li>
-            <li class=\"description\"> $desc </li>
-            <li> <form class=\"description\" action=\"ModificaAbbonamento.cgi\" method=\"post\">
-           <button name=\"Mod\" type=\"submit\" class=\"submit_button\" value=\"$id\" >Modifica</button>
-</form>  </li>
-<li> <form class=\"description\" action=\"eliminazione_abbonamento.cgi\" method=\"post\">
-           <button name=\"Elim\" type=\"submit\" class=\"submit_button\" value=\"$id\" >Elimina</button>
-</form>  </li>
-            </ul>
-            
-            ";
-
-        }
-    }
+                <ul class=\"package\">
+               <li class=\"title\"> $durata </li>
+                <li class=\"price\"> $prezzo $valuta </li>
+                <li class=\"description\"> $desc </li>
+                <li class=\"admin_button\" > <form class=\"description\" action=\"ModificaAbbonamento.cgi\" method=\"post\">
+                     <button name=\"Mod\" type=\"submit\" class=\"admin_button\" value=\"$id\" >Modifica</button>
+          </form>  </li>
+          <li class=\"admin_button\"> <form class=\"description\" action=\"eliminazione_abbonamento.cgi\" method=\"post\">
+                     <button name=\"Elim\" type=\"submit\"  value=\"$id\" >Elimina</button>
+          </form>  </li>
+                      </ul> "; }
+                  }
+    
         print "</div>";
     }# CHIUSURA FOREACH TITOLI
 

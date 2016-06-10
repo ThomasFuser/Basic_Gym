@@ -12,7 +12,7 @@
 			
 			
 		<durata>Abbonamento mensile</durata><prezzo>5000</prezzo><descrizione>Prova della modifica dell'abbmoanngquiywebaòi</descrizione></abbonamento>
-    <abbonamento ID="7" stato="non-valido"><durata>Abbonamento mensile</durata><prezzo>2011</prezzo><descrizione>Ciao sto facendo una prova</descrizione></abbonamento><abbonamento ID="8" stato="valido"><durata>Abbonamento mensile</durata><prezzo>200</prezzo><descrizione>Nuova prova di inserimento di un pacchetto</descrizione></abbonamento><abbonamento ID="9" stato="valido"><durata>Abbonamento annuale</durata><prezzo>1000</prezzo><descrizione>ciao</descrizione></abbonamento></categoria>
+    <abbonamento ID="7" stato="non-valido"><durata>Abbonamento mensile</durata><prezzo>2011</prezzo><descrizione>Ciao sto facendo una prova</descrizione></abbonamento><abbonamento ID="8" stato="valido"><durata>Abbonamento mensile</durata><prezzo>200.00</prezzo><descrizione>Nuova prova di inserimento di un pacchetto perche nn si vede la descrizione?</descrizione></abbonamento><abbonamento ID="9" stato="valido"><durata>Abbonamento annuale</durata><prezzo>1000</prezzo><descrizione>ciao</descrizione></abbonamento></categoria>
 
 		<categoria>
 			<titolo>Area Cardio Fitness</titolo>
