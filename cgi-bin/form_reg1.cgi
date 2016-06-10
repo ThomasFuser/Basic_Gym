@@ -24,7 +24,6 @@ my $ripetipassword=$q->param("password_repeat");
         my $error=0;
         my %datiForm;
         #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
-
         $datiForm{'email'}=$email;
         $datiForm{'password'}=$password;
         $datiForm{'ripetipassword'}=$ripetipassword;
@@ -39,12 +38,19 @@ my $ripetipassword=$q->param("password_repeat");
 
         }
     else{
-          my $doc = XML::LibXML->new()->parse_file('../data/utenti.xml');
-          my $confMail = $doc->findnodes("utenti/utente/dati_accesso[mail/text()]");
-          if ($confMail eq $email){
+         my $sentinella=0;
+         my $doc = XML::LibXML->new()->parse_file('../data/utenti.xml');
+         foreach my $utente($doc->findnodes("//utente"))
+         {
+            my $confMail = $utente->findnodes("./dati_accesso/mail/text()");
+            if ($confMail eq $email){  $sentinella=1; } 
+        }
+         
+        if (($sentinella==1)){
             $tipoerrore="Errore: email già esistente";
             $error=1;
         }
+        
       }
       $datiForm{'errEmail'}=$tipoerrore;
 

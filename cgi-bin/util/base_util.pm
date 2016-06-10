@@ -23,7 +23,7 @@ sub showSchedaUno{
         <h2> Dati di accesso </h2>
         <form action=\"form_reg1.cgi\" method=\"post\">
             <ol>
-                <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'mail'}."\" />";
+                <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'email'}."\" />";
                 if($datiForm{'errEmail'} ne undef){ print "<span class=\"erroreForm\" >".$datiForm{'errEmail'}."</span>"; }
 
 print"</li><li><label><span lang=\"en\">Password</span></label><input type=\"text\" name=\"password\"  value=\"".$datiForm{'password'}."\" />";
@@ -47,7 +47,7 @@ sub showSchedaDue{
     <h1>Registrazione</h1>
         <h2> Dati personali </h2>
         <form action=\"form_reg2.cgi\" method=\"post\">
-             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'mail'}."\" />
+             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
             <ol>                
@@ -84,7 +84,7 @@ sub showSchedaTre{
     <h1>Registrazione</h1>
         <h2> Contatti </h2>
         <form action=\"form_reg3.cgi\" method=\"post\">
-             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'mail'}."\" />
+             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
              <input type=\"hidden\" name=\"nome\" value=\"".$datiForm{'nome'}."\" />
@@ -109,13 +109,17 @@ print"</li></ol>
 
 sub showSchedaQuattro{
   my %datiForm= @_;
-  my $prova="ciaociao";
+ # my $prova="ciaociao";
+
+ 
+       
+
   print"
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
         <h2> Metodo di pagamento </h2>
         <form action=\"form_reg4.cgi\" method=\"post\">
-             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'mail'}."\" />
+             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
              <input type=\"hidden\" name=\"nome\" value=\"".$datiForm{'nome'}."\" />
@@ -132,7 +136,7 @@ sub showSchedaQuattro{
              <input type=\"hidden\" name=\"tel\" value=\"".$datiForm{'tel'}."\" />
 
             <ol>
-                <li>Tipo di carta di credito <select name=\"tipocarta\" id=\"tipocarta\" >                                              
+                <li>Tipo di carta di credito <select name=\"tipoCarta\" id=\"tipocarta\" >                                              
                         <option selected=\"selected\">Visa</option>
                         <option>Mastercard</option>
                         <option>American Express</option>

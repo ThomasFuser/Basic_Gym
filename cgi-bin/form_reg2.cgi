@@ -15,7 +15,8 @@ my $q = new CGI;
 
 
 # recupero dei dati inseriti dall'utente
-
+my $email=$q->param('email');
+my $password=$q->param('password');
 my $gg=$q->param('gg');
 my $mese=$q->param('mese');
 my $anno=$q->param('anno');
@@ -33,6 +34,8 @@ my $genere=$q->param("genere");
      my $error=0;
      my %datiForm;
      #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
+     $datiForm{'email'}=$email;
+     $datiForm{'password'}=$password;
      $datiForm{'gg'}=$gg;
      $datiForm{'mese'}=$mese;
      $datiForm{'anno'}=$anno;
@@ -100,10 +103,10 @@ my $genere=$q->param("genere");
       if(length($q->param('CF'))==0){
         $tipoerrore="Errore: Codice Fiscale è un campo obbligatorio";
         $error=1;
-     }elsif(!($q->param('CF')=~/^[A-Za-z]{6}[0-9]{2}[A-Za-z][0-9]{2}[A-Za-z][0-9]{3}[A-Za-z]$/)){
-       $tipoerrore="Errore: inserire un codice fiscale valido";
-        $error=1;
-      }elsif (length($q->param('CF'))<16 || length($q->param('CF'))>16){
+     }#elsif(!($q->param('CF')=~/^[A-Za-z]{6}[0-9]{2}[A-Za-z][0-9]{2}[A-Za-z][0-9]{3}[A-Za-z]$/)){   #commento per prova (da togliere)
+      # $tipoerrore="Errore: inserire un codice fiscale valido";
+      #  $error=1;}
+      elsif (length($q->param('CF'))<16 || length($q->param('CF'))>16){
         $tipoerrore="Errore: inserire un codice fiscale con 16 cifre";
         $error=1;
       }
