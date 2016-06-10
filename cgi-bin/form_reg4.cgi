@@ -8,6 +8,7 @@ use CGI;
 use CGI::Session;
 
 my $q = new CGI;
+   util::html_util::start_html("Riepilogo registrazione");
 
 my $tipocarta=$q->param("tipoCarta");
 my $ncarta=$q->param("ncarta");
@@ -31,6 +32,19 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       my $tipoerrore=undef;
         my $error=0;
         my %datiForm;
+                            #controllo ancora la mail per capire se l'utente ha ricaricato la pagina di conferma dell'abbo
+      $datiForm{'email'}=$q->param('email');
+      my $sentinella=0;
+      foreach my $utente($doc->findnodes("//utente"))
+      {
+        print " <p> NUOVA MAIL:  </p>";
+        my $confMail = $utente->findnodes("./dati_accesso/mail/text()");
+         if ($confMail eq $datiForm{'email'}){  $sentinella=1; print " <p> EMAIL_UGUALE </p>";   } 
+      }
+         my $stringaFinale;
+
+  if ($sentinella==0){
+ 
       #**************************INIZIO CONTROLLI CARTA DI CREDITO*****************
       if(length($q->param('ncarta'))==0){
         $tipoerrore="Errore: il numero di carta di credito è un capo obbligatorio";
@@ -81,7 +95,7 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       $datiForm{'anno_scadenza'}=$q->param('anno_scadenza');
       $datiForm{'mese_scadenza'}=$q->param('mese_scadenza');
 
-      $datiForm{'email'}=$q->param('email');
+      
       $datiForm{'password'}=$q->param('password');
       $datiForm{'nome'}=$q->param('nome');
       $datiForm{'cognome'}=$q->param('cognome');
@@ -108,7 +122,7 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       }
 else{ #registrazione con dati corretti
 
-       util::html_util::start_html("Accedi");
+       
        #salvataggio dei dati nel DB
 
     #creazione dei nodi del nuovo utente
@@ -176,46 +190,21 @@ else{ #registrazione con dati corretti
     open(OUT,">$file") or die $!;
     print OUT $doc->toString;
     close(OUT);
-
-  print "<div id=\"content\" class=\"forms\">
-        <p class=\"riepilogo\">Ti sei registrato correttamente! Ora puoi accedere al tuo nuovo profilo...</p>
-  ";
-
-
-  print "
-        <h2> Accedi </h2>
-       <form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login.cgi\" method=\"post\">
-            <ol>
-                <li><label><span lang=\"en\">Email</span></label><input type=\"text\" name=\"username\" value=\"\" /></li>
-                <li><label><span lang=\"en\">Password</span></label><input type=\"password\" name=\"password\"  value=\"\" /></li>
-          <li><input type=\"submit\" name=\"submit_button\" class= \"submit_button\" value=\"Accedi\" /></li>          
-         
-          </ol>
-        </form>
-        </div>
-           ";
-
-  
-
-       util::html_util::end_html();
-
-}
-
-       
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-      
+    $stringaFinale="avvenuta con successo";
+  }
+    
+  }else{ $stringaFinale="gia eseguita"; }
+    
    
- 
+
+print "
+           <div id=\"content\">
+           <h1>Riepilogo della registrazione</h1>
+       ";
+print "
+         <p id=\"ritorno\"> Registrazione $stringaFinale . Accedi nella pagine <a href=\"login.cgi\" > Login </a> </p>   
+    ";
+
+    print " </div> "; 
+
+util::html_util::end_html();
