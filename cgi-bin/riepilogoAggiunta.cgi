@@ -84,6 +84,7 @@ use CGI::Session;
 
     #riempimento dei campi del nodo
     $AbbonamentoXML->setAttribute( 'ID', $id_abbonamento );
+    $AbbonamentoXML->setAttribute( 'stato', "valido" );
     $DescrizioneXML->appendText($Descrizione_form);
     $PeriodoXML->appendText($Periodo_form);
     $PrezzoXML->appendText($Prezzo_form);

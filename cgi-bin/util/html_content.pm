@@ -753,7 +753,7 @@ print " <div id=\"nav2\"><ul><li><a href=\"#abb_acq\">Abbonamenti acquistati</a>
 
         <h2>La tua scheda </h2>
         <ul class=\"profilo\">
-            <span class=\"modify\">Modifica profilo</span>
+           
                <li>
                 <span class=\"field_name\" >Email</span> 
                     <span class=\"value\">".$utente{'email'}."</span></li>

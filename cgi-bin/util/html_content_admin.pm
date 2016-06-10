@@ -116,7 +116,12 @@ sub stampaPrezziModificabili{
       }
      print" </ul></div>
     <div id=\"content\">
-        <h1>Prezzi e Offerte</h1>";
+        <h1>Prezzi e Offerte</h1>
+           <form class=\"add_button\" action=\"addAbbonamento.cgi\" method=\"post\">
+           <button name=\"Nuovo\" type=\"submit\" class=\"\" value=\"\" >Crea abbonamento</button>
+        </form>
+
+        ";
 
 
     foreach my $titArea($doc->findnodes($query))
@@ -129,6 +134,11 @@ sub stampaPrezziModificabili{
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
+
+            my $stato = util::html_content::enc($partAbb->getAttribute('stato'));
+            if($stato eq "valido"){
+
+            
             my $durata = util::html_content::enc($partAbb->findnodes("./durata"));
             ($durata)=($durata=~ /<durata>(.*)<\/durata>/);
 
@@ -139,6 +149,7 @@ sub stampaPrezziModificabili{
            ($desc)=($desc=~ /<descrizione>(.*)<\/descrizione>/);
 
             my $id = util::html_content::enc($partAbb->getAttribute('ID'));  #recupero dell'id selezionato
+        
             
             print"
             <ul class=\"package\">
@@ -155,7 +166,8 @@ sub stampaPrezziModificabili{
             
             ";
 
-            }
+        }
+    }
         print "</div>";
     }# CHIUSURA FOREACH TITOLI
 
@@ -175,11 +187,9 @@ sub deleteAbbonamento{
     my $id_abbonamento = $cgi->param('Elim');
 
     #recupero del nodo da eliminare
-    my $nodoElim = $doc->findnodes("//abbonamento[\@ID=$id_abbonamento]")->get_node(1);
-
-    #invocazione della funzione che consente di eliminare un nodo e tutti i suoi figli
-    util::db_util::eliminaNodo($doc, $nodoElim);
-
+    my $nodoElim =$doc->findnodes("//abbonamento[\@ID=$id_abbonamento]")->get_node(1);
+    #inserimento del nodo tra quelli "non-validi" ovvero eliminati 
+    $nodoElim->setAttribute( 'stato', "non-valido" );
     #salvataggio delle modifiche nel database -> (in generale non è nelle funzioni di modifica/elimina in quanto dal mio punto di vista a senso salvare una volta sola le modifiche nel file)
     open(OUT,">$file") or die $!;
     print OUT $doc->toString;
