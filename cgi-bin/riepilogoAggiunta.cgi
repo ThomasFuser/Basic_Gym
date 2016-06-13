@@ -55,7 +55,11 @@ use CGI::Session;
        }if(($Prezzo_form+0)<0){
           $tipoerrore="Errore: inserire prezzo maggiore di zero";
           $error=1;
-       } 
+       } if(!($Prezzo_form=~ /^([1-9][0-9]*|0)(\.?[0-9]{2})?$/ ))     
+        {
+            $tipoerrore="Errore: inserire un prezzo che contenga caratteri non numerici.";
+            $error=1;
+        }
        $errors{'errPrezzo'}=$tipoerrore;
 
 

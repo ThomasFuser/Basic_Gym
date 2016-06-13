@@ -9,6 +9,6 @@ use CGI::Session;
 
 
 
-util::html_util::start_html("<a href=\"prezzi.cgi\">Prezzi</a>  &gt Modifica abbonamento");
+util::html_util::start_html("<a href=\"prezzi.cgi\">Prezzi</a>  &gt; Modifica abbonamento");
 util::html_content_admin::Modifica_Abbonamento();
 util::html_util::end_html();

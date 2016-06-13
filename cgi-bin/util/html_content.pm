@@ -80,7 +80,7 @@ sub stampaPrezzi{
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
          print"
-         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
+         <div class=\"packages\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
@@ -136,7 +136,7 @@ sub stampaPrezziAcquistabili{
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
          print"
-         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
+         <div class=\"packages\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
@@ -282,9 +282,13 @@ sub stampaCross{
 #------------------ FUNZIONE STAMPA CARDIO --------------------
 sub stampaCardio{
   print"
-  <div id=\"nav2\"><ul><li><a href=\"#walking\"> Walking </a></li>
-    <li><a href=\"#spinning\">Spinning </a></li>
-    <li><a href=\"#totalb\"> Total Body</a></li></div>
+  <div id=\"nav2\">
+    <ul>
+      <li><a href=\"#walking\"> Walking </a></li>
+      <li><a href=\"#spinning\">Spinning </a></li>
+      <li><a href=\"#totalb\"> Total Body</a></li> 
+    </ul>
+  </div>
   <div id=\"content\">
       <div class=\"text\"> <h1>Area Cardio<span lang=\"en\">Fitness</span></h1>
               <dl id=\"corsicardio\">
@@ -556,7 +560,7 @@ print"
 <div id=\"content\">
        <h1 id=\"TitoloStaff\"> Il nostro <span xml:lang=\"en\">staff</span> </h1>
 
-        <div id=\"softstaff\"class=\"sez\">  <!-- class sez -->
+        <div id=\"softstaff\" class=\"sez\">  <!-- class sez -->
         <h2> <span xml:lang=\"en\">Soft Fitness</span></h2>
     <dl  class=\"contenitorePT\">
             <dt class=\"nomePT\"> Vanessa </dt>
@@ -595,7 +599,7 @@ print"
         </dl>
                                                              <!-- Attività aerobica -->
          </div>
-        <div id=\"cardiostaff\"class=\"sez\">
+        <div id=\"cardiostaff\" class=\"sez\">
         <h2> <span xml:lang=\"en\">Cardio Fitness</span> </h2>
         <dl class=\"contenitorePT\">
             <dt class=\"nomePT\"> Federico </dt>
@@ -749,7 +753,7 @@ print " <div id=\"nav2\"><ul><li><a href=\"#abb_acq\">Abbonamenti acquistati</a>
             </ul>
             
         </div>
-        <div id=\"profilo\"class=\"info_utente\" >
+        <div id=\"profilo\" class=\"info_utente\" >
 
         <h2>La tua scheda </h2>
         <ul class=\"profilo\">

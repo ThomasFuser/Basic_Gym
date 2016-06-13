@@ -128,9 +128,9 @@ sub stampaPrezziModificabili{
     {
         my $area = util::html_content::enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
-
-         print"
-         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
+                #nel div sotto qui era presente: <!-- era presente: dopo class  id=\"$area\"  -->
+         print" 
+         <div class=\"packages\"><h2> $area </h2> ";        
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
@@ -246,7 +246,7 @@ sub creaAbbonamento{
                     </select> </li>
                 ";
             }else{                   #if($Durata eq "Abbonamento annuale")
-                print "
+                 print "
                     <select name=\"periodo\" id=\"periodo\" >                                              
                         <option>Abbonamento mensile</option>
                         <option selected=\"selected\">Abbonamento annuale</option>
@@ -255,7 +255,7 @@ sub creaAbbonamento{
               }
            
                  print "<li > <label> Prezzo (€)</label> 
-                 <input name=\"prezzo\" id=\"prezzi\"value=\"".$formErr{'prezzo'}."\"/>
+                 <input name=\"prezzo\" id=\"prezzi\" value=\"".$formErr{'prezzo'}."\"/>
                  <span class=\"errorText\">* ".$formErr{'errPrezzo'}."</span> </li>    
                     </ol>
                         
@@ -263,6 +263,8 @@ sub creaAbbonamento{
         </form>
     </div>
             ";
+
+    
 
 }
 #--------------- FUNZIONE CHE PERMETTE DI CALCOLARE UN ID UNIVOCO ---------------
@@ -291,7 +293,7 @@ sub calcolaID{
 
 
 #--------------- FUNZIONE DI STAMPA DELLA PAGINA DI MODIFICA DI UN ABONAMENTO (admin) --------------------
-sub Modifica_Abbonamento{
+    sub Modifica_Abbonamento{
 
     #my $q = new CGI;
     #my ($user,$path)= @_;
@@ -333,7 +335,7 @@ sub modificaAbbonamentoForm{
         <form action=\"riepilogoModificaAbbonamento.cgi\" method=\"post\" id=\"mod\">
             <ol>
                 <li> <label>Descrizione</label> 
-                <textarea cols=\"30\" rows=\"8\" name=\"descrizione\"class=\"area\">".$formErr{'descrizione'}."</textarea> 
+                <textarea cols=\"30\" rows=\"8\" name=\"descrizione\" class=\"area\">".$formErr{'descrizione'}."</textarea> 
                 <span class=\"errorText\">* ".$formErr{'errDesc'}."</span> </li>
                 <li> <label> <span>Periodo</span>  </label>
             ";
@@ -365,7 +367,6 @@ sub modificaAbbonamentoForm{
                  <button name=\"modifica_Abbonamento\" type=\"submit\" class=\"submit_button\" 
                  id=\"invia_mod\" value=\"".$formErr{'id'}."\" >Modifica</button>
                 </form>
-
                     </div>";
 
 }
