@@ -1097,4 +1097,15 @@ span.value{
 
 }
 }
+			/* PER FAVORE È LA DECIME VOLTA CHE LO METTO. NON DEVE ESSERE TOLTO */
+#ritorno{
+ 	text-align: center;
+ 	font-size: 1.5em;
+     padding: 0.2em 0.2em 0.2em 1em;
+     background-color: #eee;
+     margin: 0.5em 0em 0.5em 0em;
+     opacity: 0.8;
+     filter: alpha(opacity=80);
+     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+ }
 
