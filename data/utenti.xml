@@ -16,9 +16,18 @@
 		<citta>Castelfranco Veneto</citta>
 		<tel>3926636470</tel>
 		<professione>studente</professione>
-
 	</dati_personali>
 	<lista_acquistati>
+		<abb_acquistato>
+			<id_abbonamento>3</id_abbonamento>
+			<inizio>2016-04-13</inizio>
+			<scadenza>2016-12-13</scadenza>
+		</abb_acquistato>
+		<abb_acquistato>
+			<id_abbonamento>4</id_abbonamento>
+			<inizio>2017-04-13</inizio>
+			<scadenza>2018-12-13</scadenza>
+		</abb_acquistato>
 	</lista_acquistati>
 	<dati_pagamento>
 		<tipo_carta>Visa</tipo_carta>
@@ -26,6 +35,8 @@
 		<scadenza>2030-01-01</scadenza>
 	</dati_pagamento>
 </utente>
+
+
 <utente>
 	<dati_accesso>
 		<mail>luca@gmail.com</mail>
