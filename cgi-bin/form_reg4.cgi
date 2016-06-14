@@ -141,8 +141,10 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       my $tipo_cartaXML = XML::LibXML::Element->new('tipo_carta');
       my $num_cartaXML = XML::LibXML::Element->new('num_carta');
       my $scadenzaXML = XML::LibXML::Element->new('scadenza');
-
+      my $listaXML = XML::LibXML::Element->new('lista_acquistati');                                
       #inserimento dei dati nel nuovo utente
+
+
       my $data_nascita_rec= $datiForm{'anno'}.'-'.$datiForm{'mese'}.'-'.$datiForm{'gg'};
       my $data_scadenza_rec= $datiForm{'anno_scadenza'}.'-'.$datiForm{'mese_scadenza'};
 
@@ -168,6 +170,7 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       $utenteXML->appendChild($dati_accessoXML);
       $utenteXML->appendChild($dati_personaliXML);
       $utenteXML->appendChild($dati_pagamentoXML);
+      $utenteXML->appendChild($listaXML); 
       $dati_accessoXML->appendChild($mailXML);
       $dati_accessoXML->appendChild($passwordXML);
       $dati_personaliXML->appendChild($nomeXML);

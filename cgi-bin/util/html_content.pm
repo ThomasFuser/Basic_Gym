@@ -26,7 +26,7 @@ sub stampaIndex{
 
                 <li class=\"description rev\">Porta un amico e, solo per il mese di dicembre, avrai diritto ad uno sconto del 30% sul tuo abbonamento!
     Cosa Aspetti!?</li>
-           <li> <a href=\"prezzi.html\"> Vai a Prezzi </a> </li>
+           <li> <a href=\"prezzi.cgi\"> Vai a Prezzi </a> </li>
             <li class=\"imgDesc\"><img class=\"IMMBOX\" src=\"../images/news.jpg\" alt=\"parola news scritta con i dadi\"/></li>
             </ul>
 
@@ -34,7 +34,7 @@ sub stampaIndex{
                 <li class=\"title cont\">OFFERTE</li>
 
                 <li class=\"description rev\"> Palestra rinnovata con nuovi macchinari specifici per tutte le tipologie di allenamento vieni a scoprirli!</li>
-                <li> <a href=\"prezzi.html\"> Vai a Corsi </a> </li>
+                <li> <a href=\"prezzi.cgi\"> Vai a Corsi </a> </li>
                 <li class=\"imgDesc\"><img class=\"IMMBOX\" src=\"../images/Offert.png\" alt=\"Scritta Offert\"/></li>
             </ul>
 
@@ -43,7 +43,7 @@ sub stampaIndex{
 
                 <li class=\"description rev\">Una palestra che mette al centro il benessere proprio a poca distanza dal centro storico di Casteminio.
 Disponiamo di aree attrezzate per lezioni a corpo libero che definiscono un nuovo standard di tonificazione muscolare al vostro corpo.</li>
-<li> <a href=\"corsi.html\"> Vai a Corsi </a> </li>
+<li> <a href=\"corsi.cgi\"> Vai a Corsi </a> </li>
 <li class=\"imgDesc\"><img class=\"IMMBOX\" src=\"../images/fitMot.jpg\" alt=\"sequenza di immagini di esercizi crossfit\"/></li>
             </ul>
 

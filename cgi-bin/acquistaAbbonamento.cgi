@@ -186,12 +186,16 @@ else{
   print OUT $doc->toString;
   close(OUT);
   print "
-           <h1 id=\"ritorno\">ACQUISTO ESEGUITO CON SUCCESSO</h1>
+           <div id=\"content\">
+            <h1>Acquisto eseguito con successo</h1>
        ";
        
        util::html_content::stampaPacchetto($Area_form, $Descrizione, $Periodo, $Prezzo);
   print"
-    <p id=\"ritorno\"> Ritorna alla pagina <a href=\"prezzi.cgi\" > Prezzi </a> per acquistare altri pacchetti </p>";
+    <p id=\"ritorno\"> Ritorna alla pagina <a href=\"prezzi.cgi\" > Prezzi </a> per acquistare altri pacchetti </p>
+    </div>
+    ";
+
   util::html_util::end_html();
 }
 
