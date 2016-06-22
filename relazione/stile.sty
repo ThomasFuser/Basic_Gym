@@ -1,0 +1,222 @@
+%
+%	STARWARE - Stile base per la scrittura di documenti interni in LaTex
+%
+
+%
+%	Pacchetti globali
+%	Fare qui eventuali aggiunte!
+%
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[top=1cm,bottom=4cm,left=80pt,right=80pt]{geometry} %disegna la linea
+\usepackage{listings} %per grandi porzioni di codice
+\usepackage[table]{xcolor}
+\usepackage{booktabs,tabularx}
+\usepackage{makeidx}
+\usepackage{fixltx2e}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage[toc]{glossaries}
+\usepackage{dirtree}
+\usepackage{listings}
+\usepackage{siunitx}
+\usepackage[official]{eurosym}
+\usepackage[export]{adjustbox}
+\usepackage{calc}
+\usepackage{rotating}
+
+% Per i diagrammi casi d'uso
+
+\makeglossaries
+
+\bibliographystyle{alpha}
+
+%
+%	VARIABILI GLOBALI
+%
+\newcommand{\nomeGruppo}{Basic Gym}
+\newcommand{\mailGruppo}{anna.bonaldo.2@studenti.unipd.}
+\newcommand{\uni}{Universit\`{a} degli Studi di Padova}
+\newcommand{\uniAA}{2015/2016}
+
+\newcommand{\prj}{Basic Gym}
+\newcommand{\prjL}{Basic Gym}
+
+\newcommand{\TF}{Thomas Fuser}
+\newcommand{\LB}{Luca Boscolo}
+\newcommand{\EC}{Enrico Canova}
+\newcommand{\AB}{Anna Bonaldo}
+\newcommand{\TFmat}{Thomas Fuser mat.1073340}
+\newcommand{\LBmat}{Luca Boscolo mat.}
+\newcommand{\ECmat}{Enrico Canova mat.}
+\newcommand{\ABmat}{Anna Bonaldo mat.1068547}
+
+
+\newcommand{\mgls}[1]{\gls{#1}\textsubscript{G}}
+\newcommand{\mglspl}[1]{\glspl{#1}\textsubscript{G}}
+\newcommand{\mGls}[1]{\Gls{#1}\textsubscript{G}}
+\newcommand{\mGlspl}[1]{\Glspl{#1}\textsubscript{G}}
+
+
+
+\newcommand{\latex}[1]{\texttt{#1}}
+\newcommand{\fileName}[1]{\texttt{#1}}
+\newcommand{\filePath}[1]{\texttt{#1}}
+\newcommand{\TODO}[1]{\texttt{\large \color{red} \underline{TODO: #1}}}
+
+
+
+%per compilare il template usare questi sotto e commentare glia altri:
+
+
+\newcommand{\intestazione}[1]{
+
+	
+	
+	\HRule \\[0.4cm]
+	\begin{Huge}
+		{\huge \bfseries #1}\\[0.4cm]
+	\end{Huge}
+	\HRule \\[1cm]
+	\vfill
+}
+
+\newcommand{\glossarioPrint}{Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano di essere chiarite, sono riportate nel documento \GLv. Ogni occorrenza di vocaboli presenti nel \GL\ è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}).}
+
+\newcommand{\descrizioneProdotto}{
+Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che consenta di eseguire questionari e di visualizzare il punteggio ottenuto.I questionari disponibilili devono essere creati da docenti, i quali avranno la possibilità di scegliere le domande da inserire nel proprio questionario selezionandole tra quelle relative a vari argomenti, disponibili nel sistema.}
+
+\newlength{\myheight}
+\setlength{\myheight}{\textheight}
+\addtolength{\myheight}{-2cm}
+
+\newlength{\myheighttwo}
+\setlength{\myheighttwo}{\textheight}
+\addtolength{\myheighttwo}{-4cm}
+
+\newlength{\myheightthree}
+\setlength{\myheightthree}{\textheight}
+\addtolength{\myheightthree}{-6cm}
+
+\newlength{\myheightfour}
+\setlength{\myheightfour}{\textheight}
+\addtolength{\myheightfour}{-8cm}
+
+%
+%	Setup stili
+%
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{light}{RGB}{255,255,190}
+
+%
+%	Setup di pagina
+%
+
+%colorazione link
+\hypersetup
+{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+	citecolor=blue
+}
+
+%	Setup Header + Footer
+
+\pagestyle{fancy}
+\setlength{\headheight}{2cm} %settato grandezza header
+
+\renewcommand{\footrulewidth}{0.5pt} %ridefinisco il valore della riga di intestazione
+\renewcommand{\headrulewidth}{0.5pt} %ridefinisco il valore della riga di pie' di pagina
+\addtolength{\headwidth}{\marginparsep}
+\addtolength{\headwidth}{\marginparwidth}
+
+\fancyhead{} %annulla head di default
+\fancyfoot{} %annulla foot di default
+
+%	Logo intestazione
+
+
+
+
+%	footer
+\cfoot{
+	\uniAA\\
+	\uni \\
+}
+\rfoot{
+	\thepage\ di \pageref{LastPage}
+}
+
+
+% test subsubsubsection
+
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% A tizk picture that is resized as needed.
+% It's usually instanciated with:
+%       \begin{resizedtikzpicture}{\textwidth}
+%           ...
+%       \end{resizedtikzpicture}
+\newsavebox\mybox
+\newenvironment{resizedtikzpicture}[1]{%
+    \def\mywidth{#1}%
+    \begin{lrbox}{\mybox}%
+    \begin{tikzpicture}
+}{%
+    \end{tikzpicture}%
+    \end{lrbox}%
+    \ifdim\wd\mybox>\mywidth
+        \resizebox{\mywidth}{!}{\usebox\mybox}%
+    \else
+        \usebox\mybox %
+    \fi
+}
