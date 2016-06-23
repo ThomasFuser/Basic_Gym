@@ -48,7 +48,7 @@ print
     <div class=\"container\">
   
             <div class=\"header-left\">
-                <h1><a href=\"../index.html\"> <span xml:lang=\"en\">BASIC GYM</span> </a> </h1>
+                <h1><a href=\"../index.html\" id=\"LinkLogo\"> <span xml:lang=\"en\">BASIC GYM</span> </a> </h1>
             </div>
             <div class=\"header-right\">
                 <label for=\"open\">
