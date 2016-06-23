@@ -67,9 +67,7 @@ sub stampaPrezzi{
     {
         my $area = enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
-         my @areaSplit=split  " ", $area;
-         my $unioneArea=$areaSplit[0].$areaSplit[1].$areaSplit[2];
-         print "<p>STRINGA UNIONE AREE= $unioneArea</p>";
+        
          print" <li><a href=\"#$area\">".$area."</a></li>";
       }
      print" </ul></div>
