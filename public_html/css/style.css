@@ -15,6 +15,12 @@ font-family: "Segoe UI",Arial,sans-serif;
 }
 body a { text-decoration:underline !important; color:#FFCC33; }
 
+/* regola utile a rendere impossibile il click nei link che si riferiscono alla pagina attuale   */
+.not-active {
+   pointer-events: none;
+   cursor: default;
+}
+
 body{
 
 font-size: 0.80em;
@@ -973,7 +979,7 @@ left: -9999px;
 /**************PAGINA UTENTE profilo personale********************/
 
 
-#img_point{
+.img_point{
 background-color: #eee;
 font-size: 1.3em;
 color:#333;
@@ -996,7 +1002,7 @@ height: 2.5em;
 	display: inline-block;
 	margin-left: 1em;
 	margin-right: 0.5em;
-	padding: 1em;
+	/*********************************    MODIFICA QUA TOLTO PADDING:; *********************************/
 
 
 }

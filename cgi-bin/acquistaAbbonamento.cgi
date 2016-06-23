@@ -73,7 +73,7 @@ else{
                 else{                                                           #l'abbonamento scade in mese <= attuale
                   if($data_scadenza[1] < $mon){ $scaduto=1; }                   #abbonamento scaduto
                   else{                                                         #l'abbonamento scade nel mese corrente
-                    if($data_scadenza[2]>=($mday+1)){ $scaduto=0; }             #abbonamento valido
+                    if($data_scadenza[2]>=($mday)){ $scaduto=0; }               #abbonamento valido     -> uniformato con stampa abbonamento (tolto day+1)
                     else{ $scaduto=1; }                                       
                   }
                 }

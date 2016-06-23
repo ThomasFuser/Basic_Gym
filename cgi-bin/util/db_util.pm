@@ -9,7 +9,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(lettura_dati_utente getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti caricamentoLibXMLRegistrazione getFilenameRegistrazione);
+our @EXPORT = qw(lettura_dati_utente getFilename getFilenameUtenti caricamentoLibXML caricamentoLibXMLUtenti caricamentoLibXMLRegistrazione getFilenameRegistrazione getFilenamePrezzi caricamentoLibXMLPrezzi);
 
 package util::db_util;
 
@@ -34,6 +34,11 @@ sub getFilenameUtenti{
   return "../data/utenti.xml"
 }
 
+
+sub getFilenamePrezzi{
+  return "../data/prezzi.xml"
+}
+
 #---------------- PARSA IL FILE RESTITUITO DALLA SUB getFilenameUtenti() ---------------
 sub caricamentoLibXMLUtenti{
   my $filename = getFilenameUtenti();
@@ -42,6 +47,15 @@ sub caricamentoLibXMLUtenti{
 
   return $parser->parse_file($filename);
 }
+
+sub caricamentoLibXMLPrezzi{
+  my $filename = getFilenamePrezzi();
+
+  my $parser = XML::LibXML->new();
+
+  return $parser->parse_file($filename);
+}
+
 sub caricamentoLibXMLRegistrazione{
   my $filename = getFilenameRegistrazione();
 

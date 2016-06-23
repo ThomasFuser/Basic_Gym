@@ -17,7 +17,7 @@ our @EXPORT = qw(calcolaID modificaAbbonamentoForm Modifica_Abbonamento stampaRi
 
 package util::html_content_admin;
 
-#--------------- FUNZIONE CHE CONSENTE DI ELIMINARE IL PROBLEMA DEI CARATTERI SPECIALI DELL'XML ---------------
+#--------------- FUNZIONE ELIMINAZIONE SPAZZI ---------------
 sub  trim{ 
     my $s = shift;
     $s =~ s/^\s+|\s+$//g; return $s;

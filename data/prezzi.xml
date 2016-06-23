@@ -3,11 +3,11 @@
 	<categoria>
 		<titolo>Area Soft Fitness</titolo>
 
-		<abbonamento ID="001" stato="valido">
+		<abbonamento ID="1" stato="valido">
 						
 		<durata>Abbonamento mensile</durata><prezzo>5000</prezzo><descrizione>Hai poco tempo per praticare sport? Con questo pacchetto lo sport si adatta alle tue esigenze! Vieni a trovarci subito! </descrizione></abbonamento>
 
-		<abbonamento ID="002" stato="valido">
+		<abbonamento ID="2" stato="valido">
 			
 			
 			
@@ -17,10 +17,7 @@
 		<categoria>
 			<titolo>Area Cardio Fitness</titolo>
 
-		<abbonamento ID="003" stato="non-valido">
-			
-			
-			
+		<abbonamento ID="3" stato="non-valido">
 		<durata>Abbonamento mensile</durata><prezzo>60</prezzo><descrizione>Tutti i corsi di walking, spinning, total body per un'attività aerobica a tutto tondo. </descrizione></abbonamento>
 
 		
@@ -29,13 +26,13 @@
 		<categoria>
 			<titolo>Area Cross Fitness</titolo>
 
-		<abbonamento ID="005" stato="valido"> 
+		<abbonamento ID="5" stato="valido"> 
 			
 			
 			
 		<durata>Abbonamento mensile</durata><prezzo>5344</prezzo><descrizione>Gli allenamenti brevi ma intensi sviluppano in breve tempo un fisico tonico e snello.Prova la nostra area Cross fitness per 1 mese</descrizione></abbonamento>
 
-		<abbonamento ID="006" stato="valido">
+		<abbonamento ID="6" stato="valido">
 
 			<durata>Abbonamento annuale</durata>
 			<prezzo> 655 </prezzo>

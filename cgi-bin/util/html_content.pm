@@ -10,7 +10,7 @@ use Encode qw(encode);
 
 
 use Exporter qw(import);
-our @EXPORT = qw(enc stampaProfiloUtente stampaIndex stampaPrezzi stampaPrezziAcquistabili stampaStaff stampaCross stampaSoft stampaCardio);
+our @EXPORT = qw(enc stampaProfiloUtente stampaIndex stampaPrezzi stampaPrezziAcquistabili stampaStaff stampaCross stampaSoft stampaCardio lettura_abbonamenti_utente);
 
 package util::html_content;
 
@@ -67,8 +67,10 @@ sub stampaPrezzi{
     {
         my $area = enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
-
-         print" <li><a href=\"$area\">".$area."</a></li>";
+         my @areaSplit=split  " ", $area;
+         my $unioneArea=$areaSplit[0].$areaSplit[1].$areaSplit[2];
+         print "<p>STRINGA UNIONE AREE= $unioneArea</p>";
+         print" <li><a href=\"#$area\">".$area."</a></li>";
       }
      print" </ul></div>
     <div id=\"content\">
@@ -717,43 +719,83 @@ sub stampaPacchetto{
     print "</div>";
 }
 
-sub stampaProfiloUtente{
+
+
+
+################# FUNZIONE CHE PERMETTE DI LEGGERE GLI ABBONAMENTI CHE UN UTENTE POSSIEDE #################
+sub lettura_abbonamenti_utente{
+
+  use POSIX qw(strftime);
   my $username=@_[0];
-  my %utente=util::db_util::lettura_dati_utente($username);
   
-print " <div id=\"nav2\"><ul><li><a href=\"#abb_acq\">Abbonamenti acquistati</a></li><li><a href=\"profilo\">I tuoi dati</a></li></ul></div>
-<div id=\"content\">
+ 
+  my $today = strftime "%F", localtime; #data odierna
+  my $queryute="//utente[./dati_accesso/mail='$username']/lista_acquistati/abb_acquistato";
+  my @lista_acquistati;
+  
+  
+  my $docA = util::db_util::caricamentoLibXMLPrezzi();
+  my $doc = util::db_util::caricamentoLibXMLUtenti();
+
+ 
+  foreach my $abb($doc->findnodes($queryute))
+  {
+    my $idabbonamento=util::html_content::enc($abb->findnodes("./id_abbonamento/text()"));
+    my $inizio=util::html_content::enc($abb->findnodes("./inizio/text()"));
+    my $scadenza=util::html_content::enc($abb->findnodes("./scadenza/text()"));
+
+    #--recupero info abbonamento da prezzi.xml--
+    my $area = util::html_content::enc($docA->findnodes("//listaAbbonamenti/categoria[abbonamento/\@ID='$idabbonamento']/titolo/text()"));
+    my $durata = util::html_content::enc($docA->findnodes("//listaAbbonamenti/categoria/abbonamento[\@ID='$idabbonamento']/durata/text()"));
+    my $prezzo = util::html_content::enc($docA->findnodes("//listaAbbonamenti/categoria/abbonamento[\@ID='$idabbonamento']/prezzo/text()"));
+    my $desc = util::html_content::enc($docA->findnodes("//listaAbbonamenti/categoria/abbonamento[\@ID='$idabbonamento']/descrizione/text()"));
+    #----
+   
+
+    if(((substr $scadenza, 0, 4) gt (substr $today, 0, 4)) || ((substr $scadenza, 0, 4) eq (substr $today, 0, 4) && (substr $scadenza, 5, 2) gt (substr $today, 5, 2)) || ((substr $scadenza, 0, 4) eq (substr $today, 0, 4)) && (substr $scadenza, 5, 2) eq (substr $today, 5, 2) && (substr $scadenza, 8, 2) ge (substr $today, 8, 2))
+    {#controllo data di scadenza
+      push @lista_acquistati, { area => $area, prezzo => $prezzo, desc => $desc, inizio => $inizio, scadenza => $scadenza, durata => $durata };
+    }
+  }
+
+
+
+  return @lista_acquistati;
+}
+
+sub stampaProfiloUtente{
+  
+  
+   my $username=@_[0];
+  my %utente=util::db_util::lettura_dati_utente($username);
+  my @listaAbbonamenti=lettura_abbonamenti_utente($username);
+  print "<div id=\"content\">
         <h1>Il tuo profilo</h1>
-        
-        <div id=\"abb_acq\" class=\"abb_utente\">
-            <h2>I tuoi abbonamenti</h2>
-            <ul >
-                <li id=\"img_point\" class=\"title\">Abbonamento Base</li>
-                
-                <li class=\"price\">30 € /mese</li>
-                <li class=\"description\">Accedi liberamente alla nostra sala <span lang=\"en\">fitness</span>. I nostri istruttori ti affiancheranno se necessario.</li>
-                <li> <em>Scadenza:</em> </li>
-                
-            </ul>
-            <ul >
-                <li id=\"img_point\" class=\"title\">Abbonamento Base</li>
-                
-                <li class=\"price\">30 € /mese</li>
-                <li class=\"description\">Accedi liberamente alla nostra sala <span lang=\"en\">fitness</span>. I nostri istruttori ti affiancheranno se necessario.</li>
-                <li> <em>Scadenza:</em> </li>
-                
-            </ul>
-            <ul >
-                <li id=\"img_point\" class=\"title\">Abbonamento Base</li>
-                
-                <li class=\"price\">15 € /mese</li>
-                <li class=\"description\>Accedi liberamente ai corsi soft fitness <span lang=\"en\">fitness</span>. I nostri istruttori ti affiancheranno se necessario.</li>
-                <li> <em>Scadenza:</em> </li>
-                
-            </ul>
-            
-        </div>
-        <div id=\"profilo\" class=\"info_utente\" >
+        <div class=\"packages\">
+        <h2>I tuoi abbonamenti</h2>
+        ";
+        my $num = @listaAbbonamenti;      # la funzione ritorna un array vuoto; altro che tutti gli abbinamenti
+        my $i;
+        my $valuta="€";
+
+  for ($i=0; $i<$num; $i++) {
+    
+    print"
+            <ul class=\"package\">
+            <li class=\"title\">$listaAbbonamenti[$i]{'area'}</li>
+            <li class=\"price\">$listaAbbonamenti[$i]{'prezzo'} $valuta</li>
+            <li class=\"description\"> $listaAbbonamenti[$i]{'desc'}</li>
+            <li class=\"price\"> Inizio: $listaAbbonamenti[$i]{'inizio'}</li>
+            <li class=\"price\"> Scadenza: $listaAbbonamenti[$i]{'scadenza'}</li>
+            </ul> 
+            ";
+
+   
+    
+  }
+    print "   </div>";
+    print "
+        <div class=\"info_utente\" >
 
         <h2>La tua scheda </h2>
         <ul class=\"profilo\">
