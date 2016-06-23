@@ -1,0 +1,23 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {section}{\numberline {1}Utenza del sito}{3}{section.1}
+\contentsline {section}{\numberline {2}Presentazione}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}CSS3 e retrocompatibilit\IeC {\`a}}{3}{subsection.2.1}
+\contentsline {section}{\numberline {3}Contenuto}{3}{section.3}
+\contentsline {section}{\numberline {4}Gestione e salvataggio dei dati}{3}{section.4}
+\contentsline {section}{\numberline {5}Accessibilit\IeC {\`a}}{3}{section.5}
+\contentsline {subsection}{\numberline {5.1}Accessibilit\IeC {\`a} della presentazione}{3}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Schema dei colori}{3}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Contrasto}{3}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}Accessibilit\IeC {\`a} dei contenuti}{3}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Menu e navigazione}{3}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Dimensione della pagina}{3}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Link e convenzioni}{3}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Breadcrumb}{3}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Aiuti alla navigazione}{3}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.8}Accessibilit\IeC {\`a} del comportamento}{3}{subsection.5.8}
+\contentsline {subsubsection}{\numberline {5.8.1}Form}{3}{subsubsection.5.8.1}
+\contentsline {subsubsection}{\numberline {5.8.2}Segnalazione di errori}{3}{subsubsection.5.8.2}
+\contentsline {section}{\numberline {6}Tecnologie utilizzate}{3}{section.6}
+\contentsline {section}{\numberline {A}Organizzazione del gruppo}{3}{appendix.Alph1}
+\contentsline {section}{\numberline {B}Gerarchia dei file}{4}{appendix.Alph2}
