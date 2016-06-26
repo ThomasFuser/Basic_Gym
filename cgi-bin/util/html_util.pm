@@ -28,8 +28,8 @@ print
     <head>
     <title> ".$pagina[1]." - Basic Gym </title>
     <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>
-    <meta name=\"title\" content=\"Basic Gym - Home\" />
-    <meta name=\"description\" content=\"new offerte e descrizione della palestra\" />
+    <meta name=\"title\" content=\"".$pagina[1]." - Basic Gym \" />
+    <meta name=\"description\" content=\"descrizione della palestra, orari e prezzi\" />
     <meta name=\"keywords\" content=\"offerte, news, basic, gym, amici, palestra, lezioni, muscoli, corpo, tonificare, sport, abbonamento\" />
     <meta name=\"author\" content=\"gruppo tecweb\" />
     <meta name=\"language\" content=\"italian it\" />

@@ -198,11 +198,11 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
    
 
 print "
-           <div id=\"content\">
+           <div id=\"content\"class =\"forms\">
            <h1>Riepilogo della registrazione</h1>
        ";
 print "
-         <p id=\"ritorno\"> Registrazione $stringaFinale . Accedi nella pagine <a href=\"login.cgi\" > Login </a> </p>   
+         <p class=\"riepilogo\" id=\"ritorno\"> Registrazione $stringaFinale . Accedi nella pagine <a href=\"login.cgi\" > Login </a> </p>   
     ";
 
     print " </div> "; 

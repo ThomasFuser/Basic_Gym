@@ -312,16 +312,13 @@ box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	
 }
 
-#ritorno{
- 	text-align: center;
- 	font-size: 1em;
-     padding: 1em 0.2em 1.2em 0.2em;
-     background-color: #333;    /* prime era #eee ma non si vedeva niente*/
-     color: #eee;
-     margin: 0.5em 0em 0.5em 0em;
-     opacity: 0.9;
-     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
- }
+.riepilogo{
+	background-color:#333;
+	color: #eee;
+        padding: 2em;
+	text-align:center;
+	margin-bottom: 10%;
+}
 
 #content form {
 padding: 1em;
@@ -1079,7 +1076,16 @@ span.value{
 
 }
 			
-
+#ritorno{
+ 	text-align: center;
+ 	font-size: 1.5em;
+     padding: 0.2em 0.2em 0.2em 1em;
+     background-color: #333;    /* prime era #eee ma non si vedeva niente*/
+     color: #eee;
+     margin: 0.5em 0em 0.5em 0em;
+     opacity: 0.9;
+     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+ }
 
 }
 @media (max-width: 776px) {
