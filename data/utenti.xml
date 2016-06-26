@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<utenti>
+<utenti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
 <utente>
 	<dati_accesso>
 		<mail>annabonaldo@gmail.com</mail>
@@ -11,7 +12,6 @@
 		<datanascita>1992-10-09</datanascita>
 		<genere>F</genere>
 		<cf>BNLNNA92R49G224Y</cf>
-		<data_iscrizione>2015-11-02</data_iscrizione>
 		<indirizzo>via ponchini 17</indirizzo>
 		<citta>Castelfranco Veneto</citta>
 		<tel>3926636470</tel>
@@ -39,21 +39,38 @@
 
 <utente>
 	<dati_accesso>
-		<mail>luca@gmail.com</mail>
+		<mail>tfuser@gmail.com</mail>
 		<password>ciaociao</password>
 	</dati_accesso>
-	<dati_personali></dati_personali>
-	<lista_acquistati></lista_acquistati>
-	<cartacredito></cartacredito>
+	<dati_personali>
+		<nome>Thomas</nome>
+		<cognome>Fuser</cognome>
+		<datanascita>1991-05-04</datanascita>
+		<genere>M</genere>
+		<cf>FSRTHM91R49G224X</cf>
+		<indirizzo>via pioppi 12</indirizzo>
+		<citta>Istrana</citta>
+		<tel>3926630668</tel>
+		<professione>studente</professione>
+	</dati_personali>
+	<lista_acquistati>
+		<abb_acquistato>
+			<id_abbonamento>3</id_abbonamento>
+			<inizio>2016-04-13</inizio>
+			<scadenza>2016-12-13</scadenza>
+		</abb_acquistato>
+		<abb_acquistato>
+			<id_abbonamento>4</id_abbonamento>
+			<inizio>2017-04-13</inizio>
+			<scadenza>2018-12-13</scadenza>
+		</abb_acquistato>
+	</lista_acquistati>
+	<dati_pagamento>
+		<tipo_carta>Visa</tipo_carta>
+		<num_carta>1234567890123456</num_carta>
+		<scadenza>2030-01-01</scadenza>
+	</dati_pagamento>
 </utente>
-<utente>
-	<dati_accesso>
-		<mail>thomas@gmail.com</mail>
-		<password>ciaociao</password>
-	</dati_accesso>
-	<dati_personali></dati_personali>
-	<lista_acquistati></lista_acquistati>
-	<cartacredito></cartacredito>
-</utente>
+
 
 </utenti>

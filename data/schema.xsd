@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
 
 
-<xs:schema elementFormDefault="qualified"  xmlns:xs="http://www.w3.org/2001/XMLSchema">
-/***********************************************/
-//ABBONAMENTI DISPONIBILI NELLA PALESTRA
-/*************************************************/
-
-//Durata di un abbonamento
 	<xs:simpleType name="durataT">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Abbonamento mensile"/>
 			<xs:enumeration value="Abbonamento annuale"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="statoT">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="valido"/>
+			<xs:enumeration value="non-valido"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-// Abbonamento
+
 	<xs:complexType name="abbonamentoT">
 		<xs:sequence>
 			<xs:element name="durata" type="durataT"/>
@@ -23,15 +25,16 @@
 			<xs:element name="descrizione" type="xs:string"/>
 		</xs:sequence>
 		<xs:attribute name="ID" type="xs:string"/>
+		<xs:attribute name="stato" type="statoT"/>
 	</xs:complexType>
-// Categoria: insieme di abbonamenti per Area Palestra (soft/cardio/cross)
+
 	<xs:complexType name="categoriaT">
 		<xs:sequence>
 			<xs:element name="titolo" type="xs:string"/>
 			<xs:element name="abbonamento" type="abbonamentoT" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-// Database di abbonamenti (tutte le categorie) disponibili agli utenti per l'acquisto
+
 <xs:element name="listaAbbonamenti">
 	<xs:complexType>
 		<xs:sequence>
@@ -39,12 +42,6 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
-
-/****************************************************/
-//       ABBONAMENTO ACQUISTATO DA UN UTENTE
-/********************************************************/
-
-// tipo Abbonamento acquistato da un utente (utente loggato)
 
 <xs:complexType name="abb_acquistatoT">
 		<xs:sequence>
@@ -54,78 +51,66 @@
 		</xs:sequence>
 </xs:complexType>
 
-
-// tipo Lista degli abbonamenti acquistati da un utente (utente loggato)
-
 <xs:complexType name="lista_acquistatiT">
 		<xs:sequence>
-			<xs:element name="abb_acquistato" type="abbacquistatoT"  minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="abb_acquistato" type="abb_acquistatoT"  minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 </xs:complexType>
 
 
-/*************************************/
-// TIPO DATI PERSONALI
-/***************************************/
-// tipo "numero di telefono"
+
 
 <xs:simpleType name="telT">
 	<xs:restriction base="xs:string">
-		<xs:pattern value="[0-9]{9}"/>
-	</xs:restriction>
-</xs:simpleType>
-// tipo "codice fiscale"
-
-<xs:simpleType name="cfT">
-	<xs:restriction base="xs:string">
-		<xs:pattern value="[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]"/>
+		<xs:pattern value="[0-9]{9}|[0-9]{10}"/>
 	</xs:restriction>
 </xs:simpleType>
 
-//genere 
+
 
 <xs:simpleType name="genereT">
 	<xs:restriction base="xs:string">
-                <xs:enumeration value="Uomo"/>
-		<xs:enumeration value="Donna"/>
+                <xs:enumeration value="M"/>
+		<xs:enumeration value="F"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="cfT">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]"/>
 	</xs:restriction>
 </xs:simpleType>
 
 
-//tipodati personali
+
 <xs:complexType name="dati_personaliT">
 		<xs:sequence>
 			<xs:element name="nome" type="xs:string"/>
 			<xs:element name="cognome" type="xs:string"/>
-			<xs:element name="data_nascita" type="xs:date"/>
+			<xs:element name="datanascita" type="xs:date"/>
 			<xs:element name="genere" type="genereT"/>
 			<xs:element name="cf" type="cfT"/>
-			<xs:element name="data_iscrizione" type="xs:date"/>
-			<xs:element name="indirizzo" type="xs:string" minOccurs="0" />
-			<xs:element name="citta" type="xs:string" minOccurs="0"/>
-			<xs:element name="professione" type="xs:string" minOccurs="0"/>
-			<xs:element name="tel" type="telT"/>
+			<xs:element name="indirizzo" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="citta" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tel" type="telT" maxOccurs="1"/>
+			<xs:element name="professione" type="xs:string" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 </xs:complexType>
 
 
 
 
-
-/**********************************/
-//TIPO DATI DI ACCESSO
-/*************************************/
-<complexType name="dati_accessoT">
+<xs:complexType name="dati_accessoT">
 	<xs:sequence>
 		<xs:element name="mail" type="mailT"/>
 		<xs:element name="password" type="passwordT"/>
 	</xs:sequence>
-</complexType>
+</xs:complexType>
 
-// tipo email
+
 <xs:simpleType name="mailT">
     <xs:restriction base="xs:string">
-      	<xs:pattern value="[\w]*@[\w]*\.[com|it|org]"/>
+      	<xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"/>
     </xs:restriction>
  </xs:simpleType>
 
@@ -136,53 +121,52 @@
     </xs:restriction>
  </xs:simpleType>
 
-/***************************/
-// TIPO CARTA DI CREDITO
-/***************************/
-//tipo della carta VISA/ MASTERCARD /AMERICAN EXPRESS
+
 <xs:simpleType name="tipo_cartacreditoT">
 	<xs:restriction base="xs:string">
-		<xs:enumaration value="visa"/>
-		<xs:enumeration value="mastercard"/>
-		<xs:enumeration value="american express"/>
+		<xs:enumeration value="Visa"/>
+		<xs:enumeration value="Mastercard"/>
+		<xs:enumeration value="American Express"/>
 	</xs:restriction>
 </xs:simpleType>
-//numero carta
+
 
 <xs:simpleType name="num_cartaT">
 	<xs:restriction base="xs:string">
-		<xs:pattern value="[0-9]{16}"/>
+		<xs:pattern value="[0-9]{16}|[0-9]{15}"/>
 	</xs:restriction>
 </xs:simpleType>
 
-//tipo completo carta 
 <xs:complexType name="cartacreditoT">
 		<xs:sequence>
-			<xs:element name="num_carta" type="num_cartaT"/>
 			<xs:element name="tipo_carta" type="tipo_cartacreditoT"/>
+			<xs:element name="num_carta" type="num_cartaT"/>
 			<xs:element name="scadenza" type="xs:date"/>
 		</xs:sequence>
 </xs:complexType>
 
 
-/***************************/
-// TIPO UTENTE 
-/***************************/
-<xs:element name="utente">
-	<xs:complexType>
+<xs:complexType name="utenteT">
 		<xs:sequence>
 			<xs:element name="dati_accesso" type="dati_accessoT"/>
 			<xs:element name="dati_personali" type="dati_personaliT"/>
 			<xs:element name="lista_acquistati" type="lista_acquistatiT"/>
 			<xs:element name="dati_pagamento" type="cartacreditoT"/>
 		</xs:sequence>
-	</xs:complexType>
-</xs:element>
+</xs:complexType>
+
 <xs:element name="admin">
 	<xs:complexType>
 		<xs:sequence>
 			<xs:element name="id" type="xs:string"/>
 			<xs:element name="pw" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="utenti">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="utente" type="utenteT" minOccurs="0" maxOccurs="unbounded"/>	
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
