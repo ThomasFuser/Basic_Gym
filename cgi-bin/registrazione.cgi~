@@ -19,7 +19,7 @@ if(!($session->is_empty())) { #HO LA SESSIONE APERTA
 
 
 else{ # NON HO LA SESSIONE APERTA
-     util::html_util::start_html("Registrazione", "Registrazione");
+     util::html_util::start_html("Registrazione");
      util::base_util::showSchedaUno();
      util::html_util::end_html();
  }

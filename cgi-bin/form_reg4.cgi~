@@ -8,7 +8,7 @@ use CGI;
 use CGI::Session;
 
 my $q = new CGI;
-   util::html_util::start_html("Riepilogo registrazione", "Riepilogo registrazione");
+   util::html_util::start_html("Riepilogo registrazione");
 
 my $tipocarta=$q->param("tipoCarta");
 my $ncarta=$q->param("ncarta");

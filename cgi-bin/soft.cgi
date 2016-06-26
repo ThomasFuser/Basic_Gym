@@ -7,6 +7,6 @@ use CGI;
 use CGI::Session;
 
 
-util::html_util::start_html("<a href=\"corsi.cgi\"> Corsi </a>  &gt; <span lang=\"en\">Soft</span>");
+util::html_util::start_html("<a href=\"corsi.cgi\"> Corsi </a>  &gt; <span lang=\"en\">Soft</span>", "Soft-Corsi");
 util::html_content::stampaSoft();
 util::html_util::end_html();

@@ -112,7 +112,7 @@ sub stampaPrezziModificabili{
         my $area = util::html_content::enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
-         print" <li><a href=\"$area\">".$area."</a></li>";
+         print" <li><a href=\"#$area\">".$area."</a></li>";
       }
      print" </ul></div>
     <div id=\"content\">
@@ -128,9 +128,9 @@ sub stampaPrezziModificabili{
     {
         my $area = util::html_content::enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
-                #nel div sotto qui era presente: <!-- era presente: dopo class  id=\"$area\"  -->
+                
          print" 
-         <div class=\"packages\"><h2> $area </h2> ";        
+         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";        
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
@@ -154,10 +154,10 @@ sub stampaPrezziModificabili{
                <li class=\"title\"> $durata </li>
                 <li class=\"price\"> $prezzo $valuta </li>
                 <li class=\"description\"> $desc </li>
-                <li class=\"admin_button\" > <form class=\"description\" action=\"ModificaAbbonamento.cgi\" method=\"post\">
+                <li class=\"a_button\" > <form class=\"description\" action=\"ModificaAbbonamento.cgi\" method=\"post\">
                      <button name=\"Mod\" type=\"submit\" class=\"admin_button\" value=\"$id\" >Modifica</button>
           </form>  </li>
-          <li class=\"admin_button\"> <form class=\"description\" action=\"eliminazione_abbonamento.cgi\" method=\"post\">
+          <li class=\"a_button\"> <form class=\"description\" action=\"eliminazione_abbonamento.cgi\" method=\"post\">
                      <button name=\"Elim\" type=\"submit\"  value=\"$id\" >Elimina</button>
           </form>  </li>
                       </ul> "; }

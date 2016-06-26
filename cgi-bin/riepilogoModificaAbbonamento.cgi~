@@ -67,7 +67,7 @@ use CGI::Session;
 
 
         if($error eq 1){
-       	   util::html_util::start_html("Modifica abbonamento", "Modifica abbonamento");
+       	   util::html_util::start_html("Modifica abbonamento");
 		   util::html_content_admin::modificaAbbonamentoForm(%errors);
 		   util::html_util::end_html();   }
    else{
@@ -118,7 +118,7 @@ use CGI::Session;
 
     # area:
     my $area = $doc->findnodes("//abbonamento[\@ID=$id_abbonamento]/area/text()");
-    util::html_util::start_html("Riepilogo modifica abbonamento", "Riepilogo");
+    util::html_util::start_html("Riepilogo modifica abbonamento");
  
     print "
            <div id=\"content\">

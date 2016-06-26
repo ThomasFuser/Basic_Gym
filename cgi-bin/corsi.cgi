@@ -9,6 +9,6 @@ use CGI::Session;
 
 
 
-util::html_util::start_html("Corsi");
+util::html_util::start_html("Corsi", "Corsi");
 util::html_content::stampaCorsi();
 util::html_util::end_html();

@@ -10,7 +10,7 @@ use CGI::Session;
 
 
 
-util::html_util::start_html("Profilo", "Profilo");
+util::html_util::start_html("Profilo");
 my $session = CGI::Session->load();
 if($session->param("username") ne undef ){
 	if($session->param("username") ne "admin"){ 	

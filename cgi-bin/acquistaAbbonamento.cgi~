@@ -18,7 +18,7 @@ if($session->is_empty()) { # LA SESSIONE NON E' APERTA
 }
 else{
 	#stampo la prima parte di pagina html
-	util::html_util::start_html("Acquisto abbonamento", "Acquisto");
+	util::html_util::start_html("Acquisto abbonamento");
 
 	#recupero db usati nella cgi
 	my $doc = util::db_util::caricamentoLibXMLUtenti();

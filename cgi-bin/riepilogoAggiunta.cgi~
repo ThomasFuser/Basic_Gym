@@ -105,7 +105,7 @@ use CGI::Session;
     close(OUT); 
 
     # STAMPA RIEPILOGO DEL NUOVO PACCHETTO CREATO
-    util::html_util::start_html("Riepilogo inserimento nuovo abbonamento", "Nuovo Abbonamento");
+    util::html_util::start_html("Riepilogo inserimento nuovo abbonamento");
 
     #stampa del nuovo abbonamento
      print "

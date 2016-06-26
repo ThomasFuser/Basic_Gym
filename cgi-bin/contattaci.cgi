@@ -7,5 +7,5 @@ use CGI;
 use CGI::Session;
 
 
-util::html_util::start_html("Contattaci");
+util::html_util::start_html("Contattaci", "Contattaci");
 util::html_util::end_html();

@@ -109,7 +109,7 @@ print"</li></ol>
 
 sub showSchedaQuattro{
   my %datiForm= @_;
- # my $prova="ciaociao";
+
 
  
        
@@ -192,4 +192,4 @@ print"</li>
 
 1;
 
-# Questo file contiene subroutine per la gestione delle sessioni 
+# Questo file contiene subroutine per la stampa dei form registrazione 

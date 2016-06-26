@@ -64,7 +64,7 @@ my $tel=$q->param("tel");
 
 
  if($error ne  0){
-        util::html_util::start_html("Registrazione", "Registrazione");
+        util::html_util::start_html("Registrazione");
         util::base_util::showSchedaTre(%datiForm );
         util::html_util::end_html();
         
@@ -73,7 +73,7 @@ my $tel=$q->param("tel");
 
       # Stampa form successivo
 
-      util::html_util::start_html("Registrazione", "Registrazione");
+      util::html_util::start_html("Registrazione");
       # stampa form  REGISTRAZIONE: DATI PAGAMENTO
       util::base_util::showSchedaQuattro(%datiForm);
       util::html_util::end_html();

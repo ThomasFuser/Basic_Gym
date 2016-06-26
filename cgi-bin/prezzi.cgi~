@@ -10,7 +10,7 @@ use CGI::Session;
 
 
 
-util::html_util::start_html("Prezzi", "Prezzi");
+util::html_util::start_html("Prezzi");
 my $session = CGI::Session->load();
 if($session->param("username") eq undef){
  	util::html_content::stampaPrezzi();
