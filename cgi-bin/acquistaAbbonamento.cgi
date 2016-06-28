@@ -17,52 +17,51 @@ if($session->is_empty()) { # LA SESSIONE NON E' APERTA
   print"Location:index.cgi\n\n";
 }
 else{
-	#stampo la prima parte di pagina html
-	util::html_util::start_html("Acquisto abbonamento", "Acquisto");
+  #stampo la prima parte di pagina html
+  util::html_util::start_html("Acquisto abbonamento", "Acquisto");
 
-	#recupero db usati nella cgi
-	my $doc = util::db_util::caricamentoLibXMLUtenti();
+  #recupero db usati nella cgi
+  my $doc = util::db_util::caricamentoLibXMLUtenti();
   my $doc_prezzi=util::db_util::caricamentoLibXML();
   my $parser = XML::LibXML->new();
   my $file=util::db_util::getFilenameUtenti();
 
-	#recupero dati (utente e id dell' abbonamento da lui acquistato)
-	$username=$session->param("username");
-	$id=$q->param("acquista");
+  #recupero dati (utente e id dell' abbonamento da lui acquistato)
+  $username=$session->param("username");
+  $id=$q->param("acquista");
+  
+  #sentinella per identificare se l'abbonamento è gia presente + salvataggio nodo se l'abbonamento è presente
+  my $presente=0;
+  my $abbPresente;
+  #ciclo che scorre tutti gli abbonamenti acquistati dall'utente per vedere se ha già acquistati in precedenza lo stesso abbonamento
+  foreach my $acquistato($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/lista_acquistati/abb_acquisto")){
+    #recupero id degli abbonamenti posseduti dall'utente
+    my $id_acq=$acquistato->findnodes("./id_acquisto/text()");
+    if($id eq $id_acq){
+      $abbPresente=$doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/lista_acquistati/abb_acquisto[./id_acquisto='$id_acq']")->get_node(1); #variabile che contiene il nodo da modificare
+      $presente=1; 
+    }
+  }
 
-	#sentinella per identificare se l'abbonamento è gia presente + salvataggio nodo se l'abbonamento è presente
-	my $presente=0;
-	my $abbPresente;
-
-	#ciclo che scorre tutti gli abbonamenti acquistati dall'utente per vedere se ha già acquistati in precedenza lo stesso abbonamento
-	foreach my $acquistato($doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/lista_acquistati/abb_acquistato")){
-		#recupero id degli abbonamenti posseduti dall'utente
-		my $id_acq=$acquistato->findnodes("./id_abbonamento/text()");
-		if($id eq $id_acq){
-			$abbPresente=$doc->findnodes("utenti/utente[dati_accesso/mail/text()='$username']/lista_acquistati/abb_acquistato[./id_abbonamento='$id_acq']")->get_node(1); #variabile che contiene il nodo da modificare
-			$presente=1; 
-		}
-	}
-
-	#variabili che consentono di salvare  dati relativi al tempo
-	my $sec,my $min ,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst; 
+  #variabili che consentono di salvare  dati relativi al tempo
+  my $sec,my $min ,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst; 
   ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)=localtime(time);
   my $dataAttuale=($year+1900).'-'.($mon+1).'-'.$mday;
 
   #variabile che contiene info abbonamento (mensile o annuale)
   my $durataAbbComprato=$doc_prezzi->findnodes("listaAbbonamenti/categoria/abbonamento[\@ID=$id]/durata");
-
+  print"<p> abbonameto presente?? $presente </p> ";
   #l'abbonamento è presente nel database oppure no?
-	if($presente==1) #l'abbonamento è gia stato acquistato dall'utente
-	{
-		#recupero di alcuni dati riguardanti l'abbonamento uguale a quello che è appena stato acquistato (dal db utenti.xml)
-		my $inizio_acq=$abbPresente->findnodes("./inizio/text()");
-		my $scadenza_acq=$abbPresente->findnodes("./scadenza/text()");	  
-		my @data_scadenza=split  "-", $scadenza_acq; #split della data in modo tale da poterla elaborare
-			
-		#variabile che consente di capire se un abbonamento è scaduto o ancora valido
+  if($presente==1) #l'abbonamento è gia stato acquistato dall'utente
+  {
+    #recupero di alcuni dati riguardanti l'abbonamento uguale a quello che è appena stato acquistato (dal db utenti.xml)
+    my $inizio_acq=$abbPresente->findnodes("./inizio/text()");
+    my $scadenza_acq=$abbPresente->findnodes("./scadenza/text()");    
+    my @data_scadenza=split  "-", $scadenza_acq; #split della data in modo tale da poterla elaborare
+      
+    #variabile che consente di capire se un abbonamento è scaduto o ancora valido
     my $scaduto=0;
-		
+    
 
     #verifica della validità dell'abbonamento
             if($data_scadenza[0] < ($year+1900)){ $scaduto=1; }                 #abbonamento scaduto
@@ -79,35 +78,36 @@ else{
                 }
               }
             }
+          print"<p> abbonamento scaduto?? $scaduto </p> ";  
 
     #variabili utili alla modifica
      my $nuovaScad;
      my $inizioXML=$abbPresente->findnodes("./inizio")->get_node(1);
      my $scadenzaXML=$abbPresente->findnodes("./scadenza")->get_node(1);
-
+        print"<p> durata abbonamento: $durataAbbComprato </p> ";
     #abbonamento annuale
-		if($durataAbbComprato eq "Abbonamento annuale"){
+    if($durataAbbComprato eq "Abbonamento annuale"){
 
-      if($scaduto==1){		#abbonamento scaduto -> aggiorno data di inizio e data di scadenza
-      	#calcolo nuova data di scadenza -> aggiungendo 1 anno alla data attuale
-      	$nuovaScad=($year+1900+1).'-'.($mon+1).'-'.$mday; 
+      if($scaduto==1){    #abbonamento scaduto -> aggiorno data di inizio e data di scadenza
+        #calcolo nuova data di scadenza -> aggiungendo 1 anno alla data attuale
+        $nuovaScad=($year+1900+1).'-'.($mon+1).'-'.$mday; 
 
-      	#creazione dei nodi da inserire nel db
-      	my $nuovaDataInizio="<inizio>$dataAttuale</inizio>";
-      	my $nuovaDataScadenza="<scadenza>$nuovaScad</scadenza>";
-          		
+        #creazione dei nodi da inserire nel db
+        my $nuovaDataInizio="<inizio>$dataAttuale</inizio>";
+        my $nuovaDataScadenza="<scadenza>$nuovaScad</scadenza>";
+              
         #modifica XML
-      	util::db_util::modifica( $abbPresente, $inizioXML, $nuovaDataInizio, $parser );					
-      	util::db_util::modifica( $abbPresente, $scadenzaXML, $nuovaDataScadenza, $parser );
+        util::db_util::modifica( $abbPresente, $inizioXML, $nuovaDataInizio, $parser );         
+        util::db_util::modifica( $abbPresente, $scadenzaXML, $nuovaDataScadenza, $parser );
 
-      }else{					#abbonamento non scaduto -> aggiorno solamente la data di scadenza
+      }else{          #abbonamento non scaduto -> aggiorno solamente la data di scadenza
          $data_scadenza[0]=$data_scadenza[0]+1;
-      	$nuovaScad=$data_scadenza[0].'-'.$data_scadenza[1].'-'.$data_scadenza[2];
+        $nuovaScad=$data_scadenza[0].'-'.$data_scadenza[1].'-'.$data_scadenza[2];
 
-      	my $nuovaDataScadenza="<scadenza>$nuovaScad</scadenza>";
-      	util::db_util::modifica( $abbPresente, $scadenzaXML, $nuovaDataScadenza, $parser );
+        my $nuovaDataScadenza="<scadenza>$nuovaScad</scadenza>";
+        util::db_util::modifica( $abbPresente, $scadenzaXML, $nuovaDataScadenza, $parser );
       }
-	}else{			         #l'abbonamento mensile
+  }else{               #l'abbonamento mensile
 
     my $annoAttuale;
     my $sommaMese;
@@ -198,6 +198,3 @@ else{
 
   util::html_util::end_html();
 }
-
-
-
