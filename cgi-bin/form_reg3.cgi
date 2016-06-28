@@ -61,6 +61,14 @@ my $tel=$q->param("tel");
       }
       $datiForm {'errTelefono'}=$tipoerrore;
         #******************** FINE  CONTROLLI NUMERO DI TELEFONO *******************
+	#********************CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
+	foreach my $text (values %datiForm)
+	{
+		my $sostMinore="&lt;";
+  	 	my $sostMaggiore="&gt;";
+   		$text=~ s/</$sostMinore/g | s/>/$sostMaggiore/g;
+	}
+       #******************FINE CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
 
 
  if($error ne  0){

@@ -48,17 +48,13 @@ sub showForm{
 
 
   print "<div id=\"content\" class='forms'>
-          
-           ";
-
-     if ($error ne '') {
-          print "<p id='errorLogin'>";
-          print "$error";
-          print "</p>";
+           <h1>Accesso amministratore</h1><form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login_admin.cgi\" method=\"post\">
+                 <fieldset>";
+	if ($error ne '') {
+        print "<span class=\"erroreForm\" >$error</span>";
      }
-
-  print " <h1>Accesso amministratore</h1><form onsubmit=\"return checkLogin()\" id=\"login\" action=\"login_admin.cgi\" method=\"post\">
-                 <fieldset>
+         
+              print"
                     <label id=\"user\" for=\"username\">Username</label>
                     <input id=\"username\" type=\"text\" name=\"username\" size=\"25\"/>
                     <label id=\"pass\" for=\"password\">Password</label>

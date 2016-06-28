@@ -78,6 +78,14 @@ my $ripetipassword=$q->param("password_repeat");
       }
       $datiForm{'errPwRep'}=$tipoerrore;
       #******************** FINE CONTROLLI PASSWORD **************************
+      #********************CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
+	foreach my $text (values %datiForm)
+	{
+		my $sostMinore="&lt;";
+  	 	my $sostMaggiore="&gt;";
+   		$text=~ s/</$sostMinore/g | s/>/$sostMaggiore/g;
+	}
+       #******************FINE CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
 
 
       if($error ne  0){

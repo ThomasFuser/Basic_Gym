@@ -80,7 +80,7 @@ sub stampaPrezzi{
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
          print"
-         <div class=\"packages\"><h2> $area </h2> ";
+         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
@@ -126,7 +126,7 @@ sub stampaPrezziAcquistabili{
         my $area = enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
-         print" <li><a href=\"$area\">".$area."</a></li>";
+         print" <li><a href=\"#$area\">".$area."</a></li>";
       }
      print" </ul></div>
     <div id=\"content\">
@@ -139,7 +139,7 @@ sub stampaPrezziAcquistabili{
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
 
          print"
-         <div class=\"packages\"><h2> $area </h2> ";
+         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {

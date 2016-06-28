@@ -109,6 +109,14 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
         $datiForm{'ncarta'}=$q->param('ncarta');
 
         #*********************************FINE CONTROLLI CARTA DI CREDITO***********
+	#********************CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
+	foreach my $text (values %datiForm)
+	{
+		my $sostMinore="&lt;";
+  	 	my $sostMaggiore="&gt;";
+   		$text=~ s/</$sostMinore/g | s/>/$sostMaggiore/g;
+	}
+       #******************FINE CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
          
    if($error eq  1){ 
           util::base_util::showSchedaQuattro(%datiForm);          

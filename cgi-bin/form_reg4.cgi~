@@ -194,7 +194,7 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
    if($error eq  0){
 
 print "
-           <div id=\"content\"class =\"forms\">
+           <div id=\"content\" class =\"forms\">
            <h1>Riepilogo della registrazione</h1>
        ";
 print "
