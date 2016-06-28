@@ -327,11 +327,11 @@ sub stampaOrario{
 		<thead>
 			<tr>
                 <th id=\"a0\" scope=\"col\">Fasce Orarie </th>
-				<th id=\"a1\" abbr=\"Lun\" scope=\"col\">Lunedì</th>
-				<th id=\"a2\" abbr=\"Mar\" scope=\"col\">Martedì</th>
-				<th id=\"a3\" abbr=\"Mer\" scope=\"col\">Mercoledì</th>
-				<th id=\"a4\" abbr=\"Gio\" scope=\"col\">Giovedì</th>
-				<th id=\"a5\" abbr=\"Ven\" scope=\"col\">Venerdì</th>
+				<th id=\"a1\" abbr=\"Lun\" scope=\"col\">Lunedi</th>
+				<th id=\"a2\" abbr=\"Mar\" scope=\"col\">Martedi</th>
+				<th id=\"a3\" abbr=\"Mer\" scope=\"col\">Mercoledi</th>
+				<th id=\"a4\" abbr=\"Gio\" scope=\"col\">Giovedi</th>
+				<th id=\"a5\" abbr=\"Ven\" scope=\"col\">Venerdi</th>
 				<th id=\"a6\" abbr=\"Sab\" scope=\"col\">Sabato</th>
 				<th id=\"a7\" abbr=\"Dom\" scope=\"col\">Domenica</th>
 			</tr>
@@ -339,11 +339,11 @@ sub stampaOrario{
         <tfoot>
            <tr>
                <th id=\"b0\" scope=\"col\">Fasce Orarie </th>
-				<th id=\"b1\" abbr=\"Lun\" scope=\"col\">Lunedì</th>
-				<th id=\"b2\" abbr=\"Mar\" scope=\"col\">Martedì</th>
-				<th id=\"b3\" abbr=\"Mer\" scope=\"col\">Mercoledì</th>
-				<th id=\"b4\" abbr=\"Gio\" scope=\"col\">Giovedì</th>
-				<th id=\"b5\" abbr=\"Ven\" scope=\"col\">Venerdì</th>
+				<th id=\"b1\" abbr=\"Lun\" scope=\"col\">Lunedi</th>
+				<th id=\"b2\" abbr=\"Mar\" scope=\"col\">Martedi</th>
+				<th id=\"b3\" abbr=\"Mer\" scope=\"col\">Mercoledi</th>
+				<th id=\"b4\" abbr=\"Gio\" scope=\"col\">Giovedi</th>
+				<th id=\"b5\" abbr=\"Ven\" scope=\"col\">Venerdi</th>
 				<th id=\"b6\" abbr=\"Sab\" scope=\"col\">Sabato</th>
 				<th id=\"b7\" abbr=\"Dom\" scope=\"col\">Domenica</th>
             </tr>
@@ -352,43 +352,43 @@ sub stampaOrario{
 
     <tr>
         <th id=\"mattino_a\" headers=\"c0\"><span>Mattino</span><span>10:00-11:00</span></th>
-         <td class=\"Lunedì\" headers=\"a1 mattino_a\">Yoga</td>
-         <td class=\"Martedì\" headers=\"a2 mattino_a\"><span lang=\"en\">Body Balance</span></td>
-         <td class=\"Mercoledì\" headers=\"a3 mattino_a\">Yoga </td>
-         <td class=\"Giovedì\" headers=\"a4 mattino_a\"><span lang=\"en\">Body Balance</span></td>
-         <td class=\"Venerdì\" headers=\"a5 mattino_a\">Yoga</td>
+         <td class=\"Lunedi\" headers=\"a1 mattino_a\">Yoga</td>
+         <td class=\"Martedi\" headers=\"a2 mattino_a\"><span lang=\"en\">Body Balance</span></td>
+         <td class=\"Mercoledi\" headers=\"a3 mattino_a\">Yoga </td>
+         <td class=\"Giovedi\" headers=\"a4 mattino_a\"><span lang=\"en\">Body Balance</span></td>
+         <td class=\"Venerdi\" headers=\"a5 mattino_a\">Yoga</td>
          <td class=\"Sabato\" headers=\"a6 mattino_a\"></td>
          <td class=\"Domenica\" headers=\"a7 mattino_a\"></td>
 
     </tr>
     <tr>
          <th id=\"pranzo_a\" headers=\"a0\"><span>Pausa Pranzo</span><span>12:00-13:00</span></th>
-         <td class=\"Lunedì\" headers=\"a1 pranzo_a\"></td>
-         <td class=\"Martedì\" headers=\"a2 pranzo_a\"><span lang=\"en\">Body Balance</span></td>
-         <td class=\"Mercoledì\" headers=\"a3 pranzo_a\"></td>
-         <td class=\"Giovedì\" headers=\"a4 pranzo_a\"><span lang=\"en\">Body Balance</span></td>
-         <td class=\"Venerdì\" headers=\"a5 pranzo_a\"></td>
+         <td class=\"Lunedi\" headers=\"a1 pranzo_a\"></td>
+         <td class=\"Martedi\" headers=\"a2 pranzo_a\"><span lang=\"en\">Body Balance</span></td>
+         <td class=\"Mercoledi\" headers=\"a3 pranzo_a\"></td>
+         <td class=\"Giovedi\" headers=\"a4 pranzo_a\"><span lang=\"en\">Body Balance</span></td>
+         <td class=\"Venerdi\" headers=\"a5 pranzo_a\"></td>
          <td class=\"Sabato\" headers=\"a7 pranzo_a\"><span lang=\"en\">Body Balance</span></td>
          <td class=\"Domenica\" headers=\"a7 pranzo_a\"></td>
     </tr>
     <tr>
         <th id=\"pomeriggio_a\" headers=\"a0\"><span>Pomeriggio</span><span>16:00-17:00</span></th>
-        <td class=\"Lunedì\" headers=\"a1 pomeriggio_a\"><span lang=\"en\">Body Balance</span></td>
-        <td class=\"Martedì\" headers=\"a2 pomeriggio_a\">Yoga </td>
-        <td class=\"Mercoledì\" headers=\"a3 pomeriggio_a\"><span lang=\"en\">Body Balance</span></td>
-        <td class=\"Giovedì\" headers=\"a4 pomeriggio_a\">Yoga </td>
-        <td class=\"Venerdì\" headers=\"a5 pomeriggio_a\"><span lang=\"en\">Body Balance</span></td>
+        <td class=\"Lunedi\" headers=\"a1 pomeriggio_a\"><span lang=\"en\">Body Balance</span></td>
+        <td class=\"Martedi\" headers=\"a2 pomeriggio_a\">Yoga </td>
+        <td class=\"Mercoledi\" headers=\"a3 pomeriggio_a\"><span lang=\"en\">Body Balance</span></td>
+        <td class=\"Giovedi\" headers=\"a4 pomeriggio_a\">Yoga </td>
+        <td class=\"Venerdi\" headers=\"a5 pomeriggio_a\"><span lang=\"en\">Body Balance</span></td>
         <td class=\"Sabato\" headers=\"a6 pomeriggio_a\">chiuso</td>
         <td class=\"Domenica\" headers=\"a7 pomeriggio_a\">chiuso</td>
 
     </tr>
     <tr>
          <th id=\"sera_a\" headers=\"a0\"><span>Sera</span><span>19:00-20:00</span></th>
-         <td class=\"Lunedì\" headers=\"a1 sera_a\"><span lang=\"en\">Pilates</span></td>
-         <td class=\"Martedì\" headers=\"a2 sera_a\">Yoga</td>
-         <td class=\"Mercoledì\" headers=\"a3 sera_a\"><span lang=\"en\">Body Balance</span></td>
-         <td class=\"Giovedì\" headers=\"a4 sera_a\">Yoga </td>
-         <td class=\"Venerdì\" headers=\"a5 sera_a\"><span lang=\"en\">Body Balance</span></td>
+         <td class=\"Lunedi\" headers=\"a1 sera_a\"><span lang=\"en\">Pilates</span></td>
+         <td class=\"Martedi\" headers=\"a2 sera_a\">Yoga</td>
+         <td class=\"Mercoledi\" headers=\"a3 sera_a\"><span lang=\"en\">Body Balance</span></td>
+         <td class=\"Giovedi\" headers=\"a4 sera_a\">Yoga </td>
+         <td class=\"Venerdi\" headers=\"a5 sera_a\"><span lang=\"en\">Body Balance</span></td>
          <td class=\"Sabato\" headers=\"a6 sera_a\">chiuso</td>
          <td class=\"Domenica\" headers=\"a7 sera_a\">chiuso</td>
     </tr>
@@ -403,11 +403,11 @@ sub stampaOrario{
     <thead>
       <tr>
                 <th headers=\"b0\" scope=\"col\">Fasce Orarie </th>
-        <th headers=\"b1\" abbr=\"Lun\" scope=\"col\">Lunedì</th>
-        <th headers=\"b2\" abbr=\"Mar\" scope=\"col\">Martedì</th>
-        <th headers=\"b3\" abbr=\"Mer\" scope=\"col\">Mercoledì</th>
-        <th headers=\"b4\" abbr=\"Gio\" scope=\"col\">Giovedì</th>
-        <th headers=\"b5\" abbr=\"Ven\" scope=\"col\">Venerdì</th>
+        <th headers=\"b1\" abbr=\"Lun\" scope=\"col\">Lunedi</th>
+        <th headers=\"b2\" abbr=\"Mar\" scope=\"col\">Martedi</th>
+        <th headers=\"b3\" abbr=\"Mer\" scope=\"col\">Mercoledi</th>
+        <th headers=\"b4\" abbr=\"Gio\" scope=\"col\">Giovedi</th>
+        <th headers=\"b5\" abbr=\"Ven\" scope=\"col\">Venerdi</th>
         <th headers=\"b6\" abbr=\"Sab\" scope=\"col\">Sabato</th>
         <th headers=\"b7\" abbr=\"Dom\" scope=\"col\">Domenica</th>
       </tr>
@@ -415,11 +415,11 @@ sub stampaOrario{
         <tfoot>
             <tr>
                 <th headers=\"b0\" scope=\"col\">Fasce Orarie </th>
-        <th headers=\"b1\" abbr=\"Lun\" scope=\"col\">Lunedì</th>
-        <th headers=\"b2\" abbr=\"Mar\" scope=\"col\">Martedì</th>
-        <th headers=\"b3\" abbr=\"Mer\" scope=\"col\">Mercoledì</th>
-        <th headers=\"b4\" abbr=\"Gio\" scope=\"col\">Giovedì</th>
-        <th headers=\"b5\" abbr=\"Ven\" scope=\"col\">Venerdì</th>
+        <th headers=\"b1\" abbr=\"Lun\" scope=\"col\">Lunedi</th>
+        <th headers=\"b2\" abbr=\"Mar\" scope=\"col\">Martedi</th>
+        <th headers=\"b3\" abbr=\"Mer\" scope=\"col\">Mercoledi</th>
+        <th headers=\"b4\" abbr=\"Gio\" scope=\"col\">Giovedi</th>
+        <th headers=\"b5\" abbr=\"Ven\" scope=\"col\">Venerdi</th>
         <th headers=\"b6\" abbr=\"Sab\" scope=\"col\">Sabato</th>
         <th headers=\"b7\" abbr=\"Dom\" scope=\"col\">Domenica</th>
             </tr>
@@ -429,43 +429,43 @@ sub stampaOrario{
     <tbody>
      <tr>
          <th id=\"mattino_b\" headers=\"c0\"><span>Mattino</span><span>10:00-11:00</span></th>
-         <td class=\"Lunedì\" headers=\"b1 mattino_b\"><span lang=\"en\">Interval Training</span></td>
-         <td class=\"Martedì\" headers=\"b2 mattino_b\"></td>
-         <td class=\"Mercoledì\" headers=\"b3 mattino_b\"><span lang=\"en\">Interval Training</span></td>
-         <td class=\"Giovedì\" headers=\"b4 mattino_b\"></td>
-         <td class=\"Venerdì\" headers=\"b5 mattino_b\"><span lang=\"en\">Interval Training</span></td>
+         <td class=\"Lunedi\" headers=\"b1 mattino_b\"><span lang=\"en\">Interval Training</span></td>
+         <td class=\"Martedi\" headers=\"b2 mattino_b\"></td>
+         <td class=\"Mercoledi\" headers=\"b3 mattino_b\"><span lang=\"en\">Interval Training</span></td>
+         <td class=\"Giovedi\" headers=\"b4 mattino_b\"></td>
+         <td class=\"Venerdi\" headers=\"b5 mattino_b\"><span lang=\"en\">Interval Training</span></td>
          <td class=\"Sabato\" headers=\"b6 mattino_b\"></td>
          <td class=\"Domenica\" headers=\"b7 mattino_b\"></td>
 
     </tr>
     <tr>
          <th id=\"pranzo_b\" headers=\"a0\"><span>Pausa Pranzo</span><span>12:00-13:00</span></th>
-         <td class=\"Lunedì\" headers=\"b1 pranzo_b\"><span lang=\"en\">Spinning</span></td>
-         <td class=\"Martedì\" headers=\"b2 pranzo_b\"><span lang=\"en\">Walking</span></td>
-         <td class=\"Mercoledì\" headers=\"b3 pranzo_b\"><span lang=\"en\">Spinning</span></td>
-         <td class=\"Giovedì\" headers=\"b4 pranzo_b\"><span lang=\"en\">Walking</span></td>
-         <td class=\"Venerdì\" headers=\"b5 pranzo_b\"><span lang=\"en\">Spinning</span></td>
+         <td class=\"Lunedi\" headers=\"b1 pranzo_b\"><span lang=\"en\">Spinning</span></td>
+         <td class=\"Martedi\" headers=\"b2 pranzo_b\"><span lang=\"en\">Walking</span></td>
+         <td class=\"Mercoledi\" headers=\"b3 pranzo_b\"><span lang=\"en\">Spinning</span></td>
+         <td class=\"Giovedi\" headers=\"b4 pranzo_b\"><span lang=\"en\">Walking</span></td>
+         <td class=\"Venerdi\" headers=\"b5 pranzo_b\"><span lang=\"en\">Spinning</span></td>
          <td class=\"Sabato\" headers=\"b7 pranzo_b\"><span lang=\"en\">Walking</span></td>
          <td class=\"Domenica\" headers=\"b7 pranzo_b\">chiuso</td>
     </tr>
     <tr>
         <th id=\"pomeriggio_b\" headers=\"a0\"><span>Pomeriggio</span><span>16:00-17:00</span></th>
-        <td class=\"Lunedì\" headers=\"b1 pomeriggio_b\"><span lang=\"en\">Total Body</span></td>
-      <td class=\"Martedì\" headers=\"b2 pomeriggio_b\"><span lang=\"en\">Interval Training</span></td>
-      <td class=\"Mercoledì\" headers=\"b3 pomeriggio_b\"><span lang=\"en\">Total Body</span></td>
-      <td class=\"Giovedì\" headers=\"b4 pomeriggio_b\"><span lang=\"en\">Inteval Training</span></td>
-      <td class=\"Venerdì\" headers=\"b5 pomeriggio_b\"><span lang=\"en\">Total Body</span></td>
+        <td class=\"Lunedi\" headers=\"b1 pomeriggio_b\"><span lang=\"en\">Total Body</span></td>
+      <td class=\"Martedi\" headers=\"b2 pomeriggio_b\"><span lang=\"en\">Interval Training</span></td>
+      <td class=\"Mercoledi\" headers=\"b3 pomeriggio_b\"><span lang=\"en\">Total Body</span></td>
+      <td class=\"Giovedi\" headers=\"b4 pomeriggio_b\"><span lang=\"en\">Inteval Training</span></td>
+      <td class=\"Venerdi\" headers=\"b5 pomeriggio_b\"><span lang=\"en\">Total Body</span></td>
       <td class=\"Sabato\" headers=\"b6 pomeriggio_b\">chiuso</td>
       <td class=\"Domenica\" headers=\"b7 pomeriggio_b\">chiuso</td>
 
     </tr>
     <tr>
          <th id=\"sera_b\" headers=\"a0\"><span>Sera</span><span>19:00-20:00</span></th>
-        <td class=\"Lunedì\" headers=\"b1 sera_b\"><span lang=\"en\">Spinning</span></td>
-         <td class=\"Martedì\" headers=\"b2 sera_b\"><span lang=\"en\">Total Body</span></td>
-         <td class=\"Mercoledì\" headers=\"b3 sera_b\"><span lang=\"en\">Spinning</span></td>
-         <td class=\"Giovedì\" headers=\"b4 sera_b\"><span lang=\"en\">Total Body</span></td>
-         <td class=\"Venerdì\" headers=\"b5 sera_b\"><span lang=\"en\">Spinning</span></td>
+        <td class=\"Lunedi\" headers=\"b1 sera_b\"><span lang=\"en\">Spinning</span></td>
+         <td class=\"Martedi\" headers=\"b2 sera_b\"><span lang=\"en\">Total Body</span></td>
+         <td class=\"Mercoledi\" headers=\"b3 sera_b\"><span lang=\"en\">Spinning</span></td>
+         <td class=\"Giovedi\" headers=\"b4 sera_b\"><span lang=\"en\">Total Body</span></td>
+         <td class=\"Venerdi\" headers=\"b5 sera_b\"><span lang=\"en\">Spinning</span></td>
          <td class=\"Sabato\" headers=\"b6 sera_b\">chiuso</td>
          <td class=\"Domenica\" headers=\"b7 sera_b\">chiuso</td>
     </tr>
@@ -480,11 +480,11 @@ sub stampaOrario{
     <thead>
       <tr>
                 <th id=\"c0\" scope=\"col\">Fasce Orarie </th>
-        <th id=\"c1\" abbr=\"Lun\" scope=\"col\">Lunedì</th>
-        <th id=\"c2\" abbr=\"Mar\" scope=\"col\">Martedì</th>
-        <th id=\"c3\" abbr=\"Mer\" scope=\"col\">Mercoledì</th>
-        <th id=\"c4\" abbr=\"Gio\" scope=\"col\">Giovedì</th>
-        <th id=\"c5\" abbr=\"Ven\" scope=\"col\">Venerdì</th>
+        <th id=\"c1\" abbr=\"Lun\" scope=\"col\">Lunedi</th>
+        <th id=\"c2\" abbr=\"Mar\" scope=\"col\">Martedi</th>
+        <th id=\"c3\" abbr=\"Mer\" scope=\"col\">Mercoledi</th>
+        <th id=\"c4\" abbr=\"Gio\" scope=\"col\">Giovedi</th>
+        <th id=\"c5\" abbr=\"Ven\" scope=\"col\">Venerdi</th>
         <th id=\"c6\" abbr=\"Sab\" scope=\"col\">Sabato</th>
         <th id=\"c7\" abbr=\"Dom\" scope=\"col\">Domenica</th>
       </tr>
@@ -492,11 +492,11 @@ sub stampaOrario{
         <tfoot>
             <tr>
                 <th headers=\"b0\" scope=\"col\">Fasce Orarie </th>
-        <th headers=\"b1\" abbr=\"Lun\" scope=\"col\">Lunedì</th>
-        <th headers=\"b2\" abbr=\"Mar\" scope=\"col\">Martedì</th>
-        <th headers=\"b3\" abbr=\"Mer\" scope=\"col\">Mercoledì</th>
-        <th headers=\"b4\" abbr=\"Gio\" scope=\"col\">Giovedì</th>
-        <th headers=\"b5\" abbr=\"Ven\" scope=\"col\">Venerdì</th>
+        <th headers=\"b1\" abbr=\"Lun\" scope=\"col\">Lunedi</th>
+        <th headers=\"b2\" abbr=\"Mar\" scope=\"col\">Martedi</th>
+        <th headers=\"b3\" abbr=\"Mer\" scope=\"col\">Mercoledi</th>
+        <th headers=\"b4\" abbr=\"Gio\" scope=\"col\">Giovedi</th>
+        <th headers=\"b5\" abbr=\"Ven\" scope=\"col\">Venerdi</th>
         <th headers=\"b6\" abbr=\"Sab\" scope=\"col\">Sabato</th>
         <th headers=\"b7\" abbr=\"Dom\" scope=\"col\">Domenica</th>
             </tr>
@@ -506,32 +506,32 @@ sub stampaOrario{
     <tbody>
     <tr>
         <th id=\"pranzo_c\" headers=\"a0\"><span>Pausa Pranzo</span><span>12:00-13:00</span></th>
-        <td class=\"Lunedì\" headers=\"c1 pranzo_c\"><span lang=\"en\">Body Pump</span></td>
-             <td class=\"Martedì\" headers=\"c2 pranzo_c\"><span lang=\"en\">Body Step</span></td>
-        <td class=\"Mercoledì\" headers=\"c3 pranzo_c\"><span lang=\"en\">Body Pump</span></td>
-         <td class=\"Giovedì\" headers=\"c4 pranzo_c\"><span lang=\"en\">Body Step</span></td>
-        <td class=\"Venerdì\" headers=\"c5 pranzo_c\"><span lang=\"en\">Body Pump</span></td>
+        <td class=\"Lunedi\" headers=\"c1 pranzo_c\"><span lang=\"en\">Body Pump</span></td>
+             <td class=\"Martedi\" headers=\"c2 pranzo_c\"><span lang=\"en\">Body Step</span></td>
+        <td class=\"Mercoledi\" headers=\"c3 pranzo_c\"><span lang=\"en\">Body Pump</span></td>
+         <td class=\"Giovedi\" headers=\"c4 pranzo_c\"><span lang=\"en\">Body Step</span></td>
+        <td class=\"Venerdi\" headers=\"c5 pranzo_c\"><span lang=\"en\">Body Pump</span></td>
          <td class=\"Sabato\" headers=\"c6 pranzo_c\"><span lang=\"en\">Body Pump</span></td>
          <td class=\"Domenica\" headers=\"c7 pranzo_c\"></td>
     </tr>
     <tr>
         <th id=\"pomeriggio_c\" headers=\"a0\"><span>Pomeriggio</span><span>16:00-17:00</span></th>
-        <td class=\"Lunedì\" headers=\"c1 pomeriggio_c\"><span lang=\"en\">Body Combat</span></td>
-        <td class=\"Martedì\" headers=\"c2 pomeriggio_c\"><span lang=\"en\">Body Pump</span></td>
-        <td class=\"Mercoledì\" headers=\"c3 pomeriggio_c\"><span lang=\"en\">Body Combat</span></td>
-        <td class=\"Giovedì\" headers=\"c4 pomeriggio_c\"><span lang=\"en\">Body Pump</span></td>
-        <td class=\"Venerdì\" headers=\"c5 pomeriggio_c\"><span lang=\"en\">Body Combat</span></td>
+        <td class=\"Lunedi\" headers=\"c1 pomeriggio_c\"><span lang=\"en\">Body Combat</span></td>
+        <td class=\"Martedi\" headers=\"c2 pomeriggio_c\"><span lang=\"en\">Body Pump</span></td>
+        <td class=\"Mercoledi\" headers=\"c3 pomeriggio_c\"><span lang=\"en\">Body Combat</span></td>
+        <td class=\"Giovedi\" headers=\"c4 pomeriggio_c\"><span lang=\"en\">Body Pump</span></td>
+        <td class=\"Venerdi\" headers=\"c5 pomeriggio_c\"><span lang=\"en\">Body Combat</span></td>
         <td class=\"Sabato\" headers=\"c6 pomeriggio_c\">chiuso</td>
         <td class=\"Domenica\" headers=\"c7 pomeriggio_c\">chiuso</td>
 
     </tr>
     <tr>
         <th id=\"sera_c\" headers=\"a0\"><span>Sera</span><span>19:00-20:00</span></th>
-        <td class=\"Lunedì\" headers=\"c1 sera_c\"><span lang=\"en\">Cross Training</span></td>
-        <td class=\"Martedì\" headers=\"c2 sera_c\"><span lang=\"en\">Body Combat</span></td>
-        <td class=\"Mercoledì\" headers=\"c3 sera_c\"><span lang=\"en\">Cross Training</span></td>
-        <td class=\"Giovedì\" headers=\"c4 sera_c\"><span lang=\"en\">Body Combat</span></td>
-        <td class=\"Venerdì\" headers=\"c5 sera_c\"><span lang=\"en\">Cross Training</span></td>
+        <td class=\"Lunedi\" headers=\"c1 sera_c\"><span lang=\"en\">Cross Training</span></td>
+        <td class=\"Martedi\" headers=\"c2 sera_c\"><span lang=\"en\">Body Combat</span></td>
+        <td class=\"Mercoledi\" headers=\"c3 sera_c\"><span lang=\"en\">Cross Training</span></td>
+        <td class=\"Giovedi\" headers=\"c4 sera_c\"><span lang=\"en\">Body Combat</span></td>
+        <td class=\"Venerdi\" headers=\"c5 sera_c\"><span lang=\"en\">Cross Training</span></td>
         <td class=\"Sabato\" headers=\"c6 sera_c\">chiuso</td>
         <td class=\"Domenica\" headers=\"c7 sera_c\">chiuso</td>
     </tr>

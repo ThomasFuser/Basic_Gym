@@ -49,7 +49,7 @@ print
   
             <div class=\"header-left\">
                 <h1><a ";
-if($pagina[0] eq "Home"){print "class=\"not-active\"";}
+if($pagina[0] eq "Home"){print "class=\"not-active\" ";}
 print "href=\"../index.html\" id=\"LinkLogo\"> <span xml:lang=\"en\">BASIC GYM</span> </a> </h1>
             </div>
             <div class=\"header-right\">

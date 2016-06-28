@@ -1020,11 +1020,11 @@ padding-left: 2.5em;
 display:block;
 text-align:center;
 }
-.tipo_area tbody .Lunedì:before {display: inline; content: "Lunedì "; font-weight: bold;}
-.tipo_area tbody .Martedì:before {display: inline; content: "Martedì "; font-weight: bold;}
-.tipo_area tbody .Mercoledì:before {display: inline; content: "Mercoledì "; font-weight: bold;}
-.tipo_area tbody .Giovedì:before {display: inline; content: "Giovedì "; font-weight: bold;}
-.tipo_area tbody .Venerdì:before {display: inline; content: "Venerdì "; font-weight: bold;}
+.tipo_area tbody .Lunedi:before {display: inline; content: "Lunedi "; font-weight: bold;}
+.tipo_area tbody .Martedi:before {display: inline; content: "Martedi "; font-weight: bold;}
+.tipo_area tbody .Mercoledi:before {display: inline; content: "Mercoledi "; font-weight: bold;}
+.tipo_area tbody .Giovedi:before {display: inline; content: "Giovedi "; font-weight: bold;}
+.tipo_area tbody .Venerdi:before {display: inline; content: "Venerdi "; font-weight: bold;}
 .tipo_area tbody .Sabato:before {display: inline; content: "Sabato "; font-weight: bold;}
 .tipo_area tbody .Domenica:before {display: inline; content: "Domenica "; font-weight: bold;}
 

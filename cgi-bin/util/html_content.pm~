@@ -27,7 +27,7 @@ sub stampaIndex{
                 <li class=\"description rev\">Porta un amico e, solo per il mese di dicembre, avrai diritto ad uno sconto del 30% sul tuo abbonamento!
     Cosa Aspetti!?</li>
            <li> <a href=\"prezzi.cgi\"> Vai a Prezzi </a> </li>
-            <li class=\"imgDesc\"><img class=\"IMMBOX\" src=\"../images/news.jpg\" alt=\"parola news scritta con i dadi\"/></li>
+            <li class=\"imgDesc\"><img class=\"IMMBOX\" src=\"../images/news.jpg\" alt=\"ragazza che solleva un bilancere\"/></li>
             </ul>
 
                <ul class=\"package home\">
@@ -35,7 +35,7 @@ sub stampaIndex{
 
                 <li class=\"description rev\"> Palestra rinnovata con nuovi macchinari specifici per tutte le tipologie di allenamento vieni a scoprirli!</li>
                 <li> <a href=\"prezzi.cgi\"> Vai a Corsi </a> </li>
-                <li class=\"imgDesc\"><img class=\"IMMBOX\" src=\"../images/Offert.png\" alt=\"Scritta Offert\"/></li>
+                <li class=\"imgDesc\"><img class=\"IMMBOX\" src=\"../images/Offert.png\" alt=\"Peso per esercizi\"/></li>
             </ul>
 
               <ul class=\"package home\">
@@ -584,7 +584,7 @@ print"
   <dd class=\"PTcont\">
 
                 <p>
-                    <img class=\"PT\" src=\"../images/sara1.png\" alt=\"Foto di Sara che esegue esercizio\" />
+                    <img class=\"PT\" src=\"../images/sara1.png\" alt=\"Foto di Sara\" />
                     Fin dalla tenera et&agrave; sono stata un&rsquo;appassionata di yoga fino a farne la mia professione. La mia passione mi ha spinta a visitare tutto l&rsquo;oriente con lo scopo di apprendere le tecniche tradizionali di questa disciplina. Ho conseguito diverse certificazioni ed abilitazioni che fanno di me la migliore scelta per l&rsquo;apprendimento di questa antica arte.
                 </p>
                 <p class=\"contattiPT\">CONTATTI :</p>
@@ -620,7 +620,7 @@ print"
 
              <dt class=\"nomePT\"> Francesco </dt>
             <dd class=\"PTcont\">
-                <img class=\"PT\" src=\"../images/francesco.png\" alt=\"francesco in posa\" />
+                <img class=\"PT\" src=\"../images/francesco.png\" alt=\"Foto di Francesco\" />
                 <p>
                     Da sempre amante dell&rsquo;attivit&agrave; sportiva, ho praticato tanti sport come il <span xml:lang=\"en\"> triathlon </span>, ciclismo, arti marziali e <span xml:lang=\"en\"> boxe </span>oltre che sport di squadra e ovviamente la pesistica, una delle mie pi&ugrave; grandi passioni.Ho vinto anche una serie di titoli molto importanti tra i quali: primo posto al <span xml:lang=\"en\">\"Musclemania World\"</span> di <span xml:lang=\"en\">Manhattan Beach(Los Angeles)</span> nel novembre 2002.
             </p>
