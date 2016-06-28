@@ -382,19 +382,6 @@ max-height: inherit;
 	display: block;
 }
 
-#content .dateinput input{
-	width: 1.5em;
-	position: relative;
-	display: inline-block;
-	margin-top: 1.5em;
-}
-
-#content .dateinput #yearinput{
-	
-	width: 2.5em;
-	position: relative;
-	display: inline-block;
-}
 #content select{
 	margin:0 0 1em 1em;
 }
