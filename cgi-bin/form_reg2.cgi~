@@ -114,7 +114,6 @@ my $genere=$q->param("genere");
 
 if($error ne  0){
         util::html_util::start_html("Registrazione", "Registrazione");
-
          util::base_util::showSchedaDue(%datiForm);
         util::html_util::end_html();
         

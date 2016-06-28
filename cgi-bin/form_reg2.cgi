@@ -111,6 +111,14 @@ my $genere=$q->param("genere");
       }
       $datiForm{'errCF'}=$tipoerrore;
       #*********************************fine controlli CODICE FISCALE ***********************************
+	#********************CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
+	foreach my $text (values %datiForm)
+	{
+		my $sostMinore="&lt;";
+  	 	my $sostMaggiore="&gt;";
+   		$text=~ s/</$sostMinore/g | s/>/$sostMaggiore/g;
+	}
+       #******************FINE CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
 
 if($error ne  0){
         util::html_util::start_html("Registrazione", "Registrazione");
