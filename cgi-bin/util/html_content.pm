@@ -84,6 +84,9 @@ sub stampaPrezzi{
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
+          my $stato = util::html_content::enc($partAbb->getAttribute('stato'));
+
+            if($stato eq "valido"){
             my $durata = enc($partAbb->findnodes("./durata"));
             ($durata)=($durata=~ /<durata>(.*)<\/durata>/);
 
@@ -99,7 +102,7 @@ sub stampaPrezzi{
             <li class=\"price\"> $prezzo $valuta </li>
             <li class=\"description\"> $desc </li>
             </ul>
-            ";
+            ";}
 
             }
         print "</div>";
@@ -140,6 +143,10 @@ sub stampaPrezziAcquistabili{
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
+            my $stato = util::html_content::enc($partAbb->getAttribute('stato'));
+
+            if($stato eq "valido"){
+
             my $durata = enc($partAbb->findnodes("./durata"));
             ($durata)=($durata=~ /<durata>(.*)<\/durata>/);
 
@@ -162,9 +169,8 @@ sub stampaPrezziAcquistabili{
 
             </ul>
              
-            ";
-
-            }
+            "; }
+          }
         print "</div>";
     }# CHIUSURA FOREACH TITOLI
 
