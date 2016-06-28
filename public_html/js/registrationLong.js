@@ -335,11 +335,12 @@ function validateMyForm(cond)
 
 function writeError(id, field, message, language){//accetta in ingresso una parola di lingua differente dall'italiano, ma deve essere solo field e di lingua language, campo language opzionale
 	if(document.getElementById("error"+id.id))document.getElementById("error"+id.id).parentElement.removeChild(document.getElementById("error"+id.id));
-	var error = document.createElement("p");
+	var error = document.createElement("span");
+    error.setAttribute("class", "erroreForm");
 	error.id="error"+id.id;
-	error.className="error";
+	//error.className="error";
 	if(language!=null){
-		var textError0 = document.createTextNode("Campo ");
+		var textError0 = document.createTextNode("  Campo ");
 		var spanError = document.createElement("span");
 		var textError1 = document.createTextNode(" errato: " + message);
 		spanError.lang=language;
@@ -347,7 +348,7 @@ function writeError(id, field, message, language){//accetta in ingresso una paro
 		error.appendChild(textError0); error.appendChild(spanError); error.appendChild(textError1);
 	}
 	else{
-		var textError = document.createTextNode("Campo " + field + " errato: " + message);
+		var textError = document.createTextNode("  Campo " + field + " errato: " + message);
 		error.appendChild(textError);
 	}
 	id.parentElement.insertBefore(error, id);
@@ -355,26 +356,34 @@ function writeError(id, field, message, language){//accetta in ingresso una paro
 
 //*********************************************************************************************************//
                         //  DEVO ELIMINARE IL FIGLIO SPAN SE PRESENTE ZIO CAN
-function writeErrorEmpty(id, field){
-	window.alert("sono un errore creato da me medesimo");
-	var descendants = parent.getElementsByTagName(tagname);
-	if(descendants) parentElement.removeChild
+/*function writeErrorEmpty(id, field){
+	window.alert(id.id);
+		if(document.getElementById("error"+id.id)){window.alert(id.id); document.getElementById("error"+id.id).parentElement.removeChild(document.getElementById("error"+id.id));}
+
+	/*window.alert(id.id);
+	var padre = document.getElementById(id.id);		//qui ho il padre dell'errore che andrò a salvare
+	var descendants = padre.getElementsByTagName("span");
+		window.alert(descendants);
+	if(descendants) {window.alert("sto per eliminare il nodo"); parentElement.removeChild(descendants);}
+var padre = document.getElementById(id.id);		//qui ho il padre dell'errore che andrò a salvare
 	var error = document.createElement("span");
 	error.setAttribute("class", "erroreForm");
 	error.appendChild( document.createTextNode("Errore, campo vuoto") );
-	id.parentElement.insertBefore(error, id);
+	padre.insertBefore(error, id);
 
-}
+}*/
 //*********************************************************************************************************//
 
 
-/*function writeErrorEmpty(id, field, language){
+function writeErrorEmpty(id, field, language){
+	
 	if(document.getElementById("error"+id.id))document.getElementById("error"+id.id).parentElement.removeChild(document.getElementById("error"+id.id));
-	var error = document.createElement("p");
+	var error = document.createElement("span");
 	error.className="error";
+	error.setAttribute("class", "erroreForm");
 	error.id="error"+id.id;
 	if(language!=null){
-		var textError0 = document.createTextNode("Campo ");
+		var textError0 = document.createTextNode(" Campo ");
 		var spanError = document.createElement("span");
 		var textError1 = document.createTextNode(" vuoto: campo obbligatorio");
 		spanError.lang=language;
@@ -387,8 +396,9 @@ function writeErrorEmpty(id, field){
 		var textError = document.createTextNode("Campo " + field + " vuoto: campo obbligatorio");
 		error.appendChild(textError);
 	}
-	id.parentElement.insertBefore(error, id);
-}*/
+
+		 id.parentElement.insertBefore(error, id);
+}
 /*
 function writeErrorEmpty(id, field, language){
 	if(document.getElementById("error"+id.id))document.getElementById("error"+id.id).parentElement.removeChild(document.getElementById("error"+id.id));

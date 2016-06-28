@@ -58,27 +58,27 @@ sub showSchedaDue{
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
             <ol>                
-                <li><label>Nome</label><input type=\"text\" name=\"nome\" id=\"name_user\"  value=\"".$datiForm{'nome'}."\" onblur=\"checkWord(this, 'nome')\" />";
+                <li><label>Nome  </label><input type=\"text\" name=\"nome\" id=\"name_user\"  value=\"".$datiForm{'nome'}."\" onblur=\"checkWord(this, 'nome')\" />";
   if($datiForm{'errNome'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errNome'}."</span>"; }
 
 
   print"</li>
-                <li><label>Cognome</label> <input type=\"text\" name=\"cognome\" id=\"surname_user\"  value=\"".$datiForm{'cognome'}."\" onblur=\"checkWord(this, 'cognome')\" />";
+                <li><label>Cognome </label> <input type=\"text\" name=\"cognome\" id=\"surname_user\"  value=\"".$datiForm{'cognome'}."\" onblur=\"checkWord(this, 'cognome')\" />";
   if($datiForm{'errCognome'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCognome'}."</span>"; }
   print "</li>
                <li> Genere<select name=\"genere\" id=\"genere\" >                                              
                         <option selected=\"selected\">M</option>
                         <option>F</option>
                  </select> </li>
-                <li  class=\"dateinput\"><label>Data di nascita</label>
-                      <input type=\"text\" name=\"gg\" value=\"".$datiForm{'gg'}."\" onblur=\"check_giorno(this, 'giorno')\"/>  
-                      <input type=\"text\" name=\"mese\" value=\"".$datiForm{'mese'}."\" onblur=\"check_mese(this, 'mese')\"/>  
+                <li  class=\"dateinput\"><label>Data di nascita </label>
+                      <input type=\"text\" id=\"dayinput\" name=\"gg\" value=\"".$datiForm{'gg'}."\" onblur=\"check_giorno(this, 'giorno')\"/>  
+                      <input type=\"text\" id=\"mounthinput\" name=\"mese\" value=\"".$datiForm{'mese'}."\" onblur=\"check_mese(this, 'mese')\"/>  
                       <input id=\"yearinput\" type=\"text\" name=\"anno\" value=\"".$datiForm{'anno'}."\" onblur=\"check_anno(this, 'anno')\"/>";
     if($datiForm{'errDataNascita'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errDataNascita'}."</span>"; }                  
   print "</li>
 
-                <li><label>Professione</label><input type=\"text\" name=\"professione\"  id=\"job_user\"  value=\"".$datiForm{'professione'}."\" onblur=\"checkPhrase(this, 'professione')\" /></li>
-                <li><label>Codice fiscale</label><input type=\"text\" name=\"CF\" id=\"codicefiscale_user\" value=\"".$datiForm{'CF'}."\" onblur=\"checkCodiceFiscale()\" />";
+                <li><label>Professione </label><input type=\"text\" name=\"professione\"  id=\"job_user\"  value=\"".$datiForm{'professione'}."\" onblur=\"checkPhrase(this, 'professione')\" /></li>
+                <li><label>Codice fiscale  </label><input type=\"text\" name=\"CF\" id=\"codicefiscale_user\" value=\"".$datiForm{'CF'}."\" onblur=\"checkCodiceFiscale()\" />";
   if($datiForm{'errCF'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCF'}."</span>"; } 
 print"</li></ol>
           <input type=\"submit\" name=\"reg2\"  value=\"Avanti\" class=\"submit_button\" />
@@ -107,9 +107,9 @@ sub showSchedaTre{
              <input type=\"hidden\" name=\"professione\"  value=\"".$datiForm{'professione'}."\" />
 
             <ol>
-                <li><label>Indirizzo</label><input type=\"text\" name=\"indirizzo\" id=\"address_user\"  value=\"".$datiForm{'indirizzo'}."\"  onblur=\"checkPhrase(this, 'indirizzo')\" /></li>
-                <li><label>Città</label><input type=\"text\" name=\"citta\" id=\"city_user\" value=\"".$datiForm{'citta'}."\" onblur=\"checkPhrase(this, 'città')\"/></li>
-                <li><label>Telefono</label><input type=\"text\" name=\"tel\" id=\"phone_user\" value=\"".$datiForm{'tel'}."\" onblur=\"checkPhoneNumber()\" />";
+                <li><label>Indirizzo </label><input type=\"text\" name=\"indirizzo\" id=\"address_user\"  value=\"".$datiForm{'indirizzo'}."\"  onblur=\"checkPhrase(this, 'indirizzo')\" /></li>
+                <li><label>Città </label><input type=\"text\" name=\"citta\" id=\"city_user\" value=\"".$datiForm{'citta'}."\" onblur=\"checkPhrase(this, 'città')\"/></li>
+                <li><label>Telefono </label><input type=\"text\" name=\"tel\" id=\"phone_user\" value=\"".$datiForm{'tel'}."\" onblur=\"checkPhoneNumber()\" />";
 if($datiForm{'errTelefono'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errTelefono'}."</span>"; }           
 print"</li></ol>
           <input type=\"submit\" name=\"reg3\"  value=\"Avanti\" class=\"submit_button\"/>
@@ -152,7 +152,7 @@ sub showSchedaQuattro{
                         <option>Mastercard</option>
                         <option>American Express</option>
                  </select> </li>
-                <li><label>Numero carta</label><input type=\"text\" name=\"ncarta\" id=\"numbercard_user\"  value=\"".$datiForm{'ncarta'}."\" onblur=\"checkNumberCard()\"/>";
+                <li><label>Numero carta </label><input type=\"text\" name=\"ncarta\" id=\"numbercard_user\"  value=\"".$datiForm{'ncarta'}."\" onblur=\"checkNumberCard()\"/>";
 if($datiForm{'errCarta'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCarta'}."</span>"; }  
 print"</li>
       <li>Scadenza <select name=\"mese_scadenza\" id=\"mese_scadenza\">                                              
