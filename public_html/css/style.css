@@ -356,6 +356,7 @@ line-height: 1.6em;
 }
 span.erroreForm{ /*errori form*/
 color: #ffcc33;
+display: block;
 }
 .forms li {
 
