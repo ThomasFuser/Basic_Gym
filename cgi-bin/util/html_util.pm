@@ -56,10 +56,10 @@ print "href=\"../index.html\" id=\"LinkLogo\"> <span xml:lang=\"en\">BASIC GYM</
                 <label for=\"open\">
                     <span class=\"hidden-desktop\"></span>
                 </label>";
-nav(@pagina);
+nav($pagina[0]);
                
 print"</div></div></div>";
-    path(@pagina);
+    path($pagina[0]);
 }
 # funzione di stampa del footer
 sub end_html {
