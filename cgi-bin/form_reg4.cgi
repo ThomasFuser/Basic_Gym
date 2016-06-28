@@ -1,3 +1,4 @@
+
 #!/usr/bin/perl
 # use module
 use util::html_util;
@@ -8,7 +9,7 @@ use CGI;
 use CGI::Session;
 
 my $q = new CGI;
-   util::html_util::start_html("Riepilogo registrazione", "Riepilogo registrazione");
+   util::html_util::start_html("Riepilogo registrazione");
 
 my $tipocarta=$q->param("tipoCarta");
 my $ncarta=$q->param("ncarta");
@@ -42,7 +43,6 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
          if ($confMail eq $datiForm{'email'}){ $sentinella=1; } 
       }
          my $stringaFinale;
-
       if ($sentinella==0){
  
         #**************************INIZIO CONTROLLI CARTA DI CREDITO*****************
@@ -111,11 +111,10 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
 
         #*********************************FINE CONTROLLI CARTA DI CREDITO***********
          
-   if($error eq  1){
+  if($error eq  1){
           util::html_util::start_html("Registrazione", "Registrazione");
           util::base_util::showSchedaQuattro(%datiForm);
-          util::html_util::end_html();
-          
+          util::html_util::end_html();         
         }
   else{                                          #registrazione con dati corretti
 
@@ -202,7 +201,7 @@ print "
            <h1>Riepilogo della registrazione</h1>
        ";
 print "
-         <p class=\"riepilogo\" id=\"ritorno\"> Registrazione $stringaFinale . Accedi nella pagine <a href=\"login.cgi\" > Login </a> </p>   
+         <p class=\"riepilogo\" id=\"ritorno\"> Registrazione $stringaFinale . Accedi nella pagine <a href=\"login.cgi\" > Login </a> </p>
     ";
 
     print " </div> "; 

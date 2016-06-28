@@ -17,25 +17,31 @@ package util::base_util;
 
 sub showSchedaUno{
   my %datiForm= @_;
-	print"
+  print"
   <div id=\"content\" class=\"forms\">
+  
   <h1>Registrazione</h1>
+     <script type=\"text/javascript\" src=\"../js/registrationLong.js\"></script>
         <h2> Dati di accesso </h2>
         <form action=\"form_reg1.cgi\" method=\"post\">
             <ol>
-                <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'email'}."\" />";
+                <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'email'}."\" id=\"email_user\" onblur=\"checkEmail()\" />";
                 if($datiForm{'errEmail'} ne undef){ print "<span class=\"erroreForm\" >".$datiForm{'errEmail'}."</span>"; }
 
-print"</li><li><label><span lang=\"en\">Password</span></label><input type=\"password\" name=\"password\"  value=\"".$datiForm{'password'}."\" />";
+print"</li><li><label><span lang=\"en\">Password</span></label><input type=\"password\" name=\"password\"  value=\"".$datiForm{'password'}."\" id=\"password_user\" onblur=\"checkPassword()\" />";
 if($datiForm{'errPw'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errPw'}."</span>"; }
 
-print"</li><li><label>Ripeti <span lang=\"en\">password</span></label><input type=\"password\" name=\"password_repeat\"  value=\"".$datiForm{'ripetipassword'}."\" />";      
+print"</li><li><label>Ripeti <span lang=\"en\">password</span></label><input type=\"password\" name=\"password_repeat\"  value=\"".$datiForm{'ripetipassword'}."\" id=\"password_user_repeat\" onblur=\"checkPasswordRepeat()\" />";      
  if($datiForm{'errPwRep'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errPwRep'}."</span>"; }
                
-print"</li></ol>
-          <input type=\"submit\" name=\"reg1\"  value=\"Avanti\" class=\"submit_button\"/>
+print"</li></ol> 
+        <input type=\"submit\" name=\"reg1\"  value=\"Avanti\" class=\"submit_button\"/>
+             
         </form>
+
     </div>
+   
+}
 ";}
 
 
@@ -45,31 +51,34 @@ sub showSchedaDue{
   print"
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
+        <script type=\"text/javascript\" src=\"../js/registrationLong.js\"></script>
         <h2> Dati personali </h2>
         <form action=\"form_reg2.cgi\" method=\"post\">
-             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
+             <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\"  />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
             <ol>                
-                <li><label>Nome</label><input type=\"text\" name=\"nome\"  value=\"".$datiForm{'nome'}." \" />";
+                <li><label>Nome</label><input type=\"text\" name=\"nome\" id=\"name_user\"  value=\"".$datiForm{'nome'}."\" onblur=\"checkWord(this, 'nome')\" />";
   if($datiForm{'errNome'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errNome'}."</span>"; }
 
 
   print"</li>
-                <li><label>Cognome</label><input type=\"text\" name=\"cognome\"  value=\"".$datiForm{'cognome'}."\" />";
+                <li><label>Cognome</label> <input type=\"text\" name=\"cognome\" id=\"surname_user\"  value=\"".$datiForm{'cognome'}."\" onblur=\"checkWord(this, 'cognome')\" />";
   if($datiForm{'errCognome'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCognome'}."</span>"; }
   print "</li>
                <li> Genere<select name=\"genere\" id=\"genere\" >                                              
                         <option selected=\"selected\">M</option>
                         <option>F</option>
                  </select> </li>
-                <li  class=\"dateinput\"><label>Data di nascita</label><input type=\"text\" name=\"gg\"  value=\"".$datiForm{'gg'}."\" />  
-                      <input type=\"text\" name=\"mese\"  value=\"".$datiForm{'mese'}."\" />  <input id=\"yearinput\" type=\"text\" name=\"anno\"  value=\"".$datiForm{'anno'}."\" />";
+                <li  class=\"dateinput\"><label>Data di nascita</label>
+                      <input type=\"text\" name=\"gg\" value=\"".$datiForm{'gg'}."\" onblur=\"check_giorno(this, 'giorno')\"/>  
+                      <input type=\"text\" name=\"mese\" value=\"".$datiForm{'mese'}."\" onblur=\"check_mese(this, 'mese')\"/>  
+                      <input id=\"yearinput\" type=\"text\" name=\"anno\" value=\"".$datiForm{'anno'}."\" onblur=\"check_anno(this, 'anno')\"/>";
     if($datiForm{'errDataNascita'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errDataNascita'}."</span>"; }                  
   print "</li>
 
-                <li><label>Professione</label><input type=\"text\" name=\"professione\"  value=\"".$datiForm{'professione'}."\" /></li>
-                <li><label>Codice fiscale</label><input type=\"text\" name=\"CF\"  value=\"".$datiForm{'CF'}."\" />";
+                <li><label>Professione</label><input type=\"text\" name=\"professione\"  id=\"job_user\"  value=\"".$datiForm{'professione'}."\" onblur=\"checkPhrase(this, 'professione')\" /></li>
+                <li><label>Codice fiscale</label><input type=\"text\" name=\"CF\" id=\"codicefiscale_user\" value=\"".$datiForm{'CF'}."\" onblur=\"checkCodiceFiscale()\" />";
   if($datiForm{'errCF'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCF'}."</span>"; } 
 print"</li></ol>
           <input type=\"submit\" name=\"reg2\"  value=\"Avanti\" class=\"submit_button\" />
@@ -82,6 +91,7 @@ sub showSchedaTre{
   print"
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
+    <script type=\"text/javascript\" src=\"../js/registrationLong.js\"></script>
         <h2> Contatti </h2>
         <form action=\"form_reg3.cgi\" method=\"post\">
              <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
@@ -97,9 +107,9 @@ sub showSchedaTre{
              <input type=\"hidden\" name=\"professione\"  value=\"".$datiForm{'professione'}."\" />
 
             <ol>
-                <li><label>Indirizzo</label><input type=\"text\" name=\"indirizzo\"  value=\"".$datiForm{'indirizzo'}."\" /></li>
-                <li><label>Città</label><input type=\"text\" name=\"citta\"  value=\"".$datiForm{'citta'}."\" /></li>
-                <li><label>Telefono</label><input type=\"text\" name=\"tel\"  value=\"".$datiForm{'tel'}."\" />";
+                <li><label>Indirizzo</label><input type=\"text\" name=\"indirizzo\" id=\"address_user\"  value=\"".$datiForm{'indirizzo'}."\"  onblur=\"checkPhrase(this, 'indirizzo')\" /></li>
+                <li><label>Città</label><input type=\"text\" name=\"citta\" id=\"city_user\" value=\"".$datiForm{'citta'}."\" onblur=\"checkPhrase(this, 'città')\"/></li>
+                <li><label>Telefono</label><input type=\"text\" name=\"tel\" id=\"phone_user\" value=\"".$datiForm{'tel'}."\" onblur=\"checkPhoneNumber()\" />";
 if($datiForm{'errTelefono'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errTelefono'}."</span>"; }           
 print"</li></ol>
           <input type=\"submit\" name=\"reg3\"  value=\"Avanti\" class=\"submit_button\"/>
@@ -117,6 +127,7 @@ sub showSchedaQuattro{
   print"
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
+    <script type=\"text/javascript\" src=\"../js/registrationLong.js\"></script>
         <h2> Metodo di pagamento </h2>
         <form action=\"form_reg4.cgi\" method=\"post\">
              <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
@@ -141,7 +152,7 @@ sub showSchedaQuattro{
                         <option>Mastercard</option>
                         <option>American Express</option>
                  </select> </li>
-                <li><label>Numero carta</label><input type=\"text\" name=\"ncarta\"  value=\"".$datiForm{'ncarta'}."\"/>";
+                <li><label>Numero carta</label><input type=\"text\" name=\"ncarta\" id=\"numbercard_user\"  value=\"".$datiForm{'ncarta'}."\" onblur=\"checkNumberCard()\"/>";
 if($datiForm{'errCarta'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCarta'}."</span>"; }  
 print"</li>
       <li>Scadenza <select name=\"mese_scadenza\" id=\"mese_scadenza\">                                              
@@ -192,4 +203,4 @@ print"</li>
 
 1;
 
-# Questo file contiene subroutine per la stampa dei form registrazione 
+#Questo file contiene subroutine per la stampa dei form registrazione 

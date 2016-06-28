@@ -88,10 +88,10 @@ my $ripetipassword=$q->param("password_repeat");
       }
       else{
 
-      # Stampa form successivo
+       #Stampa form successivo
 
       util::html_util::start_html("Registrazione", "Registrazione");
-      # stampa form  REGISTRAZIONE: DATI PERSONALI
+       #stampa form  REGISTRAZIONE: DATI PERSONALI
       util::base_util::showSchedaDue(%datiForm);
       util::html_util::end_html();
 }
