@@ -31,7 +31,7 @@ my $genere=$q->param("genere");
 
 
 
-	 my $tipoerrore=undef;
+   my $tipoerrore=undef;
      my $error=0;
      my %datiForm;
      #salvo i dati inserti nell'array $error per ripristinare i valori inseriti nella form in caso di errore
@@ -64,6 +64,7 @@ my $genere=$q->param("genere");
       my $sec,my $min ,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst; 
       ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)=localtime(time);
       $tipoerrore=undef;
+
       if (length($gg)==0 || length($mese)==0 || length($anno)==0){
         $tipoerrore="Errore: data non completa";
         $error=1;
@@ -97,8 +98,8 @@ my $genere=$q->param("genere");
       }
       $datiForm{"errDataNascita"}=$tipoerrore;
       ######################################## FINE CONTROLLI DATA  DI NASCITA #########################################
- 	  #****************************inizio controlli CODICE FISCALE***************************
- 	  $tipoerrore=undef;
+    #****************************inizio controlli CODICE FISCALE***************************
+    $tipoerrore=undef;
       if(length($q->param('CF'))==0){
         $tipoerrore="Errore: Codice Fiscale è un campo obbligatorio";
         $error=1;
@@ -111,17 +112,18 @@ my $genere=$q->param("genere");
       }
       $datiForm{'errCF'}=$tipoerrore;
       #*********************************fine controlli CODICE FISCALE ***********************************
-	#********************CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
-	foreach my $text (values %datiForm)
-	{
-		my $sostMinore="&lt;";
-  	 	my $sostMaggiore="&gt;";
-   		$text=~ s/</$sostMinore/g | s/>/$sostMaggiore/g;
-	}
+  #********************CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
+  foreach my $text (values %datiForm)
+  {
+    my $sostMinore="&lt;";
+      my $sostMaggiore="&gt;";
+      $text=~ s/</$sostMinore/g | s/>/$sostMaggiore/g;
+  }
        #******************FINE CONTROLLI SU INSERIMENTO CODICE-SCRIPT NOCIVI************
 
 if($error ne  0){
         util::html_util::start_html("Registrazione", "Registrazione");
+         print"<p> $gg  $mese  $anno </p>";
          util::base_util::showSchedaDue(%datiForm);
         util::html_util::end_html();
         
@@ -131,9 +133,8 @@ if($error ne  0){
       # Stampa form successivo
 
       util::html_util::start_html("Registrazione", "Registrazione");
-      # stampa form  REGISTRAZIONE: CONTATTI
+      # stampa form  REGISTRAZIONE: CONTATTI  
+
       util::base_util::showSchedaTre(%datiForm);
       util::html_util::end_html();
 }
-
-

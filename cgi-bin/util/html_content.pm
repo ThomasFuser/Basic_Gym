@@ -67,8 +67,10 @@ sub stampaPrezzi{
     {
         my $area = enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
+        my @areaSplit=split  " ", $area; #split della data in modo tale da poterla elaborare
+        my  $areaUnita=$areaSplit[0].$areaSplit[1].$areaSplit[2];
         
-         print" <li><a href=\"#$area\">".$area."</a></li>";
+         print" <li><a href=\"#$areaUnita\">".$area."</a></li>";
       }
      print" </ul></div>
     <div id=\"content\">
@@ -78,9 +80,11 @@ sub stampaPrezzi{
     {
         my $area = enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
+        my @areaSplit=split  " ", $area; #split della data in modo tale da poterla elaborare
+        my $areaUnita=$areaSplit[0].$areaSplit[1].$areaSplit[2];
+         print" 
+         <div class=\"packages\" id=\"$areaUnita\"><h2> $area </h2> ";        
 
-         print"
-         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
@@ -125,8 +129,10 @@ sub stampaPrezziAcquistabili{
     {
         my $area = enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
-
-         print" <li><a href=\"#$area\">".$area."</a></li>";
+        my @areaSplit=split  " ", $area; #split della data in modo tale da poterla elaborare
+        my  $areaUnita=$areaSplit[0].$areaSplit[1].$areaSplit[2];
+        
+         print" <li><a href=\"#$areaUnita\">".$area."</a></li>";
       }
      print" </ul></div>
     <div id=\"content\">
@@ -137,9 +143,11 @@ sub stampaPrezziAcquistabili{
     {
         my $area = enc($titArea->findnodes("./titolo"));
          ($area) = ($area =~ /<titolo>(.*)<\/titolo>/);
+        my @areaSplit=split  " ", $area; #split della data in modo tale da poterla elaborare
+        my $areaUnita=$areaSplit[0].$areaSplit[1].$areaSplit[2];
+         print" 
+         <div class=\"packages\" id=\"$areaUnita\"><h2> $area </h2> ";        
 
-         print"
-         <div class=\"packages\" id=\"$area\"><h2> $area </h2> ";
 
         foreach my $partAbb($titArea->findnodes("./abbonamento"))
         {
