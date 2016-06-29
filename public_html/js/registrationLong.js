@@ -33,7 +33,7 @@ function validatePhoneNumber(number){
     return rePNum.test(number);
 }
 /*****  TEST ****/
-/*function validateDate(date){
+function validateDate(date){
 	var anno=Number(date.substring(6, 10));
 	var mese=Number(date.substring(3, 5));
 	var giorno=Number(date.substring(0, 2));
@@ -42,9 +42,9 @@ function validatePhoneNumber(number){
 	if((mese==4 || mese==6 || mese==9 || mese==11) && giorno>30) return false; //controllo
 	if(mese==2 && anno%4!=0 && giorno>28) return false; //controllo anno bisestile
 	if(mese==2 && anno%4==0 && giorno>29) return false; //controllo anno bisestile
-    var reDate = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/; //anni permessi: dal 1900 al 2099
+    var reDate = /^(0[1-9]|[12][0-9]|3[01])[-.](0[1-9]|1[012])[-.](19|20)\d\d$/; //anni permessi: dal 1900 al 2099
     return reDate.test(date);
-}*/
+}
 
 function validateCodiceFiscale(codice){
     var reCF = /^[A-Z]{6,6}[0-9][0-9][A-Z][0-9][0-9][A-Z][0-9][0-9][0-9][A-Z]$/;
@@ -144,7 +144,6 @@ function checkWord(obj, name){
 }
 
 function checkPhrase(obj, name){
-
 if(name=="professione" || name=="città" || name=="indirizzo" ){
 	if(!notEmpty(obj.value)){//se il campo è vuoto
 		return;
@@ -235,8 +234,8 @@ function checkCodiceFiscale(){
 		}
 	}
 }
-/*
-function checkDate(obj, name){
+
+function checkDate(obj, name){ 
 	if(!notEmpty(obj.value)){//se il campo è vuoto
 		obj.className="error";
 		writeErrorEmpty(obj, name);
@@ -244,15 +243,16 @@ function checkDate(obj, name){
 	else{//campo non vuoto
 		if(!validateDate(obj.value)){
 			obj.className="error";
-			writeError(obj, name, "la data deve essere scritta in uno dei possibili formati: GG/MM/AAAA o GG-MM-AAAA");
+			writeError(obj, name, "la data deve essere scritta in questo formato: GG-MM-AAAA");
 		}
 		else{
 			obj.className="";
 			removeErrorChildToANode(obj);
 		}
 	}
-}*/
+}
 /****************************************************************************************/
+/*
 function check_giorno(obj, name){
 	if(!notEmpty(obj.value)){//se il campo è vuoto
 		obj.className="error";
@@ -273,8 +273,8 @@ function check_giorno(obj, name){
 			writeError(obj, name, "sono ammessi solo numeri");
 	}
 }
-}
-
+}*/
+/*
 function check_mese(obj, name){
 	if(!notEmpty(obj.value)){//se il campo è vuoto
 		obj.className="error";
@@ -295,7 +295,7 @@ function check_mese(obj, name){
 			writeError(obj, name, "sono ammessi solo numeri");
 	}
 }
-}
+}*//*
 function check_anno(obj, name){
 	var currentTime = new Date()
 	var year = currentTime.getFullYear();
@@ -318,10 +318,10 @@ function check_anno(obj, name){
 			writeError(obj, name, "sono ammessi solo numeri");
 	}
 }
-}
+}*/
 
 
-
+/*
 function validateMyForm(cond)
 {
   if(cond===true){
@@ -330,7 +330,7 @@ function validateMyForm(cond)
 	else{ 
 		return false;
   }
-}
+}*/
 /************************** funzioni di stampa  ***********************************/
 
 function writeError(id, field, message, language){//accetta in ingresso una parola di lingua differente dall'italiano, ma deve essere solo field e di lingua language, campo language opzionale

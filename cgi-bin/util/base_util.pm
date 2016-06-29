@@ -75,7 +75,7 @@ sub showSchedaDue{
 if($datiForm{'datanascita'} eq undef) {$datiForm{'datanascita'}="GG-MM-AAAA";}
 if($datiForm{'datanascita'} eq ''){$datiForm{'datanascita'}="GG-MM-AAAA"}
 
-             print" <input type=\"text\"  name=\"datanascita\" value=\"".$datiForm{'datanascita'}."\" onblur=\"\"/>  ";
+             print" <input type=\"text\"  name=\"datanascita\" value=\"".$datiForm{'datanascita'}."\" id=\"datebirth_user\" onblur=\"checkDate(this, 'data di nascita')\"/>  ";
     if($datiForm{'errDataNascita'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errDataNascita'}."</span>"; }                  
   print "</li>
 
