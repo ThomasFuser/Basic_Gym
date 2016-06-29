@@ -32,7 +32,7 @@ my $ripetipassword=$q->param("password_repeat");
           $tipoerrore="Errore: email è un campo obbligatorio";
           $error=1;
           
-        }elsif (!($q->param('email')=~/^[a-z0-9][a-z0-9.]+@[a-z0-9]+.[a-z0-9]+$/)){
+        }elsif (!($q->param('email')=~/([a-zA-Z0-9][-a-zA-Z0-9_\+\.]*[a-zA-Z0-9])@([a-z0-9][-a-z0-9\.]*[a-z0-9]\.(org|it|com)|([0-9]{1,3}\.{3}[0-9]{1,3}))/)){
           $tipoerrore="Errore: email non valida";
           $error=1;
 

@@ -103,9 +103,9 @@ my $genere=$q->param("genere");
       if(length($q->param('CF'))==0){
         $tipoerrore="Errore: Codice Fiscale è un campo obbligatorio";
         $error=1;
-     }#elsif(!($q->param('CF')=~/^[A-Za-z]{6}[0-9]{2}[A-Za-z][0-9]{2}[A-Za-z][0-9]{3}[A-Za-z]$/)){   #commento per prova (da togliere)
-      # $tipoerrore="Errore: inserire un codice fiscale valido";
-      #  $error=1;}
+     }elsif(!($q->param('CF')=~/^[A-Z]{6,6}[0-9][0-9][A-Z][0-9][0-9][A-Z][0-9][0-9][0-9][A-Z]$/)){   #commento per prova (da togliere)
+       $tipoerrore="Errore: inserire un codice fiscale valido";
+        $error=1;}
       elsif (length($q->param('CF'))<16 || length($q->param('CF'))>16){
         $tipoerrore="Errore: inserire un codice fiscale con 16 cifre";
         $error=1;
