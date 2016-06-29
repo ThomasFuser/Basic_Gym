@@ -734,17 +734,17 @@ sub lettura_abbonamenti_utente{
   
  
   my $today = strftime "%F", localtime; #data odierna
-  my $queryute="//utente[./dati_accesso/mail='$username']/lista_acquistati/abb_acquistato";
+  my $queryute="//utente[./dati_accesso/mail='$username']/lista_acquistati/abb_acquisto"; 
   my @lista_acquistati;
   
   
   my $docA = util::db_util::caricamentoLibXMLPrezzi();
   my $doc = util::db_util::caricamentoLibXMLUtenti();
 
- 
   foreach my $abb($doc->findnodes($queryute))
   {
-    my $idabbonamento=util::html_content::enc($abb->findnodes("./id_abbonamento/text()"));
+    
+    my $idabbonamento=util::html_content::enc($abb->findnodes("./id_acquisto/text()"));
     my $inizio=util::html_content::enc($abb->findnodes("./inizio/text()"));
     my $scadenza=util::html_content::enc($abb->findnodes("./scadenza/text()"));
 
@@ -754,7 +754,6 @@ sub lettura_abbonamenti_utente{
     my $prezzo = util::html_content::enc($docA->findnodes("//listaAbbonamenti/categoria/abbonamento[\@ID='$idabbonamento']/prezzo/text()"));
     my $desc = util::html_content::enc($docA->findnodes("//listaAbbonamenti/categoria/abbonamento[\@ID='$idabbonamento']/descrizione/text()"));
     #----
-   
 
     if(((substr $scadenza, 0, 4) gt (substr $today, 0, 4)) || ((substr $scadenza, 0, 4) eq (substr $today, 0, 4) && (substr $scadenza, 5, 2) gt (substr $today, 5, 2)) || ((substr $scadenza, 0, 4) eq (substr $today, 0, 4)) && (substr $scadenza, 5, 2) eq (substr $today, 5, 2) && (substr $scadenza, 8, 2) ge (substr $today, 8, 2))
     {#controllo data di scadenza
@@ -768,8 +767,7 @@ sub lettura_abbonamenti_utente{
 }
 
 sub stampaProfiloUtente{
-  
-  
+
    my $username=@_[0];
   my %utente=util::db_util::lettura_dati_utente($username);
   my @listaAbbonamenti=lettura_abbonamenti_utente($username);
@@ -781,7 +779,6 @@ sub stampaProfiloUtente{
         my $num = @listaAbbonamenti;      # la funzione ritorna un array vuoto; altro che tutti gli abbinamenti
         my $i;
         my $valuta="€";
-
   for ($i=0; $i<$num; $i++) {
     
     print"

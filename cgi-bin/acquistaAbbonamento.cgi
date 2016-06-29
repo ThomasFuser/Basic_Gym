@@ -50,7 +50,7 @@ else{
 
   #variabile che contiene info abbonamento (mensile o annuale)
   my $durataAbbComprato=$doc_prezzi->findnodes("listaAbbonamenti/categoria/abbonamento[\@ID=$id]/durata");
-  print"<p> abbonameto presente?? $presente </p> ";
+ 
   #l'abbonamento è presente nel database oppure no?
   if($presente==1) #l'abbonamento è gia stato acquistato dall'utente
   {
@@ -78,13 +78,11 @@ else{
                 }
               }
             }
-          print"<p> abbonamento scaduto?? $scaduto </p> ";  
 
     #variabili utili alla modifica
      my $nuovaScad;
      my $inizioXML=$abbPresente->findnodes("./inizio")->get_node(1);
      my $scadenzaXML=$abbPresente->findnodes("./scadenza")->get_node(1);
-        print"<p> durata abbonamento: $durataAbbComprato </p> ";
     #abbonamento annuale
     if($durataAbbComprato eq "Abbonamento annuale"){
 
