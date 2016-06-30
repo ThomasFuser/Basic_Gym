@@ -76,14 +76,30 @@ I colori utilizzati nel sito sono esclusivamente colori safe. In particolare son
 	\begin{tabular}{c c c c c}
 		\midrule  \#000 & \#333 & \#CCC & \#EEE  &  \#FFF \\ \midrule 
 	\end{tabular} 
-	
 \end{center}
 \subsubsection{Contrasto}
 \paragraph{Colore dei link}
 \begin{itemize}
-	\item \textit{\textbf{Link non visitati}}\TODO{colorelink} è stato utilizzato per i link per massimizzare il contrasto con \#000, \#333 ed essere distinguibile dal colore dei link visitati. Inoltre per adeguarsi alle convenzioni i link utilizzano \textbf{testo sottolineato.}
-	\item \textbf{\textit{Link visitati} :\#FFF }è stato utilizzato per i link visitati. Questi mantengono il testo sottolineato cambiando solamente colore da \#\TODO{colorelink} a \#FFF. 
+	\item \textit{\textbf{Link non visitati}} \#FFCC33 è stato utilizzato per i link per massimizzare il contrasto con \#000, \#333 ed essere distinguibile dal colore dei link visitati. Inoltre per adeguarsi alle convenzioni i link utilizzano \textbf{testo sottolineato.}
+	\item \textbf{\textit{Link visitati} :\#FFF }è stato utilizzato per i link visitati. Questi mantengono il testo sottolineato cambiando solamente colore da \#FFCC33 a \#FFF. 
 \end{itemize}
+
+\subsection{Test  }
+\subsubsection{Color blindness test}
+Per l'accessibilità relativa al daltonismo o alla difficoltà di visualizzare i colori è stato usato lo strumento online: 	
+\begin{center}
+	\url{http://www.color-blindness.com/coblis-color-blindness-simulator/}
+\end{center}
+I risultati sono elencati nel seguito. 
+\TODO{colorblindness}
+
+\subsection{Test del contrasto}
+Il contrasto tra testo e sfondo è stato verificato attraverso il sito 
+\begin{center}
+	\url{http://webaim.org/resources/contrastchecker/}
+\end{center}
+ottenendo un una \textbf{valutazione WCAG AAA} per tutte le combinazioni utilizzate per sia \textbf{testo di grandezza normale che grande.}
+
 \subsection{Accessibilità della presentazione}
 \paragraph{Dimensioni e unità di misura} La dimensione del testo viene specificata in \textbf{em} e le dimensioni degli elementi della pagina vengono specificate in percentuale qual ora debbano dipendere dalla dimensione dello schermo e in em quando devono dipendere dalla dimensione del font preferito dall'utente. 
 
@@ -139,17 +155,6 @@ La \textbf{registrazione} richiede l'inserimento di un notevole numero di dati. 
 \paragraph{Passaggio dei parametri} Per il passaggio dei parametri vengono utilizzati i \textbf{campi hidden}. 
 \paragraph{Quanto manca?} L'utente deve sapere a che punto si trova nel processo di registazione. Per questo viene indicato in alto, a fianco del titolo del form quanti form restano da compilare
 \section{Gestione e salvataggio dei dati}
-\subsection{La cartella "data"}
-\begin{center}
-	\begin{lstlisting}
-	data
-	|----schema.xsd
-	|----utenti.xml
-	|----admin.xml
-	|----prezzi.xml
-	\end{lstlisting}
-\end{center}
-
 \subsection{Lo schema dei dati}
 Lo schema per i dati è stato modellato secondo il \textbf{modello "tende alla veneziana"} per consentire maggiore flessibilità e la possibilità di dichiarare più di un elemento radice.
 In questo modo un unico schema riusciva a raccogliere tutti i tipi necessari a modellare i dati.
@@ -159,9 +164,52 @@ In questo modo un unico schema riusciva a raccogliere tutti i tipi necessari a m
 Per il salvataggio dei dati si è preferito mantenere separati i dati relativi agli utenti, agli amministratori e agli abbonamenti della palestra. 
 Questa scelta è stata necessaria per mantenare flessibili le funzinalità offerte dal sito e aumentarne la manutenibilità.
 La coerenza tra il contenuto delle varie parti del database è garantita dalla definizione di un'unico schema. 
-
-\section{Tecnologie utilizzate}
 \appendix
+\section{Struttura del sito}
+\subsection{cgi-bin}
+\begin{itemize}
+	\item \texttt{index.cgi}
+	\item \texttt{form\_reg1.cgi} gestione dei controlli del primo form di registrazione. 
+	\item \texttt{form\_reg2.cgi} gestione dei controlli del secondo form di registrazione.
+	\item \texttt{form\_reg3.cgi} gestione dei controlli del terzo form di registrazione.
+	\item \texttt{form\_reg4.cgi} gestione dei controlli del quarto form di registrazione e inserimento dei dati utente nel database.
+	\item \texttt{corsi.cgi} pagina di paroramica dei corsi.
+	\item \texttt{cardio.cgi} pagina di descrizione corsi cardio-fitness.
+	\item \texttt{soft.cgi}pagina di descrizione corsi soft-fitness.
+	\item \texttt{orario.cgi} orario dei corsi. 
+	\item \texttt{prezzi.cgi} prezzi (utente non loggato, utente loggato e amministratore).
+	\item \texttt{login.cgi} gestione login. 
+	\item \texttt{login\_admin.cgi}gestione login amministratore.
+	\item \texttt{logout.cgi} gestione logout.
+	\item \texttt{utente.cgi}	pagina di riepilogo profilo utente e abbonamenti acquistati. 
+	\item \texttt{riepilogoAggiunta.cgi} gestione del riepilogo di aggiunta di un abbonamento (amministratore).
+	\item \texttt{reipilogoModificaAbbonamento.cgi} gestione del riepilogo di modifica di un abbonamento (amministratore).
+	\item \texttt{registrazione.cgi}  pagina di registrazione.
+	\item\textbf{ \texttt{util}}
+	\subitem \texttt{html\_util.pm} stampa di header e meta tag, footer, menu di primo e secondo livello, breadcrumb. 
+	\subitem \texttt{html\_content.pm} funzioni di stampa dei contenuti html delle pagine utente.
+	\subitem \texttt{html\_content\_admin.pm}  di stampa dei contenuti html delle pagine amministratore. 
+	\subitem \texttt{base\_util.pm} stampa dei form di registrazione. 
+	\subitem \texttt{db\_util.pm} funzioni di utilità di lettura e scrittura del database. 
+\end{itemize}
+
+\subsection{public\_html}
+\begin{itemize}
+	\item \texttt{index.html } 
+	\item \texttt{\textbf{css}}
+		\subitem \texttt{style.css}
+		\subitem \texttt{print.css}
+	\item\texttt{\textbf{ js}}
+	\subitem \texttt{registrationLong.js}
+\end{itemize}
+\subsection{data}
+\begin{itemize}
+	\item \texttt{schema.xsd} schema dei dati. 
+	\item \texttt{utente.xml} database dei dati degli utenti registrati. 
+	\item \texttt{prezzi.xml} database degli abbonamenti offerti dalla palestra. 
+	\item \texttt{admin.xml} dati amministratore. 
+\end{itemize}
+
 \section{Organizzazione del gruppo}
 \paragraph{\TF{}}
 \begin{itemize}
@@ -219,31 +267,6 @@ La coerenza tra il contenuto delle varie parti del database è garantita dalla d
 	\item{Javascript}
 	\subitem Controlli form lato client
 \end{itemize}
-
-\section{Gerarchia dei file}
-
-\begin{center}
-	\begin{lstlisting}
-	+cgi-bin
-		+util		
-	+public_html
-		+css
-		+js
-		+img
-	+data
-	\end{lstlisting}
-\end{center}
-	
-	\subsection{Moduli Perl: contenuto e scopo}
-	\begin{itemize}
-		\item 	\texttt{html\_util} stampa di codice html comune a tutte le pagine, come header, apertura dei tag html e menu di primo e secondo livello. 
-		\item 	\texttt{html\_content} funzioni di stampa dei contenuti di ogni pagina con subroutine dedicate. 
-		\item 	\texttt{html\_content\_admin} funzioni di stampa dei contenuti di ogni pagina amministratore con subroutine dedicate. 
-		\item 	\texttt{base\_util} funzioni di stampa dei form per la registrazione.
-		\item 	\texttt{db\_util} funzioni di lettura e scrittura dei file xml del database necessarie a più pagine. 
-		
-	\end{itemize}
-
 
 
 
