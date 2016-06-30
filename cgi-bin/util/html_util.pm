@@ -87,7 +87,8 @@ sub path{
   print " <div id=\"path\">
        <p>Ti trovi in:";
   if("@pathparam" eq "Home") {
-    print "<span xml:lang=\"en\"> <a href=\"index.cgi\"> Home </a> </span>";}
+  #  print "<span xml:lang=\"en\"> <a href=\"index.cgi\"> Home </a> </span>";}
+     print "<span xml:lang=\"en\"> Home </span>";}
   else{
     print "<span xml:lang=\"en\"> <a href=\"index.cgi\"> Home </a> </span> &gt; <span xml:lang=\"en\"> @pathparam[0] </span>";}
 
