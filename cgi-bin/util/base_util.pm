@@ -103,11 +103,11 @@ sub showSchedaTre{
              <input type=\"hidden\" name=\"cognome\"  value=\"".$datiForm{'cognome'}."\" />
              <input type=\"hidden\" name=\"CF\"  value=\"".$datiForm{'CF'}."\" />
              <input type=\"hidden\" name=\"genere\" value=\"".$datiForm{'genere'}."\" />
-             <input type=\"hidden\" name=\"gg\" value=\"".$datiForm{'gg'}."\" />
-             <input type=\"hidden\" name=\"mese\"  value=\"".$datiForm{'mese'}."\" />
-             <input type=\"hidden\" name=\"anno\" value=\"".$datiForm{'anno'}."\" />
+             <!-- <input type=\"hidden\" name=\"gg\" value=\"".$datiForm{'gg'}."\" /> -->
+             <!-- <input type=\"hidden\" name=\"mese\"  value=\"".$datiForm{'mese'}."\" /> -->
+             <!-- <input type=\"hidden\" name=\"anno\" value=\"".$datiForm{'anno'}."\" /> -->
              <input type=\"hidden\" name=\"professione\"  value=\"".$datiForm{'professione'}."\" />
-
+             <input type=\"hidden\" name=\"datanascita\" value=\"".$datiForm{'datanascita'}."\" />
             <ol>
                 <li><label>Indirizzo </label><input type=\"text\" name=\"indirizzo\" id=\"address_user\"  value=\"".$datiForm{'indirizzo'}."\"  onblur=\"checkPhrase(this, 'indirizzo')\" /></li>
                 <li><label>Città </label><input type=\"text\" name=\"citta\" id=\"city_user\" value=\"".$datiForm{'citta'}."\" onblur=\"checkPhrase(this, 'città')\"/></li>
@@ -139,9 +139,10 @@ sub showSchedaQuattro{
              <input type=\"hidden\" name=\"cognome\"  value=\"".$datiForm{'cognome'}."\" />
              <input type=\"hidden\" name=\"CF\"  value=\"".$datiForm{'CF'}."\" />
              <input type=\"hidden\" name=\"genere\" value=\"".$datiForm{'genere'}."\" />
-             <input type=\"hidden\" name=\"gg\" value=\"".$datiForm{'gg'}."\" />
-             <input type=\"hidden\" name=\"mese\"  value=\"".$datiForm{'mese'}."\" />
-             <input type=\"hidden\" name=\"anno\" value=\"".$datiForm{'anno'}."\" />
+             <!-- <input type=\"hidden\" name=\"gg\" value=\"".$datiForm{'gg'}."\" /> -->
+             <!-- <input type=\"hidden\" name=\"mese\"  value=\"".$datiForm{'mese'}."\" /> -->
+             <!-- <input type=\"hidden\" name=\"anno\" value=\"".$datiForm{'anno'}."\" /> -->
+                 <input type=\"hidden\" name=\"datanascita\" value=\"".$datiForm{'datanascita'}."\" />
              <input type=\"hidden\" name=\"professione\"  value=\"".$datiForm{'professione'}."\" />
 
              <input type=\"hidden\" name=\"indirizzo\" value=\"".$datiForm{'indirizzo'}."\" />

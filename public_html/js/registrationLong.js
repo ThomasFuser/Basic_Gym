@@ -243,7 +243,7 @@ function checkDate(obj, name){
 	else{//campo non vuoto
 		if(!validateDate(obj.value)){
 			obj.className="error";
-			writeError(obj, name, "la data deve essere scritta in questo formato: GG-MM-AAAA");
+			writeError(obj, name, "la data non è valida e deve essere scritta in questo formato: GG-MM-AAAA");
 		}
 		else{
 			obj.className="";

@@ -96,9 +96,10 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
         $datiForm{'password'}=$q->param('password');
         $datiForm{'nome'}=$q->param('nome');
         $datiForm{'cognome'}=$q->param('cognome');
-        $datiForm{'anno'}=$q->param('anno');
-        $datiForm{'mese'}=$q->param('mese');
-        $datiForm{'gg'}=$q->param('gg');
+        #$datiForm{'anno'}=$q->param('anno');
+        #$datiForm{'mese'}=$q->param('mese');
+        #$datiForm{'gg'}=$q->param('gg');
+        $datiForm{'datanascita'}=$q->param('datanascita');
         $datiForm{'genere'}=$q->param('genere');
         $datiForm{'CF'}=$q->param('CF');
         $datiForm{'indirizzo'}=$q->param('indirizzo');
@@ -149,14 +150,17 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
       #inserimento dei dati nel nuovo utente
 
 
-      my $data_nascita_rec= $datiForm{'anno'}.'-'.$datiForm{'mese'}.'-'.$datiForm{'gg'};
+      #my $data_nascita_rec= $datiForm{'anno'}.'-'.$datiForm{'mese'}.'-'.$datiForm{'gg'};
       my $data_scadenza_rec= $datiForm{'anno_scadenza'}.'-'.$datiForm{'mese_scadenza'};
+
+      my @data_scadenza=split  "-", $datiForm{'datanascita'};
+      my $dataAmericana=$data_scadenza[2]."-".$data_scadenza[1]."-".$data_scadenza[0];
 
       $mailXML->appendText($datiForm{'email'});
       $passwordXML->appendText($datiForm{'password'});
       $nomeXML->appendText($datiForm{'nome'});
       $cognomeXML->appendText($datiForm{'cognome'});
-      $datanascitaXML->appendText($data_nascita_rec);
+      $datanascitaXML->appendText($dataAmericana);
       $genereXML->appendText($datiForm{'genere'});
       $cfXML->appendText($datiForm{'CF'});
       $indirizzoXML->appendText($datiForm{'indirizzo'});
@@ -202,6 +206,7 @@ my $scadenzacarta=$anno_scadenza."-".$mese_scadenza."-01";
    if($error eq  0){
 
 print "
+          
            <div id=\"content\" class =\"forms\">
            <h1>Riepilogo della registrazione</h1>
        ";
