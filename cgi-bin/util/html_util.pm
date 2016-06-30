@@ -44,9 +44,15 @@ print
     <div class=\"container\">
   
             <div class=\"header-left\">
-                <h1><a ";
-if($pagina[0] eq "Home"){print " class=\"not-active\" ";}
-print "href=\"../index.html\" id=\"LinkLogo\"> <span xml:lang=\"en\">BASIC GYM</span> </a> </h1>
+
+
+                <h1>";
+
+if($pagina[0] eq "Home"){ print "<a href=\"#\" class=\"not-active\" id=\"LinkLogo\"> <span xml:lang=\"en\">BASIC GYM</span> </a>"; }
+else { print "<a href=\"../index.html\" id=\"LinkLogo\"> <span xml:lang=\"en\">BASIC GYM</span> </a>"; }
+
+print"
+            </h1>
             </div>
             <div class=\"header-right\">
                 <label for=\"open\">

@@ -22,11 +22,15 @@ function validatePhraseShort(name) {
     var reName = /^[a-zA-Z0-9àáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.,;:-\s ]+$/;
     return reName.test(name);
 }
-function validateCardNumber(number){
-	if(number.length>15) return false;
-    var reNum = /[0-9]{15}/;
+/************************************************/
+function validateCardNumber(number, type){
+	if(number.length!=15 && type=="American Express") return false;
+    if( number.length!=16 && type=="Visa") return false;
+    if((number.length<13 || number.length>16)  && type=="Mastercard") return false;
+    var reNum = /^[0-9]*$/;
     return reNum.test(number);
 }
+/*************************************************/
 function validatePhoneNumber(number){
 	if(number.length>10) return false;
     var rePNum = /[0-9]{10}/;
@@ -72,7 +76,6 @@ function setFocus(element){
 
 
 function checkEmail(){
-	//window.alert("sono vivo");
     var email_user = document.getElementById("email_user");
 	if(!notEmpty(email_user.value)){//se il campo è vuoto
 		email_user.className="error";
@@ -179,12 +182,14 @@ if(!notEmpty(obj.value)){//se il campo è vuoto
 
 function checkNumberCard(){
     var numbercard_user = document.getElementById("numbercard_user");
+    var tipoCarta= document.getElementById("tipocarta");
 	if(!notEmpty(numbercard_user.value)){//se il campo è vuoto
 		numbercard_user.className="error";
 		writeErrorEmpty(numbercard_user, "carta di credito");
-	}
+	}	
+	
 	else{//campo non vuoto
-		if(!validateCardNumber(numbercard_user.value)){
+		if(!validateCardNumber(numbercard_user.value, tipoCarta.value )){
 			numbercard_user.className="error";
 			writeError(numbercard_user, "carta di credito","numero carta di credito non valido, inserire tutto attaccato");
 		}
