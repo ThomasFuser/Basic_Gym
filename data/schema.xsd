@@ -117,7 +117,7 @@
 <xs:simpleType name="passwordT">
 	 <xs:restriction base="xs:string">
       	<xs:pattern value="[\w]*"/>
-		<xs:maxLength value="8"/>
+		<xs:minLength value="8"/>
     </xs:restriction>
  </xs:simpleType>
 
