@@ -25,13 +25,13 @@ sub showSchedaUno{
         <h2> (1 di 4) Dati di accesso </h2>
         <form action=\"form_reg1.cgi\" method=\"post\">
             <ol>
-                <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'email'}."\" id=\"email_user\" onblur=\"checkEmail()\" />";
+                <li><label><span>Email</span> (*)</label><input type=\"text\" name=\"email\" value=\"".$datiForm{'email'}."\" id=\"email_user\" onblur=\"checkEmail()\" />";
                 if($datiForm{'errEmail'} ne undef){ print "<span class=\"erroreForm\" >".$datiForm{'errEmail'}."</span>"; }
 
-print"</li><li><label><span lang=\"en\">Password</span></label><input type=\"password\" name=\"password\"  value=\"".$datiForm{'password'}."\" id=\"password_user\" onblur=\"checkPassword()\" />";
+print"</li><li><label><span lang=\"en\">Password</span> (*)</label><input type=\"password\" name=\"password\"  value=\"".$datiForm{'password'}."\" id=\"password_user\" onblur=\"checkPassword()\" />";
 if($datiForm{'errPw'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errPw'}."</span>"; }
 
-print"</li><li><label>Ripeti <span lang=\"en\">password</span></label><input type=\"password\" name=\"password_repeat\"  value=\"".$datiForm{'ripetipassword'}."\" id=\"password_user_repeat\" onblur=\"checkPasswordRepeat()\" />";      
+print"</li><li><label>Ripeti <span lang=\"en\">password</span> (*)</label><input type=\"password\" name=\"password_repeat\"  value=\"".$datiForm{'ripetipassword'}."\" id=\"password_user_repeat\" onblur=\"checkPasswordRepeat()\" />";      
  if($datiForm{'errPwRep'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errPwRep'}."</span>"; }
                
 print"</li></ol> 
@@ -58,19 +58,19 @@ sub showSchedaDue{
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
 
             <ol>                
-                <li><label>Nome  </label><input type=\"text\" name=\"nome\" id=\"name_user\"  value=\"".$datiForm{'nome'}."\" onblur=\"checkWord(this, 'nome')\" />";
+                <li><label>Nome (*)</label><input type=\"text\" name=\"nome\" id=\"name_user\"  value=\"".$datiForm{'nome'}."\" onblur=\"checkWord(this, 'nome')\" />";
   if($datiForm{'errNome'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errNome'}."</span>"; }
 
 
   print"</li>
-                <li><label>Cognome </label> <input type=\"text\" name=\"cognome\" id=\"surname_user\"  value=\"".$datiForm{'cognome'}."\" onblur=\"checkWord(this, 'cognome')\" />";
+                <li><label>Cognome (*)</label> <input type=\"text\" name=\"cognome\" id=\"surname_user\"  value=\"".$datiForm{'cognome'}."\" onblur=\"checkWord(this, 'cognome')\" />";
   if($datiForm{'errCognome'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCognome'}."</span>"; }
   print "</li>
                <li> Genere<select name=\"genere\" id=\"genere\" >                                              
                         <option selected=\"selected\">M</option>
                         <option>F</option>
                  </select> </li>
-                <li><label>Data di nascita </label>";
+                <li><label>Data di nascita (*)</label>";
 #suggerimenti per l'inserimento della data di nascita nel formato corretto
 if($datiForm{'datanascita'} eq undef) {$datiForm{'datanascita'}="GG-MM-AAAA";}
 if($datiForm{'datanascita'} eq ''){$datiForm{'datanascita'}="GG-MM-AAAA"}
@@ -80,7 +80,7 @@ if($datiForm{'datanascita'} eq ''){$datiForm{'datanascita'}="GG-MM-AAAA"}
   print "</li>
 
                 <li><label>Professione </label><input type=\"text\" name=\"professione\"  id=\"job_user\"  value=\"".$datiForm{'professione'}."\" onblur=\"checkPhrase(this, 'professione')\" /></li>
-                <li><label>Codice fiscale  </label><input type=\"text\" name=\"CF\" id=\"codicefiscale_user\" value=\"".$datiForm{'CF'}."\" onblur=\"checkCodiceFiscale()\" />";
+                <li><label>Codice fiscale (*)</label><input type=\"text\" name=\"CF\" id=\"codicefiscale_user\" value=\"".$datiForm{'CF'}."\" onblur=\"checkCodiceFiscale()\" />";
   if($datiForm{'errCF'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCF'}."</span>"; } 
 print"</li></ol>
           <input type=\"submit\" name=\"reg2\"  value=\"Avanti\" class=\"submit_button\" />
@@ -155,7 +155,7 @@ sub showSchedaQuattro{
                         <option>Mastercard</option>
                         <option>American Express</option>
                  </select> </li>
-                <li><label>Numero carta </label><input type=\"text\" name=\"ncarta\" id=\"numbercard_user\"  value=\"".$datiForm{'ncarta'}."\" onblur=\"checkNumberCard()\"/>";
+                <li><label>Numero carta  (*)</label><input type=\"text\" name=\"ncarta\" id=\"numbercard_user\"  value=\"".$datiForm{'ncarta'}."\" onblur=\"checkNumberCard()\"/>";
 if($datiForm{'errCarta'} ne undef){ print "<span class=\"erroreForm\">".$datiForm{'errCarta'}."</span>"; }  
 print"</li>
       <li>Scadenza <select name=\"mese_scadenza\" id=\"mese_scadenza\">                                              

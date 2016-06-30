@@ -107,7 +107,7 @@ sub nav{
       print"<a href=\"staff.cgi\"";
                     if(@navparam[0] eq "Staff"){print " class=\"not-active\"";}print ">Staff</a>";            
       print"<a href=\"orari.cgi\"";
-                    if(@navparam[0] eq "Orari"){print " class=\"not-active\"";};  print ">Orari</a>";
+                    if(@navparam[0] eq "Orari"){print " class=\"not-active\"";}  print ">Orari</a>";
 
   if($session->param("username") eq undef){
     
