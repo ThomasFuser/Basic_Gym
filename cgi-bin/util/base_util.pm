@@ -22,7 +22,7 @@ sub showSchedaUno{
   
   <h1>Registrazione</h1>
      <script type=\"text/javascript\" src=\"../js/registrationLong.js\"></script>
-        <h2> Dati di accesso </h2>
+        <h2> (1 di 4) Dati di accesso </h2>
         <form action=\"form_reg1.cgi\" method=\"post\">
             <ol>
                 <li><label><span>Email</span></label><input type=\"text\" name=\"email\" value=\"".$datiForm{'email'}."\" id=\"email_user\" onblur=\"checkEmail()\" />";
@@ -52,7 +52,7 @@ sub showSchedaDue{
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
         <script type=\"text/javascript\" src=\"../js/registrationLong.js\"></script>
-        <h2> Dati personali </h2>
+        <h2>(2 di 4) Dati personali </h2>
         <form action=\"form_reg2.cgi\" method=\"post\">
              <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\"  />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
@@ -94,7 +94,7 @@ sub showSchedaTre{
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
     <script type=\"text/javascript\" src=\"../js/registrationLong.js\"></script>
-        <h2> Contatti </h2>
+        <h2> (3 di 4) Contatti </h2>
         <form action=\"form_reg3.cgi\" method=\"post\">
              <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
@@ -130,7 +130,7 @@ sub showSchedaQuattro{
   <div id=\"content\" class=\"forms\">
     <h1>Registrazione</h1>
     <script type=\"text/javascript\" src=\"../js/registrationLong.js\"></script>
-        <h2> Metodo di pagamento </h2>
+        <h2> (4 di 4) Metodo di pagamento </h2>
         <form action=\"form_reg4.cgi\" method=\"post\">
              <input type=\"hidden\" name=\"email\" value=\"".$datiForm{'email'}."\" />
              <input type=\"hidden\" name=\"password\"  value=\"".$datiForm{'password'}."\" />
