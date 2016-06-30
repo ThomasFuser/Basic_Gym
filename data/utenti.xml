@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<utenti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="schema.xsd">
+<utenti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
 <utente>
 	<dati_accesso>
 		<mail>annabonaldo@gmail.com</mail>
@@ -18,7 +17,17 @@
 		<professione>studente</professione>
 	</dati_personali>
 	<lista_acquistati>
-	</lista_acquistati>
+		<abb_acquisto>
+			<id_acquisto>1</id_acquisto>
+			<inizio>2016-6-30</inizio>
+			<scadenza>2016-7-30</scadenza>
+		</abb_acquisto>
+	<abb_acquisto>
+		<id_acquisto>6</id_acquisto>
+		<inizio>2016-6-30</inizio>
+		<scadenza>2017-6-30</scadenza>
+	</abb_acquisto>
+</lista_acquistati>
 	<dati_pagamento>
 		<tipo_carta>Visa</tipo_carta>
 		<num_carta>1234567890123456</num_carta>
@@ -33,17 +42,22 @@
 		<password>ciaociaociao</password>
 	</dati_accesso>
 	<dati_personali>
-		<nome>Marco</nome>
-		<cognome>Zago</cognome>
+		<nome>Thomas</nome>
+		<cognome>Fuser</cognome>
 		<datanascita>1991-05-04</datanascita>
 		<genere>M</genere>
 		<cf>FSRTHM91R49G224X</cf>
-		<indirizzo>via casa mia 12</indirizzo>
+		<indirizzo>via Pinelle</indirizzo>
 		<citta>Istrana</citta>
-		<tel>3921598473</tel>
+		<tel>3911132165</tel>
 		<professione>studente</professione>
 	</dati_personali>
 	<lista_acquistati>
+		<abb_acquisto>
+			<id_acquisto>5</id_acquisto>
+		<inizio>2016-6-30</inizio>
+		<scadenza>2016-7-30</scadenza>
+		</abb_acquisto>
 	</lista_acquistati>
 	<dati_pagamento>
 		<tipo_carta>Visa</tipo_carta>
