@@ -49,7 +49,4 @@
 		
 	</categoria>
 </listaAbbonamenti>
-<!--note
- xmlns="http://www.prezzischema.it"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="prezzischema.xsd"-->
+
