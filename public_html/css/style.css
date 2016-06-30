@@ -15,11 +15,11 @@ font-family: "Segoe UI",Arial,sans-serif;
 body a { text-decoration:underline !important; color:#FFCC33; }
 
 /* regola utile a rendere impossibile il click nei link che si riferiscono alla pagina attuale   */
-
+/*
 .not-active {
    pointer-events: none;
    cursor: default;
-}
+}*/
 
 body{
 

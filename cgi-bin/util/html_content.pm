@@ -14,6 +14,7 @@ our @EXPORT = qw(enc stampaProfiloUtente stampaIndex stampaPrezzi stampaPrezziAc
 
 package util::html_content;
 
+
 #--------------------- STAMPA IL CONTENUTO DELLA PAGINA IDEX ----------------
 sub stampaIndex{
   print "
@@ -51,7 +52,6 @@ Disponiamo di aree attrezzate per lezioni a corpo libero che definiscono un nuov
 
 }
 
-#------------------- PAGINA PREZZI DA STAMPARE QUANDO NON SI E' LOGGATI --------------------
 sub stampaPrezzi{
 
     #my $q = new CGI;

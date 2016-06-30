@@ -15,8 +15,6 @@ our @EXPORT = qw(start_html end_html);
   package util::html_util;
 #Questo file contiene le sobroutine per la stampa dell'HTML 
 
-# funzione di stampa dell'inizio di una pagina html ( meta +logo Basic Gym )
-
 sub start_html {
   my @pagina=@_;
 
@@ -40,9 +38,7 @@ print
     <link rel=\"SHORTCUT ICON\" href=\"../images/BasicGym_logo.png\" />
 </head>
 <body>
-
   <a class=\"skip-main\" href=\"#content\"><span xml:lang=\"en\">Skip to main content</span></a>
-
 <!-- HEADER  -->
 <div class=\"clearfix header\">
     <div class=\"container\">
@@ -61,7 +57,6 @@ nav($pagina[0]);
 print"</div></div></div>";
     path($pagina[0]);
 }
-# funzione di stampa del footer
 sub end_html {
   print"
   <div id=\"footer\">
@@ -82,6 +77,13 @@ sub end_html {
 " ;
 }
 
+
+
+
+
+
+
+
 sub path{
  my @pathparam = @_;
   print " <div id=\"path\">
@@ -94,33 +96,46 @@ sub path{
 
  print"</p></div>";
 }
+
+
+
 sub nav{
   my @navparam=@_;
   my $session = CGI::Session->load();
       print"<input type=\"checkbox\" name=\"\" id=\"open\"/> ";
-      print"    <div id=\"nav\"> <a href=\"index.cgi\""; 
-                    if(@navparam[0] eq "Home") {print " class=\"not-active\"";} print ">Home</a>";
-      print"<a href=\"corsi.cgi\"";
-                    if(@navparam[0] eq "Corsi"){print " class=\"not-active\"";}  print ">Corsi</a>";
-      print"<a href=\"prezzi.cgi\"";
-                    if(@navparam[0] eq "Prezzi"){print " class=\"not-active\"";} print ">Prezzi</a>";
-      print"<a href=\"staff.cgi\"";
-                    if(@navparam[0] eq "Staff"){print " class=\"not-active\"";}print ">Staff</a>";            
-      print"<a href=\"orari.cgi\"";
-                    if(@navparam[0] eq "Orari"){print " class=\"not-active\"";}  print ">Orari</a>";
+      print"    <div id=\"nav\">"; 
+       if(@navparam[0] eq "Home") { print"<a class=\"not-active\">Home</a>"; }
+       else{print"<a href=\"index.cgi\">Home</a>";}
+
+       if(@navparam[0] eq "Corsi"){ print"<a class=\"not-active\">Corsi</a>"; }
+       else{print"<a href=\"corsi.cgi\">Corsi</a>";}
+
+       if(@navparam[0] eq "Prezzi"){ print"<a class=\"not-active\">Prezzi</a>"; }
+       else{print"<a href=\"prezzi.cgi\">Prezzi</a>";}
+
+       if(@navparam[0] eq "Staff"){ print"<a class=\"not-active\">Staff</a>"; }
+       else{print"<a href=\"staff.cgi\">Staff</a>";}
+      
+       if(@navparam[0] eq "Orari"){ print"<a class=\"not-active\">Orari</a>"; }
+       else{print"<a href=\"orari.cgi\">Orari</a>";}
+        
+     
 
   if($session->param("username") eq undef){
     
-    print"<a href=\"login.cgi\"";
-                  if(@navparam[0] eq "Accedi"){print " class=\"not-active\"";}  print ">Accedi</a>";
-      print"<a href=\"registrazione.cgi\"";
-                    if(@navparam[0] eq "Registrazione"){print " class=\"not-active\"";}  print ">Registrati </a>";
+    if(@navparam[0] eq "Accedi"){ print"<a class=\"not-active\">Accedi</a>"; }
+       else{print"<a href=\"login.cgi\">Accedi</a>";}
+
+    if(@navparam[0] eq "Registrazione"){ print" <a class=\"not-active\">Registrati</a>"; }
+       else{print"<a href=\"registrazione.cgi\">Registrati </a>";}
 
   }
   elsif($session->param("username") ne "admin"){
 
-    print"<a href=\"utente.cgi\"";
-                  if(@navparam[0] eq "Profilo"){print " class=\"not-active\"";}  print ">Profilo</a>";
+     if(@navparam[0] eq "Profilo"){ print"<a class=\"not-active\">Profilo</a>"; }
+       else{print"<a href=\"utente.cgi\">Profilo </a>";}
+
+     
       print"<a href=\"logout.cgi\">Esci</a>";
 
   }elsif($session->param("username") eq "admin"){
@@ -130,5 +145,6 @@ sub nav{
   print "</div>";
 
 }
+
 
 1;
