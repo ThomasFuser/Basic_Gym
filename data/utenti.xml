@@ -4,7 +4,7 @@
 <utente>
 	<dati_accesso>
 		<mail>annabonaldo@gmail.com</mail>
-		<password>ciaociao</password>
+		<password>ciaociaociao</password>
 	</dati_accesso>
 	<dati_personali>
 		<nome>Anna</nome>
@@ -18,16 +18,6 @@
 		<professione>studente</professione>
 	</dati_personali>
 	<lista_acquistati>
-		<abb_acquistato>
-			<id_abbonamento>3</id_abbonamento>
-			<inizio>2016-04-13</inizio>
-			<scadenza>2016-12-13</scadenza>
-		</abb_acquistato>
-		<abb_acquistato>
-			<id_abbonamento>4</id_abbonamento>
-			<inizio>2017-04-13</inizio>
-			<scadenza>2018-12-13</scadenza>
-		</abb_acquistato>
 	</lista_acquistati>
 	<dati_pagamento>
 		<tipo_carta>Visa</tipo_carta>
@@ -39,31 +29,21 @@
 
 <utente>
 	<dati_accesso>
-		<mail>tfuser@gmail.com</mail>
-		<password>ciaociao</password>
+		<mail>thomasfuser@gmail.com</mail>
+		<password>ciaociaociao</password>
 	</dati_accesso>
 	<dati_personali>
-		<nome>Thomas</nome>
-		<cognome>Fuser</cognome>
+		<nome>Marco</nome>
+		<cognome>Zago</cognome>
 		<datanascita>1991-05-04</datanascita>
 		<genere>M</genere>
 		<cf>FSRTHM91R49G224X</cf>
-		<indirizzo>via pioppi 12</indirizzo>
+		<indirizzo>via casa mia 12</indirizzo>
 		<citta>Istrana</citta>
-		<tel>3926630668</tel>
+		<tel>3921598473</tel>
 		<professione>studente</professione>
 	</dati_personali>
 	<lista_acquistati>
-		<abb_acquistato>
-			<id_abbonamento>3</id_abbonamento>
-			<inizio>2016-04-13</inizio>
-			<scadenza>2016-12-13</scadenza>
-		</abb_acquistato>
-		<abb_acquistato>
-			<id_abbonamento>4</id_abbonamento>
-			<inizio>2017-04-13</inizio>
-			<scadenza>2018-12-13</scadenza>
-		</abb_acquistato>
 	</lista_acquistati>
 	<dati_pagamento>
 		<tipo_carta>Visa</tipo_carta>

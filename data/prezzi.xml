@@ -2,45 +2,52 @@
 <listaAbbonamenti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="schema.xsd">
 	<categoria>
+
 		<titolo>Area Soft Fitness</titolo>
-
-		<abbonamento ID="1" stato="valido">
-						
-		<durata>Abbonamento mensile</durata><prezzo>5000</prezzo><descrizione>Hai poco tempo per praticare sport? Con questo pacchetto lo sport si adatta alle tue esigenze! Vieni a trovarci subito! </descrizione></abbonamento>
-
-		<abbonamento ID="2" stato="valido">
-			
-			
-			
-		<durata>Abbonamento mensile</durata><prezzo>5000</prezzo><descrizione>Prova della modifica dell'abbmoanngquiywebaòi</descrizione></abbonamento>
-    <abbonamento ID="7" stato="non-valido"><durata>Abbonamento mensile</durata><prezzo>2011</prezzo><descrizione>Ciao sto facendo una prova</descrizione></abbonamento><abbonamento ID="8" stato="valido"><durata>Abbonamento mensile</durata><prezzo>200.00</prezzo><descrizione>Nuova prova di inserimento di un pacchetto perche nn si vede la descrizione?</descrizione></abbonamento><abbonamento ID="9" stato="valido"><durata>Abbonamento annuale</durata><prezzo>1000</prezzo><descrizione>ciao</descrizione></abbonamento></categoria>
-
-		<categoria>
-			<titolo>Area Cardio Fitness</titolo>
-
-		<abbonamento ID="3" stato="non-valido">
-		<durata>Abbonamento mensile</durata><prezzo>60</prezzo><descrizione>Tutti i corsi di walking, spinning, total body per un'attività aerobica a tutto tondo. </descrizione></abbonamento>
-
-		
-        </categoria>
-        
-		<categoria>
-			<titolo>Area Cross Fitness</titolo>
-
-		<abbonamento ID="5" stato="valido"> 
-			
-			
-			
-		<durata>Abbonamento mensile</durata><prezzo>5344</prezzo><descrizione>Gli allenamenti brevi ma intensi sviluppano in breve tempo un fisico tonico e snello.Prova la nostra area Cross fitness per 1 mese</descrizione></abbonamento>
-
-		<abbonamento ID="6" stato="valido">
-
+		<abbonamento ID="1" stato="valido">	
+			<durata>Abbonamento mensile</durata>
+			<prezzo>70</prezzo>
+			<descrizione>Hai poco tempo per praticare sport? Con questo pacchetto lo sport si adatta alle tue esigenze! Vieni a trovarci subito! </descrizione>
+			</abbonamento>
+			<abbonamento ID="2" stato="valido">
 			<durata>Abbonamento annuale</durata>
-			<prezzo> 655 </prezzo>
-			<descrizione>Tutti i corsi senza alcun limite per 1 mese.</descrizione>
+			<prezzo>650</prezzo>
+			<descrizione>Accedi a tutti i corsi che desideri della nostra area Soft Fitness per 1 anno a un prezzo vantaggioso</descrizione>
 		</abbonamento>
-		</categoria>
+	    <abbonamento ID="3" stato="non-valido">
+	    	<durata>Abbonamento mensile</durata>
+	    <prezzo>80</prezzo>
+	    <descrizione>Accedi a tutti i corsi che desideri della nostra area Soft Fitness per 1 mese a un prezzo vantaggioso</descrizione>
+		</abbonamento>
 
+	</categoria>
+
+	<categoria>
+		<titolo>Area Cardio Fitness</titolo>
+
+		<abbonamento ID="4" stato="valido">
+			<durata>Abbonamento mensile</durata>
+			<prezzo>60</prezzo>
+			<descrizione>Tutti i corsi di walking, spinning, total body per un'attività aerobica a tutto tondo per 1 mese. </descrizione>
+		</abbonamento>
+
+    </categoria>
+        
+	<categoria>
+		<titolo>Area Cross Fitness</titolo>
+			
+		<abbonamento ID="5" stato="valido"> 	
+			<durata>Abbonamento mensile</durata>
+			<prezzo>50</prezzo>
+			<descrizione>Gli allenamenti brevi ma intensi sviluppano in breve tempo un fisico tonico e snello. Prova la nostra area Cross fitness per 1 mese</descrizione>
+		</abbonamento>
+		<abbonamento ID="6" stato="valido">
+			<durata>Abbonamento annuale</durata>
+			<prezzo>550</prezzo>
+			<descrizione>Tutti i corsi senza alcun limite per 1 anno.</descrizione>
+		</abbonamento>
+		
+	</categoria>
 </listaAbbonamenti>
 <!--note
  xmlns="http://www.prezzischema.it"

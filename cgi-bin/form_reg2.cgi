@@ -123,7 +123,6 @@ my $genere=$q->param("genere");
 
 if($error ne  0){
         util::html_util::start_html("Registrazione", "Registrazione");
-         print"<p> $gg  $mese  $anno </p>";
          util::base_util::showSchedaDue(%datiForm);
         util::html_util::end_html();
         
@@ -134,7 +133,6 @@ if($error ne  0){
 
       util::html_util::start_html("Registrazione", "Registrazione");
       # stampa form  REGISTRAZIONE: CONTATTI  
-
       util::base_util::showSchedaTre(%datiForm);
       util::html_util::end_html();
 }

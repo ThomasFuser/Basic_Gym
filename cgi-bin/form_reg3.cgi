@@ -27,9 +27,10 @@ my $tel=$q->param("tel");
           
           my $email=$q->param('email');
           my $password=$q->param('password');
-          my $gg=$q->param('gg');
-          my $mese=$q->param('mese');
-          my $anno=$q->param('anno');
+          #my $gg=$q->param('gg');
+          #my $mese=$q->param('mese');
+          #my $anno=$q->param('anno');
+          my $datanascita=$q->param('datanascita');
           my $nome=$q->param("nome");
           my $cognome=$q->param("cognome");
           my $CF=$q->param("CF");
@@ -38,9 +39,10 @@ my $tel=$q->param("tel");
           
           $datiForm {'email'}=$email ;
           $datiForm {'password'}=$password ;
-          $datiForm {'gg'}=$gg ;
-          $datiForm {'mese'}=$mese ;
-          $datiForm {'anno'}=$anno ;
+          #$datiForm {'gg'}=$gg ;
+          #$datiForm {'mese'}=$mese ;
+          #$datiForm {'anno'}=$anno ;
+          $datiForm {'datanascita'}=$datanascita ;
           $datiForm {'nome'}=$nome ;
           $datiForm {'cognome'}=$cognome ;
           $datiForm {'CF'}= $CF;
