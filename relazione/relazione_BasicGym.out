@@ -13,19 +13,21 @@
 \BOOKMARK [2][-]{subsection.2.5}{Presentazione per dispositivi Mobile}{section.2}% 13
 \BOOKMARK [2][-]{subsection.2.6}{CSS3 e retrocompatibilit\340}{section.2}% 14
 \BOOKMARK [1][-]{section.3}{Contenuto}{}% 15
-\BOOKMARK [2][-]{subsection.3.1}{Separazione da presentazione e comportamento}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.2}{Utilizzo corretto dei tag}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.3}{Le immagini}{section.3}% 18
-\BOOKMARK [3][-]{subsubsection.3.3.1}{La lingua}{subsection.3.3}% 19
-\BOOKMARK [1][-]{section.4}{Accessibilit\340 e form}{}% 20
-\BOOKMARK [2][-]{subsection.4.1}{Errori nell'inserimento dei dati}{section.4}% 21
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Segnalazione di errori nei dati inseriti}{subsection.4.1}% 22
-\BOOKMARK [2][-]{subsection.4.2}{Form di grandi dimensioni: la registrazione}{section.4}% 23
-\BOOKMARK [1][-]{section.5}{Gestione e salvataggio dei dati}{}% 24
-\BOOKMARK [2][-]{subsection.5.1}{Lo schema dei dati}{section.5}% 25
-\BOOKMARK [2][-]{subsection.5.2}{Il database: le istanze dello schema}{section.5}% 26
-\BOOKMARK [1][-]{appendix.Alph1}{Struttura del sito}{}% 27
-\BOOKMARK [2][-]{subsection.Alph1.1}{cgi-bin}{appendix.Alph1}% 28
-\BOOKMARK [2][-]{subsection.Alph1.2}{public\137html}{appendix.Alph1}% 29
-\BOOKMARK [2][-]{subsection.Alph1.3}{data}{appendix.Alph1}% 30
-\BOOKMARK [1][-]{appendix.Alph2}{Organizzazione del gruppo}{}% 31
+\BOOKMARK [2][-]{subsection.3.1}{XHTML Strict}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.2}{Separazione da presentazione e comportamento}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.3}{Utilizzo corretto dei tag}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.4}{Le immagini}{section.3}% 19
+\BOOKMARK [3][-]{subsubsection.3.4.1}{La lingua}{subsection.3.4}% 20
+\BOOKMARK [1][-]{section.4}{Accessibilit\340 e form}{}% 21
+\BOOKMARK [2][-]{subsection.4.1}{Errori nell'inserimento dei dati}{section.4}% 22
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Segnalazione di errori nei dati inseriti}{subsection.4.1}% 23
+\BOOKMARK [2][-]{subsection.4.2}{Form di grandi dimensioni: la registrazione}{section.4}% 24
+\BOOKMARK [1][-]{section.5}{Gestione e salvataggio dei dati}{}% 25
+\BOOKMARK [2][-]{subsection.5.1}{Lo schema dei dati}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.2}{Il database: le istanze dello schema}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.3}{Validazione delle pagine}{section.5}% 28
+\BOOKMARK [1][-]{appendix.Alph1}{Struttura del sito}{}% 29
+\BOOKMARK [2][-]{subsection.Alph1.1}{cgi-bin}{appendix.Alph1}% 30
+\BOOKMARK [2][-]{subsection.Alph1.2}{public\137html}{appendix.Alph1}% 31
+\BOOKMARK [2][-]{subsection.Alph1.3}{data}{appendix.Alph1}% 32
+\BOOKMARK [1][-]{appendix.Alph2}{Organizzazione del gruppo}{}% 33
