@@ -811,7 +811,7 @@ ul.profilo{
 	list-style-type: none;
 	padding: 0.5em;
 }
-
+/*
 span.field_name{
 	
 	
@@ -822,7 +822,7 @@ span.field_name{
 	font-weight: 600;
  
 
- }
+ }*/
 span.value{
 
 	width: 65%;
@@ -1045,7 +1045,7 @@ left: -9999px;
 
 
 @media (max-width: 979px){
-	
+/*	
 span.field_name{
 	clear: both;
 	text-align: right;
@@ -1056,7 +1056,7 @@ span.field_name{
 	margin: 0;
 	width: 20%;
  
- }
+ }*/
 span.value{
 	clear: both;
 	display: inline;
@@ -1090,7 +1090,7 @@ span.value{
 	margin: 0;
 	padding: 0;
 }
-
+/*
 span.field_name{
 	clear: both;
 	text-align: right;
@@ -1101,7 +1101,7 @@ span.field_name{
 	margin: 0;
 	width: 40%;
  
- }
+ }*/
 span.value{
 	clear: both;
 	display: inline;
@@ -1117,6 +1117,7 @@ width:100%;
 margin:0.25em 0 0.25em 0;
 padding:0;
 }
+/*
 span.field_name{
 	
 	
@@ -1129,7 +1130,7 @@ span.field_name{
 	font-weight: 600;
  
 
- }
+ }*/
 span.value{
 
 	width: 100%;

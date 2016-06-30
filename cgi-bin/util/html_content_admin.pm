@@ -236,7 +236,7 @@ sub creaAbbonamento{
 
            print" <li> <label> Descrizione </label> 
                 <textarea cols=\"20\" rows=\"4\" name=\"descrizione\"  class=\"area\">".$formErr{'descrizione'}."</textarea> 
-                <span class=\"erroreForm\">* ".$formErr{'errDesc'}."</span> </li>
+                <span class=\"erroreForm\"> ".$formErr{'errDesc'}."</span> </li>
                 <li> <label> Periodo </label>";
                 
               
@@ -259,7 +259,7 @@ sub creaAbbonamento{
            
                  print "<li > <label> Prezzo (€)</label> 
                  <input name=\"prezzo\" id=\"prezzi\" value=\"".$formErr{'prezzo'}."\"/>
-                 <span class=\"erroreForm\">* ".$formErr{'errPrezzo'}."</span> </li>    
+                 <span class=\"erroreForm\"> ".$formErr{'errPrezzo'}."</span> </li>    
                     </ol>
                         
                     <button name=\"crea_nuovo\" type=\"submit\" class=\"submit_button\"  id=\"invia_mod\" value=\"\" >Crea</button>
@@ -339,7 +339,7 @@ sub modificaAbbonamentoForm{
             <ol>
                 <li> <label>Descrizione</label> 
                 <textarea cols=\"30\" rows=\"8\" name=\"descrizione\" class=\"area\">".$formErr{'descrizione'}."</textarea> 
-                <span class=\"erroreForm\">* ".$formErr{'errDesc'}."</span> </li>
+                <span class=\"erroreForm\"> ".$formErr{'errDesc'}."</span> </li>
                 <li> <label> <span>Periodo</span>  </label>
             ";
 
@@ -364,7 +364,7 @@ sub modificaAbbonamentoForm{
                  <li > <label> Prezzo (€) </label> 
                  <input name=\"prezzo\" id=\"prezzi\" value=\"".$formErr{'prezzo'}."\"/>
             
-                  <span class=\"erroreForm\">* ".$formErr{'errPrezzo'}."</span> </li>    
+                  <span class=\"erroreForm\"> ".$formErr{'errPrezzo'}."</span> </li>    
                     </ol>
                         
                  <button name=\"modifica_Abbonamento\" type=\"submit\" class=\"submit_button\" 
