@@ -17,8 +17,6 @@
 	\[  \]
 	\[  \]
 	\[  \]
-	\[  \]
-	\[  \]
 
 	\vspace{1cm}
 	\begin{Huge}
@@ -30,26 +28,39 @@
 		
 	\end{Large}
 	\vspace{1cm}
-
- \hrule
- \vspace{1cm}
-	\LBmat{} \\
-	\TFmat{}\\
-     \ABmat{}\\
-     \ECmat{}\\
-    \vspace{1cm}
-   
-
 \end{center}
-\newpage
-\vspace{1cm}
+ \hrule
 
 
+	\begin{center}
+		
+		\textbf{	Informazioni sul gruppo}
+		\\
+		\LBmat{} \\
+		\TFmat{}\\
+		\ABmat{}\\
+		\ECmat{}\\
+		\vspace{0.5cm}
+		\textbf{Informazioni sul sito }\\
+		\url{http://tecnologie-web.studenti.math.unipd.it/tecweb/~tfuser}
+	\end{center}
+	\vspace{0.5cm}
+		\hrule	
+	\begin{center}
+		\textbf{Credenziali accesso amministratore}\\
+		\textit{username} \texttt{admin}\\
+		\textit{pw} \texttt{admin}\\
+		\vspace{0.5cm}
+		\textbf{Credenziali accesso utente 1}\\
+		\textit{username} \texttt{annabonaldo@gmail.com}\\
+		\textit{pw} \texttt{ciaociaociao}\\
+		\vspace{0.5cm}
+		\textbf{Credenziali accesso utente 2}\\
+		\textit{username} \texttt{thomasfuser@gmail.com}\\
+		\textit{pw} \texttt{ciaociaociao}\\
+	\end{center}
 
-\begin{abstract}
-\TODO{Finire abstract}
 
-\end{abstract}
 	\newpage
 	\tableofcontents
 	
@@ -90,8 +101,15 @@ Per l'accessibilità relativa al daltonismo o alla difficoltà di visualizzare i
 \begin{center}
 	\url{http://www.color-blindness.com/coblis-color-blindness-simulator/}
 \end{center}
-I risultati sono elencati nel seguito. 
-\TODO{colorblindness}
+Si riporta solamente la versione del sito visualizzato in modalità monocromatica, in quanto rappresenta la situazione peggiore. 
+In ogni caso, grazie ai colori scelti, l'accessibilità risulta ottima. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\linewidth]{img/colorblind/07}
+\caption{Visione monocromatica del sito}
+\label{fig:07}
+\end{figure}
+
 
 \subsection{Test del contrasto}
 Il contrasto tra testo e sfondo è stato verificato attraverso il sito 
@@ -123,11 +141,13 @@ Si è deciso pertanto di non limitarsi al CSS2, ma le scelte adottate massimizza
 Le regole CSS3 vengono utilizzate per dare un'aspetto maggiormente curato nei dettagli al sito che risulta esteticamente gradevole in ogni caso. 
 Tali regole vengono sempre posizionate a fine blocco per non impedire che l'interpretazone delle altre regole del blocco sia compromessa. 
 \section{Contenuto}
+\subsection{XHTML Strict}
+Poichè non era possibile fare assunzioni sui mezzi utilizzati dall'utenza si è utilizzato HTML Strict per massimizzare la retrocompatibilità. 
 \subsection{Separazione da presentazione e comportamento}
 \subsection{Utilizzo corretto dei tag}
 Il contenuto è completamente separato dalla presentazione e dal comportamento. 
 Si è creato in prima istanza solo il contenuto come codice XHtml. Il codice css è stato aggiunto in un momento successivo, allegando un file apposito tramite i tag meta. 
-Il riferimento al contenuto viene effettuato solamente tramite appositi id, classi e elementi del codice html. +
+Il riferimento al contenuto viene effettuato solamente tramite appositi id, classi e elementi del codice html. 
  
 \subsection{Le immagini}
 Le immagini vengono inserite nel codice html solamente se \textbf{utili al contenuto} della pagina. 
@@ -164,6 +184,9 @@ In questo modo un unico schema riusciva a raccogliere tutti i tipi necessari a m
 Per il salvataggio dei dati si è preferito mantenere separati i dati relativi agli utenti, agli amministratori e agli abbonamenti della palestra. 
 Questa scelta è stata necessaria per mantenare flessibili le funzinalità offerte dal sito e aumentarne la manutenibilità.
 La coerenza tra il contenuto delle varie parti del database è garantita dalla definizione di un'unico schema. 
+\subsection{Validazione delle pagine}
+Le pagine in codice html sono state validate attraverso il validatore disponibile ne sito \url{https://validator.w3.org/}. Anche il codice css è stato validato attraverso questo servizio online. 
+Gli schemi XML e le relative istanze sono state validate attraverso strumenti online e strumenti forniti dall'editor Notepad++. 
 \appendix
 \section{Struttura del sito}
 \subsection{cgi-bin}
@@ -195,12 +218,12 @@ La coerenza tra il contenuto delle varie parti del database è garantita dalla d
 
 \subsection{public\_html}
 \begin{itemize}
-	\item \texttt{index.html } 
+	\item \texttt{index.html } pagina che effettua il redirect alla pagina \texttt{index.cgi}.
 	\item \texttt{\textbf{css}}
-		\subitem \texttt{style.css}
-		\subitem \texttt{print.css}
+		\subitem \texttt{style.css} css versione desktop e mobile. 
+		\subitem \texttt{print.css} css per la stampa.
 	\item\texttt{\textbf{ js}}
-	\subitem \texttt{registrationLong.js}
+	\subitem \texttt{registrationLong.js} controlli lato client. 
 \end{itemize}
 \subsection{data}
 \begin{itemize}
@@ -213,14 +236,14 @@ La coerenza tra il contenuto delle varie parti del database è garantita dalla d
 \section{Organizzazione del gruppo}
 \paragraph{\TF{}}
 \begin{itemize}
-	\item \textbf{Html}
+	\item \textbf{HTML}
 	\subitem pagina staff
-	\item \textbf{Css}
+	\item \textbf{CSS}
 	\subitem pagina staff
-	\item{Perl}
+	\item\textbf{Perl}
 	\subitem pagina utente (abbonamenti utente)
 	\subitem pagina prezzi e gestione prezzi lato amministratore
-	\item Javascript
+	\item \textbf{Javascript}
 	\subitem Controlli form lato client
 	\item Validazione
 	\subitem validazione html
@@ -233,7 +256,7 @@ La coerenza tra il contenuto delle varie parti del database è garantita dalla d
 	\item \textbf{Html}
 	\subitem hompage
 	\subitem pagine di login utente e amministratore
-	\item{CSS}
+	\item\textbf{CSS}
 	\subitem homepage
 	\subitem menu di primo livello (desktop e mobile)
 	\subitem breadcrump
@@ -261,9 +284,7 @@ La coerenza tra il contenuto delle varie parti del database è garantita dalla d
 	\subitem Controlli su input form lato server (inserimento prezzi,modifica prezzi, registrazione )
 	\item\textbf{XML}
 	\subitem schemi xml (utenti.xsd, prezzi.xsd )
-	\item Compatibilità
-	\subitem controlli di compatilibità browser
-	\subitem controlli di accessibilità 
+
 \end{itemize}
 \paragraph{\EC{}}
 \begin{itemize}
@@ -274,7 +295,5 @@ La coerenza tra il contenuto delle varie parti del database è garantita dalla d
 	\item\textbf{ Perl}
 	\subitem parte pagina utente
 \end{itemize}
-
-
 
 \end{document}
