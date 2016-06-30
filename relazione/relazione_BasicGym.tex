@@ -55,25 +55,110 @@
 	
 	\newpage
 \section{Utenza del sito}
+\subsection{Raggiungere l'informazione in un numero minimo di click}
+\subsubsection{Utente non registrato}
+\paragraph{Minimo numero di click}Un utente non registrato che accede al sito accede con un solo click dal menu a tutte le infomrmazioni principali maggiormente significative.
+Le pagine di dettaglio, dedicate agli utenti che necessitano di approfondire le informazioni e più motivati sono quelle raggiungibili in due click. 
+\paragraph{Tipologia dell'utenza}Non è possibile fare particolari assunzioni sull'utenza di un sito di questo tipo, ne' sugli strumenti utilizzati per accedervi. Si è cercato pertanto di massimizzarne il supporto da parte dei browser e l'accessibilità.
+\subsubsection{Utente registrato} Per l'utente registrato mantiene lo stesso schema del sito dell'utente non registrato. In questo modo l'utente conosce già la struttura deli sito. Un utente registrato è in grado di acquistare gli abbonamenti offerti dalla palestra.
+Vengono aggiunte alcune funzionalità al menù e alla pagina prezzi e la pagina di riepilogo degli abbonamenti acquistati e delle informazioni di profilo.
+\subsubsection{Amministratore} L'amministratore ha la possibilità di gestire gli abbonamenti offerti dalla palestra. E' in grado di modificare, aggiungere o rimuovere un abbonamento. 
+\paragraph{Tipologia di utente amministratore}Si assume che l'amministratore non sia interessato a danneggiare il proprio sito e che si tratti di un'utente esperto. Nonostante ciò i maggiori provvedimenti per la sicurezza sono stati aggiunti anche alle pagine amministratore.
+\paragraph{Sito completo} Per l'amministratore si è mantenuta la possibilità di visualizzare tutte le pagine del sito una volta effettuato l'accesso, per garantire il minor numero di ostacoli alla navigazione, come la necessità di "uscire" dal profilo amministratore per visualizzare alcune pagine.
+
 \section{Presentazione}
-\subsection{CSS3 e retrocompatibilità}
-\section{Contenuto}
-\section{Gestione e salvataggio dei dati}
-\section{Accessibilità}
-\subsection{Accessibilità della presentazione}
-\subsubsection{Schema dei colori}
+\subsection{Schema dei colori}
+\paragraph{Colori safe}
+I colori utilizzati nel sito sono esclusivamente colori safe. In particolare sono stati usati
+\begin{center}
+	\textbf{Colori Safe utilizzati}
+	
+	\begin{tabular}{c c c c c}
+		\midrule  \#000 & \#333 & \#CCC & \#EEE  &  \#FFF \\ \midrule 
+	\end{tabular} 
+	
+\end{center}
 \subsubsection{Contrasto}
-\subsection{Accessibilità dei contenuti}
-\subsection{Menu e navigazione}
-\subsection{Dimensione della pagina}
-\subsection{Link e convenzioni}
-\subsection{Breadcrumb}
-\subsection{Aiuti alla navigazione}
-\subsection{Accessibilità del comportamento}
-\subsubsection{Form}
-\subsubsection{Segnalazione di errori}
+\paragraph{Colore dei link}
+\begin{itemize}
+	\item \textit{\textbf{Link non visitati}}\TODO{colorelink} è stato utilizzato per i link per massimizzare il contrasto con \#000, \#333 ed essere distinguibile dal colore dei link visitati. Inoltre per adeguarsi alle convenzioni i link utilizzano \textbf{testo sottolineato.}
+	\item \textbf{\textit{Link visitati} :\#FFF }è stato utilizzato per i link visitati. Questi mantengono il testo sottolineato cambiando solamente colore da \#\TODO{colorelink} a \#FFF. 
+\end{itemize}
+\subsection{Accessibilità della presentazione}
+\paragraph{Dimensioni e unità di misura} La dimensione del testo viene specificata in \textbf{em} e le dimensioni degli elementi della pagina vengono specificate in percentuale qual ora debbano dipendere dalla dimensione dello schermo e in em quando devono dipendere dalla dimensione del font preferito dall'utente. 
 
+\subsection{Presentazione per dispositivi Mobile}
+La presentazione del sito viene adattata alla dimensione dello schermo del dispositivo utilizzato per accedervi. 
+Per schermi di dimensioni ridotte la presentazione viene riadattata in modo da sfruttare al meglio lo spazio disponibile e rendere accessibili i contenuti. 
+\paragraph{Tabella orario}
+L'orario viene presentato sotto forma di tabella. Accedendo al sito da mobile il contenuto viene presentato in modo da renderlo accessibile anche da un piccolo schermo. 
+Il contenuto della pagina e il codice Html non viene modificato e resta accessibile, preservando la completa separazione tra presentazione e contenuto. 
 
+\paragraph{Spazio ai contenuti} Per tutte le pagine del sito, nella versione mobile viene ridotto lo spazio destinato alle immagini e in caso di schermi particolarmente ridotti queste vengono nascoste, lasciando spazio al testo e al contenuto, prioritari per l'utente. 
+I margini vengono eliminati e tutto lo spazio disponibile viene utilizzato per i contenuti delle pagine.
+
+\paragraph{Menu mobile} Il menu nella versione mobile del sito viene trasformato in un tasto che utilizza l'icona classica, utilizzata anche dai browser per indicare il menu. 
+Il codice html della pagina non viene modificato, si tratta solamente della presentazione. 
+Il menu mobile viene posizionato in alto a destra, la posizione considerata più accessibile da dispositivi mobile. 
+Per motori di ricerca particolarmente obsoleti, che non supportano particolari funzionalità CSS il menu resta comunque visibile come nella modalità desktop.
+\subsection{CSS3 e retrocompatibilità}
+Il CSS3 offre numerose possibilità per un web designer attento all'estetica della propria pagina. 
+Si è deciso pertanto di non limitarsi al CSS2, ma le scelte adottate massimizzano non solo la retrocompatibilità del sito e dei contenuti ma anche dell'aspetto grafico. 
+Le regole CSS3 vengono utilizzate per dare un'aspetto maggiormente curato nei dettagli al sito che risulta esteticamente gradevole in ogni caso. 
+Tali regole vengono sempre posizionate a fine blocco per non impedire che l'interpretazone delle altre regole del blocco sia compromessa. 
+\section{Contenuto}
+\subsection{Separazione da presentazione e comportamento}
+\subsection{Utilizzo corretto dei tag}
+Il contenuto è completamente separato dalla presentazione e dal comportamento. 
+Si è creato in prima istanza solo il contenuto come codice XHtml. Il codice css è stato aggiunto in un momento successivo, allegando un file apposito tramite i tag meta. 
+Il riferimento al contenuto viene effettuato solamente tramite appositi id, classi e elementi del codice html. +
+ 
+\subsection{Le immagini}
+Le immagini vengono inserite nel codice html solamente se \textbf{utili al contenuto} della pagina. 
+Qualora costituiscano un abbellimento della presentazione del sito vengono inserite da CSS. 
+Tutte le immagini utili al contenuto prenti nel codice html presentano un \textbf{attributo "alt"} che ne esplicita il contenuto a screen reader e motori di ricerca. 
+
+\subsubsection{La lingua} La lingua utilizzata nel sito è specificata nei tag meta per il contenuto in generale. 
+Le parole in altre lingue presenti nel testo sono contrassegnate dall'\textbf{attributo "xml:lang"}  e inserite in un'apposito \textbf{tag span}.
+
+\section{Accessibilità e form}
+\subsection{Errori nell'inserimento dei dati}
+La gestione degli errori nei form avviene su due livelli:
+\begin{itemize}
+	\item \textbf{Controlli lato client: javascript} effettuato \textit{on-bleur} per evitare all'utente di dover inviare il form per accorgersi degli errori.
+	\item \textbf{Controlli lato server: perl} tutti i controlli vengono effettuati anche lato server, in modo da garantire l'integrità del database, l'accessibilità e controlli sull'inserimento di script nocivi anche se l'utente disabilita javascript.
+\end{itemize}
+\subsubsection{Segnalazione di errori nei dati inseriti}
+\paragraph{Posizione} Le segnalazioni degli errori relativamente a inserimento di dati scorretti viene visualizzato in un \textbf{tag span} posizionato il più vicino possibile alla casella di inserimento dei dati che ha scatenato l'errore. Questo per aumentare l'accessibilità e diminuire il sovraccarico congnitivo. 
+\paragraph{Segnalazione di errori "precise" e utili alla correzione} Per l'utente deve essere chiaro il motivo per cui l'inserimento del dato ha scatenato un errore. Pertanto si cerca di specificare chiaramente e in modo preciso perchè l'inserimento non è corretto e risulta semplice correggere l'errore: si aumenta così l'accessibilità e diminuire il sovraccarico cognitivo. 
+\paragraph{Convenzioni interne per la presentazione degli errori} Per rendere evidenti gli errori rispetto al resto del testo e degli elementi della pagina viene utilizzata una presentazione apposita per questi ultimi omogenea per tutti i form del sito, in modo da non rompere le convenzioni interne.
+\paragraph{Mantenimento dei dati inseriti in caso di errore} 
+Nel caso in cui un campo dati scateni un'errore l'utente non è costretto a reinserire tutti i dati ma è sufficiente che corregga l'inserimento precedente in corrispondenza dell'errore. 
+\subsection{Form di grandi dimensioni: la registrazione} 
+La \textbf{registrazione} richiede l'inserimento di un notevole numero di dati. Per questo motivo il form è stato spezzato in una successione di form per non scoraggiare l'utente e rendere più semplice la segnalazione dei dati e rendere più piacevole l'esperienza all'utente. 
+\paragraph{Passaggio dei parametri} Per il passaggio dei parametri vengono utilizzati i \textbf{campi hidden}. 
+\paragraph{Quanto manca?} L'utente deve sapere a che punto si trova nel processo di registazione. Per questo viene indicato in alto, a fianco del titolo del form quanti form restano da compilare
+\section{Gestione e salvataggio dei dati}
+\subsection{La cartella "data"}
+\begin{center}
+	\begin{lstlisting}
+	data
+	|----schema.xsd
+	|----utenti.xml
+	|----admin.xml
+	|----prezzi.xml
+	\end{lstlisting}
+\end{center}
+
+\subsection{Lo schema dei dati}
+Lo schema per i dati è stato modellato secondo il \textbf{modello "tende alla veneziana"} per consentire maggiore flessibilità e la possibilità di dichiarare più di un elemento radice.
+In questo modo un unico schema riusciva a raccogliere tutti i tipi necessari a modellare i dati.
+
+\paragraph{XmlSchema e date} Per i tipi "data" si è scelto di utilizzare il \textbf{tipo predefinito} fornito dall'\textbf{XmlSchema}. In questo modo era possibile avere un controllo sul contenuto dello schema. Le date vengono pertanto trasformate in un apposito formato in lettura e scrittura attraverso il linguaggio Perl. 
+\subsection{Il database: le istanze dello schema}
+Per il salvataggio dei dati si è preferito mantenere separati i dati relativi agli utenti, agli amministratori e agli abbonamenti della palestra. 
+Questa scelta è stata necessaria per mantenare flessibili le funzinalità offerte dal sito e aumentarne la manutenibilità.
+La coerenza tra il contenuto delle varie parti del database è garantita dalla definizione di un'unico schema. 
 
 \section{Tecnologie utilizzate}
 \appendix
@@ -81,12 +166,17 @@
 \paragraph{\TF{}}
 \begin{itemize}
 	\item \textbf{Html}
-	\subitem pagina staff;
+	\subitem pagina staff
 	\item \textbf{Css}
+	\subitem pagina staff
 	\item{Perl}
 	\subitem pagina utente (abbonamenti utente)
 	\subitem pagina prezzi e gestione prezzi lato amministratore
-	
+	\item Javascript
+	\subitem Controlli form lato client
+	\item Validazione
+	\subitem validazione html
+	\subitem validazione css
 	
 \end{itemize}
 \paragraph{\LB{}}
@@ -131,6 +221,33 @@
 \end{itemize}
 
 \section{Gerarchia dei file}
+
+\begin{center}
+	\begin{lstlisting}
+	+cgi-bin
+		+util		
+	+public_html
+		+css
+		+js
+		+img
+	+data
+		----schema.xsd
+	    ----utenti.xml
+	    ----admin.xml
+	    ----prezzi.xml
+	\end{lstlisting}
+\end{center}
+	
+	\subsection{Moduli Perl: contenuto e scopo}
+	\begin{itemize}
+		\item 	\texttt{html\_util} stampa di codice html comune a tutte le pagine, come header, apertura dei tag html e menu di primo e secondo livello. 
+		\item 	\texttt{html\_content} funzioni di stampa dei contenuti di ogni pagina con subroutine dedicate. 
+		\item 	\texttt{html\_content\_admin} funzioni di stampa dei contenuti di ogni pagina amministratore con subroutine dedicate. 
+		\item 	\texttt{base\_util} funzioni di stampa dei form per la registrazione.
+		\item 	\texttt{db\_util} funzioni di lettura e scrittura dei file xml del database necessarie a più pagine. 
+		
+	\end{itemize}
+
 
 
 

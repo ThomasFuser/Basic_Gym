@@ -1,21 +1,28 @@
 \BOOKMARK [1][-]{section.1}{Utenza del sito}{}% 1
-\BOOKMARK [1][-]{section.2}{Presentazione}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{CSS3 e retrocompatibilit\340}{section.2}% 3
-\BOOKMARK [1][-]{section.3}{Contenuto}{}% 4
-\BOOKMARK [1][-]{section.4}{Gestione e salvataggio dei dati}{}% 5
-\BOOKMARK [1][-]{section.5}{Accessibilit\340}{}% 6
-\BOOKMARK [2][-]{subsection.5.1}{Accessibilit\340 della presentazione}{section.5}% 7
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Schema dei colori}{subsection.5.1}% 8
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Contrasto}{subsection.5.1}% 9
-\BOOKMARK [2][-]{subsection.5.2}{Accessibilit\340 dei contenuti}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.3}{Menu e navigazione}{section.5}% 11
-\BOOKMARK [2][-]{subsection.5.4}{Dimensione della pagina}{section.5}% 12
-\BOOKMARK [2][-]{subsection.5.5}{Link e convenzioni}{section.5}% 13
-\BOOKMARK [2][-]{subsection.5.6}{Breadcrumb}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.7}{Aiuti alla navigazione}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.8}{Accessibilit\340 del comportamento}{section.5}% 16
-\BOOKMARK [3][-]{subsubsection.5.8.1}{Form}{subsection.5.8}% 17
-\BOOKMARK [3][-]{subsubsection.5.8.2}{Segnalazione di errori}{subsection.5.8}% 18
-\BOOKMARK [1][-]{section.6}{Tecnologie utilizzate}{}% 19
-\BOOKMARK [1][-]{appendix.Alph1}{Organizzazione del gruppo}{}% 20
-\BOOKMARK [1][-]{appendix.Alph2}{Gerarchia dei file}{}% 21
+\BOOKMARK [2][-]{subsection.1.1}{Raggiungere l'informazione in un numero minimo di click}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Utente non registrato}{subsection.1.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Utente registrato}{subsection.1.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.1.3}{Amministratore}{subsection.1.1}% 5
+\BOOKMARK [1][-]{section.2}{Presentazione}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Schema dei colori}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Contrasto}{subsection.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Accessibilit\340 della presentazione}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.3}{Presentazione per dispositivi Mobile}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{CSS3 e retrocompatibilit\340}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Contenuto}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Separazione da presentazione e comportamento}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.2}{Utilizzo corretto dei tag}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.3}{Le immagini}{section.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.3.1}{La lingua}{subsection.3.3}% 16
+\BOOKMARK [1][-]{section.4}{Accessibilit\340 e form}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{Errori nell'inserimento dei dati}{section.4}% 18
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Segnalazione di errori nei dati inseriti}{subsection.4.1}% 19
+\BOOKMARK [2][-]{subsection.4.2}{Form di grandi dimensioni: la registrazione}{section.4}% 20
+\BOOKMARK [1][-]{section.5}{Gestione e salvataggio dei dati}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{La cartella "data"}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.2}{Lo schema dei dati}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.3}{Il database: le istanze dello schema}{section.5}% 24
+\BOOKMARK [1][-]{section.6}{Tecnologie utilizzate}{}% 25
+\BOOKMARK [1][-]{appendix.Alph1}{Organizzazione del gruppo}{}% 26
+\BOOKMARK [1][-]{appendix.Alph2}{Gerarchia dei file}{}% 27
+\BOOKMARK [2][-]{subsection.Alph2.1}{Moduli Perl: contenuto e scopo}{appendix.Alph2}% 28
