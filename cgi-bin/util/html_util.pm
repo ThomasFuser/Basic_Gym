@@ -97,7 +97,7 @@ sub path{
 sub nav{
   my @navparam=@_;
   my $session = CGI::Session->load();
-
+      print"<input type=\"checkbox\" name=\"\" id=\"open\"/> ";
       print"    <div id=\"nav\"> <a href=\"index.cgi\""; 
                     if(@navparam[0] eq "Home") {print " class=\"not-active\"";} print ">Home</a>";
       print"<a href=\"corsi.cgi\"";
