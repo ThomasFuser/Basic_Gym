@@ -172,8 +172,13 @@ sub stampaPrezziAcquistabili{
             <li class=\"title\"> $durata </li>
             <li class=\"price\"> $prezzo $valuta </li>
             <li class=\"description\"> $desc </li>
-            <form class=\"description\" action=\"acquistaAbbonamento.cgi\" method=\"post\">
-           <button name=\"acquista\" type=\"submit\" class=\"a_button\" value=\"$id\" >Acquista abbonamento</button></form>
+           <li class=\"a_button\" > <form class=\"description\" action=\"acquistaAbbonamento.cgi\" method=\"post\">
+                     <button name=\"acquista\" type=\"submit\" class=\"a_button\" value=\"$id\" >Acquista abbonamento</button>
+          </form>  </li>
+
+
+           <!-- <form class=\"description\" action=\"acquistaAbbonamento.cgi\" method=\"post\"> -->
+           <!-- <button name=\"acquista\" type=\"submit\" class=\"a_button\" value=\"$id\" >Acquista abbonamento</button></form> -->
 
             </ul>
              
