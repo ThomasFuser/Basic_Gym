@@ -12,45 +12,41 @@
 \contentsline {section}{\numberline {2}Presentazione}{3}{section.2}
 \contentsline {subsection}{\numberline {2.1}Schema dei colori}{3}{subsection.2.1}
 \contentsline {paragraph}{Colori safe}{3}{section*.5}
-\contentsline {subsubsection}{\numberline {2.1.1}Contrasto}{4}{subsubsection.2.1.1}
-\contentsline {paragraph}{Colore dei link}{4}{section*.6}
-\contentsline {subsection}{\numberline {2.2}Test }{4}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}Color blindness test}{4}{subsubsection.2.2.1}
+\contentsline {paragraph}{Colore e convenzioni per i link}{4}{section*.6}
+\contentsline {subsection}{\numberline {2.2}Color blindness test}{4}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Test del contrasto}{4}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Accessibilit\IeC {\`a} della presentazione}{4}{subsection.2.4}
-\contentsline {paragraph}{Dimensioni e unit\IeC {\`a} di misura}{4}{section*.8}
+\contentsline {subsection}{\numberline {2.4}Dimensioni e unit\IeC {\`a} di misura}{4}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Presentazione per dispositivi Mobile}{5}{subsection.2.5}
-\contentsline {paragraph}{Tabella orario}{5}{section*.9}
-\contentsline {paragraph}{Spazio ai contenuti}{5}{section*.10}
-\contentsline {paragraph}{Menu mobile}{5}{section*.11}
+\contentsline {paragraph}{Tabella orario}{5}{section*.8}
+\contentsline {paragraph}{Spazio ai contenuti}{5}{section*.9}
+\contentsline {paragraph}{Menu mobile}{5}{section*.10}
 \contentsline {subsection}{\numberline {2.6}CSS3 e retrocompatibilit\IeC {\`a}}{5}{subsection.2.6}
 \contentsline {section}{\numberline {3}Contenuto}{5}{section.3}
 \contentsline {subsection}{\numberline {3.1}XHTML Strict}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Separazione da presentazione e comportamento}{6}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Utilizzo corretto dei tag}{6}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Le immagini}{6}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}La lingua}{6}{subsubsection.3.4.1}
+\contentsline {subsection}{\numberline {3.2}Utilizzo corretto dei tag}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Le immagini}{6}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}La lingua}{6}{subsection.3.4}
 \contentsline {section}{\numberline {4}Accessibilit\IeC {\`a} e form}{6}{section.4}
 \contentsline {subsection}{\numberline {4.1}Errori nell'inserimento dei dati}{6}{subsection.4.1}
 \contentsline {subsubsection}{\numberline {4.1.1}Segnalazione di errori nei dati inseriti}{6}{subsubsection.4.1.1}
-\contentsline {paragraph}{Posizione}{6}{section*.12}
-\contentsline {paragraph}{Segnalazione di errori "precise" e utili alla correzione}{6}{section*.13}
-\contentsline {paragraph}{Convenzioni interne per la presentazione degli errori}{7}{section*.14}
-\contentsline {paragraph}{Mantenimento dei dati inseriti in caso di errore}{7}{section*.15}
+\contentsline {paragraph}{Posizione}{6}{section*.11}
+\contentsline {paragraph}{Segnalazione di errori "precise" e utili alla correzione}{6}{section*.12}
+\contentsline {paragraph}{Convenzioni interne per la presentazione degli errori}{6}{section*.13}
+\contentsline {paragraph}{Mantenimento dei dati inseriti in caso di errore}{7}{section*.14}
 \contentsline {subsection}{\numberline {4.2}Form di grandi dimensioni: la registrazione}{7}{subsection.4.2}
-\contentsline {paragraph}{Passaggio dei parametri}{7}{section*.16}
-\contentsline {paragraph}{Quanto manca?}{7}{section*.17}
+\contentsline {paragraph}{Passaggio dei parametri}{7}{section*.15}
+\contentsline {paragraph}{Quanto manca?}{7}{section*.16}
 \contentsline {section}{\numberline {5}Gestione e salvataggio dei dati}{7}{section.5}
 \contentsline {subsection}{\numberline {5.1}Lo schema dei dati}{7}{subsection.5.1}
-\contentsline {paragraph}{XmlSchema e date}{7}{section*.18}
+\contentsline {paragraph}{XmlSchema e date}{7}{section*.17}
 \contentsline {subsection}{\numberline {5.2}Il database: le istanze dello schema}{7}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Validazione delle pagine}{8}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.3}Validazione delle pagine}{7}{subsection.5.3}
 \contentsline {section}{\numberline {A}Struttura del sito}{8}{appendix.Alph1}
 \contentsline {subsection}{\numberline {A.1}cgi-bin}{8}{subsection.Alph1.1}
 \contentsline {subsection}{\numberline {A.2}public\_html}{9}{subsection.Alph1.2}
 \contentsline {subsection}{\numberline {A.3}data}{9}{subsection.Alph1.3}
 \contentsline {section}{\numberline {B}Organizzazione del gruppo}{9}{appendix.Alph2}
-\contentsline {paragraph}{Thomas Fuser{}}{9}{section*.19}
-\contentsline {paragraph}{Luca Boscolo{}}{10}{section*.20}
-\contentsline {paragraph}{Anna Bonaldo{}}{10}{section*.21}
-\contentsline {paragraph}{Enrico Canova{}}{11}{section*.22}
+\contentsline {paragraph}{Thomas Fuser{}}{9}{section*.18}
+\contentsline {paragraph}{Luca Boscolo{}}{10}{section*.19}
+\contentsline {paragraph}{Anna Bonaldo{}}{10}{section*.20}
+\contentsline {paragraph}{Enrico Canova{}}{11}{section*.21}

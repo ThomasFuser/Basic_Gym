@@ -79,8 +79,7 @@ Vengono aggiunte alcune funzionalità al menù e alla pagina prezzi e la pagina 
 
 \section{Presentazione}
 \subsection{Schema dei colori}
-\paragraph{Colori safe}
-I colori utilizzati nel sito sono esclusivamente colori safe. In particolare sono stati usati
+\paragraph{Colori safe}I colori utilizzati nel sito sono esclusivamente colori safe, per massimizzare la resa del sito con ogni tipo di browser.  In particolare sono stati usati
 \begin{center}
 	\textbf{Colori Safe utilizzati}
 	
@@ -88,15 +87,15 @@ I colori utilizzati nel sito sono esclusivamente colori safe. In particolare son
 		\midrule  \#000 & \#333 & \#CCC & \#EEE  &  \#FFF \\ \midrule 
 	\end{tabular} 
 \end{center}
-\subsubsection{Contrasto}
-\paragraph{Colore dei link}
+
+\paragraph{Colore e convenzioni per i link}
 \begin{itemize}
 	\item \textit{\textbf{Link non visitati}} \#FFCC33 è stato utilizzato per i link per massimizzare il contrasto con \#000, \#333 ed essere distinguibile dal colore dei link visitati. Inoltre per adeguarsi alle convenzioni i link utilizzano \textbf{testo sottolineato.}
 	\item \textbf{\textit{Link visitati} :\#FFF }è stato utilizzato per i link visitati. Questi mantengono il testo sottolineato cambiando solamente colore da \#FFCC33 a \#FFF. 
 \end{itemize}
 
-\subsection{Test  }
-\subsubsection{Color blindness test}
+
+\subsection{Color blindness test}
 Per l'accessibilità relativa al daltonismo o alla difficoltà di visualizzare i colori è stato usato lo strumento online: 	
 \begin{center}
 	\url{http://www.color-blindness.com/coblis-color-blindness-simulator/}
@@ -118,8 +117,8 @@ Il contrasto tra testo e sfondo è stato verificato attraverso il sito
 \end{center}
 ottenendo un una \textbf{valutazione WCAG AAA} per tutte le combinazioni utilizzate per sia \textbf{testo di grandezza normale che grande.}
 
-\subsection{Accessibilità della presentazione}
-\paragraph{Dimensioni e unità di misura} La dimensione del testo viene specificata in \textbf{em} e le dimensioni degli elementi della pagina vengono specificate in percentuale qual ora debbano dipendere dalla dimensione dello schermo e in em quando devono dipendere dalla dimensione del font preferito dall'utente. 
+
+\subsection{Dimensioni e unità di misura} La dimensione del testo viene specificata in \textbf{em} e le dimensioni degli elementi della pagina vengono specificate in percentuale qual ora debbano dipendere dalla dimensione dello schermo e in em quando devono dipendere dalla dimensione del font preferito dall'utente. 
 
 \subsection{Presentazione per dispositivi Mobile}
 La presentazione del sito viene adattata alla dimensione dello schermo del dispositivo utilizzato per accedervi. 
@@ -143,7 +142,7 @@ Tali regole vengono sempre posizionate a fine blocco per non impedire che l'inte
 \section{Contenuto}
 \subsection{XHTML Strict}
 Poichè non era possibile fare assunzioni sui mezzi utilizzati dall'utenza si è utilizzato HTML Strict per massimizzare la retrocompatibilità. 
-\subsection{Separazione da presentazione e comportamento}
+
 \subsection{Utilizzo corretto dei tag}
 Il contenuto è completamente separato dalla presentazione e dal comportamento. 
 Si è creato in prima istanza solo il contenuto come codice XHtml. Il codice css è stato aggiunto in un momento successivo, allegando un file apposito tramite i tag meta. 
@@ -154,7 +153,7 @@ Le immagini vengono inserite nel codice html solamente se \textbf{utili al conte
 Qualora costituiscano un abbellimento della presentazione del sito vengono inserite da CSS. 
 Tutte le immagini utili al contenuto prenti nel codice html presentano un \textbf{attributo "alt"} che ne esplicita il contenuto a screen reader e motori di ricerca. 
 
-\subsubsection{La lingua} La lingua utilizzata nel sito è specificata nei tag meta per il contenuto in generale. 
+\subsection{La lingua} La lingua utilizzata nel sito è specificata nei tag meta per il contenuto in generale. 
 Le parole in altre lingue presenti nel testo sono contrassegnate dall'\textbf{attributo "xml:lang"}  e inserite in un'apposito \textbf{tag span}.
 
 \section{Accessibilità e form}
@@ -185,8 +184,9 @@ Per il salvataggio dei dati si è preferito mantenere separati i dati relativi a
 Questa scelta è stata necessaria per mantenare flessibili le funzinalità offerte dal sito e aumentarne la manutenibilità.
 La coerenza tra il contenuto delle varie parti del database è garantita dalla definizione di un'unico schema. 
 \subsection{Validazione delle pagine}
-Le pagine in codice html sono state validate attraverso il validatore disponibile ne sito \url{https://validator.w3.org/}. Anche il codice css è stato validato attraverso questo servizio online. 
-Gli schemi XML e le relative istanze sono state validate attraverso strumenti online e strumenti forniti dall'editor Notepad++. 
+Le pagine in codice html sono state validate attraverso il validatore disponibile nel sito:
+\begin{center} \url{https://validator.w3.org/}	\end{center} Anche il codice css è stato validato attraverso questo servizio online. 
+Gli schemi XML e le relative istanze sono state validate attraverso strumenti online e strumenti forniti dall'\textbf{editor Notepad++}. 
 \appendix
 \section{Struttura del sito}
 \subsection{cgi-bin}
@@ -239,15 +239,19 @@ Gli schemi XML e le relative istanze sono state validate attraverso strumenti on
 	\item \textbf{HTML}
 	\subitem pagina staff
 	\item \textbf{CSS}
-	\subitem pagina staff
+	\subitem pagina staff desktop e mobile
+	\subitem css per la stampa
 	\item\textbf{Perl}
 	\subitem pagina utente (abbonamenti utente)
-	\subitem pagina prezzi e gestione prezzi lato amministratore
+	\subitem pagina prezzi lato amministratore
+	\subitem modifica abbonamenti lato amministratore
+	\subitem aggunta/rimozione abbonamenti lato amministratore
+	\subitem lettura e scrittura database
 	\item \textbf{Javascript}
 	\subitem Controlli form lato client
-	\item Validazione
-	\subitem validazione html
-	\subitem validazione css
+	\item \textbf{Validazione}
+	\subitem validazione html (tutte le pagine)
+	\subitem validazione css (tutti i file)
 	
 	
 \end{itemize}
@@ -255,16 +259,19 @@ Gli schemi XML e le relative istanze sono state validate attraverso strumenti on
 \begin{itemize}
 	\item \textbf{Html}
 	\subitem hompage
-	\subitem pagine di login utente e amministratore
+	\subitem pagine di login utente 
+	\subitem pagina di login amministratore
 	\item\textbf{CSS}
 	\subitem homepage
-	\subitem menu di primo livello (desktop e mobile)
-	\subitem breadcrump
+	\subitem menu di primo livello desktop
+	\subitem menu moblile 
+	\subitem breadcrumb per tutte le pagine
 	\subitem footer
 	\item \textbf{Perl}
 	\subitem pagina prezzi lato amministratore;
 	\subitem controllo di sessione;
 	\subitem login e logout;
+	\subitem lettura e scrittura database
 \end{itemize}
 \paragraph{\AB{}}
 \begin{itemize}
@@ -279,21 +286,24 @@ Gli schemi XML e le relative istanze sono state validate attraverso strumenti on
 	\subitem pagina profilo utente
 	\subitem form, login e registrazione
 	\item \textbf{Perl}
-	\subitem Registrazione
+	\subitem Registrazione 
 	\subitem Pagina utente(profilo utente)
 	\subitem Controlli su input form lato server (inserimento prezzi,modifica prezzi, registrazione )
 	\item\textbf{XML}
-	\subitem schemi xml (utenti.xsd, prezzi.xsd )
+	\subitem schemi xml (schema.xsd) e validazione database xml
+	\item Controlli compatibilità browser
 
 \end{itemize}
 \paragraph{\EC{}}
 \begin{itemize}
 	\item\textbf{CSS}
 	\subitem pagina orario versione mobile
+	\subitem pagina prezzi
 	\item\textbf{Javascript}
 	\subitem Controlli form lato client
 	\item\textbf{ Perl}
 	\subitem parte pagina utente
+	\item Controlli compatibilità browser
 \end{itemize}
 
 \end{document}
