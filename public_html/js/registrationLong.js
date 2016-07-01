@@ -256,86 +256,7 @@ function checkDate(obj, name){
 		}
 	}
 }
-/****************************************************************************************/
-/*
-function check_giorno(obj, name){
-	if(!notEmpty(obj.value)){//se il campo è vuoto
-		obj.className="error";
-		writeErrorEmpty(obj, name);
-	}else{
-		var rePNum = /[0-9]+/;
-		var number = obj.value;
-		if(rePNum.test(number)){   //il numero è intero
-  			if(number > "0" && number<= "31"){
-  				obj.className="";
-				removeErrorChildToANode(obj);
-  			}else{
-  			obj.className="error";
-			writeError(obj, name, "inserire un giorno valido");
-  		}
-  		}else{
-  			obj.className="error";
-			writeError(obj, name, "sono ammessi solo numeri");
-	}
-}
-}*/
-/*
-function check_mese(obj, name){
-	if(!notEmpty(obj.value)){//se il campo è vuoto
-		obj.className="error";
-		writeErrorEmpty(obj, name);
-	}else{
-		var rePNum = /[0-9]+/;
-		var number = obj.value;
-		if(rePNum.test(number)){   //il numero è intero
-  			if(number > "0" && number<= "12"){
-  				obj.className="";
-				removeErrorChildToANode(obj);
-  			}else{
-  			obj.className="error";
-			writeError(obj, name, "inserire un mese valido");
-  		}
-  		}else{
-  			obj.className="error";
-			writeError(obj, name, "sono ammessi solo numeri");
-	}
-}
-}*//*
-function check_anno(obj, name){
-	var currentTime = new Date()
-	var year = currentTime.getFullYear();
-	if(!notEmpty(obj.value)){//se il campo è vuoto
-		obj.className="error";
-		writeErrorEmpty(obj, name);
-	}else{
-		var rePNum = /[0-9]+/;
-		var number = obj.value;
-		if(rePNum.test(number)){   //il numero è intero
-  			if(number > "1900" && number< year){
-  				obj.className="";
-				removeErrorChildToANode(obj);
-  			}else{
-  			obj.className="error";
-			writeError(obj, name, "inserire un anno valido");
-  		}
-  		}else{
-  			obj.className="error";
-			writeError(obj, name, "sono ammessi solo numeri");
-	}
-}
-}*/
 
-
-/*
-function validateMyForm(cond)
-{
-  if(cond===true){
-		return true;
-	}
-	else{ 
-		return false;
-  }
-}*/
 /************************** funzioni di stampa  ***********************************/
 
 function writeError(id, field, message, language){//accetta in ingresso una parola di lingua differente dall'italiano, ma deve essere solo field e di lingua language, campo language opzionale
@@ -359,25 +280,7 @@ function writeError(id, field, message, language){//accetta in ingresso una paro
 	id.parentElement.insertBefore(error, id);
 }
 
-//*********************************************************************************************************//
-                        //  DEVO ELIMINARE IL FIGLIO SPAN SE PRESENTE ZIO CAN
-/*function writeErrorEmpty(id, field){
-	window.alert(id.id);
-		if(document.getElementById("error"+id.id)){window.alert(id.id); document.getElementById("error"+id.id).parentElement.removeChild(document.getElementById("error"+id.id));}
 
-	/*window.alert(id.id);
-	var padre = document.getElementById(id.id);		//qui ho il padre dell'errore che andrò a salvare
-	var descendants = padre.getElementsByTagName("span");
-		window.alert(descendants);
-	if(descendants) {window.alert("sto per eliminare il nodo"); parentElement.removeChild(descendants);}
-var padre = document.getElementById(id.id);		//qui ho il padre dell'errore che andrò a salvare
-	var error = document.createElement("span");
-	error.setAttribute("class", "erroreForm");
-	error.appendChild( document.createTextNode("Errore, campo vuoto") );
-	padre.insertBefore(error, id);
-
-}*/
-//*********************************************************************************************************//
 
 
 function writeErrorEmpty(id, field, language){
@@ -404,26 +307,7 @@ function writeErrorEmpty(id, field, language){
 
 		 id.parentElement.insertBefore(error, id);
 }
-/*
-function writeErrorEmpty(id, field, language){
-	if(document.getElementById("error"+id.id))document.getElementById("error"+id.id).parentElement.removeChild(document.getElementById("error"+id.id));
-	var error = document.createElement("p");
-	error.className="error";
-	error.id="error"+id.id;
-	if(language!=null){
-		var textError0 = document.createTextNode("Campo ");
-		var spanError = document.createElement("span");
-		var textError1 = document.createTextNode(" vuoto: campo obbligatorio");
-		spanError.lang=language;
-		spanError.appendChild(document.createTextNode(field));
-		error.appendChild(textError0); error.appendChild(spanError); error.appendChild(textError1);
-	}
-	else{
-		var textError = document.createTextNode("Campo " + field + " vuoto: campo obbligatorio");
-		error.appendChild(textError);
-	}
-	id.parentElement.insertBefore(error, id);
-}*/
+
 
 function removeChildToNode(child){
 	child.parentNode.removeChild(child);
@@ -431,44 +315,3 @@ function removeChildToNode(child){
 function removeErrorChildToANode(child){
 	if(document.getElementById("error"+child.id))document.getElementById("error"+child.id).parentElement.removeChild(document.getElementById("error"+child.id));
 }
-
-
-
-
-
-/*
-function validateRegistration(){
-	var email_user = document.getElementById("email_user").value;
-	var pwd0 = document.getElementById("password_user").value;
-	var pwd1 = document.getElementById("password_user_repeat").value;
-	var name_user = document.getElementById("name_user").value;
-	var surname_user = document.getElementById("surname_user").value;
-	var numbercard_user = document.getElementById("numbercard_user").value;
-	var deadlinecard_user = document.getElementById("deadlinecard_user").value;
-	var city_user = document.getElementById("city_user").value;
-	var job_user = document.getElementById("job_user").value;
-	var address_user = document.getElementById("address_user").value;
-	var phone_user = document.getElementById("phone_user").value;
-	var datebirth_user = document.getElementById("datebirth_user").value;
-	var codicefiscale_user = document.getElementById("codicefiscale_user").value; //es. PPPPLT00A01E283H o PPPPLT80R10M082K
-	var checked = false;
-	if(validateEmail(email_user) && validatePassword(pwd0) && validatePasswordRepeat(pwd0, pwd1) && validateWord(name_user) && validateWord(surname_user) && validateWord(city_user) && validatePhrase(address_user) && validatePhrase(job_user) && validateCardNumber(numbercard_user) && validateDate(deadlinecard_user) && validateDate(datebirth_user) && validateCodiceFiscale(codicefiscale_user)) 
-		checked = true;
-	return validateMyForm(checked);
-}
-*/
-
-
-
-
-/*function validateRegistrationFormUno(){
-	aller("sentinella");
-	var email = document.getElementById("email_user").value;
-	var pwd0 = document.getElementById("password").value;
-	var pwd1 = document.getElementById("password_repeat").value;
-
-	var checked = false;
-	if(validateEmail(email) && validatePassword(pwd0) && validatePasswordRepeat(pwd0, pwd1) && validateWord(name_user) && validateWord(surname_user) && validateWord(city_user) && validatePhrase(address_user) && validatePhrase(job_user) && validateCardNumber(numbercard_user) && validateDate(deadlinecard_user) && validateDate(datebirth_user) && validateCodiceFiscale(codicefiscale_user)) 
-	checked = true;
-	return validateMyForm(checked);
-}*/
